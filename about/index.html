@@ -1,0 +1,762 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>About LiveRoadStatus — The Road Intelligence Platform for Mountain Passes</title>
+
+  <!-- SEO PRIMARY META TAGS -->
+  <meta name="description" content="Learn about LiveRoadStatus, the Himalayan-born road intelligence platform founded by Zulkarnain. Discover our data collection methodology, mission, and global coverage across the Himalayas, Alps, Rockies, and Andes.">
+  <meta name="keywords" content="About LiveRoadStatus, Zulkarnain Himalayas, mountain pass road intelligence, live road status methodology, mountain pass data sources, Himalayan road intelligence platform">
+  <meta name="author" content="LiveRoadStatus">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.liveroadstatus.com/about/">
+
+  <!-- OPEN GRAPH / SOCIAL -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LiveRoadStatus">
+  <meta property="og:title" content="About LiveRoadStatus — The Global Road Intelligence Platform">
+  <meta property="og:description" content="LiveRoadStatus is a Himalayan-born road intelligence platform founded by Zulkarnain to make mountain pass road information accessible worldwide.">
+  <meta property="og:url" content="https://www.liveroadstatus.com/about/">
+  <meta property="og:image" content="IMAGE/Rohtang%20PASS%20IMAGE.png">
+  <meta property="og:locale" content="en_US">
+
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About LiveRoadStatus — Himalayan-Born Mountain Pass Intelligence">
+  <meta name="twitter:description" content="Building a global roadbook for mountain passes across Asia, Europe, North America, South America, and Africa.">
+  <meta name="twitter:image" content="IMAGE/Rohtang%20PASS%20IMAGE.png">
+
+  <!-- JSON-LD STRUCTURED DATA FOR SEARCH ENGINES -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "name": "About LiveRoadStatus",
+        "description": "The road intelligence platform for mountain passes around the world.",
+        "url": "https://www.liveroadstatus.com/about/"
+      },
+      {
+        "@type": "Organization",
+        "name": "LiveRoadStatus",
+        "url": "https://www.liveroadstatus.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Zulkarnain",
+          "jobTitle": "Founder & Lead Researcher",
+          "knowsAbout": ["Himalayan Mountain Passes", "Road Condition Intelligence", "Alpine Weather Systems"]
+        },
+        "description": "Global mountain pass road condition monitoring platform."
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* DESIGN TOKENS */
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #15803d;
+      --accent-hover: #166534;
+      --accent-tint: #f0fdf4;
+      --hero: #0d381e;
+      --hero-ink: #f0fdf4;
+      --hero-muted: #86efac;
+      --hero-line: #14532d;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: #15803d;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--hero-ink); }
+    .btn-alert-report {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-alert-report:hover { background: var(--accent-hover); }
+
+    /* HERO SECTION */
+    .hero-section {
+      background: linear-gradient(135deg, #0d381e 0%, #155e34 50%, #064e3b 100%);
+      color: var(--hero-ink);
+      padding: 4rem 1.5rem 4.5rem;
+      border-bottom: 1px solid var(--hero-line);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.25) 0%, rgba(34, 197, 94, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-content {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(34, 197, 94, 0.2);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #86efac;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .hero-title {
+      font-size: 3rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.18;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: #bbf7d0;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    .hero-lead {
+      font-size: 1.1rem;
+      color: #dcfce7;
+      line-height: 1.65;
+      max-width: 860px;
+    }
+
+    /* ABOUT CONTENT SECTIONS */
+    .about-section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-title {
+      font-size: 2rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+    }
+    .section-lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 860px;
+      line-height: 1.6;
+    }
+
+    /* FOUNDER / HIMALAYAN STORY BOX */
+    .story-card {
+      background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+      border: 1px solid #bbf7d0;
+      border-radius: 20px;
+      padding: 36px 40px;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 10px 30px -5px rgba(21, 128, 61, 0.08);
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (max-width: 860px) {
+      .story-card { grid-template-columns: 1fr; padding: 28px 24px; }
+    }
+    .story-content p {
+      font-size: 1.05rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .story-content p:last-child { margin-bottom: 0; }
+    .founder-badge-box {
+      background: #0d381e;
+      color: #ffffff;
+      padding: 24px;
+      border-radius: 16px;
+      text-align: center;
+      border: 1px solid #14532d;
+    }
+    .founder-avatar {
+      width: 64px;
+      height: 64px;
+      background: #15803d;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .founder-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .founder-title {
+      font-size: 0.85rem;
+      color: #86efac;
+      margin-top: 2px;
+    }
+
+    /* GRID CARDS (COLLECTION METHODOLOGY & FEATURES) */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 2rem;
+    }
+    @media (max-width: 900px) {
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+    .info-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 26px 24px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .info-card:hover {
+      transform: translateY(-4px);
+      border-color: #15803d;
+      box-shadow: 0 12px 24px -4px rgba(21, 128, 61, 0.12);
+    }
+    .info-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #f0fdf4;
+      color: #15803d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      border: 1px solid #dcfce7;
+    }
+    .info-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+    .info-card-desc {
+      font-size: 0.925rem;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    /* HIGHLIGHT BANNER & CADENCE */
+    .cadence-banner {
+      background: #f8fafc;
+      border-left: 4px solid #15803d;
+      border-radius: 0 16px 16px 0;
+      padding: 24px 28px;
+      margin-top: 2rem;
+    }
+    .cadence-banner h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .cadence-banner p {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* GLOBAL COVERAGE CONTINENTS GRID */
+    .continents-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .continent-chip {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #334155;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* TRANSPARENCY NOTICE BOX */
+    .notice-box {
+      background: #fffbe6;
+      border: 1px solid #ffe58f;
+      border-radius: 18px;
+      padding: 32px 36px;
+      margin-top: 2rem;
+    }
+    .notice-box h3 {
+      font-size: 1.25rem;
+      color: #873800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .notice-box p {
+      font-size: 0.975rem;
+      color: #595959;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .notice-box p:last-child { margin-bottom: 0; }
+
+    /* MISSION CARD HERO */
+    .mission-hero-card {
+      background: linear-gradient(135deg, #0d381e 0%, #155e34 100%);
+      color: #ffffff;
+      border-radius: 24px;
+      padding: 48px;
+      margin: 4rem 0 2rem;
+      text-align: center;
+      box-shadow: 0 20px 40px -10px rgba(13, 56, 30, 0.3);
+    }
+    .mission-tagline {
+      font-size: 2.25rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: #86efac;
+      margin-bottom: 1rem;
+    }
+    .mission-desc {
+      font-size: 1.15rem;
+      color: #dcfce7;
+      max-width: 840px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.65;
+    }
+    .mission-sub {
+      font-size: 1rem;
+      color: #bbf7d0;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background-color: #ffffff;
+      padding: 48px 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 768px) { .footer-cols { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } }
+    .footer-col-title { font-weight: 700; color: #0f172a; margin-bottom: 12px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a:hover { color: #15803d; }
+  
+    /* ===== LRS: MOBILE MENU & OVERFLOW FIX ===== */
+    html, body { overflow-x: hidden !important; }
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: 1px solid var(--line, #e2e0d8);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      position: relative;
+      z-index: 300;
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink, #1c1d1b);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 760px) {
+      .hamburger-btn { display: flex !important; }
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--card, #ffffff);
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 28px !important;
+        z-index: 200;
+        font-size: 1.2rem;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-right .btn-alert { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAV -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">ABOUT US</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="about.html" class="nav-link active" style="color:#ffffff; font-weight:700;">About Us</a>
+        <a href="index.html#routes" class="nav-link">Grand Routes</a>
+        <a href="index.html#faq" class="nav-link">FAQ &amp; Reports</a>
+        <a href="index.html#alerts" class="btn-alert-report">Create Alert</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span>🏔️ Himalayan-Born Road Intelligence</span>
+      </div>
+      <h1 class="hero-title">About LiveRoadStatus</h1>
+      <div class="hero-subtitle">The road intelligence platform for mountain passes around the world.</div>
+      <p class="hero-lead">
+        LiveRoadStatus is a Himalayan-born startup founded by <strong>Zulkarnain</strong>, a native of the Himalayas, with a simple goal: make mountain-pass road information easier to find, understand, and use before a journey.
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- STORY & ORIGIN SECTION -->
+    <section class="about-section">
+      <h2 class="section-title">The Challenge on Mountain Roads</h2>
+      <p class="section-lead">
+        Mountain roads can change quickly. A pass that is open in the morning may face snowfall, restrictions, closures, or difficult driving conditions later in the day. Information about these changes is often scattered across government notices, local news, weather reports, road authorities, social media, and regional sources.
+      </p>
+      
+      <div class="story-card">
+        <div class="story-content">
+          <h3 style="font-size:1.35rem; font-weight:800; color:#0d381e; margin-bottom:12px;">Bringing Scattered Signals Together</h3>
+          <p>
+            LiveRoadStatus brings these signals together in one place. By structuring raw field data and official bulletins into clear, standardized status feeds, we help drivers, motorcyclists, and mountain travelers make informed decisions.
+          </p>
+          <p>
+            Whether you are navigating the high Himalayan passes of Ladakh, the alpine switchbacks of the Swiss Alps, or the rugged gaps of the American Rockies, LiveRoadStatus gives you a single source of truth.
+          </p>
+        </div>
+
+        <div class="founder-badge-box">
+          <div class="founder-avatar">🏔️</div>
+          <div class="founder-name">Zulkarnain</div>
+          <div class="founder-title">Founder &amp; Himalayan Native</div>
+        </div>
+      </div>
+
+      <!-- HOW WE COLLECT INFORMATION -->
+      <h2 class="section-title">How We Collect Information</h2>
+      <p class="section-lead">
+        Our research team monitors information from a wide range of publicly available sources to keep mountain pass data accurate and actionable:
+      </p>
+
+      <div class="feature-grid">
+        <div class="info-card">
+          <div class="info-card-icon">🏛️</div>
+          <div class="info-card-title">Official Announcements</div>
+          <div class="info-card-desc">Official road authority, police bulletin, and government transportation notices (BRO, CDOT, TCS, Parks Canada).</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">📰</div>
+          <div class="info-card-title">Local News Reports</div>
+          <div class="info-card-desc">Verified news updates from regional journalists and local press reporting on mountain road closures and landslides.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">❄️</div>
+          <div class="info-card-title">Weather &amp; Snowfall Data</div>
+          <div class="info-card-desc">Real-time satellite weather tracking, freeze-thaw cycles, and seasonal snowpack measurements.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">📱</div>
+          <div class="info-card-title">Public Social Media</div>
+          <div class="info-card-desc">Publicly available eyewitness reports and driver posts shared by travellers crossing high passes.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">🛣️</div>
+          <div class="info-card-title">Travel &amp; Road Reports</div>
+          <div class="info-card-desc">Field transit logs, convoy schedules, and Inner Line Permit (ILP) checkpost updates.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">📍</div>
+          <div class="info-card-title">Local Regional Sources</div>
+          <div class="info-card-desc">Direct feedback from mountain guides, village councils, taxi unions, and local mountain communities.</div>
+        </div>
+      </div>
+
+      <div class="cadence-banner">
+        <h4>🤖 AI-Assisted Processing &amp; Human Review</h4>
+        <p>
+          We use AI-assisted technologies and automated data collection tools to help discover, organize, and process information at scale. Our team then reviews the information and updates the relevant pass pages.
+          <br><br>
+          <strong>Update Cadence:</strong> Our goal is to update pass information approximately every 24 hours, while prioritizing more frequent attention when significant changes are reported.
+        </p>
+      </div>
+    </section>
+
+    <!-- BUILT FROM HIMALAYAS TO THE WORLD -->
+    <section class="about-section">
+      <h2 class="section-title">Built from the Himalayas, Designed for the World</h2>
+      <p class="section-lead">
+        LiveRoadStatus was inspired by the realities of Himalayan travel, where road conditions, snowfall, landslides, seasonal closures, and rapidly changing weather can have a major impact on journeys.
+      </p>
+
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:20px; padding:36px; margin-top:1.5rem;">
+        <p style="font-size:1.05rem; color:#334155; line-height:1.7; margin-bottom:16px;">
+          What started with an interest in Himalayan mountain roads is being developed into a global mountain-pass information platform.
+        </p>
+        <p style="font-size:1.05rem; color:#334155; line-height:1.7; margin-bottom:20px;">
+          We are working toward covering mountain passes across Asia, Europe, North America, South America, Africa, and other mountainous regions, giving travelers one place to research road conditions before heading into the mountains.
+        </p>
+
+        <div class="continents-bar">
+          <div class="continent-chip">🌏 Asia (Himalayas &amp; Karakoram)</div>
+          <div class="continent-chip">🌍 Europe (Swiss, French &amp; Italian Alps)</div>
+          <div class="continent-chip">🌎 North America (Rockies &amp; Cascades)</div>
+          <div class="continent-chip">🏔️ South America (Trans-Andean Passes)</div>
+          <div class="continent-chip">🌍 Africa (Drakensberg &amp; Atlas)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU CAN FIND ON LiveRoadStatus -->
+    <section class="about-section">
+      <h2 class="section-title">What You Can Find on LiveRoadStatus</h2>
+      <p class="section-lead">
+        Depending on the pass and availability of reliable information, our pages provide comprehensive road intelligence:
+      </p>
+
+      <div class="feature-grid">
+        <div class="info-card">
+          <div class="info-card-icon" style="background:#dcfce7; color:#15803d;">🚦</div>
+          <div class="info-card-title">Road Status</div>
+          <div class="info-card-desc">Open, closed, restricted, or affected by seasonal weather conditions.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon" style="background:#eff6ff; color:#2563eb;">⏱️</div>
+          <div class="info-card-title">Recent Updates</div>
+          <div class="info-card-desc">Relevant changes reported by authorities, news organizations, and official sources.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon" style="background:#fef3c7; color:#b45309;">🌤️</div>
+          <div class="info-card-title">Weather Information</div>
+          <div class="info-card-desc">Current and forecast conditions that may affect travel across high gap altitudes.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon" style="background:#f3e8ff; color:#7e22ce;">🏔️</div>
+          <div class="info-card-title">Pass Specs</div>
+          <div class="info-card-desc">Elevation, GPS location, route geometry, nearby places, and geographical facts.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon" style="background:#fee2e2; color:#b91c1c;">🔍</div>
+          <div class="info-card-title">Research Context</div>
+          <div class="info-card-desc">Multi-sourced context gathered to help visitors understand the full situation.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon" style="background:#ccfbf1; color:#0f766e;">📜</div>
+          <div class="info-card-title">Permit &amp; Regulations</div>
+          <div class="info-card-desc">Inner Line Permits (ILP), winter tire mandates, and border checkpost rules.</div>
+        </div>
+      </div>
+
+      <!-- TRANSPARENCY MATTERS -->
+      <div class="notice-box">
+        <h3>⚠️ Transparency Matters</h3>
+        <p>
+          LiveRoadStatus is an information and research platform. Road conditions can change rapidly, and information from third-party sources may sometimes be delayed, incomplete, or incorrect.
+        </p>
+        <p>
+          For critical travel decisions, users should always check the latest information from the relevant road authority, government agency, or local authority before travelling.
+        </p>
+        <p>
+          We do not claim that every update represents real-time conditions at the exact location of a pass. Our aim is to make the latest available information easier to discover, compare, and understand.
+        </p>
+      </div>
+
+      <!-- MISSION CARD -->
+      <div class="mission-hero-card">
+        <div class="mission-tagline">“Know the pass before you go.”</div>
+        <p class="mission-desc">
+          Our mission is to build a reliable, accessible information layer for the world's mountain roads — helping travelers, drivers, researchers, and mountain communities understand what is happening on routes that can otherwise be difficult to monitor.
+        </p>
+        <div class="mission-sub">
+          From the Himalayas to the Alps, Andes, Rockies, and beyond, LiveRoadStatus is building a global roadbook for the world's mountain passes.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div>
+          <div class="footer-col-title">LiveRoadStatus</div>
+          <p style="line-height:1.6; color:#64748b;">
+            Himalayan-born mountain pass road intelligence platform. Built by Zulkarnain.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Explore</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Worldwide Index</a></li>
+            <li><a href="country.html">Country Directory</a></li>
+            <li><a href="india.html">India Passes</a></li>
+            <li><a href="france.html">France Passes</a></li>
+            <li><a href="italy.html">Italy Passes</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company & Legal</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="index.html#alerts">Instant Alerts</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Mission</div>
+          <p style="line-height:1.6; color:#64748b;">
+            Know the pass before you go. Sourced, verified &amp; updated worldwide.
+          </p>
+        </div>
+      </div>
+      <div style="border-top:1px solid #e2e8f0; padding-top:24px; font-size:0.825rem; color:#94a3b8; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <span>&copy; 2026 LiveRoadStatus. Founded by Zulkarnain. All rights reserved.</span>
+        <span>Built for the road, updated for the mountains.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

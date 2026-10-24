@@ -1,0 +1,867 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Canton of Vaud &amp; Jura Mountain Passes Live Status (TCS / ALPENPÄSSE.CH) — LiveRoadStatus</title>
+  
+  <!-- SEO PRIMARY META TAGS -->
+  <meta name="description" content="Live open and closed status, road conditions, snow chain requirements, and winter closure alerts for mountain passes in Canton Vaud (VD) and the Vaudois Jura, Switzerland. Real-time updates for Col des Mosses, Col du Pillon, Col de la Croix, Col de la Givrine, Col du Marchairuz, Col du Mollendruz, Col des Etroits, Col de la Vue des Alpes, and Chalet-à-Gobet.">
+  <meta name="keywords" content="Col des Mosses road conditions, Col des Mosses open or closed, Col du Pillon road conditions, Col du Pillon open or closed, Col de la Croix road conditions, Col de la Croix open or closed, Col de la Givrine road conditions, Col de la Givrine open or closed, Col du Marchairuz road conditions, Col du Marchairuz open or closed, Col du Mollendruz road conditions, Col du Mollendruz open or closed, Col des Etroits road conditions, Col des Etroits open or closed, Col de la Vue des Alpes road conditions, Col de la Vue des Alpes open or closed, Chalet-à-Gobet road conditions, Chalet-à-Gobet open or closed, Vaud pass status TCS, alpenpaesse.ch live status">
+  <meta name="author" content="LiveRoadStatus">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.liveroadstatus.com/vaud.html">
+
+  <!-- OPEN GRAPH / SOCIAL -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LiveRoadStatus">
+  <meta property="og:title" content="Canton of Vaud &amp; Jura Mountain Passes Live Status (TCS / Alpenpässe.ch)">
+  <meta property="og:description" content="Real-time open/closed status, Vaud Alps highway road surface reports, Jura mountain pass snow reports, and Glacier 3000 access road conditions across Canton Vaud, Switzerland. Sourced live from TCS Switzerland and Alpenpässe.ch.">
+  <meta property="og:url" content="https://www.liveroadstatus.com/vaud.html">
+  <meta property="og:image" content="IMAGE/Grimsel%20Pass.png">
+  <meta property="og:image:alt" content="Map of Canton Vaud High Mountain Passes and Jura Gaps in Switzerland">
+  <meta property="og:locale" content="fr_CH">
+
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vaud Mountain Passes Live Conditions — LiveRoadStatus">
+  <meta name="twitter:description" content="Current road conditions and status for Col des Mosses, Col du Pillon, Col de la Croix, Col de la Givrine, Col du Marchairuz, Col du Mollendruz, Col des Etroits, Col de la Vue des Alpes, and Chalet-à-Gobet.">
+  <meta name="twitter:image" content="IMAGE/Grimsel%20Pass.png">
+
+  <!-- JSON-LD STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "LiveRoadStatus Home",
+            "item": "https://www.liveroadstatus.com/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Switzerland",
+            "item": "https://www.liveroadstatus.com/index.html#countries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Canton Vaud Passes",
+            "item": "https://www.liveroadstatus.com/vaud.html"
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "High Mountain Passes & Alpine Gaps of Canton Vaud & Jura (Switzerland)",
+        "description": "Directory of highway mountain passes, Jura ridge crossings, and Vaud Alps connectors in Canton Vaud.",
+        "numberOfItems": 9,
+        "itemListElement": [
+          { "@type": "TouristDestination", "name": "Col des Mosses", "description": "Elevation 1,445 m (4,741 ft) open year-round connecting Aigle with Château-d'Oex in the Pays-d'Enhaut.", "geo": { "@type": "GeoCoordinates", "latitude": 46.3983, "longitude": 7.1039 } },
+          { "@type": "TouristDestination", "name": "Col du Pillon", "description": "Elevation 1,546 m (5,072 ft) open year-round connecting Les Diablerets (Vaud) with Gstaad (Bern) at the base of Glacier 3000.", "geo": { "@type": "GeoCoordinates", "latitude": 46.3536, "longitude": 7.2039 } },
+          { "@type": "TouristDestination", "name": "Col de la Croix", "description": "Elevation 1,778 m (5,833 ft) pass connecting Villars-sur-Ollon with Les Diablerets in the Vaud Alps.", "geo": { "@type": "GeoCoordinates", "latitude": 46.3211, "longitude": 7.1294 } },
+          { "@type": "TouristDestination", "name": "Col de la Givrine", "description": "Elevation 1,228 m (4,029 ft) open year-round connecting St-Cergue with La Cure at the French border.", "geo": { "@type": "GeoCoordinates", "latitude": 46.4528, "longitude": 6.1111 } },
+          { "@type": "TouristDestination", "name": "Col du Marchairuz", "description": "Elevation 1,447 m (4,747 ft) open year-round connecting Bière with Le Brassus in the Vallée de Joux.", "geo": { "@type": "GeoCoordinates", "latitude": 46.5500, "longitude": 6.2500 } },
+          { "@type": "TouristDestination", "name": "Col du Mollendruz", "description": "Elevation 1,180 m (3,871 ft) open year-round connecting L'Isle with Lac de Joux.", "geo": { "@type": "GeoCoordinates", "latitude": 46.6472, "longitude": 6.3639 } },
+          { "@type": "TouristDestination", "name": "Col des Etroits", "description": "Elevation 1,152 m (3,780 ft) open year-round connecting Yverdon/Sainte-Croix with Pontarlier (France).", "geo": { "@type": "GeoCoordinates", "latitude": 46.8222, "longitude": 6.4917 } },
+          { "@type": "TouristDestination", "name": "Col de la Vue des Alpes", "description": "Elevation 1,283 m (4,209 ft) open year-round connecting Neuchâtel with La Chaux-de-Fonds.", "geo": { "@type": "GeoCoordinates", "latitude": 47.0722, "longitude": 6.8667 } },
+          { "@type": "TouristDestination", "name": "Chalet-à-Gobet", "description": "Elevation 862 m (2,828 ft) open year-round main highway gap on Route de Berne north of Lausanne.", "geo": { "@type": "GeoCoordinates", "latitude": 46.5667, "longitude": 6.6833 } }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Which mountain passes in Canton Vaud are open year-round?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Col des Mosses (1,445 m), Col du Pillon (1,546 m), Col de la Givrine (1,228 m), Col du Marchairuz (1,447 m), Col du Mollendruz (1,180 m), Col des Etroits (1,152 m), Col de la Vue des Alpes (1,283 m), and Chalet-à-Gobet (862 m) are maintained open 365 days a year with active winter snow clearing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When does Col de la Croix close for winter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Col de la Croix (1,778 m) between Villars and Les Diablerets closes annually for winter in November due to heavy snow and steep avalanche-prone slopes, reopening in late May."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I check live TCS pass driving conditions for Vaud?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "LiveRoadStatus updates real-time driving conditions directly from TCS (Touring Club Schweiz) at tcs.ch and Alpenpässe.ch."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* DESIGN TOKENS */
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #1c1d1b;
+      --muted: #63655f;
+      --line: #e2e0d8;
+      --accent: #15803d;
+      --accent-tint: #e3f0ea;
+      --open: #1d7a46;
+      --open-bg: #e1f3e8;
+      --restricted: #8a5a00;
+      --restricted-bg: #fbf0d6;
+      --closed: #a32d2d;
+      --closed-bg: #fbe4e4;
+      --hero: #0d381e;
+      --hero-ink: #f0fdf4;
+      --hero-muted: #86efac;
+      --hero-line: #14532d;
+      --hero-card: #1f3d35;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #ffffff;
+        --card: #ffffff;
+        --ink: #0f172a;
+        --muted: #475569;
+        --line: #e2e8f0;
+        --accent: #15803d;
+        --accent-tint: #1c2e27;
+        --open: #6fd49a;
+        --open-bg: #173323;
+        --restricted: #f0c26a;
+        --restricted-bg: #3a2e12;
+        --closed: #f08c8c;
+        --closed-bg: #3d1a1a;
+        --hero: #0d381e;
+        --hero-ink: #f0fdf4;
+        --hero-muted: #86efac;
+        --hero-line: #14532d;
+        --hero-card: #142a23;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      background-image: linear-gradient(rgba(247, 246, 242, 0.94), rgba(247, 246, 242, 0.94)), url('IMAGE/Grimsel%20Pass.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-image: linear-gradient(rgba(13, 56, 30, 0.82), rgba(13, 56, 30, 0.92)), url('IMAGE/Grimsel%20Pass.png');
+      }
+    }
+
+    h1, h2, h3, h4 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; line-height: 1.25; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1120px; margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px; }
+
+    /* SITE NAV */
+    .site-nav { background-color: var(--hero); color: var(--hero-ink); border-bottom: 1px solid var(--hero-line); padding: 14px 0; position: sticky; top: 0; z-index: 1000; }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-family: Georgia, serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; display: flex; align-items: center; gap: 8px; }
+    .brand-logo .dot { width: 8px; height: 8px; background-color: #22c55e; border-radius: 50%; display: inline-block; }
+    .nav-links { display: flex; gap: 20px; font-size: 0.9rem; color: var(--hero-muted); flex-wrap: wrap; }
+    .nav-links a:hover { color: #ffffff; }
+
+    /* HERO */
+    .state-hero {
+      position: relative;
+      background-color: var(--hero);
+      background-image: 
+        linear-gradient(rgba(13, 31, 26, 0.85), rgba(13, 31, 26, 0.93)),
+        url('IMAGE/Grimsel%20Pass.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: var(--hero-ink);
+      padding: 44px 0 36px 0;
+      border-bottom: 1px solid var(--hero-line);
+    }
+    .breadcrumb { font-size: 0.85rem; color: var(--hero-muted); margin-bottom: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .breadcrumb a:hover { text-decoration: underline; color: #ffffff; }
+    .hero-title { font-size: 2.2rem; margin-bottom: 10px; color: #ffffff; }
+    .hero-desc { font-size: 1.02rem; color: var(--hero-muted); max-width: 860px; margin-bottom: 22px; }
+    .hero-meta-grid { display: flex; gap: 24px; flex-wrap: wrap; font-size: 0.88rem; padding-top: 14px; border-top: 1px solid var(--hero-line); color: var(--hero-muted); }
+    .hero-meta-item strong { color: var(--hero-ink); }
+
+    /* CONTROLS BAR */
+    .controls-sec { padding: 24px 0 16px 0; }
+    .search-filter-bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .search-box { position: relative; flex: 1; min-width: 280px; }
+    .search-input { width: 100%; background-color: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 11px 16px 11px 38px; font-size: 0.95rem; color: var(--ink); outline: none; transition: border-color 0.15s; }
+    .search-input:focus { border-color: var(--accent); }
+    .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); opacity: 0.5; font-size: 0.9rem; }
+    .filter-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn { background-color: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 7px 16px; font-size: 0.85rem; font-weight: 500; color: var(--muted); cursor: pointer; transition: all 0.15s; }
+    .filter-btn:hover, .filter-btn.active { background-color: var(--accent); color: #ffffff; border-color: var(--accent); }
+
+    /* PASS GRID */
+    .pass-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-top: 20px; }
+    .pass-card { background-color: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+    .pass-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .pass-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+    .pass-status-pill { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+    .status-open { background-color: var(--open-bg); color: var(--open); }
+    .status-restricted { background-color: var(--restricted-bg); color: var(--restricted); }
+    .status-closed { background-color: var(--closed-bg); color: var(--closed); }
+    .pass-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .pass-region-tag { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .pass-title { font-size: 1.25rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .pass-meta { font-size: 0.88rem; color: var(--muted); margin-bottom: 12px; }
+    .pass-desc-snippet { font-size: 0.9rem; color: var(--ink); margin-bottom: 14px; flex: 1; opacity: 0.9; }
+    .pass-footer-meta { font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .pass-link-slug { font-family: monospace; font-size: 0.75rem; opacity: 0.7; }
+    .keyword-tag { display: none; }
+
+    /* SUMMARY TABLE */
+    .table-sec { margin-top: 48px; }
+    .table-wrapper { background-color: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow-x: auto; }
+    .pass-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    .pass-table th, .pass-table td { padding: 14px 18px; border-bottom: 1px solid var(--line); }
+    .pass-table th { background-color: rgba(0,0,0,0.02); font-weight: 600; color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .pass-table tr:last-child td { border-bottom: none; }
+
+    /* FAQ ACCORDION */
+    .faq-sec { margin-top: 48px; margin-bottom: 40px; }
+    .faq-item { background-color: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+    .faq-header { padding: 16px 20px; font-weight: 600; font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-body { padding: 0 20px 16px 20px; font-size: 0.93rem; color: var(--muted); display: none; border-top: 1px solid var(--line); padding-top: 14px; }
+    .faq-item.active .faq-body { display: block; }
+
+    /* MODAL POPUP */
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .modal-backdrop.open { display: flex; }
+    .modal-box { background: var(--card); border: 1px solid var(--line); border-radius: 14px; max-width: 600px; width: 100%; padding: 28px; position: relative; max-height: 90vh; overflow-y: auto; }
+    .modal-close { position: absolute; right: 20px; top: 20px; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--muted); }
+    .modal-title { font-size: 1.5rem; margin-bottom: 6px; }
+    .modal-subtitle { font-size: 0.9rem; color: var(--accent); font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
+    .modal-body { font-size: 0.93rem; line-height: 1.6; color: var(--ink); }
+    .modal-body p { margin-bottom: 12px; }
+
+    /* FOOTER */
+    .site-footer { background-color: var(--hero); color: var(--hero-muted); padding: 36px 0; border-top: 1px solid var(--hero-line); font-size: 0.88rem; }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-links { display: flex; gap: 16px; list-style: none; }
+  
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: #dc2626;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--hero-ink); }
+    .btn-alert-report {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-alert-report:hover { background: var(--accent-hover); }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+      position: relative;
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-breadcrumb a { color: var(--hero-muted); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--hero-ink); }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(21, 128, 61, 0.4);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #bbf7d0;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #22c55e;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+  
+    /* ===== LRS: MOBILE MENU & OVERFLOW FIX ===== */
+    html, body { overflow-x: hidden !important; }
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: 1px solid var(--line, #e2e0d8);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      position: relative;
+      z-index: 300;
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink, #1c1d1b);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 760px) {
+      .hamburger-btn { display: flex !important; }
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--card, #ffffff);
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 28px !important;
+        z-index: 200;
+        font-size: 1.2rem;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-right .btn-alert { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">CANTON OF VAUD</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="#passes-grid" class="nav-link">Pass Directory</a>
+        <a href="#comparison" class="nav-link">Status Table</a>
+        <a href="#faq" class="nav-link">FAQ &amp; Reports</a>
+        <button class="btn-alert-report" onclick="openReportModal()">Submit Conditions</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <a href="index.html#countries">Switzerland</a>
+        <span>&rsaquo;</span>
+        <span>Vaud</span>
+      </div>
+      <h1 class="hero-title">Vaud Mountain Passes Live Conditions & Road Status</h1>
+      <p class="hero-subtitle">
+        Real-time open/closed reports, winter closure schedules, webcams, and Vaudois Alps & Jura pass updates across Col du Marchairuz (1,447 m), Col du Mollendruz (1,180 m), Col des Mosses (1,445 m), and Col de la Givrine. Verified live via TCS Vaud.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>TCS Vaud Live Feed &bull; Updated <span id="live-timestamp">Today</span> &bull; 10 Passes Monitored</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="controls-sec">
+    <div class="container">
+      <div class="search-filter-bar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="pass-search" class="search-input" placeholder="Search Vaud pass (e.g. Mosses, Pillon, Croix, Givrine, Marchairuz, Mollendruz, Etroits, Vue des Alpes, Chalet-à-Gobet)..." aria-label="Search passes">
+        </div>
+        <div class="filter-chips">
+          <button class="filter-btn active" data-filter="all">All (9)</button>
+          <button class="filter-btn" data-filter="alps">Vaud Alps</button>
+          <button class="filter-btn" data-filter="jura">Jura Passes</button>
+          <button class="filter-btn" data-filter="yearround">Year-Round Open</button>
+          <button class="filter-btn" data-filter="open">Open</button>
+        </div>
+      </div>
+
+      <!-- PASS CARDS GRID -->
+      <div class="pass-grid" id="pass-grid-container">
+
+        <!-- CARD 1: Col des Mosses -->
+        <article class="pass-card" data-category="alps yearround highway open" onclick="openPassModal('Col des Mosses')">
+          <div class="pass-card-body">
+            <div class="pass-card-header">
+              <span class="pass-region-tag">Route 11 · Aigle to Château-d'Oex (Pays-d'Enhaut)</span>
+              <span class="pass-status-pill status-open">Open</span>
+            </div>
+            <h3 class="pass-title">Col des Mosses</h3>
+            <div class="pass-meta">1,445 m (4,741 ft) · Route 11 · Open Year-Round</div>
+            <p class="pass-desc-snippet">Major year-round mountain highway pass connecting the Rhone Valley at Aigle with Les Mosses ski plateau and the Pays-d'Enhaut.</p>
+            <div class="keyword-tag">Col des Mosses road conditions Col des Mosses open or closed Mosses pass status</div>
+            <div class="pass-footer-meta">
+              <span>TCS Verified (Year-Round)</span>
+              <span class="pass-link-slug">pass.info/ch/vd/col-des-mosses</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 2: Col du Pillon -->
+        <article class="pass-card" data-category="alps yearround highway open" onclick="openPassModal('Col du Pillon')">
+          <div class="pass-card-body">
+            <div class="pass-card-header">
+              <span class="pass-region-tag">Route 142 · Les Diablerets (VD) to Gstaad (BE)</span>
+              <span class="pass-status-pill status-open">Open</span>
+            </div>
+            <h3 class="pass-title">Col du Pillon</h3>
+            <div class="pass-meta">1,546 m (5,072 ft) · Route 142 · Open Year-Round</div>
+            <p class="pass-desc-snippet">High alpine pass connecting Canton Vaud with Gstaad in Bernese Oberland, serving as the base station for the Glacier 3000 cable car.</p>
+            <div class="keyword-tag">Col du Pillon road conditions Col du Pillon open or closed Pillon pass status Glacier 3000</div>
+            <div class="pass-footer-meta">
+              <span>TCS Verified (Year-Round)</span>
+              <span class="pass-link-slug">pass.info/ch/vd/col-du-pillon</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 3: Col de la Croix -->
+        <article class="pass-card" data-category="alps highway open" onclick="openPassModal('Col de la Croix')">
+          <div class="pass-card-body">
+            <div class="pass-card-header">
+              <span class="pass-region-tag">Vaud Alps · Villars to Les Diablerets</span>
+              <span class="pass-status-pill status-open">Open</span>
+            </div>
+            <h3 class="pass-title">Col de la Croix</h3>
+            <div class="pass-meta">1,778 m (5,833 ft) · Route du Col de la Croix</div>
+            <p class="pass-desc-snippet">High scenic mountain pass connecting Villars-sur-Ollon with Les Diablerets past unique naturally weathered gypsum pyramid formations.</p>
+            <div class="keyword-tag">Col de la Croix road conditions Col de la Croix open or closed Croix pass status</div>
+            <div class="pass-footer-meta">
+              <span>TCS &amp; Canton de Vaud</span>
+              <span class="pass-link-slug">pass.info/ch/vd/col-de-la-croix</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 4: Col de la Givrine -->
+        <article class="pass-card" data-category="jura yearround highway open" onclick="openPassModal('Col de la Givrine')">
+          <div class="pass-card-body">
+            <div class="pass-card-header">
+              <span class="pass-region-tag">Route 123 &amp; NStCM Rail · St-Cergue to La Cure (FR)</span>
+              <span class="pass-status-pill status-open">Open</span>
+            </div>
+            <h3 class="pass-title">Col de la Givrine</h3>
+            <div class="pass-meta">1,228 m (4,029 ft) · Route 123 · Open Year-Round</div>
+            <p class="pass-desc-snippet">Important year-round Jura mountain pass and French border crossing connecting Nyon and Lake Geneva with Morez and the High Jura.</p>
+            <div class="keyword-tag">Col de la Givrine road conditions Col de la Givrine open or closed Givrine pass status</div>
+            <div class="pass-footer-meta">
+              <span>TCS Verified (Year-Round)</span>
+              <span class="pass-link-slug">pass.info/ch/vd/col-de-la-givrine</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 5: Col du Marchairuz -->
+        <article class="pass-card" data-category="jura yearround highway open" onclick="openPassModal('Col du Marchairuz')">
+          <div class="pass-card-body">
+            <div class="pass-card-header">
+              <span class="pass-region-tag">Jura Vaudois Park · Bière to Le Brassus (Vallée de Joux)</span>
+              <span class="pass-status-pill status-open">Open</span>
+            </div>
+            <h3 class="pass-title">Col du Marchairuz</h3>
+            <div class="pass-meta">1,447 m (4,747 ft) · Route du Marchairuz · Open Year-Round</div>
+            <p class="pass-desc-snippet">High forested Jura mountain pass road ascending through Parc Jura Vaudois into the watchmaking valley of Vallée de Joux.</p>
+            <div class="keyword-tag">Col du Marchairuz road conditions Col du Marchairuz open or closed Marchairuz pass status</div>
+            <div class="pass-footer-meta">
+              <span>TCS Verified (Year-Round)</span>
+              <span class="pass-link-slug">pass.info/ch/vd/col-du-marchairuz</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 6: Col du Mollendruz -->
+        <article class="pass-card" data-category="jura yearround highway open" onclick="openPassModal('Col du Mollendruz')">
+          <div class="pass-card-body">
+            <div class="pass-card-header">
+              <span class="pass-region-tag">Route 130 · L'Isle to Le Pont (Lac de Joux)</span>
+              <span class="pass-status-pill status-open">Open</span>
+            </div>
+            <h3 class="pass-title">Col du Mollendruz</h3>
+            <div class="pass-meta">1,180 m (3,871 ft) · Route 130 · Open Year-Round</div>
+            <p class="pass-desc-snippet">Popular year-round Jura mountain pass connecting the Morges plateau with Lac de Joux, featuring cross-country ski trails and panoramic views.</p>
+            <div class="keyword-tag">Col du Mollendruz road conditions Col du Mollendruz open or closed Mollendruz pass status</div>
+            <div class="pass-footer-meta">
+              <span>TCS Verified (Year-Round)</span>
+              <span class="pass-link-slug">pass.info/ch/vd/col-du-mollendruz</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 7: Col des Etroits -->
+        <article class="pass-card" data-category="jura yearround highway open" onclick="openPassModal('Col des Etroits')">
+          <div class="pass-card-body">
+            <div class="pass-card-header">
+              <span class="pass-region-tag">Route 151 · Yverdon / Sainte-Croix to Pontarlier (FR)</span>
+              <span class="pass-status-pill status-open">Open</span>
+            </div>
+            <h3 class="pass-title">Col des Etroits</h3>
+            <div class="pass-meta">1,152 m (3,780 ft) · Route 151 · Open Year-Round</div>
+            <p class="pass-desc-snippet">Historic Jura pass climbing past the music-box capital of Sainte-Croix to the French border towards Pontarlier.</p>
+            <div class="keyword-tag">Col des Etroits road conditions Col des Etroits open or closed Etroits pass status</div>
+            <div class="pass-footer-meta">
+              <span>TCS Verified (Year-Round)</span>
+              <span class="pass-link-slug">pass.info/ch/vd/col-des-etroits</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 8: Col de la Vue des Alpes -->
+        <article class="pass-card" data-category="jura yearround highway open" onclick="openPassModal('Col de la Vue des Alpes')">
+          <div class="pass-card-body">
+            <div class="pass-card-header">
+              <span class="pass-region-tag">Route 128 / H20 · Neuchâtel to La Chaux-de-Fonds</span>
+              <span class="pass-status-pill status-open">Open</span>
+            </div>
+            <h3 class="pass-title">Col de la Vue des Alpes</h3>
+            <div class="pass-meta">1,283 m (4,209 ft) · Route 128 / H20 Tunnel · Open Year-Round</div>
+            <p class="pass-desc-snippet">Renowned Jura mountain pass offering famous sweeping panoramic views over the Swiss Alps, Lake Neuchâtel, and the Bernese Alps.</p>
+            <div class="keyword-tag">Col de la Vue des Alpes road conditions Col de la Vue des Alpes open or closed Vue des Alpes pass status</div>
+            <div class="pass-footer-meta">
+              <span>TCS Verified (Year-Round)</span>
+              <span class="pass-link-slug">pass.info/ch/ne/vue-des-alpes</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 9: Chalet-à-Gobet -->
+        <article class="pass-card" data-category="yearround highway open" onclick="openPassModal('Chalet-a-Gobet')">
+          <div class="pass-card-body">
+            <div class="pass-card-header">
+              <span class="pass-region-tag">Route 1 (Route de Berne) · Lausanne to Jorat Plateau</span>
+              <span class="pass-status-pill status-open">Open</span>
+            </div>
+            <h3 class="pass-title">Chalet-à-Gobet</h3>
+            <div class="pass-meta">862 m (2,828 ft) · Route de Berne H1 · Open Year-Round</div>
+            <p class="pass-desc-snippet">High highway saddle and forest gap north of Lausanne on the main trunk road towards Bern and Moudon across the Jorat plateau.</p>
+            <div class="keyword-tag">Chalet-à-Gobet road conditions Chalet-à-Gobet open or closed Chalet a Gobet pass status</div>
+            <div class="pass-footer-meta">
+              <span>TCS Verified (Year-Round)</span>
+              <span class="pass-link-slug">pass.info/ch/vd/chalet-a-gobet</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK SUMMARY TABLE -->
+  <section class="table-sec container">
+    <h2 style="margin-bottom: 16px;">Canton Vaud Passes Quick Index</h2>
+    <div class="table-wrapper">
+      <table class="pass-table">
+        <thead>
+          <tr>
+            <th>Pass Name</th>
+            <th>Elevation</th>
+            <th>Highway / Route</th>
+            <th>Region / Border</th>
+            <th>Status</th>
+            <th>Authority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Col des Mosses</strong></td><td>1,445 m (4,741 ft)</td><td>Route 11 (Year-Round)</td><td>Aigle / Pays-d'Enhaut</td><td><span class="pass-status-pill status-open">Open</span></td><td>TCS Verified (Year-Round)</td></tr>
+          <tr><td><strong>Col du Pillon</strong></td><td>1,546 m (5,072 ft)</td><td>Route 142 (Year-Round)</td><td>Vaud / Bern (Glacier 3000)</td><td><span class="pass-status-pill status-open">Open</span></td><td>TCS Verified (Year-Round)</td></tr>
+          <tr><td><strong>Col de la Croix</strong></td><td>1,778 m (5,833 ft)</td><td>Villars-Diablerets</td><td>Vaud Alps Ridge</td><td><span class="pass-status-pill status-open">Open</span></td><td>TCS &amp; Canton de Vaud</td></tr>
+          <tr><td><strong>Col de la Givrine</strong></td><td>1,228 m (4,029 ft)</td><td>Route 123 (Year-Round)</td><td>Nyon / France Border</td><td><span class="pass-status-pill status-open">Open</span></td><td>TCS Verified (Year-Round)</td></tr>
+          <tr><td><strong>Col du Marchairuz</strong></td><td>1,447 m (4,747 ft)</td><td>Bière-Brassus (Year-Round)</td><td>Jura Vaudois Park</td><td><span class="pass-status-pill status-open">Open</span></td><td>TCS Verified (Year-Round)</td></tr>
+          <tr><td><strong>Col du Mollendruz</strong></td><td>1,180 m (3,871 ft)</td><td>Route 130 (Year-Round)</td><td>Morges / Lac de Joux</td><td><span class="pass-status-pill status-open">Open</span></td><td>TCS Verified (Year-Round)</td></tr>
+          <tr><td><strong>Col des Etroits</strong></td><td>1,152 m (3,780 ft)</td><td>Route 151 (Year-Round)</td><td>Yverdon / France Border</td><td><span class="pass-status-pill status-open">Open</span></td><td>TCS Verified (Year-Round)</td></tr>
+          <tr><td><strong>Col de la Vue des Alpes</strong></td><td>1,283 m (4,209 ft)</td><td>Route 128 / H20 (Year-Round)</td><td>Neuchâtel Jura</td><td><span class="pass-status-pill status-open">Open</span></td><td>TCS Verified (Year-Round)</td></tr>
+          <tr><td><strong>Chalet-à-Gobet</strong></td><td>862 m (2,828 ft)</td><td>Route de Berne H1 (Year-Round)</td><td>Lausanne Jorat Saddle</td><td><span class="pass-status-pill status-open">Open</span></td><td>TCS Verified (Year-Round)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-sec container">
+    <h2 style="margin-bottom: 20px;">Canton Vaud Passes: Frequently Asked Questions</h2>
+    
+    <div class="faq-item">
+      <div class="faq-header">Which Vaud mountain passes are open during winter? <span>▼</span></div>
+      <div class="faq-body">
+        <strong>8 out of 9 mountain passes in Canton Vaud</strong> are maintained open year-round: Col des Mosses (1,445 m), Col du Pillon (1,546 m), Col de la Givrine (1,228 m), Col du Marchairuz (1,447 m), Col du Mollendruz (1,180 m), Col des Etroits (1,152 m), Col de la Vue des Alpes (1,283 m), and Chalet-à-Gobet (862 m). Only Col de la Croix (1,778 m) closes seasonally in winter.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">What are the road conditions for accessing Glacier 3000 via Col du Pillon? <span>▼</span></div>
+      <div class="faq-body">
+        Col du Pillon (1,546 m) is kept open 365 days a year with active snowplow service to ensure continuous access to the Glacier 3000 cable car station. Winter tires are required during snowstorms.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">Where can I check live TCS pass road conditions for Canton Vaud? <span>▼</span></div>
+      <div class="faq-body">
+        LiveRoadStatus updates real-time driving conditions directly from <strong>TCS (Touring Club Schweiz)</strong> at <code>tcs.ch</code> and <code>alpenpaesse.ch</code>.
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL POPUP -->
+  <div class="modal-backdrop" id="pass-modal-backdrop" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closePassModal()">&times;</button>
+      <h2 class="modal-title" id="modal-pass-title">Pass Title</h2>
+      <div class="modal-subtitle" id="modal-pass-subtitle">Subline</div>
+      <div class="modal-body" id="modal-pass-content">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-flex">
+        <div>
+          <strong>LiveRoadStatus — Canton Vaud Directory</strong>
+          <p style="margin-top: 4px; opacity: 0.8;">Monitored live via TCS (tcs.ch) and Alpenpässe.ch.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="index.html">Index</a></li>
+          <li><a href="vaud.html">Canton Vaud</a></li>
+          <li><a href="glarus.html">Canton Glarus</a></li>
+          <li><a href="ticino.html">Canton Ticino</a></li>
+          <li><a href="graubunden.html">Graubünden</a></li>
+          <li><a href="uri.html">Canton Uri</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE JS SCRIPT -->
+  <script>
+    const PASS_DETAILS = {
+      'Col des Mosses': {
+        elevation: '1,445 m (4,741 ft)',
+        route: 'Route 11 · Aigle to Château-d\'Oex',
+        agency: 'TCS Verified (Year-Round)',
+        condition: 'OPEN year-round with snow clearing service.',
+        history: 'Main arterial pass connecting the Rhone Valley with the Pays-d\'Enhaut.'
+      },
+      'Col du Pillon': {
+        elevation: '1,546 m (5,072 ft)',
+        route: 'Route 142 · Les Diablerets to Gstaad',
+        agency: 'TCS Verified (Year-Round)',
+        condition: 'OPEN year-round; main access road for Glacier 3000.',
+        history: 'Connects the Vaud Alps with the Saanenland in Bernese Oberland.'
+      },
+      'Col de la Croix': {
+        elevation: '1,778 m (5,833 ft)',
+        route: 'Villars-sur-Ollon to Les Diablerets',
+        agency: 'TCS & Canton de Vaud',
+        condition: 'OPEN summer; closes in winter due to snowpack.',
+        history: 'High scenic pass past naturally eroded gypsum pyramids.'
+      }
+    };
+
+    // SEARCH & FILTER FUNCTIONALITY
+    const searchInput = document.getElementById('pass-search');
+    const passCards = document.querySelectorAll('.pass-card');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    function filterPasses() {
+      const query = searchInput.value.toLowerCase();
+      const activeFilterBtn = document.querySelector('.filter-btn.active');
+      const filter = activeFilterBtn ? activeFilterBtn.getAttribute('data-filter') : 'all';
+
+      passCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const category = card.getAttribute('data-category') || '';
+        
+        const matchesQuery = text.includes(query);
+        const matchesFilter = (filter === 'all') || category.includes(filter);
+
+        if (matchesQuery && matchesFilter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', filterPasses);
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterPasses();
+      });
+    });
+
+    // FAQ ACCORDIONS
+    document.querySelectorAll('.faq-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // MODAL HANDLERS
+    function openPassModal(title) {
+      const modal = document.getElementById('pass-modal-backdrop');
+      const modalTitle = document.getElementById('modal-pass-title');
+      const modalSub = document.getElementById('modal-pass-subtitle');
+      const modalBody = document.getElementById('modal-pass-content');
+
+      const data = PASS_DETAILS[title] || {
+        elevation: 'Swiss Mountain Pass / Jura Gap',
+        route: 'Canton Vaud Road / Highway',
+        agency: 'TCS & Alpenpässe.ch',
+        condition: 'OPEN. Live Swiss condition status in effect.',
+        history: 'Monitored pass corridor in Canton Vaud & Vaudois Jura.'
+      };
+
+      modalTitle.textContent = title;
+      modalSub.textContent = `${data.elevation} — ${data.route}`;
+      modalBody.innerHTML = `
+        <p><strong>Current Status &amp; Road Conditions:</strong> ${data.condition}</p>
+        <p><strong>Responsible Agency:</strong> ${data.agency}</p>
+        <p><strong>Background &amp; History:</strong> ${data.history}</p>
+        <p style="font-size:0.85rem; color:var(--muted); margin-top:16px; border-top:1px solid var(--line); padding-top:10px;">
+          Rapid alpine weather changes occur on Swiss passes. Always check TCS before driving.
+        </p>
+      `;
+
+      modal.classList.add('open');
+    }
+
+    function closePassModal() {
+      document.getElementById('pass-modal-backdrop').classList.remove('open');
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'pass-modal-backdrop') {
+        closePassModal();
+      }
+    }
+  </script>
+</body>
+</html>

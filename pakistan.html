@@ -1,0 +1,530 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pakistan Mountain Passes &amp; High Highway Routes — LiveRoadStatus</title>
+  
+  <!-- SEO PRIMARY META TAGS -->
+  <meta name="description" content="Explore live road status, winter closure schedules, landslide reports, webcams, and mountain pass updates across all provinces &amp; regions in Pakistan (Gilgit-Baltistan, Khyber Pakhtunkhwa, Balochistan). Telemetry sourced from NHA, FWO, and Gilgit-Baltistan Disaster Management.">
+  <meta name="keywords" content="Pakistan mountain passes, Karakoram Highway road conditions, Khunjerab Pass open or closed, Babusar Pass status, Lowari Tunnel conditions, Shandur Pass road status, Bolan Pass, Khyber Pass, Gilgit Baltistan passes, Khyber Pakhtunkhwa passes, Balochistan passes, NHA live road conditions">
+  <meta name="author" content="LiveRoadStatus">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.liveroadstatus.com/pakistan.html">
+
+  <!-- OPEN GRAPH / SOCIAL -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LiveRoadStatus">
+  <meta property="og:title" content="Pakistan Mountain Passes &amp; High Highway Routes (NHA / FWO)">
+  <meta property="og:description" content="Real-time open/closed status, winter closure schedules, monsoon landslide alerts, and high altitude pass reports for 70+ mountain passes across Pakistan.">
+  <meta property="og:url" content="https://www.liveroadstatus.com/pakistan.html">
+  <meta property="og:image" content="IMAGE/Karakoram-Highway-Khunjerab-Pass-105283235.jpg">
+  <meta property="og:image:alt" content="Karakoram Highway Khunjerab Pass Pakistan">
+  <meta property="og:locale" content="en_PK">
+
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pakistan Mountain Passes Live Driving Conditions — LiveRoadStatus">
+  <meta name="twitter:description" content="Current road status for Khunjerab Pass, Babusar Pass, Shandur Pass, Lowari Tunnel, Khyber Pass, Bolan Pass, and 60+ Pakistan mountain passes.">
+  <meta name="twitter:image" content="IMAGE/Karakoram-Highway-Khunjerab-Pass-105283235.jpg">
+
+  <!-- JSON-LD STRUCTURED DATA SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "LiveRoadStatus Home",
+            "item": "https://www.liveroadstatus.com/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Country Directory",
+            "item": "https://www.liveroadstatus.com/country.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Pakistan Mountain Passes",
+            "item": "https://www.liveroadstatus.com/pakistan.html"
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "Provinces & Territories Mountain Pass Atlases of Pakistan",
+        "description": "Comprehensive directory of high mountain passes, Karakoram highway gaps, and Hindu Kush routes across Pakistan.",
+        "numberOfItems": 3,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Gilgit-Baltistan Mountain Passes", "url": "https://www.liveroadstatus.com/gilgit.html" },
+          { "@type": "ListItem", "position": 2, "name": "Khyber Pakhtunkhwa Mountain Passes", "url": "https://www.liveroadstatus.com/kp.html" },
+          { "@type": "ListItem", "position": 3, "name": "Balochistan Mountain Passes", "url": "https://www.liveroadstatus.com/balochistan.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- FONTS & STYLES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fafc;
+      --bg-header: #0f172a;
+      --accent-emerald: #10b981;
+      --accent-green: #059669;
+      --accent-amber: #d97706;
+      --accent-red: #dc2626;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border-color: #e2e8f0;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-header);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 2rem;
+    }
+    .header-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+    .logo-badge {
+      background: linear-gradient(135deg, #059669, #047857);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    nav { display: flex; gap: 1.5rem; align-items: center; }
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav a.active { color: #fff; }
+
+    .hero {
+      position: relative;
+      padding: 4.5rem 2rem 3.5rem;
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #a7f3d0;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    .hero-desc {
+      color: #94a3b8;
+      font-size: 1.15rem;
+      max-width: 780px;
+      margin: 0 auto 2rem;
+    }
+
+    .main-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+    .section-sub {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .province-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 4rem;
+    }
+    .region-map-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .province-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .province-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-green);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      background: var(--bg-card-hover);
+    }
+    .province-name {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.3rem;
+    }
+    .province-stats {
+      font-size: 0.85rem;
+      color: var(--accent-green);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .province-desc {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.55;
+    }
+    .province-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f1f5f9;
+      border: 1px solid var(--border-color);
+      padding: 0.7rem 1.1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      transition: background 0.2s, color 0.2s;
+    }
+    .province-card:hover .province-btn {
+      background: var(--accent-green);
+      color: #ffffff;
+      border-color: var(--accent-green);
+    }
+
+    .section-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+    }
+    .pass-list-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .pass-item {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text-main);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pass-item:hover {
+      background: #dcfce7;
+      border-color: var(--accent-green);
+    }
+    .pass-item-name { font-weight: 700; font-size: 0.95rem; color: var(--text-main); }
+    .pass-item-elev { font-size: 0.8rem; color: var(--text-muted); }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 8px var(--accent-green);
+    }
+
+    footer {
+      background: #0f172a;
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #fff; }
+  
+    /* ===== LRS: MOBILE MENU & OVERFLOW FIX ===== */
+    html, body { overflow-x: hidden !important; }
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: 1px solid var(--line, #e2e0d8);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      position: relative;
+      z-index: 300;
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink, #1c1d1b);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 760px) {
+      .hamburger-btn { display: flex !important; }
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--card, #ffffff);
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 28px !important;
+        z-index: 200;
+        font-size: 1.2rem;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-right .btn-alert { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <span>LiveRoadStatus</span>
+        <span class="logo-badge">PAKISTAN</span>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="country.html">Country Directory</a>
+        <a href="pakistan.html" class="active">Pakistan Hub</a>
+        <a href="gilgit.html">Gilgit-Baltistan</a>
+        <a href="kp.html">Khyber Pakhtunkhwa</a>
+        <a href="balochistan.html">Balochistan</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">
+        🇵🇰 NHA &amp; FWO Karakoram &amp; Hindu Kush Live Feed
+      </div>
+      <h1 class="hero-title">Pakistan Mountain Passes &amp; High Highway Routes</h1>
+      <p class="hero-desc">
+        Real-time driving conditions, winter closure schedules, monsoon landslide alerts, and road telemetry across 70+ high mountain passes in Gilgit-Baltistan, Khyber Pakhtunkhwa, and Balochistan. Sourced from National Highway Authority (NHA) &amp; FWO.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="main-container">
+    <h2 class="section-title">Provinces &amp; Territories Mountain Pass Atlases</h2>
+    <p class="section-sub">Select a region below to access live pass telemetry, webcams, and detailed road condition reports.</p>
+
+    <!-- PROVINCE CARDS GRID -->
+    <div class="province-grid">
+
+      <!-- 1. GILGIT-BALTISTAN -->
+      <a href="gilgit.html" class="province-card">
+        <div>
+          <img src="IMAGE/Karakoram-Highway-Khunjerab-Pass-105283235.jpg" alt="Gilgit-Baltistan Mountain Passes Map" class="region-map-img" onerror="this.src='IMAGE/Karakoram-Highway-Khunjerab-Pass-105283235.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="province-name">Gilgit-Baltistan</h3>
+          <div class="province-stats">35 Passes Monitored • Max Elev 4,693 m</div>
+          <p class="province-desc">
+            High Karakoram highway corridors and alpine passes including Khunjerab Pass (Pak-China border), Babusar Pass, Shandur Pass, Deosai Pass, Burzil Pass, Mintaka Pass, and Kilik Pass.
+          </p>
+        </div>
+        <div class="province-btn">
+          <span>Explore Gilgit-Baltistan Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 2. KHYBER PAKHTUNKHWA -->
+      <a href="kp.html" class="province-card">
+        <div>
+          <img src="IMAGE/Khyber Pass.webp" alt="Khyber Pakhtunkhwa Mountain Passes Map" class="region-map-img" onerror="this.src='IMAGE/Karakoram-Highway-Khunjerab-Pass-105283235.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="province-name">Khyber Pakhtunkhwa</h3>
+          <div class="province-stats">23 Passes Monitored • Max Elev 3,118 m</div>
+          <p class="province-desc">
+            Historic mountain passes and alpine links including Khyber Pass, Lowari Pass &amp; Lowari Tunnel, Shangla Pass, Malakand Pass, and Lawari Top. Monitored for winter snow and monsoon clearance.
+          </p>
+        </div>
+        <div class="province-btn">
+          <span>Explore KP Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 3. BALOCHISTAN -->
+      <a href="balochistan.html" class="province-card">
+        <div>
+          <img src="IMAGE/gorkhe-pass.jpg" alt="Balochistan Mountain Passes Map" class="region-map-img" onerror="this.src='IMAGE/Karakoram-Highway-Khunjerab-Pass-105283235.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="province-name">Balochistan</h3>
+          <div class="province-stats">12 Passes Monitored • Max Elev 2,290 m</div>
+          <p class="province-desc">
+            Strategic mountain gaps and plateau passes connecting Quetta, Chaman, and Taftan including Bolan Pass, Khojak Pass, Lak Pass, Mula Pass, and Gazar Pass.
+          </p>
+        </div>
+        <div class="province-btn">
+          <span>Explore Balochistan Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- POPULAR PAKISTAN PASSES DIRECTORY -->
+    <div class="section-box">
+      <h2 class="section-title">Major Pakistan Mountain Passes Directory</h2>
+      <p style="color:var(--text-muted); font-size:0.95rem;">Direct links to live conditions for Pakistan's premier high mountain routes.</p>
+      
+      <div class="pass-list-grid">
+        <a href="gilgit.html" class="pass-item">
+          <div><div class="pass-item-name">Khunjerab Pass (N-35 KKH)</div><div class="pass-item-elev">Gilgit-Baltistan • 4,693 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="gilgit.html" class="pass-item">
+          <div><div class="pass-item-name">Babusar Pass (N-15)</div><div class="pass-item-elev">Gilgit-Baltistan / KP • 4,173 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="gilgit.html" class="pass-item">
+          <div><div class="pass-item-name">Shandur Pass</div><div class="pass-item-elev">Gilgit-Baltistan / Chitral • 3,700 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="kp.html" class="pass-item">
+          <div><div class="pass-item-name">Lowari Tunnel / Pass</div><div class="pass-item-elev">Khyber Pakhtunkhwa • 3,118 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="kp.html" class="pass-item">
+          <div><div class="pass-item-name">Khyber Pass (N-45)</div><div class="pass-item-elev">Khyber Pakhtunkhwa • 1,070 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="balochistan.html" class="pass-item">
+          <div><div class="pass-item-name">Bolan Pass (N-65)</div><div class="pass-item-elev">Balochistan • 1,794 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="balochistan.html" class="pass-item">
+          <div><div class="pass-item-name">Khojak Pass (N-25)</div><div class="pass-item-elev">Balochistan • 2,290 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="gilgit.html" class="pass-item">
+          <div><div class="pass-item-name">Deosai Pass</div><div class="pass-item-elev">Gilgit-Baltistan • 4,114 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 LiveRoadStatus. Sourced live from NHA (National Highway Authority) &amp; FWO.</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">Home</a> • <a href="country.html">Country Directory</a> • <a href="sitemap.xml">Sitemap</a></p>
+  </footer>
+</body>
+</html>

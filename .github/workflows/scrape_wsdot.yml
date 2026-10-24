@@ -1,0 +1,42 @@
+name: WSDOT Pass Scraper
+
+on:
+  schedule:
+    # Every 30 minutes, 24/7
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    # Also allows you to trigger manually from GitHub UI (great for testing)
+
+jobs:
+  scrape:
+    name: Fetch & sync WSDOT pass conditions
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r scraper/requirements.txt
+
+      - name: Run WSDOT scraper
+        run: python scraper/wsdot_scraper.py
+        env:
+          WSDOT_ACCESS_CODE: ${{ secrets.WSDOT_ACCESS_CODE }}
+          SUPABASE_URL:       ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:       ${{ secrets.SUPABASE_KEY }}
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "⚠️  Scraper failed at $(date -u). Check the logs above."
+          # Optional: add a curl to a webhook (Slack, Discord, email) here
+          # curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+          #   -d '{"text":"LivePassWatch scraper failed — check GitHub Actions"}'

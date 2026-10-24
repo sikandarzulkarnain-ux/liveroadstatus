@@ -1,0 +1,1748 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Live Status of High Mountain Passes in India — LiveRoadStatus</title>
+  <meta name="description" content="All tracked mountain passes in India on one page with open and closed status, road conditions and seasonal windows.">
+  <style>
+    /* DESIGN TOKENS */
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #1c1d1b;
+      --muted: #63655f;
+      --line: #e2e0d8;
+      --accent: #15803d;
+      --accent-tint: #e3f0ea;
+      --open: #1d7a46;
+      --open-bg: #e1f3e8;
+      --restricted: #8a5a00;
+      --restricted-bg: #fbf0d6;
+      --closed: #a32d2d;
+      --closed-bg: #fbe4e4;
+      --hero: #0d381e;
+      --hero-ink: #f0fdf4;
+      --hero-muted: #86efac;
+      --hero-line: #14532d;
+      --hero-card: #1f3d35;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #ffffff;
+        --card: #ffffff;
+        --ink: #0f172a;
+        --muted: #475569;
+        --line: #e2e8f0;
+        --accent: #15803d;
+        --accent-tint: #1c2e27;
+        --open: #6fd49a;
+        --open-bg: #173323;
+        --restricted: #f0c26a;
+        --restricted-bg: #3a2e12;
+        --closed: #f08c8c;
+        --closed-bg: #3d1a1a;
+        --hero: #0d381e;
+        --hero-ink: #f0fdf4;
+        --hero-muted: #86efac;
+        --hero-line: #14532d;
+        --hero-card: #142a23;
+      }
+    }
+
+    /* BASE RESET & TYPOGRAPHY */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+
+    h1, h2, h3, h4, .serif-font {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* LAYOUT CONTAINERS */
+    .container {
+      max-width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    section {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    /* STICKY NAV */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--card);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: -0.2px;
+      color: var(--ink);
+    }
+
+    .nav-brand .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.93rem;
+      color: var(--muted);
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ink);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-alert {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s ease;
+    }
+
+    .btn-alert:hover {
+      opacity: 0.92;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* COUNTRY HERO SECTION */
+    .country-hero {
+      position: relative;
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding-top: 40px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid var(--hero-line);
+      overflow: hidden;
+    }
+
+    .hero-topo-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.14;
+      pointer-events: none;
+      object-fit: cover;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--hero-muted);
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .breadcrumb a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .country-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 9999px;
+      padding: 3px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #b8e6d5;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+      width: fit-content;
+    }
+
+    .country-tag::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--accent);
+    }
+
+    .country-title {
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      margin-bottom: 16px;
+      color: #ffffff;
+      letter-spacing: -0.4px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .country-lead {
+      font-size: 1.08rem;
+      color: var(--hero-muted);
+      line-height: 1.55;
+      max-width: 760px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .country-stats-row {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 2;
+      flex-wrap: wrap;
+    }
+
+    .country-stat-item .num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .country-stat-item .label {
+      font-size: 0.82rem;
+      color: var(--hero-muted);
+    }
+
+    /* HERO ELEVATION PROFILE / MAP VISUALIZER */
+    .elevation-chart-card {
+      position: relative;
+      z-index: 2;
+      background: var(--hero-card);
+      border: 1px solid var(--hero-line);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    .chart-svg {
+      width: 100%;
+      height: 160px;
+      display: block;
+    }
+
+    .chart-legend {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    /* STATUS PILLS */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+
+    .status-open {
+      background-color: var(--open-bg);
+      color: var(--open);
+    }
+
+    .status-restricted {
+      background-color: var(--restricted-bg);
+      color: var(--restricted);
+    }
+
+    .status-closed {
+      background-color: var(--closed-bg);
+      color: var(--closed);
+    }
+
+    /* CARD HOVER AND BASE STYLES */
+    .card-base {
+      background-color: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card-base:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    /* SECTION HEADERS */
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .section-title-wrap h2 {
+      font-size: 1.7rem;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .section-count {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* RANKED LIST ITEMS: THE FIVE TO BUILD A TRIP AROUND */
+    .ranked-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .ranked-item {
+      display: grid;
+      grid-template-columns: 44px 100px 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 16px 20px;
+    }
+
+    @media (max-width: 680px) {
+      .ranked-item {
+        grid-template-columns: 32px 80px 1fr;
+        gap: 12px;
+      }
+      .ranked-elevation {
+        grid-column: 3;
+        text-align: left !important;
+        margin-top: 6px;
+      }
+    }
+
+    .ranked-number {
+      font-size: 1.6rem;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1;
+    }
+
+    .ranked-thumb {
+      height: 64px;
+      width: 100px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    @media (max-width: 680px) {
+      .ranked-thumb {
+        width: 80px;
+        height: 56px;
+      }
+    }
+
+    .ranked-thumb-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+    }
+
+    .ranked-main h3 {
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .ranked-subline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .ranked-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .ranked-elevation {
+      text-align: right;
+    }
+
+    .elevation-num {
+      font-size: 1.25rem;
+      font-weight: 700;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .elevation-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* AD SLOT */
+    .ad-slot {
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      background-color: rgba(0, 0, 0, 0.015);
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* REGIONAL CARDS GRID */
+    .regional-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 990px) {
+      .regional-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .regional-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pass-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pass-thumb {
+      position: relative;
+      height: 110px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .pass-thumb-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+    }
+
+    .pass-thumb-pill {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .pass-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .pass-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .pass-route {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .pass-summit-info {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .pass-permit {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .pass-footer {
+      margin-top: auto;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* DRIVE THEM ALL BANNER */
+    .banner-card {
+      background-color: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .banner-title {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .banner-heading {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .banner-btn {
+      background-color: var(--accent);
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      display: inline-block;
+      transition: opacity 0.15s ease;
+    }
+
+    .banner-btn:hover {
+      opacity: 0.92;
+    }
+
+    /* 3 COLUMNS GRIDS */
+    .three-col-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 800px) {
+      .three-col-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 2 COLUMNS GRIDS */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 680px) {
+      .two-col-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .simple-card {
+      padding: 18px 20px;
+    }
+
+    .simple-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .simple-card-meta {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    /* FAQ ACCORDION */
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background-color: var(--card);
+      overflow: hidden;
+    }
+
+    .faq-summary {
+      padding: 16px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+      user-select: none;
+    }
+
+    .faq-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-summary::before {
+      content: "▸";
+      display: inline-block;
+      font-size: 0.9rem;
+      color: var(--muted);
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item[open] .faq-summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-content {
+      padding: 0 20px 18px 34px;
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* GET ALERTS CARD */
+    .alerts-band {
+      background-color: var(--accent-tint);
+      border: 1px solid rgba(31, 92, 74, 0.15);
+      border-radius: 12px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .alerts-band h3 {
+      font-size: 1.35rem;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .alerts-band p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 580px;
+    }
+
+    .btn-create-alert {
+      background-color: var(--accent);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.15s ease;
+    }
+
+    .btn-create-alert:hover {
+      opacity: 0.92;
+    }
+
+    /* SITE FOOTER */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background-color: var(--card);
+      padding-top: 48px;
+      padding-bottom: 40px;
+      margin-top: 30px;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-columns {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-col-brand .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .footer-col-brand p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 260px;
+    }
+
+    .footer-col-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .footer-links a {
+      font-size: 0.88rem;
+      color: var(--muted);
+      transition: color 0.15s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--ink);
+    }
+
+    .footer-disclaimer {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* TOPO GRADIENTS */
+    .thumb-brown { background: linear-gradient(135deg, #7c5e42, #543d2b); }
+    .thumb-bluegrey { background: linear-gradient(135deg, #4d606e, #2d3b45); }
+    .thumb-teal { background: linear-gradient(135deg, #2b565a, #163336); }
+    .thumb-green { background: linear-gradient(135deg, #3d5e43, #223826); }
+    .thumb-ochre { background: linear-gradient(135deg, #8c674b, #593e2b); }
+
+    /* TOAST ALERT */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      font-size: 0.9rem;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+
+    .toast-msg.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: #dc2626;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--hero-ink); }
+    .btn-alert-report {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-alert-report:hover { background: var(--accent-hover); }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+      position: relative;
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-breadcrumb a { color: var(--hero-muted); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--hero-ink); }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(21, 128, 61, 0.4);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #bbf7d0;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #22c55e;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+  
+    /* ===== LRS: MOBILE MENU & OVERFLOW FIX ===== */
+    html, body { overflow-x: hidden !important; }
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: 1px solid var(--line, #e2e0d8);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      position: relative;
+      z-index: 300;
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink, #1c1d1b);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 760px) {
+      .hamburger-btn { display: flex !important; }
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--card, #ffffff);
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 28px !important;
+        z-index: 200;
+        font-size: 1.2rem;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-right .btn-alert { display: none; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Chang La\n            \n              Leh-Pangong \u00b7 Ladakh\n              Open\n            \n            High pass on the road to Pangong Lake, often snowy even in summer.\n          \n          \n            5,360 m\n            summit\n          \n        \n\n        \n        \n          2\n          \n            \n          \n          \n            Khardung La\n            \n              NH-Leh \u00b7 Ladakh\n              Open\n            \n            Gateway to the Nubra Valley and one of the world's highest motorable roads.\n          \n          \n            5,359 m\n            summit\n          \n        \n\n        \n        \n          3\n          \n            \n          \n          \n            Taglang La\n            \n              NH3 \u00b7 Ladakh\n              Open\n            \n            The second-highest pass on the Manali to Leh highway.\n          \n          \n            5,328 m\n            summit\n          \n        \n\n        \n        \n          4\n          \n            \n          \n          \n            Baralacha La\n            \n              NH3 \u00b7 Himachal Pradesh\n              Closed\n            \n            Remote high pass in Lahaul and Spiti, closed by early snowfall.\n          \n          \n            4,890 m\n            summit\n          \n        \n\n        \n        \n          5\n          \n            \n          \n          \n            Kunzum La\n            \n              Spiti \u00b7 Himachal Pradesh\n              Open\n            \n            Main link between the Lahaul and Spiti valleys.\n          \n          \n            4,551 m\n            summit\n          \n        \n      \n\n      \n      \n        Ad slot (AdSense) \u00b7 responsive\n      \n    \n  \n\n  \n  \n  \n  \n    \n      \n        \n          Ladakh\n        \n        4 passes\n      \n\n      \n        \n        \n          \n            \n            Open\n          \n          \n            Khardung La\n            NH-Leh \u00b7 Ladakh\n            5,359 m summit \u00b7 12 hr\n            Permit: Permit\n            Updated 42 min ago\n          \n        \n\n        \n        \n          \n            \n            Open\n          \n          \n            Chang La\n            Leh-Pangong \u00b7 Ladakh\n            5,360 m summit \u00b7 8 hr\n            Permit: Permit\n            Updated 1 hr ago\n          \n        \n\n        \n        \n          \n            \n            Open\n          \n          \n            Taglang La\n            NH3 \u00b7 Ladakh\n            5,328 m summit \u00b7 6 hr\n            Permit: None\n            Updated 2 hr ago\n          \n        \n\n        \n        \n          \n            \n            Restricted\n          \n          \n            Zojila\n            NH1 \u00b7 Ladakh\n            3,528 m summit \u00b7 10 hr\n            Permit: None\n            Updated 3 hr ago\n          \n        \n      \n    \n  \n\n  \n  \n    \n      \n        \n          Himachal Pradesh\n        \n        4 passes\n      \n\n      \n        \n        \n          \n            \n            Restricted\n          \n          \n            Rohtang Pass\n            NH3 \u00b7 Himachal Pradesh\n            3,978 m summit \u00b7 14 hr\n            Permit: Permit\n            Updated 18 min ago\n          \n        \n\n        \n        \n          \n            \n            Closed\n          \n          \n            Baralacha La\n            NH3 \u00b7 Himachal Pradesh\n            4,890 m summit \u00b7 9 hr\n            Permit: None\n            Updated 1 hr ago\n          \n        \n\n        \n        \n          \n            \n            Open\n          \n          \n            Kunzum La\n            Spiti \u00b7 Himachal Pradesh\n            4,551 m summit \u00b7 7 hr\n            Permit: None\n            Updated 5 hr ago\n          \n        \n\n        \n        \n          \n            \n            Open\n          \n          \n            Atal Tunnel\n            NH3 \u00b7 Himachal Pradesh\n            3,100 m summit \u00b7 4 hr\n            Permit: None\n            Updated 9 min ago\n          \n        \n      \n    \n  \n\n  \n  \n    \n      \n        \n          Sikkim\n        \n        2 passes\n      \n\n      \n        \n        \n          \n            \n            Restricted\n          \n          \n            Nathu La\n            JN Marg \u00b7 Sikkim\n            4,310 m summit \u00b7 11 hr\n            Permit: Permit\n            Updated 6 hr ago\n          \n        \n\n        \n        \n          \n            \n            Open\n          \n          \n            Tsomgo Pass\n            JN Marg \u00b7 Sikkim\n            3,753 m summit \u00b7 5 hr\n            Permit: Permit\n            Updated 4 hr ago\n          \n        \n      \n    \n  \n\n  \n  \n    \n      \n        \n          Drive them all in one trip\n          Manali to Leh \u00b7 2 days \u00b7 5 passes\n        \n        View route\n      \n    \n  \n\n  \n  \n    \n      \n        \n          Collections featuring India\n        \n      \n\n      \n        \n          Highest motorable passes\n          Above 5,000 m \u00b7 6 passes\n        \n        \n          Open all year\n          Tunnels and low passes \u00b7 8 passes\n        \n        \n          Permit required\n          Inner Line and army permits \u00b7 9 passes\n        \n      \n    \n  \n\n  \n  \n    \n      \n        \n          Guides for this region\n        \n      \n\n      \n        \n          Best time to drive Ladakh passes &rsaquo;\n          Month by month opening windows\n        \n        \n          Manali to Leh road conditions guide &rsaquo;\n          Where closures happen and why\n        \n      \n    \n  \n\n  \n  \n    \n      \n        \n          Nearby countries\n        \n      \n\n      \n        \n          Nepal\n          8 passes\n        \n        \n          Bhutan\n          4 passes\n        \n        \n          Pakistan\n          6 passes\n        \n      \n    \n  \n\n  \n  \n    \n      \n        \n          Mountain passes in India: common questions\n        \n      \n\n      \n        \n        \n          Which is the highest motorable pass in India?\n          \n            Chang La is the highest tracked pass in India, at about 5,360 m (17,585 ft).\n          \n        \n\n        \n        \n          When is the best time to cross high passes in India?\n          \n            June to September is the primary window for most high Himalayan passes in Ladakh and Himachal Pradesh. Outside these months, snow and ice typically cause seasonal closures.\n          \n        \n\n        \n        \n          How often is pass status updated?\n          \n            Statuses are refreshed typically every 5 to 60 minutes based on official Border Roads Organisation (BRO), police, and field transit reports.\n          \n        \n\n        \n        \n          Do I need a permit?\n          \n            Yes, passes near international borders (such as Chang La, Khardung La, and Nathu La) require Inner Line Permits (ILP) or Protected Area Permits (PAP) for tourists.\n          \n        \n      \n    \n  \n\n  \n  \n    \n      \n        \n          Get alerts for the passes of India",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick your passes and we'll message you on Telegram, WhatsApp or email when the status changes."
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="canonical" href="https://www.liveroadstatus.com/india/">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">INDIA / HIMALAYAS</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="#passes-grid" class="nav-link">Pass Directory</a>
+        <a href="#comparison" class="nav-link">Status Table</a>
+        <a href="#faq" class="nav-link">FAQ &amp; Reports</a>
+        <button class="btn-alert-report" onclick="openReportModal()">Submit Conditions</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <a href="index.html#countries">India</a>
+        <span>&rsaquo;</span>
+        <span>India</span>
+      </div>
+      <h1 class="hero-title">India Mountain Passes Live Conditions & Road Status</h1>
+      <p class="hero-subtitle">
+        Real-time open/closed reports, winter closure schedules, webcams, and Pan-Indian Himalayan high pass updates across Umling La (19,024 ft), Khardung La, Rohtang Pass, Zoji La, and Nathu La. Verified live via BRO (Border Roads Organisation) & MoRTH.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>BRO / MoRTH Live Feed &bull; Updated <span id="live-timestamp">Today</span> &bull; 25 Passes Monitored</span>
+      </div>
+    </div>
+  </section>
+
+
+
+      <!-- INTERACTIVE ELEVATION PROFILE / MAP VISUALIZER -->
+      <div class="elevation-chart-card">
+        <svg class="chart-svg" viewBox="0 0 1000 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background topographic curve lines -->
+          <path d="M0,150 Q250,90 500,120 T1000,70" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <path d="M0,120 Q300,40 600,100 T1000,40" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <path d="M0,90 Q350,20 700,70 T1000,30" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          
+          <!-- Elevation Profile Ridge Line -->
+          <path d="M30,135 Q100,110 160,85 T280,35 Q350,60 440,38 T580,45 Q670,95 760,65 T880,100 T970,120" 
+                fill="none" stroke="#6fcfae" stroke-width="2.5" opacity="0.85"/>
+
+          <!-- Secondary route connecting line -->
+          <path d="M30,140 C150,130 250,70 380,50 C520,30 700,80 970,125" 
+                fill="none" stroke="rgba(255,255,255,0.25)" stroke-dasharray="4,4" stroke-width="1.5"/>
+
+          <!-- Elevation pass points (dots) with status colors -->
+          <!-- Atal Tunnel 3100m (Open - Green) -->
+          <circle cx="90" cy="120" r="5" fill="#22c55e" stroke="#ffffff" stroke-width="2"><title>Atal Tunnel (3,100 m) · Open</title></circle>
+          
+          <!-- Zojila 3528m (Restricted - Amber) -->
+          <circle cx="180" cy="100" r="5" fill="#f59e0b" stroke="#ffffff" stroke-width="2"><title>Zojila (3,528 m) · Restricted</title></circle>
+          
+          <!-- Rohtang Pass 3978m (Restricted - Amber) -->
+          <circle cx="280" cy="85" r="5" fill="#f59e0b" stroke="#ffffff" stroke-width="2"><title>Rohtang Pass (3,978 m) · Restricted</title></circle>
+          
+          <!-- Nathu La 4310m (Restricted - Amber) -->
+          <circle cx="390" cy="70" r="5" fill="#f59e0b" stroke="#ffffff" stroke-width="2"><title>Nathu La (4,310 m) · Restricted</title></circle>
+          
+          <!-- Kunzum La 4551m (Open - Green) -->
+          <circle cx="490" cy="62" r="5" fill="#22c55e" stroke="#ffffff" stroke-width="2"><title>Kunzum La (4,551 m) · Open</title></circle>
+          
+          <!-- Baralacha La 4890m (Closed - Red) -->
+          <circle cx="610" cy="52" r="5" fill="#ef4444" stroke="#ffffff" stroke-width="2"><title>Baralacha La (4,890 m) · Closed</title></circle>
+          
+          <!-- Taglang La 5328m (Open - Green) -->
+          <circle cx="720" cy="40" r="5" fill="#22c55e" stroke="#ffffff" stroke-width="2"><title>Taglang La (5,328 m) · Open</title></circle>
+          
+          <!-- Khardung La 5359m (Open - Green) -->
+          <circle cx="830" cy="38" r="5" fill="#22c55e" stroke="#ffffff" stroke-width="2"><title>Khardung La (5,359 m) · Open</title></circle>
+          
+          <!-- Chang La 5360m (Open - Green) -->
+          <circle cx="920" cy="35" r="6" fill="#22c55e" stroke="#ffffff" stroke-width="2.5"><title>Chang La (5,360 m) · Open</title></circle>
+        </svg>
+
+        <div class="chart-legend">
+          <span class="status-pill status-open">Open</span>
+          <span class="status-pill status-restricted">Restricted</span>
+          <span class="status-pill status-closed">Closed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE BY STATE GRID -->
+  <section id="states-grid" style="padding-top: 32px; padding-bottom: 32px; background-color: var(--card); border-bottom: 1px solid var(--line);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2>Mountain Passes by Indian State &amp; Region</h2>
+          <div class="section-subtitle">Click any state to view real-time road conditions, weather, BRO clearance updates, and permits.</div>
+        </div>
+        <div class="section-count">71 passes · 7 states</div>
+      </div>
+
+      <div class="three-col-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">
+        <a href="ladakh.html" class="card-base simple-card" style="display: flex; flex-direction: column; gap: 6px; text-decoration: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="simple-card-title" style="font-size: 1.1rem; color: var(--accent);">🏔️ Ladakh</div>
+            <span class="status-pill status-open">13 Passes</span>
+          </div>
+          <div class="simple-card-meta">Khardung La, Chang La, Umling La, Zoji La, Marsimik La, Taglang La &amp; more</div>
+          <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-top: 6px;">View Ladakh Passes &rarr;</span>
+        </a>
+
+        <a href="himachal.html" class="card-base simple-card" style="display: flex; flex-direction: column; gap: 6px; text-decoration: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="simple-card-title" style="font-size: 1.1rem; color: var(--accent);">🏔️ Himachal Pradesh</div>
+            <span class="status-pill status-open">9 Passes</span>
+          </div>
+          <div class="simple-card-meta">Rohtang Pass, Kunzum La, Bara-Lacha La, Shipki La, Jalori Pass, Sach Pass &amp; Chandratal</div>
+          <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-top: 6px;">View Himachal Passes &rarr;</span>
+        </a>
+
+        <a href="uttarakhand.html" class="card-base simple-card" style="display: flex; flex-direction: column; gap: 6px; text-decoration: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="simple-card-title" style="font-size: 1.1rem; color: var(--accent);">🏔️ Uttarakhand</div>
+            <span class="status-pill status-open">16 Passes</span>
+          </div>
+          <div class="simple-card-meta">Mana Pass, Niti Pass, Lipulekh Pass, Kalindi Pass, Auden's Col, Kuari Pass &amp; more</div>
+          <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-top: 6px;">View Uttarakhand Passes &rarr;</span>
+        </a>
+
+        <a href="sikkim.html" class="card-base simple-card" style="display: flex; flex-direction: column; gap: 6px; text-decoration: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="simple-card-title" style="font-size: 1.1rem; color: var(--accent);">🏔️ Sikkim</div>
+            <span class="status-pill status-open">7 Passes</span>
+          </div>
+          <div class="simple-card-meta">Nathu La, Jelep La, Dongkha La, Goecha La, Cho La, Lachen Pass &amp; Naku La</div>
+          <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-top: 6px;">View Sikkim Passes &rarr;</span>
+        </a>
+
+        <a href="arunachal.html" class="card-base simple-card" style="display: flex; flex-direction: column; gap: 6px; text-decoration: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="simple-card-title" style="font-size: 1.1rem; color: var(--accent);">🏔️ Arunachal Pradesh</div>
+            <span class="status-pill status-open">11 Passes</span>
+          </div>
+          <div class="simple-card-meta">Sela Pass (Se La), Bum La Pass, Bomdila, Diphu Pass, Dihang, Pangsau &amp; more</div>
+          <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-top: 6px;">View Arunachal Passes &rarr;</span>
+        </a>
+
+        <a href="jk.html" class="card-base simple-card" style="display: flex; flex-direction: column; gap: 6px; text-decoration: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="simple-card-title" style="font-size: 1.1rem; color: var(--accent);">🏔️ Jammu &amp; Kashmir</div>
+            <span class="status-pill status-open">11 Passes</span>
+          </div>
+          <div class="simple-card-meta">Zoji La, Banihal Pass, Pir Panjal Pass, Peer Ki Gali, Sadhna Pass, Sinthan &amp; Razdan</div>
+          <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-top: 6px;">View J&amp;K Passes &rarr;</span>
+        </a>
+
+        <a href="nagaland.html" class="card-base simple-card" style="display: flex; flex-direction: column; gap: 6px; text-decoration: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="simple-card-title" style="font-size: 1.1rem; color: var(--accent);">🏔️ Nagaland</div>
+            <span class="status-pill status-open">4 Passes</span>
+          </div>
+          <div class="simple-card-meta">Japfü Pass, Tsepi Pass (Dzüko Ridge), Pangsha Pass (ITC Dan) &amp; Naga Hills Ridge Corridors</div>
+          <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-top: 6px;">View Nagaland Passes &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. THE FIVE TO BUILD A TRIP AROUND -->
+  <section id="top-five">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2>The five to build a trip around</h2>
+          <div class="section-subtitle">Our ranking, with the reasoning shown. All passes follow below. </div>
+        </div>
+      </div>
+
+      <div class="ranked-list">
+        <!-- Item 1: Chang La -->
+        <article class="card-base ranked-item">
+          <div class="ranked-number">1</div>
+          <div class="ranked-thumb thumb-ochre">
+            <svg class="ranked-thumb-svg"><use href="#topo-pattern"/></svg>
+          </div>
+          <div class="ranked-main">
+            <h3>Chang La</h3>
+            <div class="ranked-subline">
+              <span>Leh-Pangong · Ladakh</span>
+              <span class="status-pill status-open">Open</span>
+            </div>
+            <div class="ranked-desc">High pass on the road to Pangong Lake, often snowy even in summer.</div>
+          </div>
+          <div class="ranked-elevation">
+            <div class="elevation-num">5,360 m</div>
+            <div class="elevation-label">summit</div>
+          </div>
+        </article>
+
+        <!-- Item 2: Khardung La -->
+        <article class="card-base ranked-item">
+          <div class="ranked-number">2</div>
+          <div class="ranked-thumb thumb-bluegrey">
+            <svg class="ranked-thumb-svg"><use href="#topo-pattern"/></svg>
+          </div>
+          <div class="ranked-main">
+            <h3>Khardung La</h3>
+            <div class="ranked-subline">
+              <span>NH-Leh · Ladakh</span>
+              <span class="status-pill status-open">Open</span>
+            </div>
+            <div class="ranked-desc">Gateway to the Nubra Valley and one of the world's highest motorable roads.</div>
+          </div>
+          <div class="ranked-elevation">
+            <div class="elevation-num">5,359 m</div>
+            <div class="elevation-label">summit</div>
+          </div>
+        </article>
+
+        <!-- Item 3: Taglang La -->
+        <article class="card-base ranked-item">
+          <div class="ranked-number">3</div>
+          <div class="ranked-thumb thumb-teal">
+            <svg class="ranked-thumb-svg"><use href="#topo-pattern"/></svg>
+          </div>
+          <div class="ranked-main">
+            <h3>Taglang La</h3>
+            <div class="ranked-subline">
+              <span>NH3 · Ladakh</span>
+              <span class="status-pill status-open">Open</span>
+            </div>
+            <div class="ranked-desc">The second-highest pass on the Manali to Leh highway.</div>
+          </div>
+          <div class="ranked-elevation">
+            <div class="elevation-num">5,328 m</div>
+            <div class="elevation-label">summit</div>
+          </div>
+        </article>
+
+        <!-- Item 4: Baralacha La -->
+        <article class="card-base ranked-item">
+          <div class="ranked-number">4</div>
+          <div class="ranked-thumb thumb-brown">
+            <svg class="ranked-thumb-svg"><use href="#topo-pattern"/></svg>
+          </div>
+          <div class="ranked-main">
+            <h3>Baralacha La</h3>
+            <div class="ranked-subline">
+              <span>NH3 · Himachal Pradesh</span>
+              <span class="status-pill status-closed">Closed</span>
+            </div>
+            <div class="ranked-desc">Remote high pass in Lahaul and Spiti, closed by early snowfall.</div>
+          </div>
+          <div class="ranked-elevation">
+            <div class="elevation-num">4,890 m</div>
+            <div class="elevation-label">summit</div>
+          </div>
+        </article>
+
+        <!-- Item 5: Kunzum La -->
+        <article class="card-base ranked-item">
+          <div class="ranked-number">5</div>
+          <div class="ranked-thumb thumb-bluegrey">
+            <svg class="ranked-thumb-svg"><use href="#topo-pattern"/></svg>
+          </div>
+          <div class="ranked-main">
+            <h3>Kunzum La</h3>
+            <div class="ranked-subline">
+              <span>Spiti · Himachal Pradesh</span>
+              <span class="status-pill status-open">Open</span>
+            </div>
+            <div class="ranked-desc">Main link between the Lahaul and Spiti valleys.</div>
+          </div>
+          <div class="ranked-elevation">
+            <div class="elevation-num">4,551 m</div>
+            <div class="elevation-label">summit</div>
+          </div>
+        </article>
+      </div>
+
+      <!-- AD SLOT BELOW RANKING -->
+      <div class="ad-slot">
+        Ad slot (AdSense) · responsive
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. REGIONAL SECTIONS -->
+  
+  <!-- REGION 1: LADAKH -->
+  <section id="ladakh">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2>Ladakh</h2>
+        </div>
+        <div class="section-count">4 passes</div>
+      </div>
+
+      <div class="regional-grid">
+        <!-- Khardung La -->
+        <article class="card-base pass-card">
+          <div class="pass-thumb thumb-bluegrey">
+            <svg class="pass-thumb-svg"><use href="#topo-pattern"/></svg>
+            <span class="status-pill status-open pass-thumb-pill">Open</span>
+          </div>
+          <div class="pass-body">
+            <h3 class="pass-name">Khardung La</h3>
+            <div class="pass-route">NH-Leh · Ladakh</div>
+            <div class="pass-summit-info">5,359 m summit · 12 hr</div>
+            <div class="pass-permit">Permit: Permit</div>
+            <div class="pass-footer">Updated 42 min ago</div>
+          </div>
+        </article>
+
+        <!-- Chang La -->
+        <article class="card-base pass-card">
+          <div class="pass-thumb thumb-ochre">
+            <svg class="pass-thumb-svg"><use href="#topo-pattern"/></svg>
+            <span class="status-pill status-open pass-thumb-pill">Open</span>
+          </div>
+          <div class="pass-body">
+            <h3 class="pass-name">Chang La</h3>
+            <div class="pass-route">Leh-Pangong · Ladakh</div>
+            <div class="pass-summit-info">5,360 m summit · 8 hr</div>
+            <div class="pass-permit">Permit: Permit</div>
+            <div class="pass-footer">Updated 1 hr ago</div>
+          </div>
+        </article>
+
+        <!-- Taglang La -->
+        <article class="card-base pass-card">
+          <div class="pass-thumb thumb-teal">
+            <svg class="pass-thumb-svg"><use href="#topo-pattern"/></svg>
+            <span class="status-pill status-open pass-thumb-pill">Open</span>
+          </div>
+          <div class="pass-body">
+            <h3 class="pass-name">Taglang La</h3>
+            <div class="pass-route">NH3 · Ladakh</div>
+            <div class="pass-summit-info">5,328 m summit · 6 hr</div>
+            <div class="pass-permit">Permit: None</div>
+            <div class="pass-footer">Updated 2 hr ago</div>
+          </div>
+        </article>
+
+        <!-- Zojila -->
+        <article class="card-base pass-card">
+          <div class="pass-thumb thumb-green">
+            <svg class="pass-thumb-svg"><use href="#topo-pattern"/></svg>
+            <span class="status-pill status-restricted pass-thumb-pill">Restricted</span>
+          </div>
+          <div class="pass-body">
+            <h3 class="pass-name">Zojila</h3>
+            <div class="pass-route">NH1 · Ladakh</div>
+            <div class="pass-summit-info">3,528 m summit · 10 hr</div>
+            <div class="pass-permit">Permit: None</div>
+            <div class="pass-footer">Updated 3 hr ago</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGION 2: HIMACHAL PRADESH -->
+  <section id="himachal-pradesh">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2>Himachal Pradesh</h2>
+        </div>
+        <div class="section-count">4 passes</div>
+      </div>
+
+      <div class="regional-grid">
+        <!-- Rohtang Pass -->
+        <article class="card-base pass-card">
+          <div class="pass-thumb thumb-ochre">
+            <svg class="pass-thumb-svg"><use href="#topo-pattern"/></svg>
+            <span class="status-pill status-restricted pass-thumb-pill">Restricted</span>
+          </div>
+          <div class="pass-body">
+            <h3 class="pass-name">Rohtang Pass</h3>
+            <div class="pass-route">NH3 · Himachal Pradesh</div>
+            <div class="pass-summit-info">3,978 m summit · 14 hr</div>
+            <div class="pass-permit">Permit: Permit</div>
+            <div class="pass-footer">Updated 18 min ago</div>
+          </div>
+        </article>
+
+        <!-- Baralacha La -->
+        <article class="card-base pass-card">
+          <div class="pass-thumb thumb-teal">
+            <svg class="pass-thumb-svg"><use href="#topo-pattern"/></svg>
+            <span class="status-pill status-closed pass-thumb-pill">Closed</span>
+          </div>
+          <div class="pass-body">
+            <h3 class="pass-name">Baralacha La</h3>
+            <div class="pass-route">NH3 · Himachal Pradesh</div>
+            <div class="pass-summit-info">4,890 m summit · 9 hr</div>
+            <div class="pass-permit">Permit: None</div>
+            <div class="pass-footer">Updated 1 hr ago</div>
+          </div>
+        </article>
+
+        <!-- Kunzum La -->
+        <article class="card-base pass-card">
+          <div class="pass-thumb thumb-green">
+            <svg class="pass-thumb-svg"><use href="#topo-pattern"/></svg>
+            <span class="status-pill status-open pass-thumb-pill">Open</span>
+          </div>
+          <div class="pass-body">
+            <h3 class="pass-name">Kunzum La</h3>
+            <div class="pass-route">Spiti · Himachal Pradesh</div>
+            <div class="pass-summit-info">4,551 m summit · 7 hr</div>
+            <div class="pass-permit">Permit: None</div>
+            <div class="pass-footer">Updated 5 hr ago</div>
+          </div>
+        </article>
+
+        <!-- Atal Tunnel -->
+        <article class="card-base pass-card">
+          <div class="pass-thumb thumb-brown">
+            <svg class="pass-thumb-svg"><use href="#topo-pattern"/></svg>
+            <span class="status-pill status-open pass-thumb-pill">Open</span>
+          </div>
+          <div class="pass-body">
+            <h3 class="pass-name">Atal Tunnel</h3>
+            <div class="pass-route">NH3 · Himachal Pradesh</div>
+            <div class="pass-summit-info">3,100 m summit · 4 hr</div>
+            <div class="pass-permit">Permit: None</div>
+            <div class="pass-footer">Updated 9 min ago</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGION 3: SIKKIM -->
+  <section id="sikkim">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2>Sikkim</h2>
+        </div>
+        <div class="section-count">2 passes</div>
+      </div>
+
+      <div class="regional-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <!-- Nathu La -->
+        <article class="card-base pass-card">
+          <div class="pass-thumb thumb-ochre">
+            <svg class="pass-thumb-svg"><use href="#topo-pattern"/></svg>
+            <span class="status-pill status-restricted pass-thumb-pill">Restricted</span>
+          </div>
+          <div class="pass-body">
+            <h3 class="pass-name">Nathu La</h3>
+            <div class="pass-route">JN Marg · Sikkim</div>
+            <div class="pass-summit-info">4,310 m summit · 11 hr</div>
+            <div class="pass-permit">Permit: Permit</div>
+            <div class="pass-footer">Updated 6 hr ago</div>
+          </div>
+        </article>
+
+        <!-- Tsomgo Pass -->
+        <article class="card-base pass-card">
+          <div class="pass-thumb thumb-bluegrey">
+            <svg class="pass-thumb-svg"><use href="#topo-pattern"/></svg>
+            <span class="status-pill status-open pass-thumb-pill">Open</span>
+          </div>
+          <div class="pass-body">
+            <h3 class="pass-name">Tsomgo Pass</h3>
+            <div class="pass-route">JN Marg · Sikkim</div>
+            <div class="pass-summit-info">3,753 m summit · 5 hr</div>
+            <div class="pass-permit">Permit: Permit</div>
+            <div class="pass-footer">Updated 4 hr ago</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DRIVE THEM ALL IN ONE TRIP BANNER -->
+  <section>
+    <div class="container">
+      <div class="banner-card">
+        <div>
+          <div class="banner-title">Drive them all in one trip</div>
+          <div class="banner-heading">Manali to Leh · 2 days · 5 passes</div>
+        </div>
+        <a href="index.html#routes" class="banner-btn">View route</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. COLLECTIONS FEATURING INDIA -->
+  <section id="collections">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2>Collections featuring India</h2>
+        </div>
+      </div>
+
+      <div class="three-col-grid">
+        <div class="card-base simple-card">
+          <div class="simple-card-title">Highest motorable passes</div>
+          <div class="simple-card-meta">Above 5,000 m · 6 passes</div>
+        </div>
+        <div class="card-base simple-card">
+          <div class="simple-card-title">Open all year</div>
+          <div class="simple-card-meta">Tunnels and low passes · 8 passes</div>
+        </div>
+        <div class="card-base simple-card">
+          <div class="simple-card-title">Permit required</div>
+          <div class="simple-card-meta">Inner Line and army permits · 9 passes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. GUIDES FOR THIS REGION -->
+  <section id="guides">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2>Guides for this region</h2>
+        </div>
+      </div>
+
+      <div class="two-col-grid">
+        <a href="#ladakh" class="card-base simple-card">
+          <div class="simple-card-title">Best time to drive Ladakh passes &rsaquo;</div>
+          <div class="simple-card-meta">Month by month opening windows</div>
+        </a>
+        <a href="#himachal-pradesh" class="card-base simple-card">
+          <div class="simple-card-title">Manali to Leh road conditions guide &rsaquo;</div>
+          <div class="simple-card-meta">Where closures happen and why</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. NEARBY COUNTRIES -->
+  <section id="nearby-countries">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2>Nearby countries</h2>
+        </div>
+      </div>
+
+      <div class="three-col-grid">
+        <a href="india.html" class="card-base simple-card">
+          <div class="simple-card-title">Nepal</div>
+          <div class="simple-card-meta">8 passes</div>
+        </a>
+        <a href="india.html" class="card-base simple-card">
+          <div class="simple-card-title">Bhutan</div>
+          <div class="simple-card-meta">4 passes</div>
+        </a>
+        <a href="india.html" class="card-base simple-card">
+          <div class="simple-card-title">Pakistan</div>
+          <div class="simple-card-meta">6 passes</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ ACCORDION -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2>Mountain passes in India: common questions</h2>
+        </div>
+      </div>
+
+      <div class="faq-container">
+        <!-- Question 1 -->
+        <details class="faq-item" open>
+          <summary class="faq-summary">Which is the highest motorable pass in India?</summary>
+          <div class="faq-content">
+            Chang La is the highest tracked pass in India, at about 5,360 m (17,585 ft).
+          </div>
+        </details>
+
+        <!-- Question 2 -->
+        <details class="faq-item">
+          <summary class="faq-summary">When is the best time to cross high passes in India?</summary>
+          <div class="faq-content">
+            June to September is the primary window for most high Himalayan passes in Ladakh and Himachal Pradesh. Outside these months, snow and ice typically cause seasonal closures.
+          </div>
+        </details>
+
+        <!-- Question 3 -->
+        <details class="faq-item">
+          <summary class="faq-summary">How often is pass status updated?</summary>
+          <div class="faq-content">
+            Statuses are refreshed typically every 5 to 60 minutes based on official Border Roads Organisation (BRO), police, and field transit reports.
+          </div>
+        </details>
+
+        <!-- Question 4 -->
+        <details class="faq-item">
+          <summary class="faq-summary">Do I need a permit?</summary>
+          <div class="faq-content">
+            Yes, passes near international borders (such as Chang La, Khardung La, and Nathu La) require Inner Line Permits (ILP) or Protected Area Permits (PAP) for tourists.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. GET ALERTS FOR PASSES OF INDIA -->
+  <section id="alerts-section">
+    <div class="container">
+      <div class="alerts-band">
+        <div>
+          <h3>Get alerts for the passes of India</h3>
+          <p>Pick your passes and we'll message you on Telegram, WhatsApp or email when the status changes.</p>
+        </div>
+        <button class="btn-create-alert" onclick="showToast('Alert preferences opened for India passes.')">Create an alert</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-col-brand">
+          <div class="brand-name">LiveRoadStatus</div>
+          <p>Live status of the world's high mountain passes. Sourced, timestamped and checked.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Explore</div>
+          <ul class="footer-links">
+            <li><a href="index.html#live-status">All passes</a></li>
+            <li><a href="#top-five">Pass map</a></li>
+            <li><a href="alaska.html">Alaska Passes (USA)</a></li>
+            <li><a href="index.html#open-this-month">Seasonal calendar</a></li>
+            <li><a href="index.html#routes">Routes</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Tools</div>
+          <ul class="footer-links">
+            <li><a href="#alerts-section">Alerts</a></li>
+            <li><a href="mailto:team@liveroadstatus.com?subject=Pass+Condition+Report">Report conditions</a></li>
+            <li><a href="#" onclick="showToast('Data sources: BRO, Police transit feeds, IMD.')">Data sources</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">LiveRoadStatus</div>
+          <ul class="footer-links">
+            <li><a href="#" onclick="showToast('LiveRoadStatus field guide v2.4')">About</a></li>
+            <li><a href="#" onclick="showToast('Contact: team@liveroadstatus.com')">Contact</a></li>
+            <li><a href="#" onclick="showToast('Privacy Policy: No user tracking.')">Privacy</a></li>
+            <li><a href="#" onclick="showToast('Terms: For navigational reference.')">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        Status is informational and conditions can change quickly. Always confirm with local authorities before travelling. Drive for the scenery, never for speed.  © 2026 LiveRoadStatus.
+      </div>
+    </div>
+  </footer>
+
+  <!-- NOTIFICATION TOAST -->
+  <div id="toast" class="toast-msg"></div>
+
+  <script>
+    // TOAST HELPER
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

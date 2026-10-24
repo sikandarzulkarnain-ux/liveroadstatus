@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Schiestelscharte Road Status & Conditions — LiveRoadStatus</title>
+  <meta name="description" content="Live Schiestelscharte road status, conditions, elevation (2022m/6634ft), weather & restrictions on us-pill, Carinthia.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.liveroadstatus.com/passes/schiestelscharte/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="place">
+  <meta property="og:site_name" content="LiveRoadStatus">
+  <meta property="og:title" content="Schiestelscharte Road Status & Conditions — LiveRoadStatus">
+  <meta property="og:description" content="Live Schiestelscharte road status, conditions, elevation (2022m/6634ft), weather & restrictions on us-pill, Carinthia.">
+  <meta property="og:url" content="https://www.liveroadstatus.com/passes/schiestelscharte/">
+  <meta property="og:image" content="https://www.liveroadstatus.com/homepage_bg.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Schiestelscharte Road Status & Conditions — LiveRoadStatus">
+  <meta name="twitter:description" content="Live Schiestelscharte road status, conditions, elevation (2022m/6634ft), weather & restrictions on us-pill, Carinthia.">
+  <meta name="twitter:image" content="https://www.liveroadstatus.com/homepage_bg.jpg">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Leaflet CSS for Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- JSON-LD Place & BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Place",
+        "name": "Schiestelscharte",
+        "description": "Highest point on the 35km Nockalm High Alpine Road traversing the Nockberge Biosphere Reserve. Seasonal winter closure from Nov to early May.",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 47.059,
+          "longitude": 13.372,
+          "elevation": "2022 m"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Carinthia",
+          "addressCountry": "Austria"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.liveroadstatus.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Austria", "item": "https://www.liveroadstatus.com/austria/" },
+          { "@type": "ListItem", "position": 3, "name": "Carinthia", "item": "https://www.liveroadstatus.com/austria//" },
+          { "@type": "ListItem", "position": 4, "name": "Schiestelscharte" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #1c1d1b;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #15803d;
+      --accent-hover: #166534;
+      --hero: #0d381e;
+      --hero-ink: #f0fdf4;
+      --hero-muted: #86efac;
+      --hero-line: #14532d;
+      --open: #15803d;
+      --open-bg: #dcfce7;
+      --restricted: #b45309;
+      --restricted-bg: #fef3c7;
+      --closed: #b91c1c;
+      --closed-bg: #fee2e2;
+      --unverified: #64748b;
+      --unverified-bg: #f1f5f9;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-main);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-nav {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      border-bottom: 1px solid var(--hero-line);
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .nav-brand .dot { width: 10px; height: 10px; background-color: #22c55e; border-radius: 50%; }
+    .nav-links { display: flex; gap: 20px; list-style: none; }
+    .nav-links a { color: var(--hero-muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    .nav-links a:hover { color: #ffffff; }
+
+    /* PASS HERO */
+    .pass-hero {
+      background-color: var(--hero);
+      background-image: linear-gradient(rgba(13, 56, 30, 0.88), rgba(13, 56, 30, 0.96)), url('/homepage_bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: var(--hero-ink);
+      padding: 48px 20px 40px;
+      border-bottom: 1px solid var(--hero-line);
+    }
+    .container { max-width: 1120px; margin: 0 auto; }
+    
+    .breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--hero-muted);
+      margin-bottom: 18px;
+      align-items: center;
+    }
+    .breadcrumbs a { color: var(--hero-muted); text-decoration: none; }
+    .breadcrumbs a:hover { color: #ffffff; text-decoration: underline; }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .pass-status-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .status-open { background: var(--open-bg); color: var(--open); border: 1px solid rgba(21,128,61,0.3); }
+    .status-restricted { background: var(--restricted-bg); color: var(--restricted); border: 1px solid rgba(180,83,9,0.3); }
+    .status-closed { background: var(--closed-bg); color: var(--closed); border: 1px solid rgba(185,28,28,0.3); }
+    .status-unverified { background: var(--unverified-bg); color: var(--unverified); border: 1px solid #cbd5e1; }
+
+    .pass-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .metric-item .val { font-size: 1.35rem; font-weight: 700; color: #ffffff; font-family: var(--font-serif); }
+    .metric-item .lbl { font-size: 0.82rem; color: var(--hero-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* CONTENT LAYOUT */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 36px;
+      padding: 48px 0;
+    }
+    @media (max-width: 860px) {
+      .content-grid { grid-template-columns: 1fr; }
+    }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+    .info-card h2 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+    .info-card p { color: #334155; margin-bottom: 16px; line-height: 1.7; }
+
+    .hazard-box {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 16px 20px;
+      border-radius: 6px;
+      margin: 20px 0;
+      color: #92400e;
+      font-size: 0.95rem;
+    }
+
+    /* INTERACTIVE MAP */
+    #pass-map {
+      width: 100%;
+      height: 380px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      margin-bottom: 16px;
+    }
+
+    .official-box {
+      background: var(--hero);
+      color: var(--hero-ink);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .official-box h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 8px; }
+    .official-box p { color: var(--hero-muted); font-size: 0.92rem; margin-bottom: 16px; }
+    .btn-official {
+      display: inline-block;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-official:hover { background: var(--accent-hover); }
+
+    .related-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .related-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .related-link:hover { border-color: var(--accent); background: #f8fafc; color: var(--accent); }
+
+    .disclaimer {
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      margin-top: 30px;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: var(--hero);
+      color: var(--hero-muted);
+      border-top: 1px solid var(--hero-line);
+      padding: 36px 20px;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 40px;
+    }
+    footer a { color: var(--hero-ink); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">
+          <img src="/logo.webp" alt="LiveRoadStatus Logo" width="28" height="28" style="border-radius:6px; object-fit:contain; display:inline-block;" />
+          <span>LiveRoadStatus</span>
+        </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#live-status">All Passes</a></li>
+          <li><a href="/country.html">Countries</a></li>
+          <li><a href="/about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="pass-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>&rsaquo;</span>
+          <a href="/austria/">Austria</a>
+          <span>&rsaquo;</span>
+          <a href="/austria/carinthia/">Carinthia</a>
+          <span>&rsaquo;</span>
+          <span aria-current="page">Schiestelscharte</span>
+        </nav>
+
+        <h1>Schiestelscharte Live Road Status &amp; Conditions</h1>
+        
+        <div class="pass-status-row">
+          <span class="status-badge status-unverified">⚪ STATUS UNVERIFIED</span>
+          <span style="color:var(--hero-muted); font-size:0.92rem;">&bull;</span>
+          <span style="color:var(--hero-muted); font-size:0.92rem;">Status unverified — awaiting live DOT feed</span>
+          <span style="color:var(--hero-muted); font-size:0.92rem;">&bull;</span>
+          <span style="color:var(--hero-muted); font-size:0.92rem;">Elevation: 2022 m (6634 ft)</span>
+        </div>
+
+        <div class="pass-metrics">
+          <div class="metric-item">
+            <div class="val">2022 m</div>
+            <div class="lbl">Summit Elevation</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">us-pill</div>
+            <div class="lbl">Primary Highway</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">Carinthia</div>
+            <div class="lbl">Region / State</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">Austria</div>
+            <div class="lbl">Country</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container content-grid">
+      <div>
+        <div class="info-card">
+          <h2>Pass Overview &amp; Driving Conditions</h2>
+          <p>Highest point on the 35km Nockalm High Alpine Road traversing the Nockberge Biosphere Reserve. Seasonal winter closure from Nov to early May.</p>
+          <div class="hazard-box">
+            <strong>⚠️ Alpine Driving Hazard Notice:</strong> High mountain passes are subject to rapid weather shifts, sudden freezing precipitation, dense fog, and black ice. Check weather forecasts and vehicle traction equipment before ascending.
+          </div>
+          
+          <h3 style="font-size:1.2rem; margin:24px 0 10px;">Seasonal Operating Window</h3>
+          <p>Seasonal opening late spring to late autumn; closed during winter snowpack.</p>
+
+          <h3 style="font-size:1.2rem; margin:24px 0 10px;">Winter Equipment &amp; Traction Rules</h3>
+          <p>Mandatory winter tires or snow chains applicable during declared winter storm periods.</p>
+
+          <h3 style="font-size:1.2rem; margin:24px 0 10px;">Nearest Fuel &amp; Services</h3>
+          <p>Summit regions feature limited emergency fuel and recovery assistance. Drivers should ensure minimum half a tank of fuel or 50% battery before commencing the alpine ascent. Cellular coverage may be intermittent.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>Interactive Mountain Pass Map</h2>
+          <div id="pass-map" role="region" aria-label="Pass location map"></div>
+          <p style="font-size:0.88rem; color:var(--muted);">Summit Coordinates: Latitude 47.059, Longitude 13.372. OpenStreetMap cartography.</p>
+        </div>
+
+        <div class="disclaimer">
+          <strong>Official Travel Disclaimer:</strong> Mountain pass road conditions change rapidly due to alpine snow, rockfall, and avalanche mitigation. Always confirm current status with local transportation authorities and law enforcement before travelling. LiveRoadStatus compiles official feeds and verified reports for navigational planning.
+        </div>
+      </div>
+
+      <aside>
+        <div class="official-box" style="margin-bottom:28px;">
+          <h3>Official Source</h3>
+          <p>Road status verified via <strong>ÖAMTC & ASFINAG Verkehrsauskunft</strong>.</p>
+          <a href="https://www.oeamtc.at/verkehrsservice/" target="_blank" rel="noopener noreferrer" class="btn-official">Visit Official Source &rsaquo;</a>
+        </div>
+
+        <div class="info-card">
+          <h3 style="font-family:var(--font-serif); font-size:1.25rem; margin-bottom:14px;">Related Passes in Austria</h3>
+          <ul class="related-list">
+            <li><a href="/passes/eisentalhhe/" class="related-link"><span>Eisentalhöhe</span><span style="font-size:0.85rem; color:var(--muted);">1545m</span></a></li><li><a href="/passes/flattnitzer-hhe/" class="related-link"><span>Flattnitzer Höhe</span><span style="font-size:0.85rem; color:var(--muted);">1395m</span></a></li><li><a href="/passes/gailbergsattel/" class="related-link"><span>Gailbergsattel</span><span style="font-size:0.85rem; color:var(--muted);">982m</span></a></li><li><a href="/passes/griffner-berg/" class="related-link"><span>Griffner Berg</span><span style="font-size:0.85rem; color:var(--muted);">1035m</span></a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 LiveRoadStatus. Real-time mountain pass conditions worldwide. <a href="/about.html">About</a> &bull; <a href="/privacy.html">Privacy Policy</a> &bull; <a href="/terms.html">Terms of Service</a> &bull; <a href="/contact.html">Contact</a></p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS for map -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof L !== 'undefined') {
+        var map = L.map('pass-map').setView([47.059, 13.372], 12);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        var statusColor = '#64748b';
+        var marker = L.circleMarker([47.059, 13.372], {
+          radius: 9,
+          fillColor: statusColor,
+          color: '#ffffff',
+          weight: 2,
+          opacity: 1,
+          fillOpacity: 0.95
+        }).addTo(map);
+
+        marker.bindPopup('<b>Schiestelscharte</b><br>Elevation: 2022 m<br>Status: UNVERIFIED').openPopup();
+      }
+    });
+  </script>
+</body>
+</html>

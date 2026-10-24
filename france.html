@@ -1,0 +1,536 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>France Mountain Passes &amp; State Driving Routes — LiveRoadStatus</title>
+  <meta name="description" content="Explore live road status, winter closures, webcams, and mountain pass updates across all states and regions in France.">
+  
+  <style>
+    /* CORE STYLES & COLOR SYSTEM */
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #15803d;
+      --accent-hover: #166534;
+      --accent-tint: #f0fdf4;
+      --hero: #0d381e;
+      --hero-ink: #ffffff;
+      --hero-muted: #bbf7d0;
+      --hero-line: #14532d;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --radius: 14px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #ffffff;
+        --card: #ffffff;
+        --ink: #0f172a;
+        --muted: #475569;
+        --line: #e2e8f0;
+        --accent: #15803d;
+        --accent-hover: #166534;
+        --hero: #0d381e;
+        --hero-ink: #ffffff;
+        --hero-muted: #bbf7d0;
+        --hero-line: #14532d;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: #dc2626;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--hero-ink); }
+    .btn-alert-report {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+      position: relative;
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(21, 128, 61, 0.4);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #bbf7d0;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #22c55e;
+    }
+
+    /* REGIONS CARDS GRID */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 980px) {
+      .region-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .region-grid { grid-template-columns: 1fr; }
+    }
+
+    .region-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .region-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+
+    .region-map-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--line);
+    }
+
+    .region-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .region-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .region-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .btn-view-region {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1rem;
+      background: var(--accent-tint);
+      color: var(--accent);
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .region-card:hover .btn-view-region {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      border-top: 1px solid var(--hero-line);
+      padding: 3.5rem 1.5rem 2.5rem;
+      margin-top: 4rem;
+    }
+  
+    /* ===== LRS: MOBILE MENU & OVERFLOW FIX ===== */
+    html, body { overflow-x: hidden !important; }
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: 1px solid var(--line, #e2e0d8);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      position: relative;
+      z-index: 300;
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink, #1c1d1b);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 760px) {
+      .hamburger-btn { display: flex !important; }
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--card, #ffffff);
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 28px !important;
+        z-index: 200;
+        font-size: 1.2rem;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-right .btn-alert { display: none; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="canonical" href="https://www.liveroadstatus.com/france/">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">FRANCE</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="#state-regions" class="nav-link">States &amp; Regions</a>
+        <button class="btn-alert-report" onclick="alert('Submit live conditions drawer')">Submit Conditions</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <a href="country.html">Country Directory</a>
+        <span>&rsaquo;</span>
+        <span>France</span>
+      </div>
+      <h1 class="hero-title">🇫🇷 France Mountain Passes &amp; State Driving Routes</h1>
+      <p class="hero-subtitle">
+        Explore real-time open or closed road status, winter closure schedules, webcams, and mountain pass updates across all 6 states &amp; alpine regions in France.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>Inforoute France & Bison Futé &bull; Updated Today &bull; 73 Passes Monitored</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container" id="state-regions">
+
+    <!-- INTERACTIVE MAP (Leaflet with OpenStreetMap) -->
+    <section class="france-interactive-map-sec" style="margin-bottom:40px;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+        <div>
+          <h2 style="font-family:var(--font-serif); font-size:1.8rem; color:var(--ink);">Interactive France Mountain Passes Map</h2>
+          <p style="color:var(--muted); font-size:0.95rem;">Live pass conditions across French Alps, Pyrenees, Jura, and Massif Central.</p>
+        </div>
+        <div style="display:flex; gap:12px; font-size:0.85rem; font-weight:700;">
+          <span style="color:#15803d;">● Open</span>
+          <span style="color:#b45309;">● Restricted</span>
+          <span style="color:#b91c1c;">● Closed</span>
+          <span style="color:#64748b;">● Unverified</span>
+        </div>
+      </div>
+
+      <div id="france-pass-map" style="width:100%; height:450px; border-radius:12px; border:1px solid var(--line,#e2e8f0); box-shadow:0 4px 20px rgba(0,0,0,0.06);"></div>
+      <p style="font-size:0.85rem; color:var(--muted); margin-top:8px;">Leaflet interactive map. Summit markers colored by real-time status. Click pins for pass elevation and route details.</p>
+    </section>
+  
+    <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;">States &amp; Regions in France</h2>
+    <p style="color:var(--muted); margin-bottom:2rem; font-size:0.95rem;">Select a state or regional mountain pass atlas below to view live road conditions and webcams.</p>
+
+    <div class="region-grid">
+      <!-- Grand Est & Vosges -->
+      <a href="grandest.html" class="region-card">
+        <div>
+          <img src="IMAGE/Grand Est Mountain Passes Atlas.png" alt="Grand Est & Vosges Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Grand Est & Vosges</h3>
+          <div class="region-meta">
+            <span><b>12</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,424 m (Grand Ballon)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Col de la Schlucht, Col du Bonhomme, Col du Ballon d'Alsace, Col de Grosse Pierre.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Grand Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Bourgogne-Franche-Comté -->
+      <a href="bourgogne.html" class="region-card">
+        <div>
+          <img src="IMAGE/Bourgogne-Franche-Comté Mountain Passes Map.png" alt="Bourgogne-Franche-Comté Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Bourgogne-Franche-Comté</h3>
+          <div class="region-meta">
+            <span><b>8</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,323 m (Col de la Faucille)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Col de la Faucille, Col de la Givrine, Col du Marchairuz, Col de la Croix de la Serra.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Bourgogne-Franche-Comté Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Nouvelle-Aquitaine -->
+      <a href="aquitaine.html" class="region-card">
+        <div>
+          <img src="IMAGE/Nouvelle-Aquitaine Pyrenees Passes Map.png" alt="Nouvelle-Aquitaine Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Nouvelle-Aquitaine</h3>
+          <div class="region-meta">
+            <span><b>12</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,760 m (Col de la Pierre St-Martin)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Col d'Aubisque, Col de Marie-Blanque, Col du Pourtalet, Col de Larrau, Col de Soudet.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Nouvelle-Aquitaine Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Occitanie & Pyrenees -->
+      <a href="occitanie.html" class="region-card">
+        <div>
+          <img src="IMAGE/Occitanie Mountain Passes Map.png" alt="Occitanie & Pyrenees Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Occitanie & Pyrenees</h3>
+          <div class="region-meta">
+            <span><b>11</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,115 m (Col du Tourmalet)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Col du Tourmalet, Col d'Aspin, Col de Peyresourde, Col du Portet, Hourquette d'Ancizan.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Occitanie Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Provence-Alpes-Côte d'Azur (PACA) -->
+      <a href="paca.html" class="region-card">
+        <div>
+          <img src="IMAGE/PACA Mountain Passes Atlas Map.png" alt="Provence-Alpes-Côte d'Azur (PACA) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Provence-Alpes-Côte d'Azur (PACA)</h3>
+          <div class="region-meta">
+            <span><b>16</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,802 m (Col de la Bonette)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Col de la Bonette, Col du Galibier, Col du Lautaret, Col d'Izoard, Col de Vars, Col de la Cayolle.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Provence-Alpes-Côte Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Auvergne-Rhône-Alpes -->
+      <a href="auvergne.html" class="region-card">
+        <div>
+          <img src="IMAGE/Auvergne-Rhône-Alpes Mountain Pass Atlas.png" alt="Auvergne-Rhône-Alpes Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Auvergne-Rhône-Alpes</h3>
+          <div class="region-meta">
+            <span><b>14</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,764 m (Col de l'Iseran)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Col de l'Iseran, Col de la Colombière, Col des Aravis, Col de Joux Plane, Col de la Madeleine.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Auvergne-Rhône-Alpes Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+      <div>&copy; 2026 LiveRoadStatus. Real-time mountain pass conditions in France.</div>
+      <div style="display:flex; gap:1rem;">
+        <a href="index.html" style="color:var(--hero-muted);">All Regions</a>
+        <a href="country.html" style="color:var(--hero-muted);">Country Directory</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof L !== 'undefined' && document.getElementById('france-pass-map')) {
+        var map = L.map('france-pass-map').setView([45.5, 4.5], 6);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        var francePasses = [{"id":"col-de-joux-plane","slug":"col-de-joux-plane","name":"Col de Joux Plane","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":45.287,"lng":6.996,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-de-l-iseran","slug":"col-de-l-iseran","name":"Col de l'Iseran","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":2764,"route_code":"D902","lat":45.4172,"lng":7.0308,"status":"closed","status_source_name":"Savoie-Route (Département de la Savoie)","status_source_url":"https://www.savoie-route.fr/","last_verified_at":"2026-10-23T10:51:48.065Z","seasonal_window":"Typically open mid-June to late October; closed during winter due to deep alpine snow.","winter_equipment_rule":"Closed in winter; summer mountain road requires winter tires if early snow occurs.","description":"Highest paved mountain pass in the European Alps located entirely within France, connecting the Tarentaise Valley (Val d'Isère) with the Maurienne Valley (Bonneval-sur-Arc)."},{"id":"col-de-liseran","slug":"col-de-liseran","name":"Col de l'Iseran","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":45.9845,"lng":5.826,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Seasonal opening late spring to late autumn; closed during winter snowpack.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-colombire","slug":"col-de-la-colombire","name":"Col de la Colombière","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":45.6035,"lng":6.078,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-cou","slug":"col-de-la-cou","name":"Col de la Cou","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":45.602,"lng":6.016,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-croix-fry","slug":"col-de-la-croix-fry","name":"Col de la Croix Fry","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":46.361,"lng":5.388,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-forclaz","slug":"col-de-la-forclaz","name":"Col de la Forclaz","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":45.533,"lng":7.164,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-madeleine","slug":"col-de-la-madeleine","name":"Col de la Madeleine","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":46.4435,"lng":6.798,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-ramaz","slug":"col-de-la-ramaz","name":"Col de la Ramaz","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":45.743,"lng":5.844,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-seigne","slug":"col-de-la-seigne","name":"Col de la Seigne","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":45.878,"lng":5.424,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-de-voza","slug":"col-de-voza","name":"Col de Voza","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":46.3205,"lng":5.714,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-des-aravis","slug":"col-des-aravis","name":"Col des Aravis","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":45.962,"lng":6.896,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-des-montets","slug":"col-des-montets","name":"Col des Montets","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":45.968,"lng":7.144,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-du-corbier","slug":"col-du-corbier","name":"Col du Corbier","country":"France","region":"Auvergne-Rhône-Alpes","elevation_m":1500,"route_code":"us-badge","lat":45.5015,"lng":5.862,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Auvergne-Rhône-Alpes, France. Live road conditions and winter rules monitored."},{"id":"col-de-beaune","slug":"col-de-beaune","name":"Col de Beaune","country":"France","region":"Bourgogne-Franche-Comté & Jura","elevation_m":480,"route_code":"D970 (Morvan Crest)","lat":47.025,"lng":4.835,"status":"open","status_source_name":"Inforoute 21 (Côte-d'Or) & Conseil Départemental","status_source_url":"https://www.inforoutefrance.fr/","last_verified_at":"2026-10-23T11:01:48.066Z","seasonal_window":"Open year-round with routine municipal and departmental salting.","winter_equipment_rule":"Winter equipment recommended during sudden freezing rain and black ice events.","description":"Historic low pass across the Côte d'Or limestone ridge linking the vineyards of Beaune with the high Morvan hills."},{"id":"col-de-la-bucle","slug":"col-de-la-bucle","name":"Col de la Bucle","country":"France","region":"Bourgogne-Franche-Comté & Jura","elevation_m":1500,"route_code":"us-badge","lat":46.034,"lng":5.872,"status":"unverified","status_source_name":"Inforoute 39 (CD39 Jura) & DIR Est","status_source_url":"https://www.inforoute39.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Bourgogne-Franche-Comté & Jura, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-croix-de-la-serra","slug":"col-de-la-croix-de-la-serra","name":"Col de la Croix de la Serra","country":"France","region":"Bourgogne-Franche-Comté & Jura","elevation_m":1500,"route_code":"us-badge","lat":46.172,"lng":5.576,"status":"unverified","status_source_name":"Inforoute 39 (CD39 Jura) & DIR Est","status_source_url":"https://www.inforoute39.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Bourgogne-Franche-Comté & Jura, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-cure","slug":"col-de-la-cure","name":"Col de la Cure","country":"France","region":"Bourgogne-Franche-Comté & Jura","elevation_m":1500,"route_code":"us-badge","lat":45.773,"lng":7.084,"status":"unverified","status_source_name":"Inforoute 39 (CD39 Jura) & DIR Est","status_source_url":"https://www.inforoute39.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Bourgogne-Franche-Comté & Jura, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-faucille","slug":"col-de-la-faucille","name":"Col de la Faucille","country":"France","region":"Bourgogne-Franche-Comté & Jura","elevation_m":1323,"route_code":"D1005 / N5","lat":46.3686,"lng":6.0194,"status":"open","status_source_name":"Inforoute 39 (CD39 Jura) & DIR Est","status_source_url":"https://www.inforoute39.fr/","last_verified_at":"2026-10-23T11:11:48.065Z","seasonal_window":"Maintained open year-round with priority snowplowing across the Jura crest.","winter_equipment_rule":"Loi Montagne: Winter tires (3PMSF) or snow chains mandatory Nov 1 – Mar 31.","description":"Strategic mountain pass in the High Jura crest connecting Gex (Ain) with Morez and Saint-Claude, famous for sweeping views of Lake Geneva and the Mont Blanc massif."},{"id":"col-de-la-joux","slug":"col-de-la-joux","name":"Col de la Joux","country":"France","region":"Bourgogne-Franche-Comté & Jura","elevation_m":1500,"route_code":"us-badge","lat":45.9485,"lng":6.338,"status":"unverified","status_source_name":"Inforoute 39 (CD39 Jura) & DIR Est","status_source_url":"https://www.inforoute39.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Bourgogne-Franche-Comté & Jura, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-savine","slug":"col-de-la-savine","name":"Col de la Savine","country":"France","region":"Bourgogne-Franche-Comté & Jura","elevation_m":1500,"route_code":"us-badge","lat":45.6965,"lng":5.922,"status":"unverified","status_source_name":"Inforoute 39 (CD39 Jura) & DIR Est","status_source_url":"https://www.inforoute39.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Bourgogne-Franche-Comté & Jura, France. Live road conditions and winter rules monitored."},{"id":"col-du-grand-ventron","slug":"col-du-grand-ventron","name":"Col du Grand Ventron","country":"France","region":"Bourgogne-Franche-Comté & Jura","elevation_m":1148,"route_code":"D43 / Route des Crêtes","lat":47.954,"lng":6.924,"status":"open","status_source_name":"Inforoute 70 (Haute-Saône) & Inforoute 88","status_source_url":"https://www.inforoutefrance.fr/","last_verified_at":"2026-10-23T11:06:48.066Z","seasonal_window":"Maintained open year-round with snow clearing; closed temporarily during high avalanche risk.","winter_equipment_rule":"Loi Montagne: Snow chains or 3PMSF winter tires mandatory Nov 1 – Mar 31.","description":"Border ridge pass connecting Haute-Saône (Franche-Comté) with the high Vosges mountains and the Grand Ventron nature reserve."},{"id":"col-du-pas-de-saint-martin","slug":"col-du-pas-de-saint-martin","name":"Col du Pas de Saint-Martin","country":"France","region":"Bourgogne-Franche-Comté & Jura","elevation_m":560,"route_code":"D177 (Parc du Morvan)","lat":47.112,"lng":4.152,"status":"open","status_source_name":"Inforoute 58 (Nièvre) / Parc du Morvan","status_source_url":"https://www.inforoutefrance.fr/","last_verified_at":"2026-10-23T10:46:48.066Z","seasonal_window":"Open year-round with winter road maintenance.","winter_equipment_rule":"Winter tires recommended from November to March due to dense Morvan fog and black ice.","description":"Scenic wooded pass in the heart of the Morvan Regional Nature Park connecting Saulieu with Château-Chinon."},{"id":"col-de-bramont","slug":"col-de-bramont","name":"Col de Bramont","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":45.059,"lng":5.572,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-de-bussang","slug":"col-de-bussang","name":"Col de Bussang","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":46.394,"lng":6.752,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-de-fouchy","slug":"col-de-fouchy","name":"Col de Fouchy","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":45.7925,"lng":5.89,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-de-grosse-pierre","slug":"col-de-grosse-pierre","name":"Col de Grosse Pierre","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":45.173,"lng":6.284,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-bresse","slug":"col-de-la-bresse","name":"Col de la Bresse","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":45.8405,"lng":5.874,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-croix-des-moinats","slug":"col-de-la-croix-des-moinats","name":"Col de la Croix des Moinats","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":45.1715,"lng":6.222,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-schlucht","slug":"col-de-la-schlucht","name":"Col de la Schlucht","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":45.3515,"lng":5.662,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-vierge","slug":"col-de-la-vierge","name":"Col de la Vierge","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":46.2875,"lng":6.35,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-des-feignes","slug":"col-des-feignes","name":"Col des Feignes","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":46.4405,"lng":6.674,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-du-ballon-dalsace","slug":"col-du-ballon-dalsace","name":"Col du Ballon d'Alsace","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":46.1885,"lng":6.258,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-du-bonhomme","slug":"col-du-bonhomme","name":"Col du Bonhomme","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":45.212,"lng":5.896,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-du-hohneck","slug":"col-du-hohneck","name":"Col du Hohneck","country":"France","region":"Grand Est & Vosges","elevation_m":1500,"route_code":"us-badge","lat":46.2845,"lng":6.226,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Grand Est & Vosges, France. Live road conditions and winter rules monitored."},{"id":"col-daubisque","slug":"col-daubisque","name":"Col d'Aubisque","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":46.346,"lng":6.768,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Seasonal opening late spring to late autumn; closed during winter snowpack.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-dichre","slug":"col-dichre","name":"Col d'Ichère","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":46.187,"lng":6.196,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-dosquich","slug":"col-dosquich","name":"Col d'Osquich","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":45.7955,"lng":6.014,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-de-bagargui-col-diraty","slug":"col-de-bagargui-col-diraty","name":"Col de Bagargui (Col d'Iraty)","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":46.151,"lng":6.708,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-de-burdincurutcheta","slug":"col-de-burdincurutcheta","name":"Col de Burdincurutcheta","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":45.8405,"lng":5.874,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-hourcre","slug":"col-de-la-hourcre","name":"Col de la Hourcère","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":45.5405,"lng":5.474,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-pierre-saint-martin","slug":"col-de-la-pierre-saint-martin","name":"Col de la Pierre-Saint-Martin","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":45.989,"lng":6.012,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-de-labays","slug":"col-de-labays","name":"Col de Labays","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":46.0655,"lng":7.174,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-de-larrau","slug":"col-de-larrau","name":"Col de Larrau","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":46.442,"lng":6.736,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-de-marie-blanque","slug":"col-de-marie-blanque","name":"Col de Marie-Blanque","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":46.118,"lng":5.344,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-de-soudet","slug":"col-de-soudet","name":"Col de Soudet","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":45.5315,"lng":7.102,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-du-pourtalet","slug":"col-du-pourtalet","name":"Col du Pourtalet","country":"France","region":"Nouvelle-Aquitaine","elevation_m":1500,"route_code":"us-badge","lat":45.2015,"lng":5.462,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Nouvelle-Aquitaine, France. Live road conditions and winter rules monitored."},{"id":"col-daspin","slug":"col-daspin","name":"Col d'Aspin","country":"France","region":"Occitanie & Pyrenees","elevation_m":1500,"route_code":"us-badge","lat":46.328,"lng":6.024,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Occitanie & Pyrenees, France. Live road conditions and winter rules monitored."},{"id":"col-de-la-mongie","slug":"col-de-la-mongie","name":"Col de la Mongie","country":"France","region":"Occitanie & Pyrenees","elevation_m":1500,"route_code":"us-badge","lat":45.722,"lng":6.976,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Occitanie & Pyrenees, France. Live road conditions and winter rules monitored."},{"id":"col-de-peyresourde","slug":"col-de-peyresourde","name":"Col de Peyresourde","country":"France","region":"Occitanie & Pyrenees","elevation_m":1500,"route_code":"us-badge","lat":45.431,"lng":6.948,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Occitanie & Pyrenees, France. Live road conditions and winter rules monitored."},{"id":"col-de-sencours","slug":"col-de-sencours","name":"Col de Sencours","country":"France","region":"Occitanie & Pyrenees","elevation_m":1500,"route_code":"us-badge","lat":45.9935,"lng":6.198,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Occitanie & Pyrenees, France. Live road conditions and winter rules monitored."},{"id":"col-de-soulor","slug":"col-de-soulor","name":"Col de Soulor","country":"France","region":"Occitanie & Pyrenees","elevation_m":1500,"route_code":"us-badge","lat":45.5255,"lng":6.854,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Occitanie & Pyrenees, France. Live road conditions and winter rules monitored."},{"id":"col-des-tentes","slug":"col-des-tentes","name":"Col des Tentes","country":"France","region":"Occitanie & Pyrenees","elevation_m":1500,"route_code":"us-badge","lat":45.4625,"lng":6.25,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Occitanie & Pyrenees, France. Live road conditions and winter rules monitored."},{"id":"col-du-portet","slug":"col-du-portet","name":"Col du Portet","country":"France","region":"Occitanie & Pyrenees","elevation_m":1500,"route_code":"us-badge","lat":45.7325,"lng":5.41,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Occitanie & Pyrenees, France. Live road conditions and winter rules monitored."},{"id":"col-du-soum-de-portet","slug":"col-du-soum-de-portet","name":"Col du Soum de Portet","country":"France","region":"Occitanie & Pyrenees","elevation_m":1500,"route_code":"us-badge","lat":45.569,"lng":6.652,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Occitanie & Pyrenees, France. Live road conditions and winter rules monitored."},{"id":"col-du-tourmalet","slug":"col-du-tourmalet","name":"Col du Tourmalet","country":"France","region":"Occitanie & Pyrenees","elevation_m":2115,"route_code":"D918","lat":42.9083,"lng":0.1458,"status":"closed","status_source_name":"Inforoute 65 (Hautes-Pyrénées)","status_source_url":"https://inforoute.haute-pyrenees.fr/","last_verified_at":"2026-10-23T11:06:48.066Z","seasonal_window":"Open seasonally from late May / early June until first heavy snow in late October.","winter_equipment_rule":"Closed in winter; ski slopes of Grand Tourmalet cross over the roadbed.","description":"The highest paved mountain pass in the French Pyrenees, linking Luz-Saint-Sauveur with Sainte-Marie-de-Campan."},{"id":"hourquette-dancizan","slug":"hourquette-dancizan","name":"Hourquette d'Ancizan","country":"France","region":"Occitanie & Pyrenees","elevation_m":1500,"route_code":"us-badge","lat":46.2815,"lng":6.102,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Occitanie & Pyrenees, France. Live road conditions and winter rules monitored."},{"id":"col-agnel-colle-dellagnello","slug":"col-agnel-colle-dellagnello","name":"Col Agnel (Colle dell'Agnello)","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":45.539,"lng":5.412,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-dizoard","slug":"col-dizoard","name":"Col d'Izoard","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":45.548,"lng":5.784,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-de-gleize","slug":"col-de-gleize","name":"Col de Gleize","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":46.1465,"lng":6.522,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-de-lchelle","slug":"col-de-lchelle","name":"Col de l'Échelle","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":46.091,"lng":6.228,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-de-la-bonette","slug":"col-de-la-bonette","name":"Col de la Bonette","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":46.022,"lng":5.376,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-de-la-cayolle","slug":"col-de-la-cayolle","name":"Col de la Cayolle","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":45.614,"lng":6.512,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-de-la-sentinelle","slug":"col-de-la-sentinelle","name":"Col de la Sentinelle","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":45.497,"lng":5.676,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-de-manse","slug":"col-de-manse","name":"Col de Manse","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":45.9425,"lng":6.09,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-de-moissire","slug":"col-de-moissire","name":"Col de Moissière","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":45.992,"lng":6.136,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-de-montgenvre","slug":"col-de-montgenvre","name":"Col de Montgenèvre","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":46.058,"lng":6.864,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-de-pontis","slug":"col-de-pontis","name":"Col de Pontis","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":46.295,"lng":6.66,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-de-prapic","slug":"col-de-prapic","name":"Col de Prapic","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":45.425,"lng":6.7,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-de-vars","slug":"col-de-vars","name":"Col de Vars","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":45.2945,"lng":5.306,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-du-galibier","slug":"col-du-galibier","name":"Col du Galibier","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":2642,"route_code":"D902","lat":45.0642,"lng":6.4078,"status":"closed","status_source_name":"Inforoute 05 (Hautes-Alpes) & Savoie Inforoute","status_source_url":"https://www.inforoute05.fr/","last_verified_at":"2026-10-23T10:56:48.065Z","seasonal_window":"Seasonal opening from early June to late October; closed in winter and spring.","winter_equipment_rule":"Closed in winter; chains or 3PMSF winter tires compulsory when pass is open in late autumn.","description":"Iconic Tour de France alpine col connecting Saint-Michel-de-Maurienne (Savoie) with Briançon and the Col du Lautaret (Hautes-Alpes)."},{"id":"col-du-lautaret","slug":"col-du-lautaret","name":"Col du Lautaret","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":45.3785,"lng":6.778,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."},{"id":"col-du-noyer","slug":"col-du-noyer","name":"Col du Noyer","country":"France","region":"Provence-Alpes-Côte d'Azur (PACA)","elevation_m":1500,"route_code":"us-badge","lat":45.257,"lng":5.756,"status":"unverified","status_source_name":"Bison Futé & Inforoute France","status_source_url":"https://www.bison-fute.gouv.fr/","last_verified_at":null,"seasonal_window":"Open year-round with routine winter maintenance; subject to temporary severe weather closures.","winter_equipment_rule":"Mandatory winter tires or snow chains applicable during declared winter storm periods.","description":"Scenic mountain pass in Provence-Alpes-Côte d'Azur (PACA), France. Live road conditions and winter rules monitored."}];
+        francePasses.forEach(function(p) {
+          var color = p.status === 'open' ? '#15803d' : p.status === 'restricted' ? '#b45309' : p.status === 'closed' ? '#b91c1c' : '#64748b';
+          var marker = L.circleMarker([p.lat, p.lng], {
+            radius: 8,
+            fillColor: color,
+            color: '#ffffff',
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.95
+          }).addTo(map);
+
+          marker.bindPopup('<b><a href="/passes/' + p.slug + '/">' + p.name + '</a></b><br>Elev: ' + p.elevation_m + ' m<br>Region: ' + p.region + '<br>Status: ' + p.status.toUpperCase());
+        });
+      }
+    });
+  </script>
+</body>
+</html>

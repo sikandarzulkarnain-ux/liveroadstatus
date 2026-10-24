@@ -1,0 +1,947 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Vestland Norway Mountain Passes Road Conditions (Sognefjellet, Aurlandsfjellet, Vikafjellet) — LiveRoadStatus</title>
+  
+  <!-- SEO PRIMARY META TAGS -->
+  <meta name="description" content="Live road status, open/closed updates, winter closures, webcams, and mountain pass conditions for Vestland &amp; Fjordland Norway including Sognefjellet, Aurlandsfjellet, Vikafjellet, Gaularfjellet, Hol Aurland, Tindevegen, Tyin Årdal, and Matre Bjordalen. Sourced live from Statens vegvesen 175.">
+  <meta name="keywords" content="Sognefjellet road conditions, Sognefjellet open or closed, Aurlandsfjellet road conditions, Aurlandsfjellet open or closed, Vikafjellet road conditions, Vikafjellet open or closed, Gaularfjellet road conditions, Gaularfjellet open or closed, Hol Aurland road conditions, Hol Aurland open or closed, Tindevegen road conditions, Tindevegen open or closed, Tyin Årdal road conditions, Tyin Årdal open or closed, Matre Bjordalen road conditions, Matre Bjordalen open or closed, Vestland mountain passes, Sogn og Fjordane road status">
+  <meta name="author" content="LiveRoadStatus">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.liveroadstatus.com/vestland.html">
+
+  <!-- OPEN GRAPH / SOCIAL -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LiveRoadStatus">
+  <meta property="og:title" content="Vestland &amp; Fjordland Norway Mountain Passes Live Road Status">
+  <meta property="og:description" content="Real-time road conditions for Sognefjellet, Aurlandsfjellet (Snow Road), Vikafjellet, Gaularfjellet, Hol-Aurland, Tindevegen, Tyin-Årdal, and Matre-Bjordalen. Statens vegvesen 175 feed.">
+  <meta property="og:url" content="https://www.liveroadstatus.com/vestland.html">
+  <meta property="og:image" content="IMAGE/Trollstighen pass image.png">
+  <meta property="og:locale" content="en_NO">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "LiveRoadStatus Home", "item": "https://www.liveroadstatus.com/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Country Directory", "item": "https://www.liveroadstatus.com/country.html" },
+          { "@type": "ListItem", "position": 3, "name": "Norway", "item": "https://www.liveroadstatus.com/norway.html" },
+          { "@type": "ListItem", "position": 4, "name": "Vestland Passes", "item": "https://www.liveroadstatus.com/vestland.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Aurlandsfjellet (Fv5627 Snow Road) open or closed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aurlandsfjellet (1,306 m), the historic Snow Road between Aurland and Lærdal, is a seasonal National Tourist Route. It is open during summer and autumn (June to October) and closed during winter. Traffic uses the world's longest road tunnel, the Lærdal Tunnel (E16, 24.5 km), as the year-round alternative."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the road conditions on Vikafjellet (Rv13)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Rv13 over Vikafjellet (986 m) connects Vik i Sogn with Voss. It is open year-round but frequently experiences convoy driving (kolonnekjøring) or temporary winter closures during severe storms and high winds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Gaularfjellet (Fv613) open or closed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Gaularfjellet (748 m) is open in summer and autumn, featuring the famous Utsikten viewpoint. It closes during deep winter snow pack between Eldalsosen and Vetlefjorden."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the status of Hol - Aurland (Fv50)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fv50 between Hol in Hallingdal and Aurland (1,160 m) is a key mountain route with multiple high tunnels. It remains open year-round with winter maintenance, serving as an alternative to E16 Filefjell."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #ba0c2f;
+      --accent-hover: #960924;
+      --accent-tint: #fef2f2;
+      --hero: #0f172a;
+      --hero-ink: #f8fafc;
+      --hero-muted: #94a3b8;
+      --hero-line: #1e293b;
+      --status-open-bg: #dcfce7;
+      --status-open-text: #14532d;
+      --status-warn-bg: #fef9c3;
+      --status-warn-text: #713f12;
+      --status-closed-bg: #fee2e2;
+      --status-closed-text: #7f1d1d;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--hero-ink); }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(186, 12, 47, 0.25);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #fca5a5;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #ef4444;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ef4444;
+    }
+
+    /* PASS CARDS GRID */
+    .passes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 640px) {
+      .passes-grid { grid-template-columns: 1fr; }
+    }
+
+    .pass-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .pass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+    .pass-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .pass-title-group h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .pass-hwy {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .status-open { background: var(--status-open-bg); color: var(--status-open-text); }
+    .status-warn { background: var(--status-warn-bg); color: var(--status-warn-text); }
+    .status-closed { background: var(--status-closed-bg); color: var(--status-closed-text); }
+
+    .pass-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.75rem;
+    }
+    .pass-info-text {
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .btn-detail {
+      width: 100%;
+      background: var(--accent-tint);
+      color: var(--accent);
+      border: 1px solid rgba(186, 12, 47, 0.2);
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .pass-card:hover .btn-detail {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* DIRECTORY TABLE */
+    .table-container {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3.5rem;
+      overflow-x: auto;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.925rem;
+    }
+    .data-table th, .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .data-table th {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--ink);
+      background: #f8fafc;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* FAQ ACCORDION */
+    .faq-section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3.5rem;
+    }
+    .faq-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      padding: 0 1.25rem 1.25rem;
+      color: var(--muted);
+      font-size: 0.925rem;
+      display: none;
+    }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+    /* MODAL STYLES */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      padding: 2rem;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+    }
+    .modal-close:hover { background: #e2e8f0; }
+
+    /* FOOTER */
+    .site-footer {
+      background-color: var(--hero);
+      color: var(--hero-muted);
+      padding: 3.5rem 1.5rem 2.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--hero-line);
+      text-align: center;
+      font-size: 0.875rem;
+    }
+    .site-footer a { color: var(--hero-muted); text-decoration: none; }
+    .site-footer a:hover { color: var(--hero-ink); }
+  
+    /* ===== LRS: MOBILE MENU & OVERFLOW FIX ===== */
+    html, body { overflow-x: hidden !important; }
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: 1px solid var(--line, #e2e0d8);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      position: relative;
+      z-index: 300;
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink, #1c1d1b);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 760px) {
+      .hamburger-btn { display: flex !important; }
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--card, #ffffff);
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 28px !important;
+        z-index: 200;
+        font-size: 1.2rem;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-right .btn-alert { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">VESTLAND NORWAY</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="norway.html" class="nav-link">Norway Hub</a>
+        <a href="vestland.html" class="nav-link active">Vestland</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <a href="country.html">Country Directory</a>
+        <span>&rsaquo;</span>
+        <a href="norway.html">Norway</a>
+        <span>&rsaquo;</span>
+        <span>Vestland Passes</span>
+      </div>
+      <h1 class="hero-title">🇳🇴 Vestland &amp; Fjordland Mountain Passes</h1>
+      <p class="hero-subtitle">
+        Live road status, webcams, winter closures, and mountain pass updates across Sogn og Fjordane, Hordaland, Aurland, Lærdal, and Voss. Sourced live from Statens vegvesen 175.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>Statens vegvesen 175 &amp; Vestland Fylkeskommune &bull; Updated Today &bull; 12 Passes Monitored</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;">Vestland Mountain Passes Live Status</h2>
+    <p style="color:var(--muted); margin-bottom:2rem; font-size:0.95rem;">Select any pass below for detailed road conditions, winter closure schedules, and mountain webcams.</p>
+
+    <!-- PASS CARDS GRID -->
+    <div class="passes-grid">
+
+      <!-- 1. Sognefjellet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Sognefjellet</h3>
+              <div class="pass-hwy">Fv55 • Gaupne to Lom</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,434 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Sogn / Jotunheimen</b></span>
+          </div>
+          <p class="pass-info-text">
+            Northern Europe's highest mountain pass connecting Sognefjord to Lom. Monitored for autumn night closures and winter snowpack accumulation.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Sognefjellet', 'Fv55', '1,434 m', 'Sogn og Fjordane / Lom', 'OPEN', 'Dry tarmac across summit. Winter night closures enter effect November 1. Winter tires mandatory.', 'Statens vegvesen 175 Feed', '1,434 m High Summit Station', 'https://www.vegvesen.no/')">
+          <span>View Sognefjellet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 2. Aurlandsfjellet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Aurlandsfjellet</h3>
+              <div class="pass-hwy">Fv5627 • Aurland to Lærdal (Snow Road)</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,306 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Aurland / Lærdal</b></span>
+          </div>
+          <p class="pass-info-text">
+            The famous "Snow Road" (Snøvegen) National Tourist Route overlooking Stegastein view point. Open June–October; closed in winter (Lærdal Tunnel used as year-round alternative).
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Aurlandsfjellet (Snow Road)', 'Fv5627', '1,306 m', 'Aurland to Lærdal', 'OPEN', 'Road open over mountain. Stegastein viewpoint accessible. Winter closure active Nov-May.', 'Statens vegvesen & Nasjonale Turistveger', 'Stegastein Viewpoint Lookout', 'https://www.vegvesen.no/')">
+          <span>View Aurlandsfjellet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 3. Vikafjellet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Vikafjellet</h3>
+              <div class="pass-hwy">Rv13 • Vik i Sogn to Voss</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>986 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Sogn / Voss</b></span>
+          </div>
+          <p class="pass-info-text">
+            Crucial mountain link between Vik i Sogn and Voss. High wind exposure leads to winter convoy driving (kolonnekjøring) during blizzards.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Vikafjellet', 'Rv13', '986 m', 'Vik i Sogn to Voss', 'OPEN', 'Clear driving conditions. Subject to sudden convoy driving (kolonnekjøring) during winter gales.', 'Statens vegvesen 175', 'Vikafjell Tunnel & Summit Gate', 'https://www.vegvesen.no/')">
+          <span>View Vikafjellet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 4. Gaularfjellet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Gaularfjellet</h3>
+              <div class="pass-hwy">Fv613 • Dragsvik to Eldalsosen</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>748 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Sunnfjord / Sogn</b></span>
+          </div>
+          <p class="pass-info-text">
+            National Tourist Route featuring dramatic hairpin turns and Utsikten architecture platform. Closed during winter snow season.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Gaularfjellet', 'Fv613', '748 m', 'Dragsvik to Eldalsosen', 'OPEN', 'Road open. Utsikten viewing platform open to visitors.', 'Nasjonale Turistveger & Vegvesen', 'Utsikten Architecture Viewpoint', 'https://www.vegvesen.no/')">
+          <span>View Gaularfjellet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 5. Hol – Aurland -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Hol – Aurland</h3>
+              <div class="pass-hwy">Fv50 • Hol to Vassbygdi / Aurland</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,160 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Hallingdal / Aurland</b></span>
+          </div>
+          <p class="pass-info-text">
+            High mountain road traversing hydro lakes and narrow tunnels. Year-round alternative route between Hallingdal and Sognefjord.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Hol – Aurland', 'Fv50', '1,160 m', 'Hol to Aurland', 'OPEN', 'Open for normal traffic. Multiple unlit tunnels require low beams.', 'Statens vegvesen 175', 'Vestredalsvatnet Hydro Pass', 'https://www.vegvesen.no/')">
+          <span>View Hol-Aurland Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 6. Tindevegen -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Tindevegen</h3>
+              <div class="pass-hwy">Toll Road • Turtagrø to Øvre Årdal</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,210 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Jotunheimen / Årdal</b></span>
+          </div>
+          <p class="pass-info-text">
+            "Shortcut through the Peaks" connecting Sognefjellet (Fv55) with Årdal. High alpine panorama along Hurrungane peak range.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Tindevegen', 'Toll Road', '1,210 m', 'Turtagrø to Øvre Årdal', 'OPEN', 'Clear mountain road. Card toll barrier active. Closed in winter snow.', 'Tindevegen AS', 'Hurrungane Mountain Panorama', 'https://www.tindevegen.no/')">
+          <span>View Tindevegen Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 7. Tyin – Årdal -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Tyin – Årdal</h3>
+              <div class="pass-hwy">Fv53 • Tyinkrysset to Årdalstangen</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,085 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Valdres / Årdal</b></span>
+          </div>
+          <p class="pass-info-text">
+            High mountain pass linking Tyin plateau to Årdalsfjord. Features mountain tunnels and avalanche control gates.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Tyin – Årdal', 'Fv53', '1,085 m', 'Tyinkrysset to Årdalstangen', 'OPEN', 'Normal traffic flow. Monitored for sudden winter icing near mountain tunnels.', 'Statens vegvesen 175', 'Tyin Summit & Tunnel Entrances', 'https://www.vegvesen.no/')">
+          <span>View Tyin-Årdal Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 8. Matre – Bjordalen -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Matre – Bjordalen</h3>
+              <div class="pass-hwy">Fv5442 • Matre to Ortnevik / Bjordal</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>600 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Masfjorden / Høyanger</b></span>
+          </div>
+          <p class="pass-info-text">
+            Stordalen mountain road connecting Matre in Masfjorden over the ridge to Bjordalen / Sognefjord. Monitored for landslide and winter ice risk.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Matre – Bjordalen', 'Fv5442', '600 m', 'Matre to Bjordal', 'OPEN', 'Road open. Narrow sections require careful passing.', 'Statens vegvesen & Vestland Fylke', 'Stordalen Mountain Crossing', 'https://www.vegvesen.no/')">
+          <span>View Matre-Bjordalen Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIRECTORY SUMMARY TABLE -->
+    <div class="table-container">
+      <h2 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:0.5rem;">Vestland Passes Overview Table</h2>
+      <p style="color:var(--muted); font-size:0.925rem; margin-bottom:1.5rem;">Quick reference for elevation, highway designation, and current road status.</p>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Pass / Route Name</th>
+            <th>Highway</th>
+            <th>Elevation</th>
+            <th>Region</th>
+            <th>Status</th>
+            <th>Winter Mandates</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Sognefjellet</b></td>
+            <td>Fv55</td>
+            <td>1,434 m</td>
+            <td>Sogn / Lom</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Winter tires mandatory Oct 16–Apr 30</td>
+          </tr>
+          <tr>
+            <td><b>Aurlandsfjellet</b></td>
+            <td>Fv5627</td>
+            <td>1,306 m</td>
+            <td>Aurland / Lærdal</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Closed in winter (Lærdal tunnel alternate)</td>
+          </tr>
+          <tr>
+            <td><b>Tindevegen</b></td>
+            <td>Toll Road</td>
+            <td>1,210 m</td>
+            <td>Turtagrø / Årdal</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Toll barrier active; summer only</td>
+          </tr>
+          <tr>
+            <td><b>Hol – Aurland</b></td>
+            <td>Fv50</td>
+            <td>1,160 m</td>
+            <td>Hallingdal / Aurland</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Year-round open corridor</td>
+          </tr>
+          <tr>
+            <td><b>Tyin – Årdal</b></td>
+            <td>Fv53</td>
+            <td>1,085 m</td>
+            <td>Valdres / Årdal</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Tunnel entrance icing risk</td>
+          </tr>
+          <tr>
+            <td><b>Vikafjellet</b></td>
+            <td>Rv13</td>
+            <td>986 m</td>
+            <td>Vik i Sogn / Voss</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Convoy driving (kolonnekjøring) in blizzards</td>
+          </tr>
+          <tr>
+            <td><b>Gaularfjellet</b></td>
+            <td>Fv613</td>
+            <td>748 m</td>
+            <td>Sunnfjord / Sogn</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Closed during deep winter snow</td>
+          </tr>
+          <tr>
+            <td><b>Matre – Bjordalen</b></td>
+            <td>Fv5442</td>
+            <td>600 m</td>
+            <td>Masfjorden / Høyanger</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Narrow fjord mountain road</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="faq-section">
+      <h2 class="faq-title">Frequently Asked Questions — Vestland Passes</h2>
+      
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What is the year-round alternative to Aurlandsfjellet (Fv5627)?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          When Aurlandsfjellet (Snow Road) is closed for winter, drivers use the Lærdal Tunnel (E16). At 24.5 km, it is the world's longest road tunnel and remains open 24/7 year-round.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What does "Kolonnekjøring" mean on Vikafjellet (Rv13)?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Kolonnekjøring (convoy driving) is used by Statens vegvesen during severe winter storms. Vehicles wait at a barrier and follow a heavy snowplow in small escorted convoys across the mountain summit.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Is Tindevegen open to caravans and motorhomes?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Tindevegen is open to cars, motorcycles, and small motorhomes. Heavy vehicles over 10 meters long or with trailers over 2.5 meters wide are discouraged due to narrow hairpin sections.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How can I check real-time road conditions for Vestland passes?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          LiveRoadStatus aggregates real-time data from Statens vegvesen 175 (Vegvesen Trafikk). You can also call Vegvesen 175 (or +47 815 48 000 internationally) for emergency road updates.
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- INTERACTIVE PASS MODAL -->
+  <div class="modal-overlay" id="passModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closePassModal()">&times;</button>
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+        <span class="status-badge status-open" id="mStatus">&bull; OPEN</span>
+        <span style="font-size:0.85rem; color:var(--muted);" id="mHwy">Fv5627</span>
+      </div>
+      <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;" id="mTitle">Aurlandsfjellet</h2>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1.25rem;" id="mRegion">Elevation: 1,306 m &bull; Region: Aurland / Lærdal</p>
+      
+      <div style="background:#f8fafc; border:1px solid var(--line); border-radius:10px; padding:1.25rem; margin-bottom:1.25rem;">
+        <h4 style="font-size:0.95rem; font-weight:700; margin-bottom:0.4rem; color:var(--ink);">Current Road Condition Report</h4>
+        <p style="font-size:0.9rem; color:var(--ink);" id="mCondition">Road open. Stegastein viewpoint accessible. Winter closure active Nov-May.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; font-size:0.88rem;">
+        <div style="border:1px solid var(--line); padding:0.85rem; border-radius:8px;">
+          <div style="color:var(--muted); font-size:0.78rem; font-weight:600;">OFFICIAL SOURCE</div>
+          <div style="font-weight:700; color:var(--ink);" id="mSource">Statens vegvesen 175</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:0.85rem; border-radius:8px;">
+          <div style="color:var(--muted); font-size:0.78rem; font-weight:600;">KEY LANDMARK</div>
+          <div style="font-weight:700; color:var(--ink);" id="mLandmark">Stegastein Viewpoint</div>
+        </div>
+      </div>
+
+      <a id="mLink" href="https://www.vegvesen.no/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; background:var(--accent); color:#fff; padding:0.75rem; border-radius:8px; font-weight:700; text-decoration:none;">
+        <span>Open Statens vegvesen Official 175 Feed</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2026 LiveRoadStatus. Sourced live from Statens vegvesen 175 &amp; Vestland Fylkeskommune.</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="country.html">Country Directory</a> &bull; <a href="norway.html">Norway Hub</a> &bull; <a href="sitemap.xml">Sitemap</a></p>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('active');
+    }
+
+    function openPassModal(title, hwy, elev, region, status, condition, source, landmark, link) {
+      document.getElementById('mTitle').innerText = title;
+      document.getElementById('mHwy').innerText = hwy;
+      document.getElementById('mRegion').innerText = 'Elevation: ' + elev + ' • Region: ' + region;
+      document.getElementById('mStatus').innerText = '• ' + status;
+      document.getElementById('mCondition').innerText = condition;
+      document.getElementById('mSource').innerText = source;
+      document.getElementById('mLandmark').innerText = landmark;
+      document.getElementById('mLink').href = link;
+      document.getElementById('passModal').style.display = 'flex';
+    }
+
+    function closePassModal() {
+      document.getElementById('passModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('passModal');
+      if (event.target === modal) {
+        closePassModal();
+      }
+    };
+  </script>
+</body>
+</html>

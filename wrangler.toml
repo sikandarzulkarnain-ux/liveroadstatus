@@ -1,0 +1,12 @@
+﻿name = "LiveRoadStatus"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-07-21"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "LiveRoadStatus-db"
+database_id = "4745e0ab-a5e0-48ce-b08a-b6c3bb38f179"
+
+[vars]
+ADMIN_SECRET = "admin123"
+WSDOT_API_ACCESS_CODE = ""

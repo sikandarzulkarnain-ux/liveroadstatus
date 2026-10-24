@@ -1,0 +1,825 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Arica y Parinacota Chile Mountain Passes &amp; Bolivia Border Status (Paso Chungará, Visviri, Colchane) — LiveRoadStatus</title>
+  
+  <!-- SEO PRIMARY META TAGS -->
+  <meta name="description" content="Live road conditions and border crossing status for Arica y Parinacota Chile mountain passes including Paso Chungará – Tambo Quemado (4,520 m), Paso Visviri (4,175 m), Paso Ancomarca (4,700 m), Paso Colchane – Pisiga (3,715 m), Cariquima, and Isluga highland routes. Sourced live from Pasos Fronterizos Chile.">
+  <meta name="keywords" content="Paso Chungará Tambo Quemado road conditions, Paso Chungará Tambo Quemado open or closed, Tambo Quemado road conditions, Tambo Quemado border crossing status, Paso Visviri road conditions, Paso Visviri open or closed, Visviri border crossing status, Paso Ancomarca road conditions, Ancomarca road conditions, Paso Colchane road conditions, Colchane road conditions, Colchane Bolivia border crossing status, Paso Colchane Pisiga road conditions, Paso Colchane Pisiga open or closed, Colchane Pisiga border crossing status, Colchane Pisiga road status, Cariquima road conditions, Cariquima mountain road conditions, Cariquima Bolivia border crossing, Isluga road conditions, Isluga highland road conditions, Isluga Bolivia border crossing, Arica y Parinacota mountain passes, Chile Bolivia border status">
+  <meta name="author" content="LiveRoadStatus">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.liveroadstatus.com/chile/arica">
+
+  <!-- OPEN GRAPH / SOCIAL -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LiveRoadStatus">
+  <meta property="og:title" content="Arica y Parinacota Chile Mountain Passes &amp; Bolivia Border Status">
+  <meta property="og:description" content="Real-time road and border status for high Andean passes: Paso Chungará – Tambo Quemado (4,520 m), Paso Visviri (4,175 m), Paso Ancomarca (4,700 m), and Paso Colchane (3,715 m). Pasos Fronterizos Chile feed.">
+  <meta property="og:url" content="https://www.liveroadstatus.com/chile/arica">
+  <meta property="og:image" content="IMAGE/Arica y Parinacota Chile Mountain Passes Map.jpg">
+  <meta property="og:locale" content="es_CL">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "LiveRoadStatus Home", "item": "https://www.liveroadstatus.com/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Country Directory", "item": "https://www.liveroadstatus.com/country.html" },
+          { "@type": "ListItem", "position": 3, "name": "Chile & Andes", "item": "https://www.liveroadstatus.com/chile.html" },
+          { "@type": "ListItem", "position": 4, "name": "Arica y Parinacota Passes", "item": "https://www.liveroadstatus.com/arica.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Paso Chungará – Tambo Quemado border crossing open or closed today?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Paso Chungará – Tambo Quemado (4,520 m) on Ruta CH-11 connects Arica (Chile) with La Paz & Oruro (Bolivia). It is open daily for cargo, buses, and passenger vehicles, but temporary closures occur during high-altitude winter snowstorms (June–September) and Altiplanic winter rain/snow (Jan–March)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the border hours and road conditions at Paso Visviri?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Paso Visviri (4,175 m) is the northernmost international pass of Chile, located near the tripartite border with Bolivia and Peru. The border crossing operates daily subject to weather conditions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Paso Colchane – Pisiga open or closed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Paso Colchane – Pisiga (3,715 m) on Ruta CH-15 connects Iquique/Colchane with Oruro (Bolivia). It is a major commercial border crossing open year-round, with occasional closures during severe altiplanic weather."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #d97706;
+      --accent-hover: #b45309;
+      --accent-tint: #fffbeb;
+      --hero: #0f172a;
+      --hero-ink: #f8fafc;
+      --hero-muted: #94a3b8;
+      --hero-line: #1e293b;
+      --status-open-bg: #dcfce7;
+      --status-open-text: #14532d;
+      --status-warn-bg: #fef9c3;
+      --status-warn-text: #713f12;
+      --status-closed-bg: #fee2e2;
+      --status-closed-text: #7f1d1d;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--hero-ink); }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(217, 119, 6, 0.25);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #fde68a;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #f59e0b;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #f59e0b;
+    }
+
+    /* ATLAS MAP DISPLAY CARD */
+    .atlas-map-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+    }
+    .atlas-map-img {
+      width: 100%;
+      max-height: 580px;
+      object-fit: contain;
+      border-radius: 10px;
+      display: block;
+      background: #0f172a;
+    }
+    .atlas-caption {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* PASS CARDS GRID */
+    .passes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 640px) {
+      .passes-grid { grid-template-columns: 1fr; }
+    }
+
+    .pass-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .pass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+    .pass-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .pass-title-group h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .pass-hwy {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .status-open { background: var(--status-open-bg); color: var(--status-open-text); }
+    .status-warn { background: var(--status-warn-bg); color: var(--status-warn-text); }
+    .status-closed { background: var(--status-closed-bg); color: var(--status-closed-text); }
+
+    .pass-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.75rem;
+    }
+    .pass-info-text {
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .btn-detail {
+      width: 100%;
+      background: var(--accent-tint);
+      color: var(--accent);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .pass-card:hover .btn-detail {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* DIRECTORY TABLE */
+    .table-container {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3.5rem;
+      overflow-x: auto;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.925rem;
+    }
+    .data-table th, .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .data-table th {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--ink);
+      background: #f8fafc;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* FAQ ACCORDION */
+    .faq-section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3.5rem;
+    }
+    .faq-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      padding: 0 1.25rem 1.25rem;
+      color: var(--muted);
+      font-size: 0.925rem;
+      display: none;
+    }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+    /* MODAL STYLES */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      padding: 2rem;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+    }
+    .modal-close:hover { background: #e2e8f0; }
+
+    /* FOOTER */
+    .site-footer {
+      background-color: var(--hero);
+      color: var(--hero-muted);
+      padding: 3.5rem 1.5rem 2.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--hero-line);
+      text-align: center;
+      font-size: 0.875rem;
+    }
+    .site-footer a { color: var(--hero-muted); text-decoration: none; }
+    .site-footer a:hover { color: var(--hero-ink); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">ARICA Y PARINACOTA</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="chile.html" class="nav-link">Chile Hub</a>
+        <a href="arica.html" class="nav-link active">Arica y Parinacota</a>
+        <a href="atacama.html" class="nav-link">Atacama Passes</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <a href="country.html">Country Directory</a>
+        <span>&rsaquo;</span>
+        <a href="chile.html">Chile &amp; Andes</a>
+        <span>&rsaquo;</span>
+        <span>Arica y Parinacota Passes</span>
+      </div>
+      <h1 class="hero-title">🇨🇱 Arica y Parinacota High Andean Passes (Chile – Bolivia Border)</h1>
+      <p class="hero-subtitle">
+        Real-time border status, altiplanic weather reports, road conditions, and mountain pass updates for Paso Chungará – Tambo Quemado, Paso Visviri, Paso Ancomarca, and Paso Colchane. Sourced live from Pasos Fronterizos Chile.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>Pasos Fronterizos Chile &amp; U.S.T. / MOP &bull; Updated Today &bull; 4 Border Passes Monitored</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <!-- ATLAS MAP CARD -->
+    <div class="atlas-map-card">
+      <img src="IMAGE/Arica y Parinacota Chile Mountain Passes Map.jpg" alt="Arica y Parinacota Chile Mountain Passes Atlas Map" class="atlas-map-img">
+      <div class="atlas-caption">
+        <span><b>Arica y Parinacota Mountain Pass Atlas:</b> Paso Chungará – Tambo Quemado, Visviri, Ancomarca &amp; Colchane.</span>
+        <span>Elevation range: 3,715 m – 4,700 m (High Andes / Altiplano)</span>
+      </div>
+    </div>
+
+    <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;">Arica y Parinacota Passes Live Status</h2>
+    <p style="color:var(--muted); margin-bottom:2rem; font-size:0.95rem;">Select any pass below for detailed road conditions, border customs hours, and altiplanic weather alerts.</p>
+
+    <!-- PASS CARDS GRID -->
+    <div class="passes-grid">
+
+      <!-- 1. Paso Chungará – Tambo Quemado -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Paso Chungará – Tambo Quemado</h3>
+              <div class="pass-hwy">Ruta CH-11 • Arica to La Paz / Oruro</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>4,520 m</b></span>
+            <span>&bull;</span>
+            <span>Border: <b>Chile – Bolivia</b></span>
+          </div>
+          <p class="pass-info-text">
+            Premier high-altitude international corridor connecting Arica with Tambo Quemado (Bolivia) through Lauca National Park near Chungará Lake &amp; Parinacota Volcano. Open daily subject to altiplanic storms.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Paso Chungará – Tambo Quemado', 'Ruta CH-11', '4,520 m', 'Chile – Bolivia Border (Arica to La Paz)', 'OPEN', 'Paved highway open for all vehicles. High altitude headwinds & snow alerts active during Altiplanic winter (Jan-Mar) and winter storms (Jun-Sep).', 'Pasos Fronterizos Chile (MOP / Carabineros)', 'Lago Chungará & Parinacota Volcano', 'https://www.pasosfronterizos.gov.cl/')">
+          <span>View Chungará – Tambo Quemado Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 2. Paso Visviri -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Paso Visviri</h3>
+              <div class="pass-hwy">Ruta CH-11 Extension • Visviri Border</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>4,175 m</b></span>
+            <span>&bull;</span>
+            <span>Border: <b>Chile – Bolivia</b></span>
+          </div>
+          <p class="pass-info-text">
+            Northernmost international pass of Chile located near the tripartite border point of Chile, Peru, and Bolivia. Open daily for passenger traffic and local trade.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Paso Visviri', 'Ruta CH-11 Extension', '4,175 m', 'Visviri (Chile) to Charaña (Bolivia)', 'OPEN', 'Border open. Operating schedule 08:00–20:00 hrs. Cold temperatures & high altitude conditions.', 'Pasos Fronterizos Chile & PDI', 'Visviri Tripartite Border Junction', 'https://www.pasosfronterizos.gov.cl/')">
+          <span>View Paso Visviri Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 3. Paso Ancomarca -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Paso Ancomarca</h3>
+              <div class="pass-hwy">Unpaved Secondary Road • General Lagos</div>
+            </div>
+            <span class="status-badge status-warn">&bull; CAUTION / SEASONAL</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>4,700 m</b></span>
+            <span>&bull;</span>
+            <span>Border: <b>Chile – Bolivia</b></span>
+          </div>
+          <p class="pass-info-text">
+            Extremely remote high Andean crossing at 4,700 m altitude. Unpaved secondary gravel road; generally closed or restricted during winter snowpack and heavy summer rains.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Paso Ancomarca', 'Unpaved Secondary Road', '4,700 m', 'Ancomarca High Andean Area', 'CAUTION / SEASONAL', 'Unpaved gravel road. 4x4 vehicles strongly recommended. Closed during winter snow and altiplanic storm events.', 'Carabineros de Chile & MOP Arica', 'Ancomarca High Plateau & Volcano View', 'https://www.pasosfronterizos.gov.cl/')">
+          <span>View Paso Ancomarca Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 4. Paso Colchane – Pisiga -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Paso Colchane – Pisiga</h3>
+              <div class="pass-hwy">Ruta CH-15 • Colchane to Oruro / Pisiga</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>3,715 m</b></span>
+            <span>&bull;</span>
+            <span>Border: <b>Chile – Bolivia</b></span>
+          </div>
+          <p class="pass-info-text">
+            Major international commercial border pass connecting Iquique and Colchane with Pisiga and Oruro (Bolivia) across the high altiplano near Salar de Surire, Cariquima, and Volcán Isluga.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Paso Colchane – Pisiga', 'Ruta CH-15', '3,715 m', 'Colchane (Chile) to Pisiga (Bolivia)', 'OPEN', 'Border open 24/7 for commercial cargo & passenger vehicles. Temporary closures during severe altiplanic weather.', 'Pasos Fronterizos Chile & Aduanas', 'Colchane Border Complex & Salar de Surire', 'https://www.pasosfronterizos.gov.cl/')">
+          <span>View Paso Colchane Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 5. Cariquima & Volcán Isluga Highland Route -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Cariquima &amp; Volcán Isluga Route</h3>
+              <div class="pass-hwy">Ruta A-55 / CH-15 • Cariquima to Isluga &amp; Border</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>3,850 m</b></span>
+            <span>&bull;</span>
+            <span>Border: <b>Chile – Bolivia Access</b></span>
+          </div>
+          <p class="pass-info-text">
+            Highland mountain pass route connecting the indigenous Aymara village of Cariquima and Parque Nacional Volcán Isluga with the Colchane – Pisiga international border corridor.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Cariquima & Volcán Isluga Highland Route', 'Ruta A-55 / CH-15', '3,850 m', 'Cariquima & Isluga (Chile – Bolivia Border Corridor)', 'OPEN', 'Paved highway and gravel high-altitude roads open. Clear conditions. 4x4 advised for deep park tracks in Volcán Isluga.', 'MOP Tarapacá & Pasos Fronterizos Chile', 'Volcán Isluga & Cariquima Village', 'https://www.pasosfronterizos.gov.cl/')">
+          <span>View Cariquima &amp; Isluga Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIRECTORY SUMMARY TABLE -->
+    <div class="table-container">
+      <h2 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:0.5rem;">Arica y Parinacota Passes Overview Table</h2>
+      <p style="color:var(--muted); font-size:0.925rem; margin-bottom:1.5rem;">Quick reference for elevation, highway route, border crossing, and status.</p>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Pass / Route Name</th>
+            <th>Highway</th>
+            <th>Elevation</th>
+            <th>Border Crossing</th>
+            <th>Status</th>
+            <th>Road Surface &amp; Restrictions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Paso Ancomarca</b></td>
+            <td>Secondary Road</td>
+            <td>4,700 m</td>
+            <td>Chile – Bolivia</td>
+            <td><span class="status-badge status-warn">SEASONAL</span></td>
+            <td>Unpaved 4x4 gravel; closed in winter</td>
+          </tr>
+          <tr>
+            <td><b>Paso Chungará – Tambo Quemado</b></td>
+            <td>Ruta CH-11</td>
+            <td>4,520 m</td>
+            <td>Chile – Bolivia</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Paved highway; high altitude weather warnings</td>
+          </tr>
+          <tr>
+            <td><b>Paso Visviri</b></td>
+            <td>CH-11 Ext.</td>
+            <td>4,175 m</td>
+            <td>Chile – Bolivia</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Northernmost pass of Chile; open daily</td>
+          </tr>
+          <tr>
+            <td><b>Cariquima &amp; Volcán Isluga Route</b></td>
+            <td>Ruta A-55 / CH-15</td>
+            <td>3,850 m</td>
+            <td>Chile – Bolivia Access</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Highland altiplano road; open with weather caution</td>
+          </tr>
+          <tr>
+            <td><b>Paso Colchane – Pisiga</b></td>
+            <td>Ruta CH-15</td>
+            <td>3,715 m</td>
+            <td>Chile – Bolivia</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Paved commercial border corridor; open 24/7</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="faq-section">
+      <h2 class="faq-title">Frequently Asked Questions — Arica y Parinacota Passes</h2>
+      
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What is "Invierno Altiplánico" and how does it affect Paso Chungará?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Invierno Altiplánico (Bolivian Winter) occurs between January and March, bringing heavy convective rain, thunderstorms, and high-altitude snowfall to the high Andes above 4,000 meters. Paso Chungará (4,520 m) may experience temporary closures or mandatory tire chain enforcement during these sudden storms.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Is Paso Colchane – Pisiga border crossing open 24/7?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Yes, Paso Colchane – Pisiga (3,715 m) on Ruta CH-15 operates 24 hours a day for commercial freight and cargo, with standard customs and immigration hours for passenger vehicles (typically 08:00 to 20:00).
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What are the driving conditions around Cariquima and Parque Nacional Volcán Isluga?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          The main access road via Ruta A-55 and Ruta CH-15 connecting Huara, Cariquima, Isluga, and Colchane is paved and well-maintained. Off-road tracks leading deeper into Parque Nacional Volcán Isluga require high-clearance 4x4 vehicles due to loose gravel, sand, and high altitude (3,800m+).
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What documents are required to cross at Paso Chungará – Tambo Quemado?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Travelers require a valid passport or national ID (for Mercosur citizens), vehicle ownership registration (Padrón), international SAG agriculture declaration form, and international vehicle insurance (SOAPEX for entry into Chile / RCI for Bolivia).
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- INTERACTIVE PASS MODAL -->
+  <div class="modal-overlay" id="passModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closePassModal()">&times;</button>
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+        <span class="status-badge status-open" id="mStatus">&bull; OPEN</span>
+        <span style="font-size:0.85rem; color:var(--muted);" id="mHwy">Ruta CH-11</span>
+      </div>
+      <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;" id="mTitle">Paso Chungará – Tambo Quemado</h2>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1.25rem;" id="mRegion">Elevation: 4,520 m &bull; Border: Chile – Bolivia</p>
+      
+      <div style="background:#f8fafc; border:1px solid var(--line); border-radius:10px; padding:1.25rem; margin-bottom:1.25rem;">
+        <h4 style="font-size:0.95rem; font-weight:700; margin-bottom:0.4rem; color:var(--ink);">Current Border &amp; Road Condition Report</h4>
+        <p style="font-size:0.9rem; color:var(--ink);" id="mCondition">Paved highway open for all vehicles. High altitude headwinds & snow alerts active during Altiplanic winter (Jan-Mar) and winter storms (Jun-Sep).</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; font-size:0.88rem;">
+        <div style="border:1px solid var(--line); padding:0.85rem; border-radius:8px;">
+          <div style="color:var(--muted); font-size:0.78rem; font-weight:600;">OFFICIAL SOURCE</div>
+          <div style="font-weight:700; color:var(--ink);" id="mSource">Pasos Fronterizos Chile</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:0.85rem; border-radius:8px;">
+          <div style="color:var(--muted); font-size:0.78rem; font-weight:600;">KEY LANDMARK</div>
+          <div style="font-weight:700; color:var(--ink);" id="mLandmark">Lago Chungará & Parinacota</div>
+        </div>
+      </div>
+
+      <a id="mLink" href="https://www.pasosfronterizos.gov.cl/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; background:var(--accent); color:#fff; padding:0.75rem; border-radius:8px; font-weight:700; text-decoration:none;">
+        <span>Open Pasos Fronterizos Chile Official Feed</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2026 LiveRoadStatus. Sourced live from Pasos Fronterizos Chile (MOP) &amp; Carabineros de Chile.</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="country.html">Country Directory</a> &bull; <a href="chile.html">Chile Hub</a> &bull; <a href="atacama.html">Atacama Passes</a> &bull; <a href="sitemap.xml">Sitemap</a></p>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('active');
+    }
+
+    function openPassModal(title, hwy, elev, region, status, condition, source, landmark, link) {
+      document.getElementById('mTitle').innerText = title;
+      document.getElementById('mHwy').innerText = hwy;
+      document.getElementById('mRegion').innerText = 'Elevation: ' + elev + ' • Region: ' + region;
+      document.getElementById('mStatus').innerText = '• ' + status;
+      document.getElementById('mCondition').innerText = condition;
+      document.getElementById('mSource').innerText = source;
+      document.getElementById('mLandmark').innerText = landmark;
+      document.getElementById('mLink').href = link;
+      document.getElementById('passModal').style.display = 'flex';
+    }
+
+    function closePassModal() {
+      document.getElementById('passModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('passModal');
+      if (event.target === modal) {
+        closePassModal();
+      }
+    };
+  </script>
+</body>
+</html>

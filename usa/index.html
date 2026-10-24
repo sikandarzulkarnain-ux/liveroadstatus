@@ -1,0 +1,604 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>United States Mountain Passes &amp; State Driving Routes — LiveRoadStatus</title>
+  <meta name="description" content="Explore live road status, winter closures, webcams, and mountain pass updates across all states and regions in United States.">
+  
+  <style>
+    /* CORE STYLES & COLOR SYSTEM */
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #15803d;
+      --accent-hover: #166534;
+      --accent-tint: #f0fdf4;
+      --hero: #0d381e;
+      --hero-ink: #f0fdf4;
+      --hero-muted: #86efac;
+      --hero-line: #14532d;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --radius: 14px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #ffffff;
+        --card: #ffffff;
+        --ink: #0f172a;
+        --muted: #475569;
+        --line: #e2e8f0;
+        --accent: #15803d;
+        --accent-hover: #166534;
+        --hero: #0d381e;
+        --hero-ink: #f0fdf4;
+        --hero-muted: #86efac;
+        --hero-line: #14532d;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: #dc2626;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--hero-ink); }
+    .btn-alert-report {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+      position: relative;
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(21, 128, 61, 0.4);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #bbf7d0;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #22c55e;
+    }
+
+    /* REGIONS CARDS GRID */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 980px) {
+      .region-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .region-grid { grid-template-columns: 1fr; }
+    }
+
+    .region-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .region-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+
+    .region-map-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--line);
+    }
+
+    .region-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .region-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .region-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .btn-view-region {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1rem;
+      background: var(--accent-tint);
+      color: var(--accent);
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .region-card:hover .btn-view-region {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      border-top: 1px solid var(--hero-line);
+      padding: 3.5rem 1.5rem 2.5rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">UNITED STATES</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="#state-regions" class="nav-link">States &amp; Regions</a>
+        <button class="btn-alert-report" onclick="alert('Submit live conditions drawer')">Submit Conditions</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <a href="country.html">Country Directory</a>
+        <span>&rsaquo;</span>
+        <span>United States</span>
+      </div>
+      <h1 class="hero-title">🇺🇸 United States Mountain Passes &amp; State Driving Routes</h1>
+      <p class="hero-subtitle">
+        Explore real-time open or closed road status, winter closure schedules, webcams, and mountain pass updates across all 15 states &amp; alpine regions in United States.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>State DOT 511 Feeds (Caltrans, CDOT, WSDOT, etc.) &bull; Updated Today &bull; 260 Passes Monitored</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container" id="state-regions">
+    <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;">States &amp; Regions in United States</h2>
+    <p style="color:var(--muted); margin-bottom:2rem; font-size:0.95rem;">Select a state or regional mountain pass atlas below to view live road conditions and webcams.</p>
+
+    <div class="region-grid">
+      <!-- California (Sierra Nevada) -->
+      <a href="california.html" class="region-card">
+        <div>
+          <img src="IMAGE/California Mountain Passes Map.png" alt="California (Sierra Nevada) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">California (Sierra Nevada)</h3>
+          <div class="region-meta">
+            <span><b>19</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>4,023 m (Forester Pass)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Donner Pass (I-80), Tioga Pass (CA-120), Carson Pass (CA-88), Sonora Pass, Ebbetts Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore California Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Colorado (Rocky Mountains) -->
+      <a href="colorado.html" class="region-card">
+        <div>
+          <img src="IMAGE/Colorado Mountain Passes Map.png" alt="Colorado (Rocky Mountains) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Colorado (Rocky Mountains)</h3>
+          <div class="region-meta">
+            <span><b>24</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>3,713 m (Trail Ridge Road)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Trail Ridge Road, Independence Pass, Loveland Pass, Berthoud Pass, Red Mountain Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Colorado Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Wyoming (Tetons & Bighorn) -->
+      <a href="wyoming.html" class="region-card">
+        <div>
+          <img src="IMAGE/Wyoming Mountain Passes Atlas.png" alt="Wyoming (Tetons & Bighorn) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Wyoming (Tetons & Bighorn)</h3>
+          <div class="region-meta">
+            <span><b>16</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>3,340 m (Beartooth Pass)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Teton Pass (WY-22), Beartooth Pass (US-212), Snowy Range Pass, Granite Pass, Togwotee Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Wyoming Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Washington (Cascades) -->
+      <a href="washington.html" class="region-card">
+        <div>
+          <img src="IMAGE/Washington Mountain Passes Map.png" alt="Washington (Cascades) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Washington (Cascades)</h3>
+          <div class="region-meta">
+            <span><b>18</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,670 m (Chinook Pass)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Snoqualmie Pass (I-90), Stevens Pass (US-2), Chinook Pass, Washington Pass, White Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Washington Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Oregon (Cascades & Wallowas) -->
+      <a href="oregon.html" class="region-card">
+        <div>
+          <img src="IMAGE/Oregon Mountain Passes Map.png" alt="Oregon (Cascades & Wallowas) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Oregon (Cascades & Wallowas)</h3>
+          <div class="region-meta">
+            <span><b>18</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,623 m (McKenzie Pass)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Santiam Pass (OR-126), Willamette Pass, Mt. Hood Passes, McKenzie Pass, Siskiyou Summit.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Oregon Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Montana (Northern Rockies) -->
+      <a href="montana.html" class="region-card">
+        <div>
+          <img src="IMAGE/Idaho Mountain Passes Map.png" alt="Montana (Northern Rockies) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Montana (Northern Rockies)</h3>
+          <div class="region-meta">
+            <span><b>16</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>3,340 m (Beartooth Pass)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Beartooth Pass, Logan Pass (Going-to-the-Sun Road), Rogers Pass, Lolo Pass, Marias Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Montana Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Idaho (Sawtooth & Bitterroot) -->
+      <a href="idaho.html" class="region-card">
+        <div>
+          <img src="IMAGE/Idaho Mountain Passes Map.png" alt="Idaho (Sawtooth & Bitterroot) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Idaho (Sawtooth & Bitterroot)</h3>
+          <div class="region-meta">
+            <span><b>14</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,652 m (Galena Summit)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Lolo Pass (US-12), Galena Summit, Lookout Pass (I-90), Lost Trail Pass, Fourth of July Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Idaho Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Utah (Wasatch & Uinta) -->
+      <a href="utah.html" class="region-card">
+        <div>
+          <img src="IMAGE/Utah Mountain Passes Infographic Map.png" alt="Utah (Wasatch & Uinta) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Utah (Wasatch & Uinta)</h3>
+          <div class="region-meta">
+            <span><b>16</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>3,266 m (Mirror Lake Hwy)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Guardsman Pass, Parleys Summit (I-80), Empire Pass, Mirror Lake Highway, Daniel Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Utah Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Nevada (Ruby & Sierra) -->
+      <a href="nevada.html" class="region-card">
+        <div>
+          <img src="IMAGE/Nevada Mountain Passes Map.png" alt="Nevada (Ruby & Sierra) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Nevada (Ruby & Sierra)</h3>
+          <div class="region-meta">
+            <span><b>12</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,716 m (Mt. Rose Summit)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Mt. Rose Summit, Spooner Summit, Monitor Pass, Secret Pass, Austin Summit.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Nevada Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Arizona (Coconino & Mogollon) -->
+      <a href="arizona.html" class="region-card">
+        <div>
+          <img src="IMAGE/Arizona Mountain Passes Map.png" alt="Arizona (Coconino & Mogollon) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Arizona (Coconino & Mogollon)</h3>
+          <div class="region-meta">
+            <span><b>10</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,797 m (Mt. Lemmon Hwy)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Oak Creek Canyon (AZ-89A), Mt. Lemmon Highway, Mogollon Rim, Flagstaff Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Arizona Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Alaska (Brooks & Chugach) -->
+      <a href="alaska.html" class="region-card">
+        <div>
+          <img src="IMAGE/Alaska Mountain Passes Map.png" alt="Alaska (Brooks & Chugach) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Alaska (Brooks & Chugach)</h3>
+          <div class="region-meta">
+            <span><b>12</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,444 m (Atigun Pass)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Thompson Pass, Atigun Pass (Dalton Hwy), Hatcher Pass, Turnagain Pass, Polychrome Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Alaska Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- North Carolina (Blue Ridge) -->
+      <a href="northcarolina.html" class="region-card">
+        <div>
+          <img src="IMAGE/North Carolina Mountain Passes Map.png" alt="North Carolina (Blue Ridge) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">North Carolina (Blue Ridge)</h3>
+          <div class="region-meta">
+            <span><b>14</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,538 m (Newfound Gap)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Newfound Gap (US-441), Grandfather Mountain, Blowing Rock, Balsam Gap, Fancy Gap.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore North Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Virginia (Shenandoah) -->
+      <a href="virginia.html" class="region-card">
+        <div>
+          <img src="IMAGE/Virginia Mountain Passes Map.png" alt="Virginia (Shenandoah) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Virginia (Shenandoah)</h3>
+          <div class="region-meta">
+            <span><b>14</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,084 m (Thornton Gap)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Thornton Gap (US-211), Swift Run Gap, Rockfish Gap (I-64), Fancy Gap (I-77).
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Virginia Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- West Virginia (Allegheny) -->
+      <a href="westvirginia.html" class="region-card">
+        <div>
+          <img src="IMAGE/West Virginia Mountain Passes Map.png" alt="West Virginia (Allegheny) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">West Virginia (Allegheny)</h3>
+          <div class="region-meta">
+            <span><b>14</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,482 m (Spruce Knob Road)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Cheat Mountain (US-250), Spruce Knob Road, Droop Mountain, Sandstone Mountain.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore West Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Maryland & New Hampshire -->
+      <a href="maryland.html" class="region-card">
+        <div>
+          <img src="IMAGE/Maryland and New Hampshire Mountain Passes.png" alt="Maryland & New Hampshire Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'">
+          <h3 class="region-name">Maryland & New Hampshire</h3>
+          <div class="region-meta">
+            <span><b>18</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>914 m (Kancamagus Notch)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Sideling Hill, Kancamagus Pass, Crawford Notch, Franconia Notch, Pinkham Notch.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Maryland Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+      <div>&copy; 2026 LiveRoadStatus. Real-time mountain pass conditions in United States.</div>
+      <div style="display:flex; gap:1rem;">
+        <a href="index.html" style="color:var(--hero-muted);">All Regions</a>
+        <a href="country.html" style="color:var(--hero-muted);">Country Directory</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,941 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Møre og Romsdal Norway Mountain Passes (Trollstigen, Geiranger, Aursjøvegen) — LiveRoadStatus</title>
+  
+  <!-- SEO PRIMARY META TAGS -->
+  <meta name="description" content="Live road status, open/closed updates, winter closures, webcams, and mountain pass conditions for Møre og Romsdal Norway including Trollstigen, Geirangerfjellet, Ørnevegen (Eagle Road), Aursjøvegen, Ørskogfjellet, and Norangsdalen. Sourced live from Statens vegvesen 175.">
+  <meta name="keywords" content="Trollstigen road conditions, Trollstigen open or closed, Geirangerfjellet road conditions, Geirangerfjellet open or closed, Ornevegen Eagle Road, Aursjovegen road status, Eikesdal mountain road, Orskogfjellet open or closed, Norangsdalen road conditions, More og Romsdal mountain passes, Norway pass status">
+  <meta name="author" content="LiveRoadStatus">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.liveroadstatus.com/moreogromsdal.html">
+
+  <!-- OPEN GRAPH / SOCIAL -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LiveRoadStatus">
+  <meta property="og:title" content="Møre og Romsdal Norway Mountain Passes Live Road Status (Trollstigen &amp; Geiranger)">
+  <meta property="og:description" content="Real-time road conditions for Norway's iconic fjord passes: Trollstigen (858 m), Geirangerfjellet (1,476 m), Eagle Road (620 m), Aursjøvegen (1,060 m), and Norangsdalen. Statens vegvesen 175 feed.">
+  <meta property="og:url" content="https://www.liveroadstatus.com/moreogromsdal.html">
+  <meta property="og:image" content="IMAGE/More og Romsdal Norway Mountain Passes Map.jpg">
+  <meta property="og:locale" content="en_NO">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "LiveRoadStatus Home", "item": "https://www.liveroadstatus.com/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Country Directory", "item": "https://www.liveroadstatus.com/country.html" },
+          { "@type": "ListItem", "position": 3, "name": "Norway", "item": "https://www.liveroadstatus.com/norway.html" },
+          { "@type": "ListItem", "position": 4, "name": "Møre og Romsdal Passes", "item": "https://www.liveroadstatus.com/moreogromsdal.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Trollstigen (Fv63) open or closed today?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Trollstigen (858 m), Norway's most famous hairpin mountain pass, is open seasonally from late May/June to late October. It is closed during winter due to heavy snow and avalanche risks. Statens vegvesen 175 provides daily operational updates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the road conditions on Geirangerfjellet (Fv63)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Geirangerfjellet (1,476 m) connects Geiranger to Langvatn and Grotli. It offers access to the Dalsnibba viewpoint (1,500 m) and remains open from late May to November, with winter closures enforced during deep snow pack."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Aursjøvegen mountain toll road open or closed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aursjøvegen (1,060 m), a spectacular gravel mountain road between Eikesdal and Sunndalsøra, opens seasonally from early June through October. Automatic card tolls apply."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Ørnevegen (Eagle Road) open year-round?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ørnevegen (Eagle Road, 620 m) connects Geiranger to Eidsdal. It is maintained open year-round by Statens vegvesen with continuous snow clearing, though winter tires and snow chains are required during winter storms."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #ba0c2f;
+      --accent-hover: #960924;
+      --accent-tint: #fef2f2;
+      --hero: #0f172a;
+      --hero-ink: #f8fafc;
+      --hero-muted: #94a3b8;
+      --hero-line: #1e293b;
+      --status-open-bg: #dcfce7;
+      --status-open-text: #14532d;
+      --status-warn-bg: #fef9c3;
+      --status-warn-text: #713f12;
+      --status-closed-bg: #fee2e2;
+      --status-closed-text: #7f1d1d;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--hero-ink); }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(186, 12, 47, 0.25);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #fca5a5;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #ef4444;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ef4444;
+    }
+
+    /* ATLAS MAP DISPLAY CARD */
+    .atlas-map-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+    }
+    .atlas-map-img {
+      width: 100%;
+      max-height: 580px;
+      object-fit: contain;
+      border-radius: 10px;
+      display: block;
+      background: #0f172a;
+    }
+    .atlas-caption {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* PASS CARDS GRID */
+    .passes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 640px) {
+      .passes-grid { grid-template-columns: 1fr; }
+    }
+
+    .pass-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .pass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+    .pass-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .pass-title-group h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .pass-hwy {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .status-open { background: var(--status-open-bg); color: var(--status-open-text); }
+    .status-warn { background: var(--status-warn-bg); color: var(--status-warn-text); }
+    .status-closed { background: var(--status-closed-bg); color: var(--status-closed-text); }
+
+    .pass-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.75rem;
+    }
+    .pass-info-text {
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .btn-detail {
+      width: 100%;
+      background: var(--accent-tint);
+      color: var(--accent);
+      border: 1px solid rgba(186, 12, 47, 0.2);
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .pass-card:hover .btn-detail {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* DIRECTORY TABLE */
+    .table-container {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3.5rem;
+      overflow-x: auto;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.925rem;
+    }
+    .data-table th, .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .data-table th {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--ink);
+      background: #f8fafc;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* FAQ ACCORDION */
+    .faq-section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3.5rem;
+    }
+    .faq-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      padding: 0 1.25rem 1.25rem;
+      color: var(--muted);
+      font-size: 0.925rem;
+      display: none;
+    }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+    /* MODAL STYLES */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      padding: 2rem;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+    }
+    .modal-close:hover { background: #e2e8f0; }
+
+    /* FOOTER */
+    .site-footer {
+      background-color: var(--hero);
+      color: var(--hero-muted);
+      padding: 3.5rem 1.5rem 2.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--hero-line);
+      text-align: center;
+      font-size: 0.875rem;
+    }
+    .site-footer a { color: var(--hero-muted); text-decoration: none; }
+    .site-footer a:hover { color: var(--hero-ink); }
+  
+    /* ===== LRS: MOBILE MENU & OVERFLOW FIX ===== */
+    html, body { overflow-x: hidden !important; }
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: 1px solid var(--line, #e2e0d8);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      position: relative;
+      z-index: 300;
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink, #1c1d1b);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 760px) {
+      .hamburger-btn { display: flex !important; }
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--card, #ffffff);
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 28px !important;
+        z-index: 200;
+        font-size: 1.2rem;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-right .btn-alert { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">MØRE OG ROMSDAL</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="norway.html" class="nav-link">Norway Hub</a>
+        <a href="moreogromsdal.html" class="nav-link active">Møre og Romsdal</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <a href="country.html">Country Directory</a>
+        <span>&rsaquo;</span>
+        <a href="norway.html">Norway</a>
+        <span>&rsaquo;</span>
+        <span>Møre og Romsdal Passes</span>
+      </div>
+      <h1 class="hero-title">🇳🇴 Møre og Romsdal Mountain Passes &amp; Fjord Routes</h1>
+      <p class="hero-subtitle">
+        Real-time road status, winter closure schedules, webcams, and pass updates across Trollstigen, Geiranger, Sunnmøre, and Romsdal. Sourced live from Statens vegvesen 175.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>Statens vegvesen 175 &amp; Møre og Romsdal Fylke &bull; Updated Today &bull; 14 Passes Monitored</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <!-- ATLAS MAP CARD -->
+    <div class="atlas-map-card">
+      <img src="IMAGE/More og Romsdal Norway Mountain Passes Map.jpg" alt="Møre og Romsdal Norway Mountain Passes Atlas Map" class="atlas-map-img" width="400" height="250" loading="lazy" decoding="async">
+      <div class="atlas-caption">
+        <span><b>Møre og Romsdal Mountain Pass Atlas:</b> Geiranger / Trollstigen, Sunnmøre &amp; Romsdal Areas.</span>
+        <span>Elevation range: 620 m – 1,476 m</span>
+      </div>
+    </div>
+
+    <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;">Møre og Romsdal Mountain Passes Live Status</h2>
+    <p style="color:var(--muted); margin-bottom:2rem; font-size:0.95rem;">Select any pass below for detailed road conditions, winter closure schedules, and mountain webcams.</p>
+
+    <!-- PASS CARDS GRID -->
+    <div class="passes-grid">
+
+      <!-- 1. Trollstigen -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Trollstigen (Troll's Ladder)</h3>
+              <div class="pass-hwy">Fv63 • Valldal to Åndalsnes</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>858 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Geiranger / Trollstigen</b></span>
+          </div>
+          <p class="pass-info-text">
+            Norway's iconic hairpin mountain pass featuring 11 tight hairpin bends and Stigfossen waterfall bridge. Seasonal closure June–October.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Trollstigen', 'Fv63', '858 m', 'Valldal to Åndalsnes', 'OPEN', 'Road open. Famous hairpin turns clear of snow. Visitor center platform open.', 'Statens vegvesen 175 Feed', 'Stigfossen Waterfall Bridge & Trollstigen Kafé', 'https://www.vegvesen.no/')">
+          <span>View Trollstigen Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 2. Geirangerfjellet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Geirangerfjellet</h3>
+              <div class="pass-hwy">Fv63 • Geiranger to Langvatn / Grotli</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,476 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Geiranger Plateau</b></span>
+          </div>
+          <p class="pass-info-text">
+            Panoramic mountain pass connecting Geirangerfjord to Grotli and Dalsnibba Skywalk (1,500 m). High alpine terrain with heavy winter snowfall.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Geirangerfjellet', 'Fv63', '1,476 m', 'Geiranger to Langvatn', 'OPEN', 'Road open. Dalsnibba Skywalk toll road accessible. Winter tires recommended in autumn.', 'Statens vegvesen & Dalsnibba', 'Geiranger Skywalk Dalsnibba', 'https://www.vegvesen.no/')">
+          <span>View Geirangerfjellet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 3. Ørnevegen (Eagle Road) -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Ørnevegen (Eagle Road)</h3>
+              <div class="pass-hwy">Fv63 • Geiranger to Eidsdal</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>620 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Geirangerfjord</b></span>
+          </div>
+          <p class="pass-info-text">
+            Famous Eagle Bend highway ascending steeply from Geiranger village to Ørnesvingen viewpoint overlooking Seven Sisters waterfall.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Ørnevegen (Eagle Road)', 'Fv63', '620 m', 'Geiranger to Eidsdal', 'OPEN', 'Maintained open year-round with continuous snow clearing in winter.', 'Statens vegvesen 175', 'Ørnesvingen Eagle Viewpoint', 'https://www.vegvesen.no/')">
+          <span>View Eagle Road Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 4. Aursjøvegen -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Aursjøvegen</h3>
+              <div class="pass-hwy">Toll Road • Eikesdal to Sunndalsøra</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,060 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Romsdal / Sunndal</b></span>
+          </div>
+          <p class="pass-info-text">
+            Wild, high-altitude gravel road across the Aursjøen dam plateau. Features hairpins carved into vertical canyon walls. Open June–October.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Aursjøvegen', 'Mountain Toll Road', '1,060 m', 'Eikesdal to Sunndalsøra', 'OPEN', 'Gravel road open. Card toll barrier active at Eikesdal. Closed during winter.', 'Aursjøvegen Vegen', 'Aursjøhytta & Torbudalen', 'https://www.aursjovegen.no/')">
+          <span>View Aursjøvegen Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 5. Ørskogfjellet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Ørskogfjellet</h3>
+              <div class="pass-hwy">E39 • Sjøholt to Vestnes</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>870 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Sunnmøre</b></span>
+          </div>
+          <p class="pass-info-text">
+            Major trunk highway pass on E39 connecting Ålesund &amp; Sunnmøre with Molde/Vestnes. Maintained 24/7 with active snowplow fleets.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Ørskogfjellet', 'E39 Trunk Highway', '870 m', 'Sjøholt to Vestnes', 'OPEN', 'Open 24/7. Main trunk route with continuous winter maintenance.', 'Statens vegvesen 175', 'Ørskogfjellet Ski Center', 'https://www.vegvesen.no/')">
+          <span>View Ørskogfjellet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 6. Norangsdalen -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Norangsdalen</h3>
+              <div class="pass-hwy">Fv655 • Øye to Hellesylt</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>905 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Sunnmøre Alps</b></span>
+          </div>
+          <p class="pass-info-text">
+            One of Norway's narrowest mountain pass canyons, passing submerged 1908 village ruins in Lake Lyngstøylvatnet. High avalanche walls.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Norangsdalen', 'Fv655', '905 m', 'Øye to Hellesylt', 'OPEN', 'Road open. Narrow canyon section requires low speed. High avalanche monitoring in winter.', 'Statens vegvesen 175', 'Lake Lyngstøylvatnet Submerged Ruins', 'https://www.vegvesen.no/')">
+          <span>View Norangsdalen Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 7. Eikesdal Mountain Road -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Eikesdal &amp; Sunndal Pass</h3>
+              <div class="pass-hwy">Fv6012 • Eidsvåg to Mardalsfossen</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>930 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Romsdal / Eikesdal</b></span>
+          </div>
+          <p class="pass-info-text">
+            Scenic fjord-and-mountain valley road alongside Eikesdalsvatnet leading to Mardalsfossen (one of Europe's highest waterfalls).
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Eikesdal Mountain Road', 'Fv6012', '930 m', 'Eidsvåg to Eikesdal', 'OPEN', 'Normal traffic flow. Mardalsfossen parking accessible.', 'Statens vegvesen 175', 'Mardalsfossen Waterfall Trailhead', 'https://www.vegvesen.no/')">
+          <span>View Eikesdal Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIRECTORY SUMMARY TABLE -->
+    <div class="table-container">
+      <h2 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:0.5rem;">Møre og Romsdal Passes Overview Table</h2>
+      <p style="color:var(--muted); font-size:0.925rem; margin-bottom:1.5rem;">Quick reference for elevation, highway designation, and current road status.</p>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Pass / Route Name</th>
+            <th>Highway</th>
+            <th>Elevation</th>
+            <th>Region</th>
+            <th>Status</th>
+            <th>Winter Mandates</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Geirangerfjellet</b></td>
+            <td>Fv63</td>
+            <td>1,476 m</td>
+            <td>Geiranger / Grotli</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Winter tires mandatory Oct 16–Apr 30</td>
+          </tr>
+          <tr>
+            <td><b>Aursjøvegen</b></td>
+            <td>Toll Road</td>
+            <td>1,060 m</td>
+            <td>Eikesdal / Sunndal</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Closed in winter (June–Oct open)</td>
+          </tr>
+          <tr>
+            <td><b>Geiranger – Langvatn</b></td>
+            <td>Fv63 / Rv15</td>
+            <td>1,034 m</td>
+            <td>Geiranger / Skjåk</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>High alpine winter snowpack</td>
+          </tr>
+          <tr>
+            <td><b>Norangsdalen</b></td>
+            <td>Fv655</td>
+            <td>905 m</td>
+            <td>Sunnmøre / Hellesylt</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Avalanche monitoring in winter</td>
+          </tr>
+          <tr>
+            <td><b>Ørskogfjellet</b></td>
+            <td>E39</td>
+            <td>870 m</td>
+            <td>Sunnmøre / Vestnes</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Year-round E39 trunk highway</td>
+          </tr>
+          <tr>
+            <td><b>Trollstigen</b></td>
+            <td>Fv63</td>
+            <td>858 m</td>
+            <td>Valldal / Åndalsnes</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Closed in winter (June–Oct open)</td>
+          </tr>
+          <tr>
+            <td><b>Ørnevegen (Eagle Road)</b></td>
+            <td>Fv63</td>
+            <td>620 m</td>
+            <td>Geiranger / Eidsdal</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Year-round open with snow clearing</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="faq-section">
+      <h2 class="faq-title">Frequently Asked Questions — Møre og Romsdal Passes</h2>
+      
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>When does Trollstigen (Fv63) open and close each year?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Trollstigen typically opens in late May or early June after extensive snow clearing and rockfall safety work. It closes for winter in late October or early November depending on snowfall and ice.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Can I drive from Geiranger to Trollstigen in a single day?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Yes! Fv63 connects Geiranger to Trollstigen via Ørnevegen (Eagle Road), the Eidsdal-Valldal ferry crossing, and the Valldal valley. The entire drive is a designated National Tourist Route (Golden Route).
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What type of vehicle can drive on Aursjøvegen?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Aursjøvegen is a narrow gravel toll road with hairpin tunnels. It is suitable for passenger cars and small camper vans. Large motorhomes, buses, and trailers are not recommended due to narrow cliffside clearances.
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- INTERACTIVE PASS MODAL -->
+  <div class="modal-overlay" id="passModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closePassModal()">&times;</button>
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+        <span class="status-badge status-open" id="mStatus">&bull; OPEN</span>
+        <span style="font-size:0.85rem; color:var(--muted);" id="mHwy">Fv63</span>
+      </div>
+      <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;" id="mTitle">Trollstigen</h2>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1.25rem;" id="mRegion">Elevation: 858 m &bull; Region: Geiranger / Trollstigen</p>
+      
+      <div style="background:#f8fafc; border:1px solid var(--line); border-radius:10px; padding:1.25rem; margin-bottom:1.25rem;">
+        <h4 style="font-size:0.95rem; font-weight:700; margin-bottom:0.4rem; color:var(--ink);">Current Road Condition Report</h4>
+        <p style="font-size:0.9rem; color:var(--ink);" id="mCondition">Road open. Famous hairpin turns clear of snow.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; font-size:0.88rem;">
+        <div style="border:1px solid var(--line); padding:0.85rem; border-radius:8px;">
+          <div style="color:var(--muted); font-size:0.78rem; font-weight:600;">OFFICIAL SOURCE</div>
+          <div style="font-weight:700; color:var(--ink);" id="mSource">Statens vegvesen 175</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:0.85rem; border-radius:8px;">
+          <div style="color:var(--muted); font-size:0.78rem; font-weight:600;">KEY LANDMARK</div>
+          <div style="font-weight:700; color:var(--ink);" id="mLandmark">Stigfossen Waterfall</div>
+        </div>
+      </div>
+
+      <a id="mLink" href="https://www.vegvesen.no/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; background:var(--accent); color:#fff; padding:0.75rem; border-radius:8px; font-weight:700; text-decoration:none;">
+        <span>Open Statens vegvesen Official 175 Feed</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2026 LiveRoadStatus. Sourced live from Statens vegvesen 175 &amp; Møre og Romsdal Fylke.</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="country.html">Country Directory</a> &bull; <a href="norway.html">Norway Hub</a> &bull; <a href="sitemap.xml">Sitemap</a></p>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('active');
+    }
+
+    function openPassModal(title, hwy, elev, region, status, condition, source, landmark, link) {
+      document.getElementById('mTitle').innerText = title;
+      document.getElementById('mHwy').innerText = hwy;
+      document.getElementById('mRegion').innerText = 'Elevation: ' + elev + ' • Region: ' + region;
+      document.getElementById('mStatus').innerText = '• ' + status;
+      document.getElementById('mCondition').innerText = condition;
+      document.getElementById('mSource').innerText = source;
+      document.getElementById('mLandmark').innerText = landmark;
+      document.getElementById('mLink').href = link;
+      document.getElementById('passModal').style.display = 'flex';
+    }
+
+    function closePassModal() {
+      document.getElementById('passModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('passModal');
+      if (event.target === modal) {
+        closePassModal();
+      }
+    };
+  </script>
+</body>
+</html>

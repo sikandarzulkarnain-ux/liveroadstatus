@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_/
+Disallow: /dev/
+
+Sitemap: https://www.liveroadstatus.com/sitemap.xml

@@ -1,0 +1,236 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/france.html",
+      "destination": "/france/",
+      "permanent": true
+    },
+    {
+      "source": "/bourgogne.html",
+      "destination": "/france/bourgogne-franche-comte/",
+      "permanent": true
+    },
+    {
+      "source": "/grandest.html",
+      "destination": "/france/grand-est/",
+      "permanent": true
+    },
+    {
+      "source": "/aquitaine.html",
+      "destination": "/france/nouvelle-aquitaine/",
+      "permanent": true
+    },
+    {
+      "source": "/occitanie.html",
+      "destination": "/france/occitanie/",
+      "permanent": true
+    },
+    {
+      "source": "/paca.html",
+      "destination": "/france/paca/",
+      "permanent": true
+    },
+    {
+      "source": "/auvergne.html",
+      "destination": "/france/auvergne-rhone-alpes/",
+      "permanent": true
+    },
+    {
+      "source": "/austria.html",
+      "destination": "/austria/",
+      "permanent": true
+    },
+    {
+      "source": "/carinthia.html",
+      "destination": "/austria/carinthia/",
+      "permanent": true
+    },
+    {
+      "source": "/tyrol.html",
+      "destination": "/austria/tyrol/",
+      "permanent": true
+    },
+    {
+      "source": "/salzburg.html",
+      "destination": "/austria/salzburg/",
+      "permanent": true
+    },
+    {
+      "source": "/styria.html",
+      "destination": "/austria/styria/",
+      "permanent": true
+    },
+    {
+      "source": "/vorarlberg.html",
+      "destination": "/austria/vorarlberg/",
+      "permanent": true
+    },
+    {
+      "source": "/lower-austria.html",
+      "destination": "/austria/lower-austria/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland.html",
+      "destination": "/switzerland/",
+      "permanent": true
+    },
+    {
+      "source": "/graubunden.html",
+      "destination": "/switzerland/graubunden/",
+      "permanent": true
+    },
+    {
+      "source": "/valais.html",
+      "destination": "/switzerland/valais/",
+      "permanent": true
+    },
+    {
+      "source": "/bern.html",
+      "destination": "/switzerland/bern/",
+      "permanent": true
+    },
+    {
+      "source": "/uri.html",
+      "destination": "/switzerland/uri/",
+      "permanent": true
+    },
+    {
+      "source": "/ticino.html",
+      "destination": "/switzerland/ticino/",
+      "permanent": true
+    },
+    {
+      "source": "/italy.html",
+      "destination": "/italy/",
+      "permanent": true
+    },
+    {
+      "source": "/lombardy.html",
+      "destination": "/italy/lombardy/",
+      "permanent": true
+    },
+    {
+      "source": "/veneto.html",
+      "destination": "/italy/veneto/",
+      "permanent": true
+    },
+    {
+      "source": "/piedmont.html",
+      "destination": "/italy/piedmont/",
+      "permanent": true
+    },
+    {
+      "source": "/tuscany.html",
+      "destination": "/italy/tuscany/",
+      "permanent": true
+    },
+    {
+      "source": "/usa.html",
+      "destination": "/united-states/",
+      "permanent": true
+    },
+    {
+      "source": "/colorado.html",
+      "destination": "/united-states/colorado/",
+      "permanent": true
+    },
+    {
+      "source": "/washington.html",
+      "destination": "/united-states/washington/",
+      "permanent": true
+    },
+    {
+      "source": "/california.html",
+      "destination": "/united-states/california/",
+      "permanent": true
+    },
+    {
+      "source": "/oregon.html",
+      "destination": "/united-states/oregon/",
+      "permanent": true
+    },
+    {
+      "source": "/montana.html",
+      "destination": "/united-states/montana/",
+      "permanent": true
+    },
+    {
+      "source": "/canada.html",
+      "destination": "/canada/",
+      "permanent": true
+    },
+    {
+      "source": "/britishcolumbia.html",
+      "destination": "/canada/british-columbia/",
+      "permanent": true
+    },
+    {
+      "source": "/alberta.html",
+      "destination": "/canada/alberta/",
+      "permanent": true
+    },
+    {
+      "source": "/norway.html",
+      "destination": "/norway/",
+      "permanent": true
+    },
+    {
+      "source": "/india.html",
+      "destination": "/india/",
+      "permanent": true
+    },
+    {
+      "source": "/himachal.html",
+      "destination": "/india/himachal-pradesh/",
+      "permanent": true
+    },
+    {
+      "source": "/ladakh.html",
+      "destination": "/india/ladakh/",
+      "permanent": true
+    },
+    {
+      "source": "/pakistan.html",
+      "destination": "/pakistan/",
+      "permanent": true
+    },
+    {
+      "source": "/chile.html",
+      "destination": "/chile/",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/methodology.html",
+      "destination": "/methodology/",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms/",
+      "permanent": true
+    },
+    {
+      "source": "/disclaimer.html",
+      "destination": "/disclaimer/",
+      "permanent": true
+    }
+  ]
+}

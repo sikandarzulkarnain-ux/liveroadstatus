@@ -1,0 +1,1009 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Innlandet Mountain Passes Road Conditions (Sognefjellet, Valdresflye, Filefjell) — LiveRoadStatus</title>
+  
+  <!-- SEO PRIMARY META TAGS -->
+  <meta name="description" content="Live road status, open/closed updates, winter closures, webcams, and snow conditions for Innlandet Norway mountain passes including Sognefjellet, Valdresflye, Jotunheimvegen, Tindevegen, Filefjell, Tyin Eidsbugarden, and Tyin Årdal. Sourced from Statens vegvesen 175.">
+  <meta name="keywords" content="Sognefjellet road conditions, Sognefjellet open or closed, Valdresflye road conditions, Valdresflye open or closed, Jotunheimvegen road conditions, Jotunheimvegen open or closed, Tindevegen road conditions, Tindevegen open or closed, Tyin Eidsbugarden road conditions, Tyin Eidsbugarden open or closed, Tyin Årdal road conditions, Tyin Årdal open or closed, Filefjell road conditions, Filefjell open or closed, Bygdin road conditions, Bygdin mountain road conditions, Sognefjellshytta road conditions, Sognefjellshytta road open or closed, Innlandet mountain passes, Norway pass status">
+  <meta name="author" content="LiveRoadStatus">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.liveroadstatus.com/innlandet.html">
+
+  <!-- OPEN GRAPH / SOCIAL -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LiveRoadStatus">
+  <meta property="og:title" content="Innlandet Norway Mountain Passes Live Road Conditions &amp; Winter Status">
+  <meta property="og:description" content="Real-time road conditions for Norway's highest mountain passes: Sognefjellet (1,434 m), Valdresflye (1,389 m), Tindevegen, Jotunheimvegen, Filefjell, and Tyin crossings. Statens vegvesen 175 feed.">
+  <meta property="og:url" content="https://www.liveroadstatus.com/innlandet.html">
+  <meta property="og:image" content="IMAGE/Innlandet Norway Mountain Passes Map.jpg">
+  <meta property="og:locale" content="en_NO">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "LiveRoadStatus Home", "item": "https://www.liveroadstatus.com/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Country Directory", "item": "https://www.liveroadstatus.com/country.html" },
+          { "@type": "ListItem", "position": 3, "name": "Norway", "item": "https://www.liveroadstatus.com/norway.html" },
+          { "@type": "ListItem", "position": 4, "name": "Innlandet Passes", "item": "https://www.liveroadstatus.com/innlandet.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Sognefjellet (Fv55) open or closed today?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sognefjellet (1,434 m), Norway's highest mountain pass, is open during summer and autumn months. During winter and early spring, it closes seasonally due to heavy snowfall. Live status and night closure details are updated daily via Statens vegvesen 175."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Valdresflye (Fv51) open or closed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Valdresflye (1,389 m), Norway's second-highest pass, is monitored year-round. It is open during summer and autumn, but experiences winter night closures and full winter closures from late November to April."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the road conditions on Filefjell (E16)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "E16 over Filefjell (1,256 m) is Norway's main year-round mountain corridor between East and West Norway. It is equipped with extensive snow fences and tunnels to minimize winter closures."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are winter tires or snow chains required on Innlandet mountain passes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Statens vegvesen mandates winter tires with at least 3 mm tread depth (4 mm for heavy vehicles) on all high mountain passes in Innlandet between October 16 and April 30."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #ba0c2f;
+      --accent-hover: #960924;
+      --accent-tint: #fef2f2;
+      --hero: #0f172a;
+      --hero-ink: #f8fafc;
+      --hero-muted: #94a3b8;
+      --hero-line: #1e293b;
+      --status-open-bg: #dcfce7;
+      --status-open-text: #14532d;
+      --status-warn-bg: #fef9c3;
+      --status-warn-text: #713f12;
+      --status-closed-bg: #fee2e2;
+      --status-closed-text: #7f1d1d;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--hero-ink); }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(186, 12, 47, 0.25);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #fca5a5;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #ef4444;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ef4444;
+    }
+
+    /* ATLAS MAP DISPLAY CARD */
+    .atlas-map-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+    }
+    .atlas-map-img {
+      width: 100%;
+      max-height: 580px;
+      object-fit: contain;
+      border-radius: 10px;
+      display: block;
+      background: #0f172a;
+    }
+    .atlas-caption {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* PASS CARDS GRID */
+    .passes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 640px) {
+      .passes-grid { grid-template-columns: 1fr; }
+    }
+
+    .pass-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .pass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+    .pass-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .pass-title-group h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .pass-hwy {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .status-open { background: var(--status-open-bg); color: var(--status-open-text); }
+    .status-warn { background: var(--status-warn-bg); color: var(--status-warn-text); }
+    .status-closed { background: var(--status-closed-bg); color: var(--status-closed-text); }
+
+    .pass-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.75rem;
+    }
+    .pass-info-text {
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .btn-detail {
+      width: 100%;
+      background: var(--accent-tint);
+      color: var(--accent);
+      border: 1px solid rgba(186, 12, 47, 0.2);
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .pass-card:hover .btn-detail {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* DIRECTORY TABLE */
+    .table-container {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3.5rem;
+      overflow-x: auto;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.925rem;
+    }
+    .data-table th, .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .data-table th {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--ink);
+      background: #f8fafc;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* FAQ ACCORDION */
+    .faq-section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3.5rem;
+    }
+    .faq-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      padding: 0 1.25rem 1.25rem;
+      color: var(--muted);
+      font-size: 0.925rem;
+      display: none;
+    }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+    /* MODAL STYLES */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      padding: 2rem;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+    }
+    .modal-close:hover { background: #e2e8f0; }
+
+    /* FOOTER */
+    .site-footer {
+      background-color: var(--hero);
+      color: var(--hero-muted);
+      padding: 3.5rem 1.5rem 2.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--hero-line);
+      text-align: center;
+      font-size: 0.875rem;
+    }
+    .site-footer a { color: var(--hero-muted); text-decoration: none; }
+    .site-footer a:hover { color: var(--hero-ink); }
+  
+    /* ===== LRS: MOBILE MENU & OVERFLOW FIX ===== */
+    html, body { overflow-x: hidden !important; }
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: 1px solid var(--line, #e2e0d8);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      position: relative;
+      z-index: 300;
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink, #1c1d1b);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 760px) {
+      .hamburger-btn { display: flex !important; }
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--card, #ffffff);
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 28px !important;
+        z-index: 200;
+        font-size: 1.2rem;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-right .btn-alert { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">INNLANDET NORWAY</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="norway.html" class="nav-link">Norway Hub</a>
+        <a href="innlandet.html" class="nav-link active">Innlandet</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <a href="country.html">Country Directory</a>
+        <span>&rsaquo;</span>
+        <a href="norway.html">Norway</a>
+        <span>&rsaquo;</span>
+        <span>Innlandet Passes</span>
+      </div>
+      <h1 class="hero-title">🇳🇴 Innlandet Mountain Passes &amp; Alpine Driving Routes</h1>
+      <p class="hero-subtitle">
+        Real-time road status, winter equipment mandates, webcams, and pass updates across Jotunheimen, Dovrefjell, Lom, Vågå, and Valdres. Sourced live from Statens vegvesen 175.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>Statens vegvesen 175 &amp; Innlandet Fylkeskommune &bull; Updated Today &bull; 18 Passes Monitored</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <!-- ATLAS MAP CARD -->
+    <div class="atlas-map-card">
+      <img src="IMAGE/Innlandet Norway Mountain Passes Map.jpg" alt="Innlandet Norway Mountain Passes Atlas Map" class="atlas-map-img" width="400" height="250" loading="lazy" decoding="async">
+      <div class="atlas-caption">
+        <span><b>Innlandet Mountain Pass Atlas:</b> Jotunheimen, Lom, Vågå, Dovrefjell, Rondane &amp; Valdres.</span>
+        <span>Elevation range: 1,000 m – 1,434 m</span>
+      </div>
+    </div>
+
+    <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;">Innlandet Mountain Passes Live Status</h2>
+    <p style="color:var(--muted); margin-bottom:2rem; font-size:0.95rem;">Select any pass below for detailed road conditions, winter closure schedules, and mountain webcams.</p>
+
+    <!-- PASS CARDS GRID -->
+    <div class="passes-grid">
+
+      <!-- 1. Sognefjellet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Sognefjellet</h3>
+              <div class="pass-hwy">Fv55 • Lom to Gaupne</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,434 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Jotunheimen</b></span>
+          </div>
+          <p class="pass-info-text">
+            Norway's highest mountain pass. Monitored for autumn night closures and winter snow accumulation. Mandatory winter equipment in shoulder seasons.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Sognefjellet', 'Fv55', '1,434 m', 'Jotunheimen / Lom / Gaupne', 'OPEN', 'Dry tarmac across summit. Winter night closures enter effect November 1. Winter tires mandatory.', 'Statens vegvesen 175 Feed', '1,400 m Sognefjellshytta High Plateau', 'https://www.vegvesen.no/')">
+          <span>View Sognefjellet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 2. Valdresflye -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Valdresflye</h3>
+              <div class="pass-hwy">Fv51 • Beitostølen to Vågå</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,389 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Jotunheimen / Valdres</b></span>
+          </div>
+          <p class="pass-info-text">
+            Norway's second-highest mountain pass across high alpine tundra. Subject to strong winds, drift snow, and timed convoy driving in early winter.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Valdresflye', 'Fv51', '1,389 m', 'Valdres / Vågå', 'OPEN', 'Clear driving conditions. Night closure alert standard during early winter storms.', 'Vegvesen 175 Traffic', 'Bygdin lake plateau crossing', 'https://www.vegvesen.no/')">
+          <span>View Valdresflye Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 3. Jotunheimvegen -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Jotunheimvegen</h3>
+              <div class="pass-hwy">Mountain Toll Road • Skåbu to Bygdin</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,184 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Jotunheimen</b></span>
+          </div>
+          <p class="pass-info-text">
+            Scenic high-altitude gravel road passing Lake Vinstre. Seasonal toll road open for summer and autumn travel; closed during deep winter snow.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Jotunheimvegen', 'Gravel Toll Road', '1,184 m', 'Skåbu to Bygdin', 'OPEN', 'Gravel surface in good condition. Automatic card toll payment active.', 'Jotunheimvegen AS', 'Lake Vinstre Mountain Corridor', 'https://www.jotunheimvegen.no/')">
+          <span>View Jotunheimvegen Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 4. Tindevegen -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Tindevegen</h3>
+              <div class="pass-hwy">Alpine Toll Road • Årdal to Turtagrø</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,210 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Jotunheimen / Vestland</b></span>
+          </div>
+          <p class="pass-info-text">
+            Spectacular "Shortcut through the Peaks of Hurrungane" connecting Øvre Årdal to Sognefjellet (Fv55). Toll road open May through November.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Tindevegen', 'Alpine Toll Road', '1,210 m', 'Øvre Årdal to Turtagrø', 'OPEN', 'Clear mountain road. Narrow sections require caution with campers. Card toll at barrier.', 'Tindevegen AS', 'Hurrungane Mountain Vista', 'https://www.tindevegen.no/')">
+          <span>View Tindevegen Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 5. Tyin – Eidsbugarden -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Tyin – Eidsbugarden</h3>
+              <div class="pass-hwy">Fv253 • Tyinkrysset to Eidsbugarden</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,066 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Jotunheimen / Tyin</b></span>
+          </div>
+          <p class="pass-info-text">
+            High mountain lake access road along Lake Tyin to Eidsbugarden &amp; Fondsbu. Closed to private motor vehicles in winter (snow coach operation).
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Tyin – Eidsbugarden', 'Fv253', '1,066 m', 'Tyin Lake to Eidsbugarden', 'OPEN', 'Open for vehicle traffic. Converts to snow-mobile/weasel track in mid-winter.', 'Statens vegvesen & Vang Kommune', 'Fondsbu Jotunheimen Lodge', 'https://www.vegvesen.no/')">
+          <span>View Tyin-Eidsbugarden Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 6. Tyin – Årdal -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Tyin – Årdal</h3>
+              <div class="pass-hwy">Fv53 • Tyinkrysset to Årdalstangen</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,085 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Valdres / Årdal</b></span>
+          </div>
+          <p class="pass-info-text">
+            High mountain pass linking Filefjell/Tyin plateau to the Årdalsfjord. Features high tunnels and avalanche control gates.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Tyin – Årdal', 'Fv53', '1,085 m', 'Tyin to Årdalstangen', 'OPEN', 'Normal traffic flow. Monitored for sudden winter icing near mountain tunnels.', 'Statens vegvesen 175', 'Tyin Summit & Tunnel Entrances', 'https://www.vegvesen.no/')">
+          <span>View Tyin-Årdal Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 7. Filefjell -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Filefjell</h3>
+              <div class="pass-hwy">E16 • Vang to Lærdal</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,256 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Valdres / Lærdal</b></span>
+          </div>
+          <p class="pass-info-text">
+            Norway's principal year-round east-west highway corridor. Modernized with high-altitude snow tunnels to guarantee winter reliability.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Filefjell', 'E16', '1,256 m', 'Valdres to Lærdal', 'OPEN', 'Open 24/7. High reliability year-round transit corridor.', 'Statens vegvesen 175 Telemetry', 'Filefjell Tunnel & Kyrkjestølen', 'https://www.vegvesen.no/')">
+          <span>View Filefjell Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 8. Bygdin Mountain Crossings -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Bygdin &amp; Sognefjellshytta Area</h3>
+              <div class="pass-hwy">Fv51 / Fv55 Summit Zones</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,100 m – 1,400 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Jotunheimen</b></span>
+          </div>
+          <p class="pass-info-text">
+            High mountain lake crossings around Lake Bygdin and Sognefjellshytta high plateau lodge. High exposure to alpine wind and early snowfall.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Bygdin & Sognefjellshytta', 'Fv51 / Fv55 Sub-routes', '1,400 m', 'Lake Bygdin & High Plateau', 'OPEN', 'Roads open. Sognefjellshytta lodge area accessible by car.', 'Statens vegvesen & DNT', 'Sognefjellshytta High Elevation Station', 'https://www.vegvesen.no/')">
+          <span>View Bygdin Area Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 9. Dovrefjell -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Dovrefjell</h3>
+              <div class="pass-hwy">E6 • Dombås to Hjerkinn / Oppdal</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>1,014 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Dovrefjell / Rondane</b></span>
+          </div>
+          <p class="pass-info-text">
+            Major arterial mountain highway E6 connecting Oslo and Trondheim over the Dovrefjell plateau. Year-round operations with snowplow escorts during severe blizzards.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Dovrefjell', 'E6 Trunk Highway', '1,014 m', 'Dombås to Oppdal', 'OPEN', 'Good winter readiness. High-speed snowplowing in operation during snowfalls.', 'Statens vegvesen 175', 'Hjerkinn Plateau Crossing', 'https://www.vegvesen.no/')">
+          <span>View Dovrefjell Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIRECTORY SUMMARY TABLE -->
+    <div class="table-container">
+      <h2 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:0.5rem;">Innlandet Passes Overview Table</h2>
+      <p style="color:var(--muted); font-size:0.925rem; margin-bottom:1.5rem;">Quick reference for elevation, highway designation, and current road status.</p>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Pass / Route Name</th>
+            <th>Highway</th>
+            <th>Elevation</th>
+            <th>Region</th>
+            <th>Status</th>
+            <th>Winter Mandates</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Sognefjellet</b></td>
+            <td>Fv55</td>
+            <td>1,434 m</td>
+            <td>Jotunheimen / Lom</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Winter tires mandatory Oct 16–Apr 30</td>
+          </tr>
+          <tr>
+            <td><b>Valdresflye</b></td>
+            <td>Fv51</td>
+            <td>1,389 m</td>
+            <td>Valdres / Vågå</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Night closures in early winter</td>
+          </tr>
+          <tr>
+            <td><b>Filefjell</b></td>
+            <td>E16</td>
+            <td>1,256 m</td>
+            <td>Valdres / Lærdal</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Year-round open corridor</td>
+          </tr>
+          <tr>
+            <td><b>Tindevegen</b></td>
+            <td>Toll Road</td>
+            <td>1,210 m</td>
+            <td>Årdal / Turtagrø</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Toll barrier active; closed in deep winter</td>
+          </tr>
+          <tr>
+            <td><b>Jotunheimvegen</b></td>
+            <td>Toll Road</td>
+            <td>1,184 m</td>
+            <td>Skåbu / Bygdin</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Gravel road; summer/autumn only</td>
+          </tr>
+          <tr>
+            <td><b>Tyin – Årdal</b></td>
+            <td>Fv53</td>
+            <td>1,085 m</td>
+            <td>Valdres / Årdal</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Monitored for tunnel entrance icing</td>
+          </tr>
+          <tr>
+            <td><b>Tyin – Eidsbugarden</b></td>
+            <td>Fv253</td>
+            <td>1,066 m</td>
+            <td>Tyin Lake</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Snow coach transport in winter</td>
+          </tr>
+          <tr>
+            <td><b>Dovrefjell</b></td>
+            <td>E6</td>
+            <td>1,014 m</td>
+            <td>Dovrefjell Plateau</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Year-round E6 trunk route</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="faq-section">
+      <h2 class="faq-title">Frequently Asked Questions — Innlandet Passes</h2>
+      
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>When does Sognefjellet (Fv55) close for winter?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Sognefjellet usually experiences night closures starting in late October or early November depending on snowstorms, before closing fully for the winter season around mid-November. The road reopens after spring snow clearing in early May.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Is Valdresflye (Fv51) open all year?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          No, Valdresflye is a seasonal mountain pass. It typically closes for winter between December and April. During shoulder months (October–November and April–May), night closures or timed convoy driving may be enforced by Statens vegvesen.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Which mountain road connects Tyin to Årdal?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Fv53 (Fylkesveg 53) connects Tyinkrysset/Tyin with Årdalstangen over a 1,085 m high pass. Alternatively, Tindevegen connects Turtagrø on Sognefjellet with Øvre Årdal.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What is the difference between Filefjell (E16) and Sognefjellet (Fv55)?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Filefjell (E16) is a major commercial highway engineered with tunnels for reliable year-round operation. Sognefjellet (Fv55) is a high alpine National Tourist Route reaching 1,434 m elevation, which closes during deep winter due to extreme snowpack.
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- INTERACTIVE PASS MODAL -->
+  <div class="modal-overlay" id="passModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closePassModal()">&times;</button>
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+        <span class="status-badge status-open" id="mStatus">&bull; OPEN</span>
+        <span style="font-size:0.85rem; color:var(--muted);" id="mHwy">Fv55</span>
+      </div>
+      <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;" id="mTitle">Sognefjellet</h2>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1.25rem;" id="mRegion">Elevation: 1,434 m &bull; Region: Jotunheimen</p>
+      
+      <div style="background:#f8fafc; border:1px solid var(--line); border-radius:10px; padding:1.25rem; margin-bottom:1.25rem;">
+        <h4 style="font-size:0.95rem; font-weight:700; margin-bottom:0.4rem; color:var(--ink);">Current Road Condition Report</h4>
+        <p style="font-size:0.9rem; color:var(--ink);" id="mCondition">Dry tarmac across summit. Mandatory winter equipment active.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; font-size:0.88rem;">
+        <div style="border:1px solid var(--line); padding:0.85rem; border-radius:8px;">
+          <div style="color:var(--muted); font-size:0.78rem; font-weight:600;">OFFICIAL SOURCE</div>
+          <div style="font-weight:700; color:var(--ink);" id="mSource">Statens vegvesen 175</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:0.85rem; border-radius:8px;">
+          <div style="color:var(--muted); font-size:0.78rem; font-weight:600;">KEY LANDMARK</div>
+          <div style="font-weight:700; color:var(--ink);" id="mLandmark">Sognefjellshytta Plateau</div>
+        </div>
+      </div>
+
+      <a id="mLink" href="https://www.vegvesen.no/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; background:var(--accent); color:#fff; padding:0.75rem; border-radius:8px; font-weight:700; text-decoration:none;">
+        <span>Open Statens vegvesen Official 175 Feed</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2026 LiveRoadStatus. Sourced live from Statens vegvesen 175 &amp; Innlandet Fylkeskommune.</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="country.html">Country Directory</a> &bull; <a href="norway.html">Norway Hub</a> &bull; <a href="sitemap.xml">Sitemap</a></p>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('active');
+    }
+
+    function openPassModal(title, hwy, elev, region, status, condition, source, landmark, link) {
+      document.getElementById('mTitle').innerText = title;
+      document.getElementById('mHwy').innerText = hwy;
+      document.getElementById('mRegion').innerText = 'Elevation: ' + elev + ' • Region: ' + region;
+      document.getElementById('mStatus').innerText = '• ' + status;
+      document.getElementById('mCondition').innerText = condition;
+      document.getElementById('mSource').innerText = source;
+      document.getElementById('mLandmark').innerText = landmark;
+      document.getElementById('mLink').href = link;
+      document.getElementById('passModal').style.display = 'flex';
+    }
+
+    function closePassModal() {
+      document.getElementById('passModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('passModal');
+      if (event.target === modal) {
+        closePassModal();
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,833 @@
+[
+  {
+    "name": "United States",
+    "slug": "united-states",
+    "continent": "north-america",
+    "flag": "🇺🇸",
+    "flagSvgId": "idx-flag-us",
+    "description": "High mountain passes across the Rocky Mountains, Cascades, Sierra Nevada, and Appalachian ranges.",
+    "primaryAuthority": "State DOT Feeds (CDOT, WSDOT, Caltrans, VDOT, 511PA)",
+    "totalPasses": 243,
+    "regionsCount": 19,
+    "regions": [
+      {
+        "name": "California",
+        "slug": "california",
+        "page": "california.html",
+        "cleanUrl": "/united-states/california/",
+        "passes": 20
+      },
+      {
+        "name": "Colorado",
+        "slug": "colorado",
+        "page": "colorado.html",
+        "cleanUrl": "/united-states/colorado/",
+        "passes": 20
+      },
+      {
+        "name": "Oregon",
+        "slug": "oregon",
+        "page": "oregon.html",
+        "cleanUrl": "/united-states/oregon/",
+        "passes": 19
+      },
+      {
+        "name": "Idaho",
+        "slug": "idaho",
+        "page": "idaho.html",
+        "cleanUrl": "/united-states/idaho/",
+        "passes": 15
+      },
+      {
+        "name": "New Mexico",
+        "slug": "new-mexico",
+        "page": "newmexico.html",
+        "cleanUrl": "/united-states/new-mexico/",
+        "passes": 15
+      },
+      {
+        "name": "North Carolina",
+        "slug": "north-carolina",
+        "page": "northcarolina.html",
+        "cleanUrl": "/united-states/north-carolina/",
+        "passes": 15
+      },
+      {
+        "name": "Utah",
+        "slug": "utah",
+        "page": "utah.html",
+        "cleanUrl": "/united-states/utah/",
+        "passes": 15
+      },
+      {
+        "name": "Alaska",
+        "slug": "alaska",
+        "page": "alaska.html",
+        "cleanUrl": "/united-states/alaska/",
+        "passes": 14
+      },
+      {
+        "name": "Nevada",
+        "slug": "nevada",
+        "page": "nevada.html",
+        "cleanUrl": "/united-states/nevada/",
+        "passes": 14
+      },
+      {
+        "name": "Washington",
+        "slug": "washington",
+        "page": "washington.html",
+        "cleanUrl": "/united-states/washington/",
+        "passes": 13
+      },
+      {
+        "name": "Arizona",
+        "slug": "arizona",
+        "page": "arizona.html",
+        "cleanUrl": "/united-states/arizona/",
+        "passes": 12
+      },
+      {
+        "name": "Wyoming",
+        "slug": "wyoming",
+        "page": "wyoming.html",
+        "cleanUrl": "/united-states/wyoming/",
+        "passes": 12
+      },
+      {
+        "name": "Montana",
+        "slug": "montana",
+        "page": "montana.html",
+        "cleanUrl": "/united-states/montana/",
+        "passes": 11
+      },
+      {
+        "name": "Virginia",
+        "slug": "virginia",
+        "page": "virginia.html",
+        "cleanUrl": "/united-states/virginia/",
+        "passes": 11
+      },
+      {
+        "name": "West Virginia",
+        "slug": "west-virginia",
+        "page": "westvirginia.html",
+        "cleanUrl": "/united-states/west-virginia/",
+        "passes": 10
+      },
+      {
+        "name": "Tennessee",
+        "slug": "tennessee",
+        "page": "tennessee.html",
+        "cleanUrl": "/united-states/tennessee/",
+        "passes": 9
+      },
+      {
+        "name": "Pennsylvania",
+        "slug": "pennsylvania",
+        "page": "pennsylvania.html",
+        "cleanUrl": "/united-states/pennsylvania/",
+        "passes": 8
+      },
+      {
+        "name": "New Hampshire",
+        "slug": "new-hampshire",
+        "page": "newhampshire.html",
+        "cleanUrl": "/united-states/new-hampshire/",
+        "passes": 6
+      },
+      {
+        "name": "Maryland",
+        "slug": "maryland",
+        "page": "maryland.html",
+        "cleanUrl": "/united-states/maryland/",
+        "passes": 4
+      }
+    ]
+  },
+  {
+    "name": "Austria",
+    "slug": "austria",
+    "continent": "europe",
+    "flag": "🇦🇹",
+    "flagSvgId": "idx-flag-at",
+    "description": "High alpine panoramic roads and mountain passes across Tyrol, Salzburg, and Carinthia.",
+    "primaryAuthority": "ÖAMTC, ASFINAG & Grossglockner Hochalpenstrassen AG",
+    "totalPasses": 101,
+    "regionsCount": 6,
+    "regions": [
+      {
+        "name": "Carinthia",
+        "slug": "carinthia",
+        "page": "carinthia.html",
+        "cleanUrl": "/austria/carinthia/",
+        "passes": 20
+      },
+      {
+        "name": "Styria",
+        "slug": "styria",
+        "page": "styria.html",
+        "cleanUrl": "/austria/styria/",
+        "passes": 19
+      },
+      {
+        "name": "Tyrol",
+        "slug": "tyrol",
+        "page": "tyrol.html",
+        "cleanUrl": "/austria/tyrol/",
+        "passes": 19
+      },
+      {
+        "name": "Lower Austria",
+        "slug": "lower-austria",
+        "page": "lower-austria.html",
+        "cleanUrl": "/austria/lower-austria/",
+        "passes": 18
+      },
+      {
+        "name": "Salzburg",
+        "slug": "salzburg",
+        "page": "salzburg.html",
+        "cleanUrl": "/austria/salzburg/",
+        "passes": 14
+      },
+      {
+        "name": "Vorarlberg",
+        "slug": "vorarlberg",
+        "page": "vorarlberg.html",
+        "cleanUrl": "/austria/vorarlberg/",
+        "passes": 11
+      }
+    ]
+  },
+  {
+    "name": "Switzerland",
+    "slug": "switzerland",
+    "continent": "europe",
+    "flag": "🇨🇭",
+    "flagSvgId": "idx-flag-ch",
+    "description": "Iconic Swiss alpine passes across Uri, Graubünden, Valais, Bern, and Ticino.",
+    "primaryAuthority": "TCS Schweiz (Touring Club Suisse) & Cantonal Police",
+    "totalPasses": 100,
+    "regionsCount": 15,
+    "regions": [
+      {
+        "name": "Graubünden",
+        "slug": "graubnden",
+        "page": "graubunden.html",
+        "cleanUrl": "/switzerland/graubnden/",
+        "passes": 17
+      },
+      {
+        "name": "Valais",
+        "slug": "valais",
+        "page": "valais.html",
+        "cleanUrl": "/switzerland/valais/",
+        "passes": 11
+      },
+      {
+        "name": "Bern & Bernese Oberland",
+        "slug": "bern-bernese-oberland",
+        "page": "bern.html",
+        "cleanUrl": "/switzerland/bern-bernese-oberland/",
+        "passes": 8
+      },
+      {
+        "name": "St. Gallen & Appenzell",
+        "slug": "st-gallen-appenzell",
+        "page": "stgallen.html",
+        "cleanUrl": "/switzerland/st-gallen-appenzell/",
+        "passes": 8
+      },
+      {
+        "name": "Vaud & Jura",
+        "slug": "vaud-jura",
+        "page": "vaud.html",
+        "cleanUrl": "/switzerland/vaud-jura/",
+        "passes": 7
+      },
+      {
+        "name": "Fribourg",
+        "slug": "fribourg",
+        "page": "fribourg.html",
+        "cleanUrl": "/switzerland/fribourg/",
+        "passes": 6
+      },
+      {
+        "name": "Glarus",
+        "slug": "glarus",
+        "page": "glarus.html",
+        "cleanUrl": "/switzerland/glarus/",
+        "passes": 6
+      },
+      {
+        "name": "Schwyz",
+        "slug": "schwyz",
+        "page": "schwyz.html",
+        "cleanUrl": "/switzerland/schwyz/",
+        "passes": 6
+      },
+      {
+        "name": "Zurich, Zug & Thurgau",
+        "slug": "zurich-zug-thurgau",
+        "page": "zurich.html",
+        "cleanUrl": "/switzerland/zurich-zug-thurgau/",
+        "passes": 6
+      },
+      {
+        "name": "Aargau",
+        "slug": "aargau",
+        "page": "aargau.html",
+        "cleanUrl": "/switzerland/aargau/",
+        "passes": 5
+      },
+      {
+        "name": "Lucerne",
+        "slug": "lucerne",
+        "page": "lucerne.html",
+        "cleanUrl": "/switzerland/lucerne/",
+        "passes": 5
+      },
+      {
+        "name": "Ticino",
+        "slug": "ticino",
+        "page": "ticino.html",
+        "cleanUrl": "/switzerland/ticino/",
+        "passes": 5
+      },
+      {
+        "name": "Nidwalden",
+        "slug": "nidwalden",
+        "page": "nidwalden.html",
+        "cleanUrl": "/switzerland/nidwalden/",
+        "passes": 4
+      },
+      {
+        "name": "Uri",
+        "slug": "uri",
+        "page": "uri.html",
+        "cleanUrl": "/switzerland/uri/",
+        "passes": 4
+      },
+      {
+        "name": "Obwalden",
+        "slug": "obwalden",
+        "page": "obwalden.html",
+        "cleanUrl": "/switzerland/obwalden/",
+        "passes": 2
+      }
+    ]
+  },
+  {
+    "name": "Canada",
+    "slug": "canada",
+    "continent": "north-america",
+    "flag": "🇨🇦",
+    "flagSvgId": "idx-flag-ca",
+    "description": "Trans-Canada highway corridors, Rocky Mountain passes, and Arctic highway routes.",
+    "primaryAuthority": "DriveBC, 511 Alberta, Yukon 511, Transports Québec",
+    "totalPasses": 91,
+    "regionsCount": 7,
+    "regions": [
+      {
+        "name": "British Columbia",
+        "slug": "british-columbia",
+        "page": "britishcolumbia.html",
+        "cleanUrl": "/canada/british-columbia/",
+        "passes": 28
+      },
+      {
+        "name": "Alberta",
+        "slug": "alberta",
+        "page": "alberta.html",
+        "cleanUrl": "/canada/alberta/",
+        "passes": 24
+      },
+      {
+        "name": "Yukon Territory",
+        "slug": "yukon-territory",
+        "page": "yukon.html",
+        "cleanUrl": "/canada/yukon-territory/",
+        "passes": 10
+      },
+      {
+        "name": "Northwest Territories",
+        "slug": "northwest-territories",
+        "page": "nwt.html",
+        "cleanUrl": "/canada/northwest-territories/",
+        "passes": 8
+      },
+      {
+        "name": "New Brunswick & Nova Scotia",
+        "slug": "new-brunswick-nova-scotia",
+        "page": "maritimes.html",
+        "cleanUrl": "/canada/new-brunswick-nova-scotia/",
+        "passes": 7
+      },
+      {
+        "name": "Newfoundland & Labrador",
+        "slug": "newfoundland-labrador",
+        "page": "nl.html",
+        "cleanUrl": "/canada/newfoundland-labrador/",
+        "passes": 7
+      },
+      {
+        "name": "Quebec",
+        "slug": "quebec",
+        "page": "quebec.html",
+        "cleanUrl": "/canada/quebec/",
+        "passes": 7
+      }
+    ]
+  },
+  {
+    "name": "Italy",
+    "slug": "italy",
+    "continent": "europe",
+    "flag": "🇮🇹",
+    "flagSvgId": "idx-flag-it",
+    "description": "High Dolomites, Stelvio National Park, Apennine passes, and Maritime Alps.",
+    "primaryAuthority": "CCISS Viaggiare Informati, ANAS, Autostrada del Brennero",
+    "totalPasses": 79,
+    "regionsCount": 10,
+    "regions": [
+      {
+        "name": "Veneto & Belluno Dolomites",
+        "slug": "veneto-belluno-dolomites",
+        "page": "veneto.html",
+        "cleanUrl": "/italy/veneto-belluno-dolomites/",
+        "passes": 16
+      },
+      {
+        "name": "Lombardy Alps & Valtellina",
+        "slug": "lombardy-alps-valtellina",
+        "page": "lombardy.html",
+        "cleanUrl": "/italy/lombardy-alps-valtellina/",
+        "passes": 13
+      },
+      {
+        "name": "Cuneo & Maritime Alps",
+        "slug": "cuneo-maritime-alps",
+        "page": "cuneo.html",
+        "cleanUrl": "/italy/cuneo-maritime-alps/",
+        "passes": 9
+      },
+      {
+        "name": "Piedmont",
+        "slug": "piedmont",
+        "page": "piedmont.html",
+        "cleanUrl": "/italy/piedmont/",
+        "passes": 9
+      },
+      {
+        "name": "Friuli-Venezia Giulia",
+        "slug": "friuli-venezia-giulia",
+        "page": "fvg.html",
+        "cleanUrl": "/italy/friuli-venezia-giulia/",
+        "passes": 8
+      },
+      {
+        "name": "Verbano-Cusio-Ossola & Biella",
+        "slug": "verbano-cusio-ossola-biella",
+        "page": "ossola.html",
+        "cleanUrl": "/italy/verbano-cusio-ossola-biella/",
+        "passes": 8
+      },
+      {
+        "name": "Aosta Valley",
+        "slug": "aosta-valley",
+        "page": "aostavalley.html",
+        "cleanUrl": "/italy/aosta-valley/",
+        "passes": 7
+      },
+      {
+        "name": "Emilia-Romagna Apennines",
+        "slug": "emilia-romagna-apennines",
+        "page": "emilia.html",
+        "cleanUrl": "/italy/emilia-romagna-apennines/",
+        "passes": 5
+      },
+      {
+        "name": "Metropolitan City of Turin",
+        "slug": "metropolitan-city-of-turin",
+        "page": "turin.html",
+        "cleanUrl": "/italy/metropolitan-city-of-turin/",
+        "passes": 2
+      },
+      {
+        "name": "Tuscany & Lunigiana",
+        "slug": "tuscany-lunigiana",
+        "page": "tuscany.html",
+        "cleanUrl": "/italy/tuscany-lunigiana/",
+        "passes": 2
+      }
+    ]
+  },
+  {
+    "name": "France",
+    "slug": "france",
+    "continent": "europe",
+    "flag": "🇫🇷",
+    "flagSvgId": "idx-flag-fr",
+    "description": "Alpine cols, Pyrenean passes, Vosges gaps, and Jura mountain corridors.",
+    "primaryAuthority": "Bison Futé, Inforoute France, Inforoute 39, Inforoute 05",
+    "totalPasses": 73,
+    "regionsCount": 6,
+    "regions": [
+      {
+        "name": "Provence-Alpes-Côte d'Azur (PACA)",
+        "slug": "provence-alpes-cte-dazur-paca",
+        "page": "paca.html",
+        "cleanUrl": "/france/provence-alpes-cte-dazur-paca/",
+        "passes": 16
+      },
+      {
+        "name": "Auvergne-Rhône-Alpes",
+        "slug": "auvergne-rhne-alpes",
+        "page": "auvergne.html",
+        "cleanUrl": "/france/auvergne-rhne-alpes/",
+        "passes": 14
+      },
+      {
+        "name": "Grand Est & Vosges",
+        "slug": "grand-est-vosges",
+        "page": "grandest.html",
+        "cleanUrl": "/france/grand-est-vosges/",
+        "passes": 12
+      },
+      {
+        "name": "Nouvelle-Aquitaine",
+        "slug": "nouvelle-aquitaine",
+        "page": "aquitaine.html",
+        "cleanUrl": "/france/nouvelle-aquitaine/",
+        "passes": 12
+      },
+      {
+        "name": "Occitanie & Pyrenees",
+        "slug": "occitanie-pyrenees",
+        "page": "occitanie.html",
+        "cleanUrl": "/france/occitanie-pyrenees/",
+        "passes": 10
+      },
+      {
+        "name": "Bourgogne-Franche-Comté & Jura",
+        "slug": "bourgogne-franche-comt-jura",
+        "page": "bourgogne.html",
+        "cleanUrl": "/france/bourgogne-franche-comt-jura/",
+        "passes": 9
+      }
+    ]
+  },
+  {
+    "name": "India",
+    "slug": "india",
+    "continent": "asia",
+    "flag": "🇮🇳",
+    "flagSvgId": "idx-flag-in",
+    "description": "Himalayan passes and strategic military mountain routes in Ladakh, Himachal, and Sikkim.",
+    "primaryAuthority": "Border Roads Organisation (BRO) & Himachal Traffic Police",
+    "totalPasses": 70,
+    "regionsCount": 7,
+    "regions": [
+      {
+        "name": "Uttarakhand",
+        "slug": "uttarakhand",
+        "page": "uttarakhand.html",
+        "cleanUrl": "/india/uttarakhand/",
+        "passes": 16
+      },
+      {
+        "name": "Ladakh",
+        "slug": "ladakh",
+        "page": "ladakh.html",
+        "cleanUrl": "/india/ladakh/",
+        "passes": 13
+      },
+      {
+        "name": "Arunachal Pradesh",
+        "slug": "arunachal-pradesh",
+        "page": "arunachal.html",
+        "cleanUrl": "/india/arunachal-pradesh/",
+        "passes": 11
+      },
+      {
+        "name": "Jammu & Kashmir",
+        "slug": "jammu-kashmir",
+        "page": "jk.html",
+        "cleanUrl": "/india/jammu-kashmir/",
+        "passes": 11
+      },
+      {
+        "name": "Himachal Pradesh",
+        "slug": "himachal-pradesh",
+        "page": "himachal.html",
+        "cleanUrl": "/india/himachal-pradesh/",
+        "passes": 9
+      },
+      {
+        "name": "Sikkim",
+        "slug": "sikkim",
+        "page": "sikkim.html",
+        "cleanUrl": "/india/sikkim/",
+        "passes": 6
+      },
+      {
+        "name": "Nagaland",
+        "slug": "nagaland",
+        "page": "nagaland.html",
+        "cleanUrl": "/india/nagaland/",
+        "passes": 4
+      }
+    ]
+  },
+  {
+    "name": "Pakistan",
+    "slug": "pakistan",
+    "continent": "asia",
+    "flag": "🇵🇰",
+    "flagSvgId": "idx-flag-pk",
+    "description": "Karakoram Highway passes, Hindu Kush traverses, and high alpine gaps in Gilgit-Baltistan.",
+    "primaryAuthority": "National Highway Authority (NHA) & Gilgit-Baltistan Disaster Management",
+    "totalPasses": 68,
+    "regionsCount": 3,
+    "regions": [
+      {
+        "name": "Gilgit-Baltistan",
+        "slug": "gilgit-baltistan",
+        "page": "gilgit.html",
+        "cleanUrl": "/pakistan/gilgit-baltistan/",
+        "passes": 35
+      },
+      {
+        "name": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa",
+        "page": "kp.html",
+        "cleanUrl": "/pakistan/khyber-pakhtunkhwa/",
+        "passes": 21
+      },
+      {
+        "name": "Balochistan",
+        "slug": "balochistan",
+        "page": "balochistan.html",
+        "cleanUrl": "/pakistan/balochistan/",
+        "passes": 12
+      }
+    ]
+  },
+  {
+    "name": "Norway",
+    "slug": "norway",
+    "continent": "europe",
+    "flag": "🇳🇴",
+    "flagSvgId": "idx-flag-no",
+    "description": "National tourist mountain routes, Arctic tundra passes, and western fjord crossings.",
+    "primaryAuthority": "Statens vegvesen (Vegvesen Trafikk)",
+    "totalPasses": 40,
+    "regionsCount": 5,
+    "regions": [
+      {
+        "name": "Finnmark & Troms",
+        "slug": "finnmark-troms",
+        "page": "finnmark.html",
+        "cleanUrl": "/norway/finnmark-troms/",
+        "passes": 12
+      },
+      {
+        "name": "Innlandet",
+        "slug": "innlandet",
+        "page": "innlandet.html",
+        "cleanUrl": "/norway/innlandet/",
+        "passes": 9
+      },
+      {
+        "name": "Møre og Romsdal",
+        "slug": "mre-og-romsdal",
+        "page": "moreogromsdal.html",
+        "cleanUrl": "/norway/mre-og-romsdal/",
+        "passes": 7
+      },
+      {
+        "name": "Trøndelag",
+        "slug": "trndelag",
+        "page": "trondelag.html",
+        "cleanUrl": "/norway/trndelag/",
+        "passes": 7
+      },
+      {
+        "name": "Vestland",
+        "slug": "vestland",
+        "page": "vestland.html",
+        "cleanUrl": "/norway/vestland/",
+        "passes": 5
+      }
+    ]
+  },
+  {
+    "name": "Chile",
+    "slug": "chile",
+    "continent": "south-america",
+    "flag": "🇨🇱",
+    "flagSvgId": "idx-flag-cl",
+    "description": "Andean international border passes connecting Chile with Argentina and Bolivia.",
+    "primaryAuthority": "Unidad de Pasos Fronterizos (Ministerio del Interior y Seguridad Pública)",
+    "totalPasses": 7,
+    "regionsCount": 3,
+    "regions": [
+      {
+        "name": "Arica y Parinacota",
+        "slug": "arica-y-parinacota",
+        "page": "arica.html",
+        "cleanUrl": "/chile/arica-y-parinacota/",
+        "passes": 5
+      },
+      {
+        "name": "Atacama Region",
+        "slug": "atacama-region",
+        "page": "atacama.html",
+        "cleanUrl": "/chile/atacama-region/",
+        "passes": 1
+      },
+      {
+        "name": "Los Lagos / Puyehue",
+        "slug": "los-lagos-puyehue",
+        "page": "#",
+        "cleanUrl": "/chile/los-lagos-puyehue/",
+        "passes": 1
+      }
+    ]
+  },
+  {
+    "name": "Argentina",
+    "slug": "argentina",
+    "continent": "south-america",
+    "flag": "🇦🇷",
+    "flagSvgId": "idx-flag-ar",
+    "description": "High Andes mountain crossings and Patagonian passes along Ruta 40.",
+    "primaryAuthority": "Vialidad Nacional Argentina",
+    "totalPasses": 2,
+    "regionsCount": 2,
+    "regions": [
+      {
+        "name": "Mendoza Andes",
+        "slug": "mendoza-andes",
+        "page": "#",
+        "cleanUrl": "/argentina/mendoza-andes/",
+        "passes": 1
+      },
+      {
+        "name": "Salta Andes",
+        "slug": "salta-andes",
+        "page": "#",
+        "cleanUrl": "/argentina/salta-andes/",
+        "passes": 1
+      }
+    ]
+  },
+  {
+    "name": "China",
+    "slug": "china",
+    "continent": "asia",
+    "flag": "🇨🇳",
+    "flagSvgId": "idx-flag-cn",
+    "description": "Tibetan plateau crossings, Xinjiang highway passes, and Yunnan high mountain routes.",
+    "primaryAuthority": "Ministry of Transport of the People's Republic of China",
+    "totalPasses": 2,
+    "regionsCount": 1,
+    "regions": [
+      {
+        "name": "Tibet Plateau",
+        "slug": "tibet-plateau",
+        "page": "#",
+        "cleanUrl": "/china/tibet-plateau/",
+        "passes": 2
+      }
+    ]
+  },
+  {
+    "name": "Nepal",
+    "slug": "nepal",
+    "continent": "asia",
+    "flag": "🇳🇵",
+    "flagSvgId": "idx-flag-np",
+    "description": "High Himalayan trekking passes and vehicular border passes to Tibet.",
+    "primaryAuthority": "Department of Roads Nepal",
+    "totalPasses": 2,
+    "regionsCount": 2,
+    "regions": [
+      {
+        "name": "Annapurna Circuit",
+        "slug": "annapurna-circuit",
+        "page": "#",
+        "cleanUrl": "/nepal/annapurna-circuit/",
+        "passes": 1
+      },
+      {
+        "name": "Khumbu / Everest",
+        "slug": "khumbu-everest",
+        "page": "#",
+        "cleanUrl": "/nepal/khumbu-everest/",
+        "passes": 1
+      }
+    ]
+  },
+  {
+    "name": "Romania",
+    "slug": "romania",
+    "continent": "europe",
+    "flag": "🇷🇴",
+    "flagSvgId": "idx-flag-ro",
+    "description": "Carpathian mountain passes including the Transfăgărășan and Transalpina.",
+    "primaryAuthority": "CNAIR (Compania Nationala de Administrare a Infrastructurii Rutiere)",
+    "totalPasses": 1,
+    "regionsCount": 1,
+    "regions": [
+      {
+        "name": "Făgăraș Mountains",
+        "slug": "fgra-mountains",
+        "page": "#",
+        "cleanUrl": "/romania/fgra-mountains/",
+        "passes": 1
+      }
+    ]
+  },
+  {
+    "name": "South Africa",
+    "slug": "south-africa",
+    "continent": "africa",
+    "flag": "🇿🇦",
+    "flagSvgId": "idx-flag-za",
+    "description": "Drakensberg escarpment passes and high mountain gravel traverses into Lesotho.",
+    "primaryAuthority": "South African National Roads Agency (SANRAL) & Lesotho Border Control",
+    "totalPasses": 1,
+    "regionsCount": 1,
+    "regions": [
+      {
+        "name": "Drakensberg Escarpment",
+        "slug": "drakensberg-escarpment",
+        "page": "#",
+        "cleanUrl": "/south-africa/drakensberg-escarpment/",
+        "passes": 1
+      }
+    ]
+  },
+  {
+    "name": "Tajikistan",
+    "slug": "tajikistan",
+    "continent": "asia",
+    "flag": "🇹🇯",
+    "flagSvgId": "idx-flag-tj",
+    "description": "Pamir Highway (M41) high-altitude passes across the Roof of the World.",
+    "primaryAuthority": "Ministry of Transport of the Republic of Tajikistan & Pamir Eco-Cultural Tourism",
+    "totalPasses": 1,
+    "regionsCount": 1,
+    "regions": [
+      {
+        "name": "Gorno-Badakhshan Autonomous Region (GBAO)",
+        "slug": "gorno-badakhshan-autonomous-region-gbao",
+        "page": "#",
+        "cleanUrl": "/tajikistan/gorno-badakhshan-autonomous-region-gbao/",
+        "passes": 1
+      }
+    ]
+  }
+]

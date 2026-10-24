@@ -1,0 +1,563 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Italy Mountain Passes &amp; State Driving Routes — LiveRoadStatus</title>
+  <meta name="description" content="Explore live road status, winter closures, webcams, and mountain pass updates across all states and regions in Italy.">
+  
+  <style>
+    /* CORE STYLES & COLOR SYSTEM */
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #15803d;
+      --accent-hover: #166534;
+      --accent-tint: #f0fdf4;
+      --hero: #0d381e;
+      --hero-ink: #f0fdf4;
+      --hero-muted: #86efac;
+      --hero-line: #14532d;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --radius: 14px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #ffffff;
+        --card: #ffffff;
+        --ink: #0f172a;
+        --muted: #475569;
+        --line: #e2e8f0;
+        --accent: #15803d;
+        --accent-hover: #166534;
+        --hero: #0d381e;
+        --hero-ink: #f0fdf4;
+        --hero-muted: #86efac;
+        --hero-line: #14532d;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: #dc2626;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--hero-ink); }
+    .btn-alert-report {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+      position: relative;
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(21, 128, 61, 0.4);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #bbf7d0;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #22c55e;
+    }
+
+    /* REGIONS CARDS GRID */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 980px) {
+      .region-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .region-grid { grid-template-columns: 1fr; }
+    }
+
+    .region-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .region-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+
+    .region-map-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--line);
+    }
+
+    .region-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .region-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .region-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .btn-view-region {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1rem;
+      background: var(--accent-tint);
+      color: var(--accent);
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .region-card:hover .btn-view-region {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      border-top: 1px solid var(--hero-line);
+      padding: 3.5rem 1.5rem 2.5rem;
+      margin-top: 4rem;
+    }
+  
+    /* ===== LRS: MOBILE MENU & OVERFLOW FIX ===== */
+    html, body { overflow-x: hidden !important; }
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: 1px solid var(--line, #e2e0d8);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      position: relative;
+      z-index: 300;
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink, #1c1d1b);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 760px) {
+      .hamburger-btn { display: flex !important; }
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--card, #ffffff);
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 28px !important;
+        z-index: 200;
+        font-size: 1.2rem;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-right .btn-alert { display: none; }
+    }
+  </style>
+  <link rel="canonical" href="https://www.liveroadstatus.com/italy/">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">ITALY</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="#state-regions" class="nav-link">States &amp; Regions</a>
+        <button class="btn-alert-report" onclick="alert('Submit live conditions drawer')">Submit Conditions</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <a href="country.html">Country Directory</a>
+        <span>&rsaquo;</span>
+        <span>Italy</span>
+      </div>
+      <h1 class="hero-title">🇮🇹 Italy Mountain Passes &amp; State Driving Routes</h1>
+      <p class="hero-subtitle">
+        Explore real-time open or closed road status, winter closure schedules, webcams, and mountain pass updates across all 10 states &amp; alpine regions in Italy.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>ANAS & Regional Viabilità Live Feeds &bull; Updated Today &bull; 97 Passes Monitored</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container" id="state-regions">
+    <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;">States &amp; Regions in Italy</h2>
+    <p style="color:var(--muted); margin-bottom:2rem; font-size:0.95rem;">Select a state or regional mountain pass atlas below to view live road conditions and webcams.</p>
+
+    <div class="region-grid">
+      <!-- Veneto & Dolomites -->
+      <a href="veneto.html" class="region-card">
+        <div>
+          <img src="IMAGE/Veneto Mountain Passes Map.png" alt="Veneto & Dolomites Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Veneto & Dolomites</h3>
+          <div class="region-meta">
+            <span><b>16</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,239 m (Passo Pordoi)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Passo Pordoi, Passo Falzarego, Passo Giau, Passo Tre Croci, Passo Fedaia, Passo Campolongo.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Veneto Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Lombardy (Lombardia) -->
+      <a href="lombardy.html" class="region-card">
+        <div>
+          <img src="IMAGE/Lombardy Mountain Passes Atlas Map.png" alt="Lombardy (Lombardia) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Lombardy (Lombardia)</h3>
+          <div class="region-meta">
+            <span><b>18</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,758 m (Passo dello Stelvio)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Stelvio Pass, Gavia Pass, Mortirolo Pass, San Marco Pass, Tonale Pass, Aprica Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Lombardy Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Piedmont (Piemonte) -->
+      <a href="piedmont.html" class="region-card">
+        <div>
+          <img src="IMAGE/Piedmont Mountain Passes Atlas Map.png" alt="Piedmont (Piemonte) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Piedmont (Piemonte)</h3>
+          <div class="region-meta">
+            <span><b>16</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,744 m (Colle dell'Agnello)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Colle del Nivolet, Colle dell'Agnello, Colle del Mont Cenis, Colle di Sestriere, Colle del Lys.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Piedmont Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Aosta Valley (Valle d'Aosta) -->
+      <a href="aostavalley.html" class="region-card">
+        <div>
+          <img src="IMAGE/Valle d’Aosta Mountain Passes Map.png" alt="Aosta Valley (Valle d'Aosta) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Aosta Valley (Valle d'Aosta)</h3>
+          <div class="region-meta">
+            <span><b>10</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,469 m (Gran San Bernardo)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Great St Bernard Pass, Little St Bernard Pass, Cervinia-Zermatt Pass, Colle del Nivolet approach.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Aosta Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Cuneo & Maritime Alps -->
+      <a href="cuneo.html" class="region-card">
+        <div>
+          <img src="IMAGE/Piedmont Mountain Passes Atlas Map.png" alt="Cuneo & Maritime Alps Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Cuneo & Maritime Alps</h3>
+          <div class="region-meta">
+            <span><b>10</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,481 m (Colle Fauniera)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Colle della Maddalena, Colle di Sampeyre, Colle Fauniera, Colle della Lombarda, Colle del della Boaria.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Cuneo Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Ossola Valley -->
+      <a href="ossola.html" class="region-card">
+        <div>
+          <img src="IMAGE/Piedmont Mountain Passes Atlas Map.png" alt="Ossola Valley Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Ossola Valley</h3>
+          <div class="region-meta">
+            <span><b>10</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,005 m (Simplon Approach)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Simplon Pass approach (SS33), Passo del San Giacomo, Val Formazza gaps.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Ossola Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Turin Alps & Susa Valley -->
+      <a href="turin.html" class="region-card">
+        <div>
+          <img src="IMAGE/Piedmont Mountain Passes Atlas Map.png" alt="Turin Alps & Susa Valley Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Turin Alps & Susa Valley</h3>
+          <div class="region-meta">
+            <span><b>10</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>2,178 m (Colle delle Finestre)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Colle delle Finestre, Colle del Mont Cenis, Colle del Fréjus, Sestriere.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Turin Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Tuscany (Toscana) -->
+      <a href="tuscany.html" class="region-card">
+        <div>
+          <img src="IMAGE/Tuscany Mountain Passes Illustrated Map.png" alt="Tuscany (Toscana) Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Tuscany (Toscana)</h3>
+          <div class="region-meta">
+            <span><b>10</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,261 m (Passo del Cerreto)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Cisa Pass, Lagastrello Pass, Cerreto Pass, Cirone Pass, Brattello Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Tuscany Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Emilia-Romagna -->
+      <a href="emilia.html" class="region-card">
+        <div>
+          <img src="IMAGE/Emilia-Romagna Mountain Passes Map.png" alt="Emilia-Romagna Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Emilia-Romagna</h3>
+          <div class="region-meta">
+            <span><b>10</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,261 m (Passo del Cerreto)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Cisa Pass, Lagastrello Pass, Cirone Pass, Sillara Pass, Borgallo Pass.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Emilia-Romagna Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Friuli-Venezia Giulia -->
+      <a href="fvg.html" class="region-card">
+        <div>
+          <img src="IMAGE/Friuli-Venezia Giulia Mountain Passes Map.png" alt="Friuli-Venezia Giulia Map" class="region-map-img" onerror="this.src='IMAGE/HOMEPAGE BG.jpg'" width="600" height="340" loading="lazy" decoding="async">
+          <h3 class="region-name">Friuli-Venezia Giulia</h3>
+          <div class="region-meta">
+            <span><b>12</b> Passes</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>1,360 m (Monte Croce Carnico)</b></span>
+          </div>
+          <p class="region-desc">
+            Passes monitored: Monte Croce Carnico, Sella Nevea, Passo Rest, Sella di Camporosso, Sella Chianzutan.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Friuli-Venezia Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+      <div>&copy; 2026 LiveRoadStatus. Real-time mountain pass conditions in Italy.</div>
+      <div style="display:flex; gap:1rem;">
+        <a href="index.html" style="color:var(--hero-muted);">All Regions</a>
+        <a href="country.html" style="color:var(--hero-muted);">Country Directory</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Verification Methodology &amp; Sources — LiveRoadStatus</title>
+  <meta name="description" content="Discover how LiveRoadStatus ingests, normalizes, and audits real-time mountain pass conditions from DOT feeds, webcams, and weather APIs with human editorial verification.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.liveroadstatus.com/methodology/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="LiveRoadStatus">
+  <meta property="og:title" content="Verification Methodology &amp; Data Sources — LiveRoadStatus">
+  <meta property="og:description" content="Transparent, sourced, and audited road intelligence for high mountain passes worldwide.">
+  <meta property="og:url" content="https://www.liveroadstatus.com/methodology/">
+  <meta property="og:image" content="https://www.liveroadstatus.com/homepage_bg.jpg">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "LiveRoadStatus Data Methodology",
+        "url": "https://www.liveroadstatus.com/methodology/",
+        "description": "How mountain pass road condition reports, weather data, and seasonal opening schedules are verified."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.liveroadstatus.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Methodology", "item": "https://www.liveroadstatus.com/methodology/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #1c1d1b;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #15803d;
+      --accent-hover: #166534;
+      --hero: #0d381e;
+      --hero-ink: #f0fdf4;
+      --hero-muted: #bbf7d0;
+      --hero-line: #14532d;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-main);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-nav {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      border-bottom: 1px solid var(--hero-line);
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .nav-brand .dot { width: 10px; height: 10px; background-color: #22c55e; border-radius: 50%; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: var(--hero-muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    .nav-links a:hover { color: #ffffff; }
+
+    .page-hero {
+      background-color: var(--hero);
+      background-image: linear-gradient(rgba(13, 56, 30, 0.90), rgba(13, 56, 30, 0.98)), url('/homepage_bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: var(--hero-ink);
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid var(--hero-line);
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero-lead {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 720px;
+      line-height: 1.6;
+    }
+
+    .article-body {
+      padding: 48px 0 64px;
+    }
+    h2 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--ink);
+      margin: 36px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      margin: 24px 0 10px;
+      color: var(--ink);
+    }
+    p { margin-bottom: 18px; color: #334155; }
+    ul, ol { margin: 16px 0 24px 24px; color: #334155; }
+    li { margin-bottom: 10px; }
+
+    .callout {
+      background: #f0fdf4;
+      border-left: 4px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 8px;
+      margin: 28px 0;
+      color: #14532d;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { padding: 14px 18px; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+    th { background: #f8fafc; font-weight: 700; color: var(--ink); }
+
+    footer {
+      background-color: var(--hero);
+      color: var(--hero-muted);
+      border-top: 1px solid var(--hero-line);
+      padding: 36px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a { color: var(--hero-ink); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">
+          <img src="/logo.webp" alt="LiveRoadStatus Logo" width="28" height="28" style="border-radius:6px; object-fit:contain; display:inline-block;" />
+          <span>LiveRoadStatus</span>
+        </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/country.html">Countries</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/methodology.html" style="color:#ffffff;">Methodology</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Data Verification Methodology</h1>
+      <p class="hero-lead">How LiveRoadStatus sources, verifies, normalizes, and audits real-time mountain pass conditions from governmental DOT APIs and weather stations.</p>
+    </div>
+  </section>
+
+  <main class="container article-body" id="main-content">
+    <div class="callout">
+      <strong>Core Editorial Guarantee:</strong> We never fabricate mountain pass road conditions, snowpack measurements, or reopening forecasts. If telemetry is unavailable or stale, the pass is explicitly marked <strong>"Status Unverified"</strong>.
+    </div>
+
+    <h2>1. Data Ingestion Architecture</h2>
+    <p>LiveRoadStatus connects directly to primary governmental transportation feeds, national park databases, and meteorological stations. We deliberately bypass secondary aggregators to avoid relay latency.</p>
+    
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Jurisdiction</th>
+            <th>Primary Authority</th>
+            <th>Refresh Cycle</th>
+            <th>Telemetry Protocol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Colorado (USA)</td>
+            <td>CDOT COTrip</td>
+            <td>5 minutes</td>
+            <td>REST API / GeoJSON Alerts</td>
+          </tr>
+          <tr>
+            <td>Washington (USA)</td>
+            <td>WSDOT Mountain Passes</td>
+            <td>5 minutes</td>
+            <td>WSDOT Real-Time API</td>
+          </tr>
+          <tr>
+            <td>California (USA)</td>
+            <td>Caltrans QuickMap</td>
+            <td>5 minutes</td>
+            <td>Caltrans Lane Closure System (LCS)</td>
+          </tr>
+          <tr>
+            <td>Switzerland</td>
+            <td>Touring Club Suisse (TCS)</td>
+            <td>10 minutes</td>
+            <td>TCS Verkehrslage Feed</td>
+          </tr>
+          <tr>
+            <td>France</td>
+            <td>Bison Futé / Inforoute France</td>
+            <td>10 minutes</td>
+            <td>Bison Futé Open Data Feeds</td>
+          </tr>
+          <tr>
+            <td>Austria</td>
+            <td>ASFINAG / ÖAMTC</td>
+            <td>10 minutes</td>
+            <td>DATEX II Verkehrsservice</td>
+          </tr>
+          <tr>
+            <td>Norway</td>
+            <td>Statens vegvesen</td>
+            <td>10 minutes</td>
+            <td>Vegvesen Trafikk API</td>
+          </tr>
+          <tr>
+            <td>India (Himalayas)</td>
+            <td>Border Roads Organisation (BRO)</td>
+            <td>Continuous Editorial</td>
+            <td>Official BRO Bulletins &amp; Traffic Police</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>2. Separation of Live Status vs. Seasonal Operating Windows</h2>
+    <p>A frequent point of confusion in alpine travel is the difference between a pass being "seasonally open" and "live open today":</p>
+    <ul>
+      <li><strong>Current Live Status:</strong> Reflects road conditions at the pass summit right now (e.g. <em>Open</em>, <em>Restricted due to Chain Laws</em>, <em>Closed due to Rockfall</em>). Live status is only displayed when an active official source was checked within the verified window.</li>
+      <li><strong>Seasonal Operating Window:</strong> Represents historical climatological norms (e.g. <em>Typically open May through October; closed in winter due to heavy snowpack</em>). Even a pass with a seasonal summer window may be closed temporarily in July due to a mudslide, or open with winter gear in early June.</li>
+    </ul>
+
+    <h2>3. Human-in-the-Loop AI Normalization</h2>
+    <p>State DOT feeds use vastly divergent taxonomy: one agency uses "Code 15 Traction Law", another uses "R-2 Chains Mandatory", while French authorities use "Loi Montagne Équipements Obligatoires".</p>
+    <p>Our ingestion engine uses automated language models to translate and categorize these disparate municipal notices into normalized status classifications:</p>
+    <ul>
+      <li><strong>OPEN:</strong> Unrestricted travel for standard passenger vehicles.</li>
+      <li><strong>CAUTION / RESTRICTED:</strong> Open with mandatory winter equipment, chain requirements, high-wind restrictions, or vehicle length limits.</li>
+      <li><strong>CLOSED:</strong> Road is blocked, gated, or impassable.</li>
+      <li><strong>UNVERIFIED:</strong> Telemetry feed has been offline for over 2 hours or no official digital feed exists.</li>
+    </ul>
+    <p>Crucially, every high-severity closure event and conflicting agency report is reviewed by our human mountain research team before alerts are broadcast.</p>
+
+    <h2>4. Staleness and Unverified Pass Policy</h2>
+    <p>If an API endpoint fails, undergoes maintenance, or fails to report a status change for longer than our threshold, LiveRoadStatus immediately marks the pass as <strong>Status Unverified</strong>. We would rather state that conditions are unverified than present outdated or fabricated reports to motorists crossing remote summits.</p>
+
+    <div class="callout" style="background:#fef2f2; border-color:#ef4444; color:#991b1b;">
+      <strong>Driver Safety Warning:</strong> LiveRoadStatus is a trip-planning advisory service. Alpine driving hazards can materialize between automated updates. Always obey roadside LED variable message signs and official gate instructions.
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 LiveRoadStatus. Real-time mountain pass road conditions worldwide. <a href="/privacy.html">Privacy Policy</a> &bull; <a href="/terms.html">Terms</a> &bull; <a href="/disclaimer.html">Disclaimer</a></p>
+    </div>
+  </footer>
+</body>
+</html>

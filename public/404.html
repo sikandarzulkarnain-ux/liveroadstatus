@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found (404) | LiveRoadStatus</title>
+  <meta name="description" content="The mountain pass or road condition page you requested could not be found. Search verified mountain passes worldwide on LiveRoadStatus." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="/mountain-logo-v2.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #0b1120;
+      color: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #111c35;
+      border: 1px solid #1e293b;
+      border-radius: 1rem;
+      padding: 3rem 2rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.85rem;
+      border-radius: 9999px;
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    h1 {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .search-box {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .search-input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #334155;
+      background: #0b1120;
+      color: #f8fafc;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+    }
+    .search-btn {
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.5rem;
+      background: #1d64f2;
+      color: #ffffff;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .search-btn:hover { background: #2563eb; }
+    .nav-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      background: #1e293b;
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid #334155;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      background: #334155;
+      color: #ffffff;
+      border-color: #64748b;
+    }
+    .nav-btn.primary {
+      background: #1d64f2;
+      border-color: #1d64f2;
+      color: #ffffff;
+    }
+    .nav-btn.primary:hover { background: #2563eb; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">⚠️ 404 Route Notice</div>
+    <h1>Mountain Pass Not Found</h1>
+    <p>
+      The mountain pass, road status report, or page you were trying to access does not exist or may have been renamed or relocated.
+    </p>
+
+    <form class="search-box" action="/passes" method="GET">
+      <input type="text" name="q" class="search-input" placeholder="Search passes (e.g. Snoqualmie, Zoji La)..." />
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+
+    <div class="nav-links">
+      <a href="/" class="nav-btn primary">Home</a>
+      <a href="/passes" class="nav-btn">Browse Passes</a>
+      <a href="/map" class="nav-btn">Interactive Map</a>
+      <a href="/alerts" class="nav-btn">Active Alerts</a>
+    </div>
+  </div>
+</body>
+</html>

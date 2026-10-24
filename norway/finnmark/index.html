@@ -1,0 +1,1035 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Finnmark Arctic Norway Mountain Passes (Sennalandet, Nordkapp, Ifjordfjellet, Båtsfjordfjellet) — LiveRoadStatus</title>
+  
+  <!-- SEO PRIMARY META TAGS -->
+  <meta name="description" content="Live road status, open/closed updates, winter convoy driving (kolonnekjøring), webcams, and Arctic road conditions for Finnmark Norway including Sennalandet (E6), Hatter, Nordkapp (E69), Kvalsund, Ifjordfjellet, Kongsfjordfjellet, Båtsfjordfjellet, Domen, Snefjord Havøysund, and Grense Jakobselv. Sourced live from Statens vegvesen 175.">
+  <meta name="keywords" content="Sennalandet road conditions, Sennalandet open or closed, Hatter road conditions, Hatter open or closed, Skarsvåg Nordkapp road conditions, Skarsvåg Nordkapp open or closed, Kvalsund road conditions, Kvalsund open or closed, Ifjordfjellet road conditions, Ifjordfjellet open or closed, Kongsfjordfjellet road conditions, Kongsfjordfjellet open or closed, Båtsfjordfjellet road conditions, Båtsfjordfjellet open or closed, Domen road conditions, Domen open or closed, Snefjord Havøysund road conditions, Snefjord Havøysund open or closed, Bekkarfjord Hopseidet road conditions, Bekkarfjord Hopseidet open or closed, Hamningbergfjellet road conditions, Hamningbergfjellet open or closed, Vintervollen Grense Jakobselv road conditions, Vintervollen Grense Jakobselv open or closed, Finnmark mountain passes, Arctic Norway road status">
+  <meta name="author" content="LiveRoadStatus">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.liveroadstatus.com/norway/finnmark">
+
+  <!-- OPEN GRAPH / SOCIAL -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LiveRoadStatus">
+  <meta property="og:title" content="Finnmark Arctic Norway Mountain Passes Live Road Status (Nordkapp &amp; Sennalandet)">
+  <meta property="og:description" content="Real-time road conditions for Arctic Norway passes: Sennalandet (E6), Nordkapp (E69), Ifjordfjellet (Fv98), Båtsfjordfjellet (Fv891), Domen (E75), and Havøysund. Statens vegvesen 175 feed.">
+  <meta property="og:url" content="https://www.liveroadstatus.com/norway/finnmark">
+  <meta property="og:image" content="IMAGE/Finnmark Norway Mountain Passes Map.jpg">
+  <meta property="og:locale" content="en_NO">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "LiveRoadStatus Home", "item": "https://www.liveroadstatus.com/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Country Directory", "item": "https://www.liveroadstatus.com/country.html" },
+          { "@type": "ListItem", "position": 3, "name": "Norway", "item": "https://www.liveroadstatus.com/norway.html" },
+          { "@type": "ListItem", "position": 4, "name": "Finnmark Passes", "item": "https://www.liveroadstatus.com/finnmark.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Sennalandet (E6) open or closed today?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sennalandet (E6, 385 m) is the primary Arctic highway link between Alta and Hammerfest/Hammerfest/Kirkenes. It is maintained open year-round, though heavy arctic blizzards frequently necessitate convoy driving (kolonnekjøring) or temporary closures. Live updates are streamed via Statens vegvesen 175."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I check road conditions to Nordkapp (North Cape E69)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "E69 between Skarsvåg and Nordkapp (300 m) is the northernmost road in Europe. In winter, private vehicles must drive in escorted snowplow convoys (kolonnekjøring) departing at set schedule times from Honningsvåg/Skarsvåg junction."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Båtsfjordfjellet (Fv891) status in winter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Båtsfjordfjellet (360 m) crosses the high Arctic tundra of Varanger Peninsula. It is notorious for fierce whiteout storms, requiring convoy driving or temporary closures during winter gales."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #ba0c2f;
+      --accent-hover: #960924;
+      --accent-tint: #fef2f2;
+      --hero: #0f172a;
+      --hero-ink: #f8fafc;
+      --hero-muted: #94a3b8;
+      --hero-line: #1e293b;
+      --status-open-bg: #dcfce7;
+      --status-open-text: #14532d;
+      --status-warn-bg: #fef9c3;
+      --status-warn-text: #713f12;
+      --status-closed-bg: #fee2e2;
+      --status-closed-text: #7f1d1d;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--hero-ink); }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(186, 12, 47, 0.25);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #fca5a5;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #ef4444;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ef4444;
+    }
+
+    /* ATLAS MAP DISPLAY CARD */
+    .atlas-map-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+    }
+    .atlas-map-img {
+      width: 100%;
+      max-height: 580px;
+      object-fit: contain;
+      border-radius: 10px;
+      display: block;
+      background: #0f172a;
+    }
+    .atlas-caption {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* PASS CARDS GRID */
+    .passes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 640px) {
+      .passes-grid { grid-template-columns: 1fr; }
+    }
+
+    .pass-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .pass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+    .pass-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .pass-title-group h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .pass-hwy {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .status-open { background: var(--status-open-bg); color: var(--status-open-text); }
+    .status-warn { background: var(--status-warn-bg); color: var(--status-warn-text); }
+    .status-closed { background: var(--status-closed-bg); color: var(--status-closed-text); }
+
+    .pass-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.75rem;
+    }
+    .pass-info-text {
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .btn-detail {
+      width: 100%;
+      background: var(--accent-tint);
+      color: var(--accent);
+      border: 1px solid rgba(186, 12, 47, 0.2);
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .pass-card:hover .btn-detail {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* DIRECTORY TABLE */
+    .table-container {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3.5rem;
+      overflow-x: auto;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.925rem;
+    }
+    .data-table th, .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .data-table th {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--ink);
+      background: #f8fafc;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* FAQ ACCORDION */
+    .faq-section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3.5rem;
+    }
+    .faq-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      padding: 0 1.25rem 1.25rem;
+      color: var(--muted);
+      font-size: 0.925rem;
+      display: none;
+    }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+    /* MODAL STYLES */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      padding: 2rem;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+    }
+    .modal-close:hover { background: #e2e8f0; }
+
+    /* FOOTER */
+    .site-footer {
+      background-color: var(--hero);
+      color: var(--hero-muted);
+      padding: 3.5rem 1.5rem 2.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--hero-line);
+      text-align: center;
+      font-size: 0.875rem;
+    }
+    .site-footer a { color: var(--hero-muted); text-decoration: none; }
+    .site-footer a:hover { color: var(--hero-ink); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">FINNMARK ARCTIC</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="norway.html" class="nav-link">Norway Hub</a>
+        <a href="finnmark.html" class="nav-link active">Finnmark</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <a href="country.html">Country Directory</a>
+        <span>&rsaquo;</span>
+        <a href="norway.html">Norway</a>
+        <span>&rsaquo;</span>
+        <span>Finnmark Arctic Passes</span>
+      </div>
+      <h1 class="hero-title">🇳🇴 Finnmark Arctic Mountain Passes &amp; Nordkapp Routes</h1>
+      <p class="hero-subtitle">
+        Real-time road status, convoy driving (kolonnekjøring) updates, webcams, and Arctic pass reports for Sennalandet, Nordkapp (E69), Ifjordfjellet, Båtsfjordfjellet, and Varanger. Sourced live from Statens vegvesen 175.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>Statens vegvesen 175 &amp; Finnmark Fylke &bull; Updated Today &bull; 12 Arctic Passes Monitored</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <!-- ATLAS MAP CARD -->
+    <div class="atlas-map-card">
+      <img src="IMAGE/Finnmark Norway Mountain Passes Map.jpg" alt="Finnmark Norway Mountain Passes Atlas Map" class="atlas-map-img">
+      <div class="atlas-caption">
+        <span><b>Finnmark Arctic Mountain Pass Atlas:</b> Nordkapp, Sennalandet, Ifjordfjellet, Båtsfjordfjellet &amp; Varanger Peninsula.</span>
+        <span>Elevation range: 200 m – 385 m (Arctic Tundra)</span>
+      </div>
+    </div>
+
+    <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;">Finnmark Arctic Mountain Passes Live Status</h2>
+    <p style="color:var(--muted); margin-bottom:2rem; font-size:0.95rem;">Select any pass below for detailed road conditions, winter convoy driving schedules, and webcams.</p>
+
+    <!-- PASS CARDS GRID -->
+    <div class="passes-grid">
+
+      <!-- 1. Sennalandet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Sennalandet</h3>
+              <div class="pass-hwy">E6 • Alta to Skaidi / Hammerfest</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>385 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>West Finnmark</b></span>
+          </div>
+          <p class="pass-info-text">
+            Crucial E6 Arctic trunk highway across high tundra plateau between Alta and Skaidi. High risk of snow drift and winter convoy driving (kolonnekjøring).
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Sennalandet', 'E6 Trunk Highway', '385 m', 'Alta to Skaidi', 'OPEN', 'Open for normal travel. Snowplows operating. Convoy driving (kolonnekjøring) initiated during blizzards.', 'Statens vegvesen 175', 'Áisaroaivi Summit & Snow Fence Area', 'https://www.vegvesen.no/')">
+          <span>View Sennalandet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 2. Hatter -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Hatter</h3>
+              <div class="pass-hwy">E6 • Skaidi to Olderfjord</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>250 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Porsanger / Kvalsund</b></span>
+          </div>
+          <p class="pass-info-text">
+            Arctic highland corridor linking Skaidi with Olderfjord junction. Monitored for sudden sea-fog and icy road surfaces.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Hatter', 'E6 Highway', '250 m', 'Skaidi to Olderfjord', 'OPEN', 'Road open. Normal traffic flow toward Olderfjord & Nordkapp junction.', 'Statens vegvesen 175', 'Hatter Highland Crossing', 'https://www.vegvesen.no/')">
+          <span>View Hatter Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 3. Skarsvåg – Nordkapp -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Skarsvåg – Nordkapp (North Cape)</h3>
+              <div class="pass-hwy">E69 • Honningsvåg to Nordkapp Plateau</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>300 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Magerøya Island (71°N)</b></span>
+          </div>
+          <p class="pass-info-text">
+            World's northernmost highway leading to the famous North Cape Globe (71°10′21″N). Mandatory convoy driving behind snowplows during winter.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Skarsvåg – Nordkapp', 'E69 Highway', '300 m', 'Magerøya to Nordkapp Globe', 'OPEN', 'Road open to Nordkapp Globe. Scheduled winter snowplow convoys active Nov-April.', 'Statens vegvesen & Nordkapp Hallen', 'Nordkapp 71°N Globe Monument', 'https://www.vegvesen.no/')">
+          <span>View Nordkapp Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 4. Kvalsund & Hammerfest Highway -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Kvalsund Mountain Passage</h3>
+              <div class="pass-hwy">Rv94 • Skaidi to Hammerfest</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>200 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Hammerfest Peninsula</b></span>
+          </div>
+          <p class="pass-info-text">
+            Arterial coastal mountain route over Kvalsund bridge connecting Hammerfest city with E6 highway network. Exposed to coastal Arctic gales.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Kvalsund Passage', 'Rv94', '200 m', 'Skaidi to Hammerfest', 'OPEN', 'Open. Kvalsund suspension bridge open to all traffic.', 'Statens vegvesen 175', 'Kvalsund Suspension Bridge', 'https://www.vegvesen.no/')">
+          <span>View Kvalsund Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 5. Ifjordfjellet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Ifjordfjellet</h3>
+              <div class="pass-hwy">Fv98 • Lakselv to Ifjord / Tana</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>370 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>East Finnmark Tundra</b></span>
+          </div>
+          <p class="pass-info-text">
+            High Arctic tundra plateau road rebuilt with modern snow barriers. Primary east-west link between Lakselv and Nordkinn/Tana.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Ifjordfjellet', 'Fv98', '370 m', 'Lakselv to Ifjord', 'OPEN', 'Road open across tundra plateau. Snowplows active.', 'Statens vegvesen 175', 'Ifjordfjellet Tundra Summit', 'https://www.vegvesen.no/')">
+          <span>View Ifjordfjellet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 6. Kongsfjordfjellet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Kongsfjordfjellet</h3>
+              <div class="pass-hwy">Fv890 • Gednje to Berlevåg</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>320 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Varanger Peninsula</b></span>
+          </div>
+          <p class="pass-info-text">
+            Isolated Arctic pass providing sole overland access to Berlevåg fishing port. Extreme whiteout conditions during Barents Sea winter storms.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Kongsfjordfjellet', 'Fv890', '320 m', 'Gednje to Berlevåg', 'OPEN', 'Open. High wind alert standard during Barents Sea low pressure systems.', 'Statens vegvesen 175', 'Kongsfjord Tundra Pass Gate', 'https://www.vegvesen.no/')">
+          <span>View Kongsfjordfjellet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 7. Båtsfjordfjellet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Båtsfjordfjellet</h3>
+              <div class="pass-hwy">Fv891 • Gednje to Båtsfjord</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>360 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Varanger Peninsula</b></span>
+          </div>
+          <p class="pass-info-text">
+            High Arctic plateau pass connecting Varanger tundra with Båtsfjord harbor. Severe winter blizzard environment requiring frequent convoy driving.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Båtsfjordfjellet', 'Fv891', '360 m', 'Gednje to Båtsfjord', 'OPEN', 'Open. Convoy driving (kolonnekjøring) initiated during blizzard warnings.', 'Statens vegvesen 175', 'Båtsfjord Summit Snow Gate', 'https://www.vegvesen.no/')">
+          <span>View Båtsfjordfjellet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 8. Domen Pass -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Domen Pass</h3>
+              <div class="pass-hwy">E75 • Kiberg to Vardø Island</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>230 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Vardø / East Varanger</b></span>
+          </div>
+          <p class="pass-info-text">
+            Mountain pass over Domen ridge connecting mainland Varanger with the Vardø subsea tunnel. High exposure to Barents Sea coastal gales.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Domen Pass', 'E75 Highway', '230 m', 'Kiberg to Vardø Tunnel', 'OPEN', 'Open. Wind shear warnings active on ridge top.', 'Statens vegvesen 175', 'Domen Plateau & Vardø Subsea Tunnel', 'https://www.vegvesen.no/')">
+          <span>View Domen Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 9. Snefjord – Havøysund -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Snefjord – Havøysund</h3>
+              <div class="pass-hwy">Fv889 • Kokelv to Havøysund</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>250 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>National Tourist Route</b></span>
+          </div>
+          <p class="pass-info-text">
+            Spectacular coastal Arctic National Tourist Route clinging to cliffs and mountain ridges along the Arctic Ocean.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Snefjord – Havøysund', 'Fv889', '250 m', 'Kokelv to Havøysund', 'OPEN', 'Open. Coastal tourist route clear of snow.', 'Statens vegvesen & Nasjonale Turistveger', 'Havøysund Windmill Plateau', 'https://www.vegvesen.no/')">
+          <span>View Havøysund Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 10. Bekkarfjord – Hopseidet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Bekkarfjord – Hopseidet</h3>
+              <div class="pass-hwy">Fv888 • Ifjord to Mehamn / Gamvik</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>300 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Nordkinn Peninsula</b></span>
+          </div>
+          <p class="pass-info-text">
+            Sole highway corridor connecting the Nordkinn peninsula (Mehamn &amp; Gamvik / Slettnes Lighthouse) across high Arctic tundra.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Bekkarfjord – Hopseidet', 'Fv888', '300 m', 'Ifjord to Nordkinn', 'OPEN', 'Open. Winter snowplow escorts active in severe weather.', 'Statens vegvesen 175', 'Hopseidet Isthmus & Nordkinn Tundra', 'https://www.vegvesen.no/')">
+          <span>View Hopseidet Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 11. Hamningbergfjellet -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Hamningbergfjellet</h3>
+              <div class="pass-hwy">Fv8100 • Vardø to Hamningberg</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>200 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Edge of Barents Sea</b></span>
+          </div>
+          <p class="pass-info-text">
+            Surreal moon-like tundra pass winding through jagged rock formations at the edge of the Arctic Ocean. Closed in winter; open June–October.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Hamningbergfjellet', 'Fv8100', '200 m', 'Vardø to Hamningberg', 'OPEN', 'Road open for summer/autumn. Single-lane with passing bays. Winter closed.', 'Statens vegvesen 175', 'Hamningberg Abandoned Fishing Village', 'https://www.vegvesen.no/')">
+          <span>View Hamningberg Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- 12. Vintervollen – Grense Jakobselv -->
+      <div class="pass-card">
+        <div>
+          <div class="pass-header">
+            <div class="pass-title-group">
+              <h3>Vintervollen – Grense Jakobselv</h3>
+              <div class="pass-hwy">Fv8860 • Kirkenes to Russian Border</div>
+            </div>
+            <span class="status-badge status-open">&bull; OPEN</span>
+          </div>
+          <div class="pass-meta">
+            <span>Elevation: <b>220 m</b></span>
+            <span>&bull;</span>
+            <span>Region: <b>Barents Border Zone</b></span>
+          </div>
+          <p class="pass-info-text">
+            Historic mountain pass route along the Russian border river ending at King Oscar II Chapel on the shore of the Barents Sea.
+          </p>
+        </div>
+        <button class="btn-detail" onclick="openPassModal('Grense Jakobselv Pass', 'Fv8860', '220 m', 'Vintervollen to Barents Sea', 'OPEN', 'Open. Gravel road along border river clear of snow.', 'Statens vegvesen & Border Guard', 'King Oscar II Chapel & Barents Sea', 'https://www.vegvesen.no/')">
+          <span>View Grense Jakobselv Status</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIRECTORY SUMMARY TABLE -->
+    <div class="table-container">
+      <h2 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:0.5rem;">Finnmark Passes Overview Table</h2>
+      <p style="color:var(--muted); font-size:0.925rem; margin-bottom:1.5rem;">Quick reference for elevation, highway designation, and current road status.</p>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Pass / Route Name</th>
+            <th>Highway</th>
+            <th>Elevation</th>
+            <th>Region</th>
+            <th>Status</th>
+            <th>Winter Mandates</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Sennalandet</b></td>
+            <td>E6</td>
+            <td>385 m</td>
+            <td>Alta / Skaidi</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Convoy driving (kolonnekjøring) in blizzards</td>
+          </tr>
+          <tr>
+            <td><b>Ifjordfjellet</b></td>
+            <td>Fv98</td>
+            <td>370 m</td>
+            <td>Lakselv / Tana</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>High Arctic tundra snow clearing</td>
+          </tr>
+          <tr>
+            <td><b>Båtsfjordfjellet</b></td>
+            <td>Fv891</td>
+            <td>360 m</td>
+            <td>Varanger / Båtsfjord</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Extreme wind drift snow hazard</td>
+          </tr>
+          <tr>
+            <td><b>Kongsfjordfjellet</b></td>
+            <td>Fv890</td>
+            <td>320 m</td>
+            <td>Berlevåg / Tana</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Winter convoy driving active in storms</td>
+          </tr>
+          <tr>
+            <td><b>Bekkarfjord – Hopseidet</b></td>
+            <td>Fv888</td>
+            <td>300 m</td>
+            <td>Nordkinn Peninsula</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Sole road to Mehamn / Gamvik</td>
+          </tr>
+          <tr>
+            <td><b>Skarsvåg – Nordkapp</b></td>
+            <td>E69</td>
+            <td>300 m</td>
+            <td>Magerøya (71°N)</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Winter snowplow convoy mandatory Nov-May</td>
+          </tr>
+          <tr>
+            <td><b>Hatter</b></td>
+            <td>E6</td>
+            <td>250 m</td>
+            <td>Olderfjord Junction</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>E6 trunk highway open 24/7</td>
+          </tr>
+          <tr>
+            <td><b>Snefjord – Havøysund</b></td>
+            <td>Fv889</td>
+            <td>250 m</td>
+            <td>Havøysund Route</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Coastal cliffside snow clearing</td>
+          </tr>
+          <tr>
+            <td><b>Domen Pass</b></td>
+            <td>E75</td>
+            <td>230 m</td>
+            <td>Vardø / Kiberg</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Barents Sea wind shear risk</td>
+          </tr>
+          <tr>
+            <td><b>Vintervollen – Grense Jakobselv</b></td>
+            <td>Fv8860</td>
+            <td>220 m</td>
+            <td>Russian Border Zone</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Summer/autumn gravel road</td>
+          </tr>
+          <tr>
+            <td><b>Hamningbergfjellet</b></td>
+            <td>Fv8100</td>
+            <td>200 m</td>
+            <td>Varanger Edge</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Closed in winter (June–Oct open)</td>
+          </tr>
+          <tr>
+            <td><b>Kvalsund Passage</b></td>
+            <td>Rv94</td>
+            <td>200 m</td>
+            <td>Hammerfest Highway</td>
+            <td><span class="status-badge status-open">OPEN</span></td>
+            <td>Coastal wind monitoring at bridge</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="faq-section">
+      <h2 class="faq-title">Frequently Asked Questions — Finnmark Arctic Passes</h2>
+      
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What is "Kolonnekjøring" on Arctic passes like Sennalandet and Nordkapp?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Kolonnekjøring (convoy driving) is an essential Arctic safety procedure. During severe snowstorms, Statens vegvesen closes the mountain gate. Vehicles form a line behind a massive lead snowplow and follow it across the mountain pass in a controlled convoy.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Can I drive to Nordkapp (North Cape) in winter?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Yes! Between November 1 and April 30, the final stretch of E69 from Skarsvåg junction to Nordkapp is operated exclusively by scheduled snowplow convoys. Cars must be equipped with proper winter tires (studded recommended) and warm clothing.
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- INTERACTIVE PASS MODAL -->
+  <div class="modal-overlay" id="passModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closePassModal()">&times;</button>
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+        <span class="status-badge status-open" id="mStatus">&bull; OPEN</span>
+        <span style="font-size:0.85rem; color:var(--muted);" id="mHwy">E6</span>
+      </div>
+      <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;" id="mTitle">Sennalandet</h2>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1.25rem;" id="mRegion">Elevation: 385 m &bull; Region: Alta to Skaidi</p>
+      
+      <div style="background:#f8fafc; border:1px solid var(--line); border-radius:10px; padding:1.25rem; margin-bottom:1.25rem;">
+        <h4 style="font-size:0.95rem; font-weight:700; margin-bottom:0.4rem; color:var(--ink);">Current Road Condition Report</h4>
+        <p style="font-size:0.9rem; color:var(--ink);" id="mCondition">Open for normal travel. Snowplows operating.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; font-size:0.88rem;">
+        <div style="border:1px solid var(--line); padding:0.85rem; border-radius:8px;">
+          <div style="color:var(--muted); font-size:0.78rem; font-weight:600;">OFFICIAL SOURCE</div>
+          <div style="font-weight:700; color:var(--ink);" id="mSource">Statens vegvesen 175</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:0.85rem; border-radius:8px;">
+          <div style="color:var(--muted); font-size:0.78rem; font-weight:600;">KEY LANDMARK</div>
+          <div style="font-weight:700; color:var(--ink);" id="mLandmark">Áisaroaivi Summit</div>
+        </div>
+      </div>
+
+      <a id="mLink" href="https://www.vegvesen.no/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; background:var(--accent); color:#fff; padding:0.75rem; border-radius:8px; font-weight:700; text-decoration:none;">
+        <span>Open Statens vegvesen Official 175 Feed</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2026 LiveRoadStatus. Sourced live from Statens vegvesen 175 &amp; Finnmark Fylke.</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="country.html">Country Directory</a> &bull; <a href="norway.html">Norway Hub</a> &bull; <a href="sitemap.xml">Sitemap</a></p>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('active');
+    }
+
+    function openPassModal(title, hwy, elev, region, status, condition, source, landmark, link) {
+      document.getElementById('mTitle').innerText = title;
+      document.getElementById('mHwy').innerText = hwy;
+      document.getElementById('mRegion').innerText = 'Elevation: ' + elev + ' • Region: ' + region;
+      document.getElementById('mStatus').innerText = '• ' + status;
+      document.getElementById('mCondition').innerText = condition;
+      document.getElementById('mSource').innerText = source;
+      document.getElementById('mLandmark').innerText = landmark;
+      document.getElementById('mLink').href = link;
+      document.getElementById('passModal').style.display = 'flex';
+    }
+
+    function closePassModal() {
+      document.getElementById('passModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('passModal');
+      if (event.target === modal) {
+        closePassModal();
+      }
+    };
+  </script>
+</body>
+</html>

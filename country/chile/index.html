@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Chile &amp; Andes Mountain Passes Road Conditions — LiveRoadStatus</title>
+  
+  <!-- SEO PRIMARY META TAGS -->
+  <meta name="description" content="Explore live road status, winter border closures, altiplanic snow updates, webcams, and mountain pass conditions across Chile and the Andes (Arica y Parinacota, Paso Chungará, Paso Visviri, Paso Colchane, Paso Los Libertadores). Sourced live from Pasos Fronterizos Chile.">
+  <meta name="keywords" content="Chile mountain passes, Paso Chungara Tambo Quemado road conditions, Paso Visviri open or closed, Paso Colchane border status, Paso Ancomarca, Paso Los Libertadores, Paso Agua Negra, Pasos Fronterizos Chile, Andes border status">
+  <meta name="author" content="LiveRoadStatus">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://www.liveroadstatus.com/country/chile">
+
+  <!-- OPEN GRAPH / SOCIAL -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LiveRoadStatus">
+  <meta property="og:title" content="Chile &amp; Andes Mountain Passes &amp; International Border Status">
+  <meta property="og:description" content="Real-time open/closed status, altiplanic winter alerts, and high altitude road reports for Paso Chungará (4,520 m), Paso Visviri, Paso Colchane, Paso Los Libertadores, and Trans-Andean routes.">
+  <meta property="og:url" content="https://www.liveroadstatus.com/country/chile">
+  <meta property="og:image" content="IMAGE/Arica y Parinacota Chile Mountain Passes Map.jpg">
+  <meta property="og:locale" content="es_CL">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "LiveRoadStatus Home", "item": "https://www.liveroadstatus.com/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Country Directory", "item": "https://www.liveroadstatus.com/country.html" },
+          { "@type": "ListItem", "position": 3, "name": "Chile & Andes Passes", "item": "https://www.liveroadstatus.com/country/chile" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #d97706;
+      --accent-hover: #b45309;
+      --accent-tint: #fffbeb;
+      --hero: #0f172a;
+      --hero-ink: #f8fafc;
+      --hero-muted: #94a3b8;
+      --hero-line: #1e293b;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--hero-ink); }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(217, 119, 6, 0.25);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #fde68a;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #f59e0b;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #f59e0b;
+    }
+
+    /* REGIONS CARDS GRID */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 768px) {
+      .region-grid { grid-template-columns: 1fr; }
+    }
+
+    .region-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .region-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+
+    .region-map-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--line);
+    }
+
+    .region-name {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .region-meta {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .region-desc {
+      font-size: 0.925rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .btn-view-region {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.1rem;
+      background: var(--accent-tint);
+      color: var(--accent);
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .region-card:hover .btn-view-region {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* DIRECTORY SECTION */
+    .section-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3.5rem;
+    }
+    .pass-list-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .pass-item {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: var(--ink);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pass-item:hover {
+      background: #fffbeb;
+      border-color: var(--accent);
+    }
+    .pass-item-name { font-weight: 700; font-size: 0.95rem; }
+    .pass-item-elev { font-size: 0.8rem; color: var(--muted); }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #16a34a;
+      box-shadow: 0 0 8px #16a34a;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background-color: var(--hero);
+      color: var(--hero-muted);
+      padding: 3.5rem 1.5rem 2.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--hero-line);
+      text-align: center;
+      font-size: 0.875rem;
+    }
+    .site-footer a { color: var(--hero-muted); text-decoration: none; }
+    .site-footer a:hover { color: var(--hero-ink); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">CHILE &amp; ANDES</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link">Country Directory</a>
+        <a href="chile.html" class="nav-link active">Chile &amp; Andes Hub</a>
+        <a href="arica.html" class="nav-link">Arica y Parinacota</a>
+        <a href="atacama.html" class="nav-link">Atacama Passes</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <a href="country.html">Country Directory</a>
+        <span>&rsaquo;</span>
+        <span>Chile &amp; Andes</span>
+      </div>
+      <h1 class="hero-title">🇨🇱 Chile &amp; Andes Mountain Passes &amp; Border Crossings</h1>
+      <p class="hero-subtitle">
+        Real-time border status, altiplanic weather reports, winter closures, and high Andean highway conditions across Chile, Bolivia, and Argentina. Sourced live from Pasos Fronterizos Chile.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>Pasos Fronterizos Chile &bull; Updated Today &bull; 16 Trans-Andean Passes Monitored</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container" id="state-regions">
+    <h2 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:0.5rem;">Regions &amp; Mountain Atlases in Chile</h2>
+    <p style="color:var(--muted); margin-bottom:2rem; font-size:0.95rem;">Select a regional mountain pass atlas below to view live road conditions and border status.</p>
+
+    <!-- REGION CARDS GRID -->
+    <div class="region-grid">
+
+      <!-- 1. Atacama Region Passes -->
+      <a href="atacama.html" class="region-card">
+        <div>
+          <img src="IMAGE/Atacama Chile Mountain Passes Map.png" alt="Atacama Chile Mountain Passes Map" class="region-map-img">
+          <h3 class="region-name">Atacama (Chile – Argentina Border)</h3>
+          <div class="region-meta">
+            <span><b>5</b> High Passes Monitored</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>4,726 m (San Francisco)</b></span>
+          </div>
+          <p class="region-desc">
+            Ultra-high altitude Andean corridors connecting Copiapó with Catamarca and La Rioja, Argentina. Includes Paso San Francisco (4,726 m), Paso Pircas Negras (4,350 m), Barrancas Blancas, Salar de Maricunga, and Laguna Verde / Tres Cruces (4,740 m).
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Atacama Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 2. Arica y Parinacota -->
+      <a href="arica.html" class="region-card">
+        <div>
+          <img src="IMAGE/Arica y Parinacota Chile Mountain Passes Map.jpg" alt="Arica y Parinacota Chile Mountain Passes Map" class="region-map-img" onerror="this.src='IMAGE/Paso Internacional Los Libertadores.jpg'">
+          <h3 class="region-name">Arica y Parinacota (Chile – Bolivia Border)</h3>
+          <div class="region-meta">
+            <span><b>4</b> High Passes Monitored</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>4,700 m (Ancomarca)</b></span>
+          </div>
+          <p class="region-desc">
+            High-altitude Andean passes connecting Chile with Bolivia including Paso Chungará – Tambo Quemado (4,520 m), Paso Visviri (4,175 m), Paso Ancomarca (4,700 m), and Paso Colchane – Pisiga (3,715 m).
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Arica y Parinacota Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 3. Central Andes & Trans-Andean Crossings -->
+      <a href="arica.html" class="region-card">
+        <div>
+          <img src="IMAGE/Paso Internacional Los Libertadores.jpg" alt="Trans-Andean Passes Map" class="region-map-img" onerror="this.src='IMAGE/Paso Internacional Los Libertadores.jpg'">
+          <h3 class="region-name">Central Andes &amp; Trans-Andean Passes</h3>
+          <div class="region-meta">
+            <span><b>12</b> Crossings Monitored</span>
+            <span>&bull;</span>
+            <span>Max Elev: <b>4,780 m (Paso Agua Negra)</b></span>
+          </div>
+          <p class="region-desc">
+            Major Chile-Argentina international corridors including Paso Internacional Los Libertadores (3,200 m / Cristo Redentor Tunnel), Paso Agua Negra, Paso Pehuenche, and Paso Jama.
+          </p>
+        </div>
+        <div class="btn-view-region">
+          <span>Explore Central Andes Passes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- DIRECTORY SECTION -->
+    <div class="section-box">
+      <h2 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:0.5rem;">Major Andean Passes Directory</h2>
+      <p style="color:var(--muted); font-size:0.95rem;">Direct links to live border conditions for Chile's premier high mountain routes.</p>
+      
+      <div class="pass-list-grid">
+        <a href="atacama.html" class="pass-item">
+          <div><div class="pass-item-name">Paso San Francisco</div><div class="pass-item-elev">Chile / Argentina (Catamarca) • 4,726 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="atacama.html" class="pass-item">
+          <div><div class="pass-item-name">Paso Pircas Negras</div><div class="pass-item-elev">Chile / Argentina (La Rioja) • 4,350 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="atacama.html" class="pass-item">
+          <div><div class="pass-item-name">Paso Barrancas Blancas</div><div class="pass-item-elev">Atacama (Ruta CH-31) • 4,052 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="atacama.html" class="pass-item">
+          <div><div class="pass-item-name">Laguna Verde / Tres Cruces</div><div class="pass-item-elev">Atacama (CH-31) • 4,740 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="arica.html" class="pass-item">
+          <div><div class="pass-item-name">Paso Chungará – Tambo Quemado</div><div class="pass-item-elev">Chile / Bolivia • 4,520 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="arica.html" class="pass-item">
+          <div><div class="pass-item-name">Paso Visviri</div><div class="pass-item-elev">Chile / Bolivia • 4,175 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="arica.html" class="pass-item">
+          <div><div class="pass-item-name">Paso Ancomarca</div><div class="pass-item-elev">Chile / Bolivia • 4,700 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="arica.html" class="pass-item">
+          <div><div class="pass-item-name">Paso Colchane – Pisiga</div><div class="pass-item-elev">Chile / Bolivia • 3,715 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="arica.html" class="pass-item">
+          <div><div class="pass-item-name">Paso Los Libertadores</div><div class="pass-item-elev">Chile / Argentina • 3,200 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+        <a href="arica.html" class="pass-item">
+          <div><div class="pass-item-name">Paso Agua Negra</div><div class="pass-item-elev">Chile / Argentina • 4,780 m</div></div>
+          <span class="status-dot"></span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2026 LiveRoadStatus. Sourced live from Pasos Fronterizos Chile (MOP) &amp; Carabineros de Chile.</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">Home</a> &bull; <a href="country.html">Country Directory</a> &bull; <a href="sitemap.xml">Sitemap</a></p>
+  </footer>
+</body>
+</html>
