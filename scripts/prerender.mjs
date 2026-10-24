@@ -83,9 +83,9 @@ countries.forEach(c => {
     console.log(`🌍 Copied ${c}/ hierarchy to dist/${c}/ (${subDirs} sub-regions)`);
   }
 });
-// Copy legal and trust routes
-const legalDirs = ['about', 'methodology', 'contact', 'privacy', 'terms', 'disclaimer'];
-legalDirs.forEach(d => {
+// Copy legal, trust, and directory routes
+const cleanRouteDirs = ['about', 'methodology', 'contact', 'privacy', 'terms', 'disclaimer', 'countries'];
+cleanRouteDirs.forEach(d => {
   const dSrcDir = path.resolve(rootDir, d);
   const dDestDir = path.resolve(distDir, d);
   if (fs.existsSync(dSrcDir)) {

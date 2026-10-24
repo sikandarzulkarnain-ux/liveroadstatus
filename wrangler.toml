@@ -5,7 +5,7 @@ compatibility_date = "2026-07-21"
 [[d1_databases]]
 binding = "DB"
 database_name = "LiveRoadStatus-db"
-database_id = "4745e0ab-a5e0-48ce-b08a-b6c3bb38f179"
+database_id = "79b102ac-6f58-4147-b05c-10d014842e8b"
 
 [vars]
 ADMIN_SECRET = "admin123"

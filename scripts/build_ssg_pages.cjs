@@ -617,17 +617,18 @@ console.log('Generating 301 redirects for clean URLs...');
 let redirectsTxt = `# 301 Permanent Redirects: Clean URLs for LiveRoadStatus
 /index.html   /   301
 /country.html /countries/   301
+/country      /countries/   301
 `;
 
 // Map old HTML files to clean URLs
 const oldHtmlRedirects = {
   '/france.html': '/france/',
-  '/bourgogne.html': '/france/bourgogne-franche-comte/',
-  '/grandest.html': '/france/grand-est/',
-  '/aquitaine.html': '/france/nouvelle-aquitaine/',
+  '/bourgogne.html': '/france/bourgogne/',
+  '/grandest.html': '/france/grandest/',
+  '/aquitaine.html': '/france/aquitaine/',
   '/occitanie.html': '/france/occitanie/',
   '/paca.html': '/france/paca/',
-  '/auvergne.html': '/france/auvergne-rhone-alpes/',
+  '/auvergne.html': '/france/auvergne/',
 
   '/austria.html': '/austria/',
   '/carinthia.html': '/austria/carinthia/',
@@ -650,20 +651,20 @@ const oldHtmlRedirects = {
   '/piedmont.html': '/italy/piedmont/',
   '/tuscany.html': '/italy/tuscany/',
 
-  '/usa.html': '/united-states/',
-  '/colorado.html': '/united-states/colorado/',
-  '/washington.html': '/united-states/washington/',
-  '/california.html': '/united-states/california/',
-  '/oregon.html': '/united-states/oregon/',
-  '/montana.html': '/united-states/montana/',
+  '/usa.html': '/usa/',
+  '/colorado.html': '/usa/colorado/',
+  '/washington.html': '/usa/washington/',
+  '/california.html': '/usa/california/',
+  '/oregon.html': '/usa/oregon/',
+  '/montana.html': '/usa/montana/',
 
   '/canada.html': '/canada/',
-  '/britishcolumbia.html': '/canada/british-columbia/',
+  '/britishcolumbia.html': '/canada/britishcolumbia/',
   '/alberta.html': '/canada/alberta/',
 
   '/norway.html': '/norway/',
   '/india.html': '/india/',
-  '/himachal.html': '/india/himachal-pradesh/',
+  '/himachal.html': '/india/himachal/',
   '/ladakh.html': '/india/ladakh/',
   '/pakistan.html': '/pakistan/',
   '/chile.html': '/chile/',

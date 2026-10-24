@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Worldwide Mountain Passes by Country — LiveRoadStatus</title>
+  <meta name="description" content="Explore live road status, winter closures, webcams, and mountain pass conditions across France, Italy, United States, Canada, India, Switzerland, Austria, Norway, and more.">
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DirectoryPage",
+      "name": "LiveRoadStatus Country Directory",
+      "description": "Worldwide directory of mountain pass road conditions by country."
+    }
+  </script>
+
+  <style>
+    /* CORE STYLES & COLOR SYSTEM */
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #15803d;
+      --accent-hover: #166534;
+      --accent-tint: #f0fdf4;
+      --hero: #0d381e;
+      --hero-ink: #f0fdf4;
+      --hero-muted: #86efac;
+      --hero-line: #14532d;
+      --status-open-bg: #dcfce7;
+      --status-open-text: #14532d;
+      --status-warn-bg: #fef9c3;
+      --status-warn-text: #713f12;
+      --status-closed-bg: #fee2e2;
+      --status-closed-text: #7f1d1d;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --radius: 16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #ffffff;
+        --card: #ffffff;
+        --ink: #0f172a;
+        --muted: #475569;
+        --line: #e2e8f0;
+        --accent: #15803d;
+        --accent-hover: #166534;
+        --accent-tint: #f0fdf4;
+        --hero: #0d381e;
+        --hero-ink: #f0fdf4;
+        --hero-muted: #86efac;
+        --hero-line: #14532d;
+        --status-open-bg: #dcfce7;
+        --status-open-text: #14532d;
+        --status-warn-bg: #fef9c3;
+        --status-warn-text: #713f12;
+        --status-closed-bg: #fee2e2;
+        --status-closed-text: #7f1d1d;
+        --shadow: 0 4px 20px rgba(0,0,0,0.06);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* HEADER & NAV */
+    .site-header {
+      background-color: var(--hero);
+      border-bottom: 1px solid var(--hero-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--hero-ink);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .brand-badge {
+      background: #dc2626;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--hero-muted);
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--hero-ink); }
+    .btn-alert-report {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-alert-report:hover { background: var(--accent-hover); }
+
+    /* HERO SECTION */
+    .hero-section {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      padding: 3.5rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--hero-line);
+      position: relative;
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--hero-muted);
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .hero-breadcrumb a { color: var(--hero-muted); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--hero-ink); }
+    .hero-title {
+      font-size: 2.75rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--hero-muted);
+      max-width: 840px;
+      margin-bottom: 2rem;
+    }
+    .live-feed-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(21, 128, 61, 0.4);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      color: #bbf7d0;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #22c55e;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    /* CONTROLS ROW */
+    .controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .search-box {
+      position: relative;
+      flex-grow: 1;
+      max-width: 400px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      font-size: 0.95rem;
+      color: var(--ink);
+      outline: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .filter-chips {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .chip {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .chip:hover {
+      border-color: var(--accent);
+      color: var(--ink);
+    }
+    .chip.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    /* COUNTRY CARDS GRID (EXACT BESTDRIVINGROADS STYLE) */
+    .country-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 980px) {
+      .country-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .country-grid { grid-template-columns: 1fr; }
+    }
+
+    /* COUNTRY CARD WITH HOVER EFFECT */
+    .country-card {
+      position: relative;
+      height: 240px;
+      border-radius: 18px;
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border: 1px solid var(--line);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+      cursor: pointer;
+    }
+
+    .country-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1;
+    }
+
+    .country-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.08) 15%, rgba(9, 28, 18, 0.88) 100%);
+      z-index: 2;
+      transition: background 0.3s ease;
+    }
+
+    /* HOVERING ANIMATIONS */
+    .country-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.22);
+      border-color: rgba(34, 197, 94, 0.6);
+    }
+    .country-card:hover .country-card-bg {
+      transform: scale(1.08);
+    }
+    .country-card:hover .country-card-overlay {
+      background: linear-gradient(180deg, rgba(0,0,0,0.02) 10%, rgba(9, 38, 24, 0.94) 100%);
+    }
+
+    .country-card-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      z-index: 3;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .country-header-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .flag-icon-wrap {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .flag-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .country-name {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .country-stats {
+      font-size: 0.88rem;
+      color: rgba(240, 253, 244, 0.88);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+    }
+
+    .country-stats .dot {
+      width: 6px;
+      height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .card-arrow {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 3;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      transition: all 0.3s ease;
+    }
+    .country-card:hover .card-arrow {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    /* FAQ ACCORDION SECTION */
+    .faq-section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2.25rem;
+      margin-bottom: 4rem;
+      box-shadow: var(--shadow);
+    }
+    .faq-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+    .faq-sub {
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+      font-size: 0.95rem;
+    }
+    .faq-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 1.1rem 1.25rem;
+      text-align: left;
+      background: none;
+      border: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .faq-question:hover { color: var(--accent); }
+    .faq-answer {
+      padding: 0 1.25rem 1.25rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      display: none;
+    }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-item.active .faq-icon { transform: rotate(180deg); }
+    .faq-icon { transition: transform 0.2s; }
+
+    /* FOOTER */
+    .site-footer {
+      background-color: var(--hero);
+      color: var(--hero-ink);
+      border-top: 1px solid var(--hero-line);
+      padding: 3.5rem 1.5rem 2.5rem;
+      margin-top: 4rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 768px) {
+      .footer-content { grid-template-columns: 1fr 1fr; }
+    }
+    .footer-col h4 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .footer-links a {
+      color: var(--hero-muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #ffffff; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--hero-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--hero-muted);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  
+    /* ===== LRS: MOBILE MENU & OVERFLOW FIX ===== */
+    html, body { overflow-x: hidden !important; }
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: 1px solid var(--line, #e2e0d8);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      position: relative;
+      z-index: 300;
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink, #1c1d1b);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 760px) {
+      .hamburger-btn { display: flex !important; }
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--card, #ffffff);
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 28px !important;
+        z-index: 200;
+        font-size: 1.2rem;
+      }
+      .nav-links.mobile-open { display: flex !important; }
+      .nav-right .btn-alert { display: none; }
+    }
+  </style>
+  <link rel="canonical" href="https://www.liveroadstatus.com/countries/">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span>LiveRoadStatus</span>
+        <span class="brand-badge">COUNTRY DIRECTORY</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">All Regions</a>
+        <a href="country.html" class="nav-link" style="color:#ffffff; font-weight:700;">Country Directory</a>
+        <a href="#countries-grid" class="nav-link">Pass Directory</a>
+        <a href="#faq" class="nav-link">FAQ &amp; Reports</a>
+        <button class="btn-alert-report" onclick="openReportModal()">Submit Conditions</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="index.html">LiveRoadStatus</a>
+        <span>&rsaquo;</span>
+        <span>Browse Countries</span>
+      </div>
+      <h1 class="hero-title">Worldwide Mountain Passes &amp; Driving Routes by Country</h1>
+      <p class="hero-subtitle">
+        Explore real-time open or closed road status, winter closure schedules, webcams, and mountain pass updates across the finest alpine driving routes in Europe, North America, Asia, and worldwide.
+      </p>
+      <div class="live-feed-banner">
+        <span class="pulse-dot"></span>
+        <span>Global DOT Feed &bull; Updated <span id="live-timestamp">Today</span> &bull; 12 Countries Monitored</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <!-- CONTROLS ROW -->
+    <div class="controls-bar">
+      <div class="search-box">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="countrySearch" class="search-input" placeholder="Search country or pass name (e.g. France, Stelvio, USA)..." oninput="filterCountries()">
+      </div>
+      <div class="filter-chips">
+        <button class="chip active" onclick="filterContinent('all', this)">All Countries</button>
+        <button class="chip" onclick="filterContinent('europe', this)">Europe</button>
+        <button class="chip" onclick="filterContinent('north-america', this)">North America</button>
+        <button class="chip" onclick="filterContinent('asia', this)">Asia</button>
+        <button class="chip" onclick="filterContinent('south-america', this)">South America</button>
+        <button class="chip" onclick="filterContinent('oceania', this)">Oceania</button>
+      </div>
+    </div>
+
+    <!-- COUNTRY CARDS GRID -->
+    <div class="country-grid" id="countries-grid">
+
+      <!-- 1. FRANCE -->
+      <a href="france.html" class="country-card" data-continent="europe" data-name="france french alps pyrenees vosges jura">
+        <div class="country-card-bg" style="background-image: url('IMAGE/col-de-l-iseran.png');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-fr"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-fr)">
+                  <rect x="0" y="0" width="10.67" height="32" fill="#002395"/>
+                  <rect x="10.67" y="0" width="10.67" height="32" fill="#FFFFFF"/>
+                  <rect x="21.33" y="0" width="10.67" height="32" fill="#ED2939"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">France</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>6 Regions &bull; 73 Mountain Passes Monitored</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. ITALY -->
+      <a href="italy.html" class="country-card" data-continent="europe" data-name="italy italian alps dolomites lombardy piedmont tuscany">
+        <div class="country-card-bg" style="background-image: url('IMAGE/STELVIO PASS.png');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-it"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-it)">
+                  <rect x="0" y="0" width="10.67" height="32" fill="#009246"/>
+                  <rect x="10.67" y="0" width="10.67" height="32" fill="#FFFFFF"/>
+                  <rect x="21.33" y="0" width="10.67" height="32" fill="#CE2B37"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">Italy</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>10 Regions &bull; 97 Mountain Passes Monitored</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3. UNITED STATES -->
+      <a href="usa.html" class="country-card" data-continent="north-america" data-name="united states usa america rockies sierra nevada cascades">
+        <div class="country-card-bg" style="background-image: url('IMAGE/Red Mountain Pass – US 550.jpg');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-us"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-us)">
+                  <rect width="32" height="32" fill="#B22234"/>
+                  <path d="M0,4.9h32M0,9.8h32M0,14.8h32M0,19.7h32M0,24.6h32M0,29.5h32" stroke="#FFFFFF" stroke-width="2.5"/>
+                  <rect width="14" height="17.2" fill="#3C3B6E"/>
+                  <circle cx="4" cy="4" r="1" fill="#FFFFFF"/>
+                  <circle cx="10" cy="4" r="1" fill="#FFFFFF"/>
+                  <circle cx="7" cy="8.5" r="1" fill="#FFFFFF"/>
+                  <circle cx="4" cy="13" r="1" fill="#FFFFFF"/>
+                  <circle cx="10" cy="13" r="1" fill="#FFFFFF"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">United States</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>19 States &bull; 260 Mountain Passes Monitored</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4. CANADA -->
+      <a href="canada.html" class="country-card" data-continent="north-america" data-name="canada rockies british columbia alberta yukon quebec">
+        <div class="country-card-bg" style="background-image: url('IMAGE/Icefields Parkway Road.webp');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-ca"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-ca)">
+                  <rect x="0" y="0" width="8" height="32" fill="#FF0000"/>
+                  <rect x="8" y="0" width="16" height="32" fill="#FFFFFF"/>
+                  <rect x="24" y="0" width="8" height="32" fill="#FF0000"/>
+                  <path d="M16,8 L17.5,12 L21,11 L18.5,14.5 L21.5,16.5 L17.5,17 L16.5,21.5 L15.5,21.5 L14.5,17 L10.5,16.5 L13.5,14.5 L11,11 L14.5,12 Z" fill="#FF0000"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">Canada</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>7 Provinces &bull; 84 Mountain Passes Monitored</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 5. INDIA -->
+      <a href="india.html" class="country-card" data-continent="asia" data-name="india himalayas ladakh himachal jammu kashmir uttarakhand sikkim">
+        <div class="country-card-bg" style="background-image: url('IMAGE/Rohtang PASS IMAGE.png');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-in"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-in)">
+                  <rect x="0" y="0" width="32" height="10.67" fill="#FF9933"/>
+                  <rect x="0" y="10.67" width="32" height="10.67" fill="#FFFFFF"/>
+                  <rect x="0" y="21.33" width="32" height="10.67" fill="#128807"/>
+                  <circle cx="16" cy="16" r="4" fill="none" stroke="#000080" stroke-width="0.8"/>
+                  <path d="M16,12v8M12,16h8M13.2,13.2l5.6,5.6M13.2,18.8l5.6-5.6" stroke="#000080" stroke-width="0.6"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">India</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>8 Himalayan States &bull; 107 High Passes Monitored</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 6. SWITZERLAND -->
+      <a href="switzerland.html" class="country-card" data-continent="europe" data-name="switzerland swiss alps valais uri graubunden bern ticino">
+        <div class="country-card-bg" style="background-image: url('IMAGE/Furka Pass– the Most Scenic Ride in the Swiss Alps, Switzerland.jpg');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-ch"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-ch)">
+                  <rect width="32" height="32" fill="#DA291C"/>
+                  <rect x="13" y="7" width="6" height="18" fill="#FFFFFF"/>
+                  <rect x="7" y="13" width="18" height="6" fill="#FFFFFF"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">Switzerland</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>15 Cantons &bull; 148 Alpine Gaps Monitored</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 7. AUSTRIA -->
+      <a href="austria.html" class="country-card" data-continent="europe" data-name="austria austrian alps grossglockner vorarlberg styria steiermark carinthia kaernten salzburg tyrol lower austria arlberg flexen pass silvretta bielerhohe hochtannberg furkajoch">
+        <div class="country-card-bg" style="background-image: url('IMAGE/austria.webp');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-at"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-at)">
+                  <rect x="0" y="0" width="32" height="10.67" fill="#ED2939"/>
+                  <rect x="0" y="10.67" width="32" height="10.67" fill="#FFFFFF"/>
+                  <rect x="0" y="21.33" width="32" height="10.67" fill="#ED2939"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">Austria</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>6 Federal States &bull; 104 Mountain Passes Monitored</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 8. NORWAY -->
+      <a href="norway.html" class="country-card" data-continent="europe" data-name="norway trollstigen sognefjellet valdresflye innlandet jotunheimen fjords scandinavia">
+        <div class="country-card-bg" style="background-image: url('IMAGE/Innlandet Norway Mountain Passes Map.jpg');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-no"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-no)">
+                  <rect width="32" height="32" fill="#BA0C2F"/>
+                  <rect x="9" y="0" width="6" height="32" fill="#FFFFFF"/>
+                  <rect x="0" y="13" width="32" height="6" fill="#FFFFFF"/>
+                  <rect x="10.5" y="0" width="3" height="32" fill="#00205B"/>
+                  <rect x="0" y="14.5" width="32" height="3" fill="#00205B"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">Norway</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>Innlandet &amp; Fjords &bull; 30+ Mountain Passes Monitored</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 9. NEPAL -->
+      <a href="javascript:void(0)" class="country-card" onclick="alert('Nepal Himalayan trek & road passes loading soon!')" data-continent="asia" data-name="nepal himalayas annapurna everest">
+        <div class="country-card-bg" style="background-image: url('IMAGE/lumba-sumba-pass.jpg');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-np"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-np)">
+                  <rect width="32" height="32" fill="#003893"/>
+                  <path d="M4,3 L26,14 L12,14 L24,29 L4,29 Z" fill="#DC143C" stroke="#003893" stroke-width="2"/>
+                  <circle cx="11" cy="20" r="3" fill="#FFFFFF"/>
+                  <circle cx="11" cy="9" r="2.5" fill="#FFFFFF"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">Nepal</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>Himalayas &bull; 15 High Mountain Passes</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 10. PAKISTAN -->
+      <a href="pakistan.html" class="country-card" data-continent="asia" data-name="pakistan karakoram khunjerab babusar shandur lowari khyber bolan gilgit baltistan khyber pakhtunkhwa balochistan">
+        <div class="country-card-bg" style="background-image: url('IMAGE/Karakoram-Highway-Khunjerab-Pass-105283235.jpg');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-pk-master"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-pk-master)">
+                  <rect width="32" height="32" fill="#01411C"/>
+                  <rect width="8" height="32" fill="#FFFFFF"/>
+                  <circle cx="21" cy="16" r="6" fill="#FFFFFF"/>
+                  <circle cx="23" cy="15" r="5.2" fill="#01411C"/>
+                  <polygon points="23,12.5 23.8,14.5 25.8,14.5 24.2,15.7 24.8,17.7 23,16.4 21.2,17.7 21.8,15.7 20.2,14.5 22.2,14.5" fill="#FFFFFF"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">Pakistan</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>3 Provinces / Regions &bull; 70 Mountain Passes Monitored</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 11. CHILE & ARGENTINA -->
+      <a href="chile.html" class="country-card" data-continent="south-america" data-name="chile argentina andes atacama paso san francisco pircas negras barrancas blancas maricunga laguna verde tres cruces arica parinacota paso chungara tambo quemado paso visviri paso ancomarca paso colchane pisiga paso libertadores paso agua negra">
+        <div class="country-card-bg" style="background-image: url('IMAGE/Atacama Chile Mountain Passes Map.png');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-cl"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-cl)">
+                  <rect width="32" height="16" fill="#0039A6"/>
+                  <rect y="16" width="32" height="16" fill="#D52B1E"/>
+                  <rect width="16" height="16" fill="#0039A6"/>
+                  <polygon points="8,4 9.5,8 14,8 10.5,10.5 12,15 8,12 4,15 5.5,10.5 2,8 6.5,8" fill="#FFFFFF"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">Chile &amp; Andes</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>Atacama, Arica &amp; Central Andes &bull; Trans-Andean Passes Monitored</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 12. NEW ZEALAND -->
+      <a href="javascript:void(0)" class="country-card" onclick="alert('New Zealand Southern Alps routes loading soon!')" data-continent="oceania" data-name="new zealand southern alps arthur pass lindis pass">
+        <div class="country-card-bg" style="background-image: url('IMAGE/arthur pass image.webp');"></div>
+        <div class="country-card-overlay"></div>
+        <div class="card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="country-card-body">
+          <div class="country-header-badge">
+            <div class="flag-icon-wrap">
+              <svg class="flag-svg" viewBox="0 0 32 32">
+                <defs><clipPath id="circle-nz"><circle cx="16" cy="16" r="16"/></clipPath></defs>
+                <g clip-path="url(#circle-nz)">
+                  <rect width="32" height="32" fill="#00247D"/>
+                  <path d="M0,0 L16,16 M16,0 L0,16" stroke="#FFFFFF" stroke-width="2"/>
+                  <path d="M8,0 V16 M0,8 H16" stroke="#CC0000" stroke-width="2.5"/>
+                  <circle cx="24" cy="8" r="1.2" fill="#CC0000" stroke="#FFFFFF" stroke-width="0.4"/>
+                  <circle cx="26" cy="16" r="1.2" fill="#CC0000" stroke="#FFFFFF" stroke-width="0.4"/>
+                  <circle cx="20" cy="22" r="1.2" fill="#CC0000" stroke="#FFFFFF" stroke-width="0.4"/>
+                  <circle cx="28" cy="24" r="1" fill="#CC0000" stroke="#FFFFFF" stroke-width="0.4"/>
+                </g>
+                <circle cx="16" cy="16" r="15" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h2 class="country-name">New Zealand</h2>
+          </div>
+          <div class="country-stats">
+            <span class="dot"></span>
+            <span>Southern Alps &bull; 14 Alpine Gaps</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- FAQ ACCORDION SECTION -->
+    <section class="faq-section" id="faq">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <p class="faq-sub">Common questions regarding global mountain pass status tracking, live feeds, and road conditions.</p>
+
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>How does LiveRoadStatus monitor mountain pass road status worldwide?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            LiveRoadStatus aggregates real-time data feeds from national and regional departments of transportation (DOTs), including Caltrans, CDOT, WSDOT, 511 Alberta, DriveBC, ANAS Italy, TCS Switzerland, Inforoute France, and the Border Roads Organisation (BRO) in India. Feeds refresh automatically every 5 minutes.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Which countries have the highest motorable mountain passes?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            India holds the record for the world's highest motorable pass at Umling La (19,024 ft / 5,798 m) in Ladakh. Other extreme high-altitude passes include Khardung La (17,582 ft) in India, Khunjerab Pass (15,397 ft) in Pakistan, and Trail Ridge Road (12,183 ft) in the United States.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>When do winter closures usually begin and end on alpine mountain passes?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            Seasonal winter closures in the Northern Hemisphere (European Alps, US Rockies &amp; Sierra Nevada, Canadian Rockies, and Himalayas) generally take effect between mid-October and November after heavy snowpack begins. Passes typically reopen after snowplowing operations in late May or early June.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <a href="index.html" class="brand" style="margin-bottom:1rem; display:inline-flex;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+          <span>LiveRoadStatus</span>
+        </a>
+        <p style="color:var(--hero-muted); font-size:0.9rem; line-height:1.6; max-width:320px;">
+          The global open &amp; closed condition monitor for high mountain passes, alpine gaps, and mountain notches worldwide. Verified live via official DOT feeds and transport agencies.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>North America</h4>
+        <ul class="footer-links">
+          <li><a href="california.html">California Passes</a></li>
+          <li><a href="colorado.html">Colorado Rockies</a></li>
+          <li><a href="wyoming.html">Wyoming Passes</a></li>
+          <li><a href="britishcolumbia.html">British Columbia</a></li>
+          <li><a href="alberta.html">Alberta Rockies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Europe</h4>
+        <ul class="footer-links">
+          <li><a href="grandest.html">France (Vosges &amp; Alps)</a></li>
+          <li><a href="veneto.html">Italy (Dolomites &amp; Alps)</a></li>
+          <li><a href="valais.html">Switzerland (Valais &amp; Uri)</a></li>
+          <li><a href="lombardy.html">Lombardy (Stelvio)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Asia &amp; Himalayas</h4>
+        <ul class="footer-links">
+          <li><a href="ladakh.html">Ladakh High Passes</a></li>
+          <li><a href="himachal.html">Himachal Pradesh</a></li>
+          <li><a href="jk.html">Jammu &amp; Kashmir</a></li>
+          <li><a href="uttarakhand.html">Uttarakhand Passes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 LiveRoadStatus. Real-time mountain pass conditions worldwide.</div>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="index.html" style="color:var(--hero-muted);">Home</a>
+        <a href="country.html" style="color:var(--hero-muted);">Country Directory</a>
+        <a href="about.html" style="color:var(--hero-muted);">About Us</a>
+        <a href="privacy.html" style="color:var(--hero-muted);">Privacy Policy</a>
+        <a href="terms.html" style="color:var(--hero-muted);">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('active');
+    }
+
+    function filterContinent(continent, chipBtn) {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chipBtn.classList.add('active');
+
+      const cards = document.querySelectorAll('.country-card');
+      cards.forEach(card => {
+        if (continent === 'all' || card.getAttribute('data-continent') === continent) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function filterCountries() {
+      const query = document.getElementById('countrySearch').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.country-card');
+
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name').toLowerCase();
+        if (name.includes(query)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function openReportModal() {
+      alert('Community Report Drawer: Submit live mountain pass road conditions or chain control updates to LiveRoadStatus.');
+    }
+  </script>
+</body>
+</html>
