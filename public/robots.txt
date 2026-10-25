@@ -1,10 +1,8 @@
-﻿# LiveRoadStatus Search Engine Crawler Instructions
 User-agent: *
 Allow: /
-
-# Disallow internal assets or private directories
 Disallow: /api/
-Disallow: /_next/
+Disallow: /admin/
+Disallow: /_/
+Disallow: /dev/
 
-# Sitemap Location
-Sitemap: https://liveroadstatus.com/sitemap.xml
+Sitemap: https://www.liveroadstatus.com/sitemap.xml

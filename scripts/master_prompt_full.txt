@@ -1,0 +1,228 @@
+<USER_REQUEST>
+MASTER PROMPT: COMPLETE GOOGLE SEARCH CONSOLE & TECHNICAL SEO AUDIT FOR LIVEROADSTATUS.COM
+Your Role
+Act as a senior Technical SEO Engineer, Google Search Console Specialist, Website Developer, and Cloudflare Deployment Engineer.
+Your task is to thoroughly audit, repair, optimize, test, and deploy my entire website:
+Website: [https://www.liveroadstatus.com/](https://www.liveroadstatus.com/)
+Primary goal: Make every valid, index-worthy URL discoverable by Google and eligible for indexing, eliminate technical SEO errors, and ensure Google Search Console receives a correct sitemap and accurate URL signals.
+I have opened my website project in Antigravity and may have Google Search Console and Cloudflare open in my browser with my account logged in. Use the available browser and development tools to perform the work wherever possible.
+Do not merely provide recommendations. Inspect the actual codebase, make necessary code changes, run tests, deploy changes when authorized, and verify the results.
+PHASE 1: FULL WEBSITE AUDIT
+Inspect the complete project before changing anything.
+Identify the framework, hosting platform, routing system, build commands, and deployment configuration.
+Identify every existing HTML page, route, dynamic route, country page, state page, mountain pass page, road-status page, and other public landing page.
+Generate a complete inventory of URLs that should be indexed.
+Identify duplicate pages, empty pages, thin content, broken links, incorrect canonical tags, orphan pages, redirect chains, and inaccessible URLs.
+Check whether important page content is present in the initial HTML or requires JavaScript rendering.
+Inspect robots.txt, sitemap files, canonical URLs, metadata, internal links, structured data, and HTTP status codes.
+Identify all errors in the browser console, build output, server logs, and deployment configuration.
+Save a report of the initial problems before making changes.
+Do not delete existing features or rewrite the entire website unnecessarily.
+PHASE 2: FIX DOMAIN, HTTPS, AND CANONICALIZATION
+Configure the website to use one consistent preferred domain.
+Preferred canonical domain: [https://www.liveroadstatus.com/](https://www.liveroadstatus.com/)
+Verify that the preferred domain resolves correctly and serves the live website.
+Verify HTTPS and the SSL certificate.
+Check Cloudflare DNS, SSL/TLS settings, redirects, caching, and deployment configuration if applicable.
+Redirect HTTP to HTTPS using a single permanent 301 redirect.
+Redirect the non-www version to the preferred www domain using a single permanent 301 redirect, provided DNS and hosting support this configuration.
+Ensure there are no redirect loops, mixed-content errors, or unnecessary redirect chains.
+Ensure all internal links use the preferred canonical domain.
+Ensure canonical URLs match the final destination after redirects.
+Check trailing slash consistency, URL case sensitivity, query parameters, and duplicate URL variants.
+Preserve existing valid URLs wherever possible. If a URL must change, implement an appropriate permanent redirect.
+Do not modify DNS or production settings blindly. Inspect the existing configuration first and verify that the proposed changes will not take the website offline.
+PHASE 3: REPAIR AND GENERATE THE XML SITEMAP
+Inspect the existing sitemap and rebuild it if necessary.
+The sitemap must be available at:
+[https://www.liveroadstatus.com/sitemap.xml](https://www.liveroadstatus.com/sitemap.xml)
+Requirements:
+Return HTTP 200 for the sitemap URL.
+Return valid XML that follows the official sitemap protocol.
+Include every valid, public, canonical URL that should be indexed.
+Include important country, state, region, mountain pass, road-status, and other useful landing pages that actually exist.
+Use absolute HTTPS URLs on the preferred domain.
+Exclude:
+Redirecting URLs.
+URLs returning 404, 410, or server errors.
+Duplicate and noncanonical URLs.
+Private pages, admin pages, internal search results, and staging URLs.
+URLs blocked by robots.txt or intentionally marked noindex.
+Empty, automatically generated, or low-value pages that should not be indexed.
+Do not include image, script, CSS, or unrelated asset URLs as standalone page URLs.
+Include accurate lastmod dates only when supported by genuine page updates.
+Split large sitemaps into a sitemap index if the URL count or file size requires it.
+Respect the limit of 50,000 URLs and 50 MB uncompressed per sitemap file.
+Make sure the sitemap is generated from the actual production route inventory rather than an incomplete manually maintained list.
+Ensure newly created eligible pages are automatically included in future sitemap builds.
+Validate the XML syntax and check that every sitemap entry resolves to the expected canonical URL.
+Also create or repair sitemap indexes and child sitemaps if appropriate.
+Do not include URLs merely to increase the sitemap count. Only include real, useful, index-worthy pages.
+PHASE 4: REPAIR ROBOTS.TXT
+Make sure this URL works:
+[https://www.liveroadstatus.com/robots.txt](https://www.liveroadstatus.com/robots.txt)
+Requirements:
+Return HTTP 200 with valid robots.txt syntax.
+Do not accidentally block Googlebot from accessing important pages, CSS, JavaScript, or images needed to render the website.
+Do not block the entire site.
+Do not use robots.txt as a substitute for a noindex directive.
+Include the correct sitemap declaration:
+Sitemap: [https://www.liveroadstatus.com/sitemap.xml](https://www.liveroadstatus.com/sitemap.xml)
+Remove conflicting or unnecessary rules only after examining their purpose.
+Check for conflicts between robots.txt, canonical tags, and robots meta directives.
+PHASE 5: FIX SEO ON EVERY INDEXABLE PAGE
+Audit all existing index-worthy pages individually.
+For each page, verify:
+A unique and descriptive title tag.
+A unique and useful meta description.
+Exactly one appropriate primary H1.
+A logical H2/H3 heading structure.
+A self-referencing canonical tag unless a different canonical is intentionally required.
+A valid HTTP 200 response for the canonical URL.
+No accidental noindex meta tag or X-Robots-Tag header.
+Crawlable internal links.
+Useful breadcrumbs where appropriate.
+Descriptive image alt text.
+Optimized images and sensible loading behavior.
+Correct language and charset declarations.
+Mobile responsiveness.
+Fast rendering and minimal layout shifts.
+Appropriate Open Graph metadata.
+No broken images, scripts, stylesheets, or navigation elements.
+No duplicate metadata caused by templates or client-side rendering.
+Fix shared templates and routing logic when this is the most reliable way to correct many pages.
+Avoid generating identical titles, descriptions, headings, or boilerplate content across hundreds of URLs.
+PHASE 6: MAKE EVERY VALID PAGE DISCOVERABLE
+Inspect the complete routing architecture.
+Ensure every intended public page has a stable, crawlable URL.
+Ensure important pages can be reached through ordinary HTML links.
+Build logical navigation and internal linking between countries, regions, passes, and related road-status pages.
+Fix orphan pages that have no internal links.
+Ensure pagination and relevant category links are crawlable where used.
+Remove broken links and links pointing to outdated URL versions.
+Ensure important content is not hidden behind login screens, inaccessible interactions, or unnecessary user actions.
+Make sure each route returns the correct page and status code on direct access, refresh, and browser navigation.
+Fix SPA fallback or server-rendering configuration where routes incorrectly return 404 or render only an empty application shell.
+Use server-side rendering, static generation, or prerendering where appropriate so Google can reliably discover meaningful page content.
+Ensure every sitemap URL corresponds to a real route that works independently of navigation from the homepage.
+Check that the internal link graph and sitemap are consistent.
+Do not create thousands of empty or nearly identical pages just to target keywords. Pages must provide distinct, useful information for users.
+PHASE 7: GOOGLE SEARCH CONSOLE SETUP AND REPAIR
+Using the already authenticated browser, if available and authorized, open Google Search Console and inspect the property associated with the preferred domain.
+Do not assume that access to my Google account or property is guaranteed.
+Perform the following tasks where supported:
+Verify that the correct property exists for liveroadstatus.com.
+Check whether the domain property or URL-prefix property is configured correctly.
+Inspect the current sitemap submission status.
+Submit or resubmit the corrected sitemap URL:
+[https://www.liveroadstatus.com/sitemap.xml](https://www.liveroadstatus.com/sitemap.xml)
+Check the Pages or Indexing report for:
+Discovered – currently not indexed.
+Crawled – currently not indexed.
+Duplicate without user-selected canonical.
+Duplicate, Google chose different canonical than user.
+Alternate page with proper canonical tag.
+Excluded by noindex.
+Blocked by robots.txt.
+Not found (404).
+Soft 404.
+Page with redirect.
+Server errors (5xx).
+Redirect errors.
+Other crawl or indexing anomalies.
+Inspect representative affected URLs using URL Inspection.
+Use live URL testing to determine whether important URLs are accessible to Google.
+Compare Google's selected canonical with the declared canonical where inspection data is available.
+Fix the underlying website issue for each actionable error category.
+Request indexing for a small, prioritized set of important corrected URLs, where the feature is available.
+Revalidate eligible issues in Search Console when the interface supports it.
+Record the exact actions completed and any actions that remain pending.
+If the property is not verified, explain what is needed and use the appropriate verification method only when authorized. Do not bypass security or alter account permissions.
+Important: Do not repeatedly submit the same URLs, automate excessive URL Inspection requests, or attempt to bypass Google's quotas. Use the sitemap and internal linking as the primary discovery mechanisms.
+PHASE 8: TECHNICAL SEO AND STRUCTURED DATA
+Check and correct the following where relevant:
+BreadcrumbList structured data.
+Organization or WebSite structured data.
+Appropriate Article structured data for genuine editorial content.
+Accurate metadata for road and mountain pass information.
+Valid JSON-LD syntax.
+Correct structured-data values that match visible page content.
+Duplicate structured data and conflicting entities.
+Broken internal links and image URLs.
+Mobile usability and responsive layout.
+Core Web Vitals opportunities, including LCP, INP, and CLS.
+JavaScript errors and rendering failures.
+Appropriate caching, compression, image optimization, and asset loading.
+Do not add misleading review ratings, fake author credentials, fabricated update times, or unsupported structured-data properties.
+PHASE 9: CONTENT QUALITY AND INDEXING ELIGIBILITY
+For every important landing page, evaluate whether it provides unique value.
+For a live road-status or mountain-pass website, useful page information may include:
+The pass or road's exact location.
+Road status and the date/time of the last verified update.
+The official source used for the status.
+Seasonal accessibility and known restrictions, when verified.
+Relevant weather or closure information, with source attribution.
+Alternative routes, if reliable information is available.
+Practical travel and safety information.
+Links to official transport authorities or relevant road agencies.
+A clear explanation when live data is unavailable or has not been verified.
+Never fabricate real-time road conditions, official sources, weather, traffic-camera availability, or update timestamps.
+If a page has insufficient unique content, recommend improving it, consolidating it with another page, or excluding it from the sitemap until it becomes useful. Do not indiscriminately delete legitimate pages.
+PHASE 10: AUTOMATED URL AUDIT AND VALIDATION
+Create a repeatable audit script or test suite that checks every URL in the production sitemap and route inventory.
+For each URL, report:
+Requested URL.
+HTTP status.
+Redirect destination and number of redirects.
+Final canonical URL.
+Canonical consistency.
+Robots.txt accessibility.
+Meta robots and X-Robots-Tag status.
+Title tag.
+Meta description.
+H1 presence.
+Whether meaningful content is present.
+Whether the URL is included in the correct sitemap.
+Broken internal links, where feasible.
+Whether the page is intentionally indexable.
+Any detected errors.
+Classify results as:
+PASS
+WARNING
+FAIL
+EXCLUDED BY DESIGN
+Test every URL that can reasonably be checked. For a large site, use safe concurrency, timeouts, retries, and rate limits. Avoid overloading production servers.
+Generate a machine-readable CSV or JSON report and a human-readable summary of the results.
+The audit must distinguish between:
+Technical errors under our control.
+Pages intentionally excluded from indexing.
+Pages that are technically valid but may not meet Google's quality requirements.
+Pages awaiting Googlebot crawling or Google's indexing decision.
+PHASE 11: DEPLOYMENT AND PRODUCTION VERIFICATION
+After fixing the code:
+Run the project's available build, lint, and test commands.
+Fix build errors introduced by the changes.
+Verify that the generated sitemap and robots.txt are included in the production build.
+Deploy using the existing authorized deployment workflow.
+Do not expose API keys, credentials, access tokens, or private environment variables.
+Verify the live homepage, representative deep links, canonical redirects, sitemap, and robots.txt.
+Check a representative sample of every major page template.
+Re-run the URL audit against the live production domain.
+Confirm that important pages return the expected HTTP status and canonical URL.
+If deployment fails, diagnose and fix the problem without leaving the production website in a broken state.
+Do not overwrite unrelated projects or change production DNS unless necessary and
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-24T21:52:23+05:30.
+
+The user's current state is as follows:
+Other open documents:
+- d:\LIVEROADSTATUS\scripts\check_all_buttons.cjs (LANGUAGE_JAVASCRIPT)
+- d:\LIVEROADSTATUS\scripts\inspect_issues.cjs (LANGUAGE_JAVASCRIPT)
+- d:\LIVEROADSTATUS\scripts\deep_audit.cjs (LANGUAGE_JAVASCRIPT)
+- d:\LIVEROADSTATUS\index.html (LANGUAGE_HTML)
+- d:\LIVEROADSTATUS\scripts\prerender.mjs (LANGUAGE_JAVASCRIPT)
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Claude Sonnet 4.6 (Thinking). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>

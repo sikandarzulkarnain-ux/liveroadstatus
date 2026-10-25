@@ -57,7 +57,7 @@
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.liveroadstatus.com/" },
           { "@type": "ListItem", "position": 2, "name": "Canada", "item": "https://www.liveroadstatus.com/canada/" },
-          { "@type": "ListItem", "position": 3, "name": "Northwest Territories", "item": "https://www.liveroadstatus.com/canada/wss/" },
+          { "@type": "ListItem", "position": 3, "name": "Northwest Territories", "item": "https://www.liveroadstatus.com/canada/nwt/" },
           { "@type": "ListItem", "position": 4, "name": "Selwyn Mountains Passes" }
         ]
       }
@@ -307,15 +307,15 @@
   <header class="site-nav">
     <div class="nav-inner">
       <a href="/" class="nav-brand">
-          <img src="/logo.webp" alt="LiveRoadStatus Logo" width="28" height="28" style="border-radius:6px; object-fit:contain; display:inline-block;" />
-          <span>LiveRoadStatus</span>
-        </a>
+        <img src="/logo.webp" alt="LiveRoadStatus Logo" width="28" height="28" style="border-radius:6px; object-fit:contain; display:inline-block;" />
+        <span>LiveRoadStatus</span>
+      </a>
       <nav>
         <ul class="nav-links">
           <li><a href="/">Home</a></li>
           <li><a href="/#live-status">All Passes</a></li>
-          <li><a href="/country.html">Countries</a></li>
-          <li><a href="/about.html">About</a></li>
+          <li><a href="/countries/">Countries</a></li>
+          <li><a href="/about/">About</a></li>
         </ul>
       </nav>
     </div>
@@ -329,7 +329,7 @@
           <span>&rsaquo;</span>
           <a href="/canada/">Canada</a>
           <span>&rsaquo;</span>
-          <a href="/canada/northwest-territories/">Northwest Territories</a>
+          <a href="/canada/nwt/">Northwest Territories</a>
           <span>&rsaquo;</span>
           <span aria-current="page">Selwyn Mountains Passes</span>
         </nav>
@@ -365,82 +365,105 @@
       </div>
     </section>
 
-    <div class="container content-grid">
-      <div>
-        <div class="info-card">
-          <h2>Pass Overview &amp; Driving Conditions</h2>
-          <p>Remote alpine divide pass treks along the rugged Selwyn Mountains separating Northwest Territories from Yukon Territory.</p>
-          <div class="hazard-box">
-            <strong>⚠️ Alpine Driving Hazard Notice:</strong> High mountain passes are subject to rapid weather shifts, sudden freezing precipitation, dense fog, and black ice. Check weather forecasts and vehicle traction equipment before ascending.
+    <div class="container">
+      <div class="content-grid">
+        <div class="main-col">
+          <div class="info-card">
+            <h2>Current Mountain Pass Overview</h2>
+            <p>Remote alpine divide pass treks along the rugged Selwyn Mountains separating Northwest Territories from Yukon Territory.</p>
+            <p style="margin-bottom:12px;"><strong>Seasonal Schedule:</strong> Open year-round with routine winter maintenance; subject to temporary severe weather closures.</p>
+            <p style="margin-bottom:12px;"><strong>Winter Equipment Requirements:</strong> Mandatory winter tires or snow chains applicable during declared winter storm periods.</p>
+            <div class="hazard-box">
+              <strong>Seasonal &amp; Weather Notice:</strong> Road conditions change rapidly in high-altitude terrain. Traction tires or tire chains may be legally required during winter storm cycles.
+            </div>
+            <p>Live status verification is continuously aggregated via official state and regional department of transportation dispatch feeds.</p>
+          </div>
+
+          <div class="info-card">
+            <h2>Interactive Mountain Pass Map</h2>
+            <div id="pass-map"></div>
+            <p style="font-size:0.88rem; color:var(--muted);">GPS Coordinates: 50.8235° N, -116.0620° W &bull; Highway: us-pill</p>
+          </div>
+        </div>
+
+        <aside class="sidebar-col">
+          <div class="info-card official-box">
+            <h3>Official DOT Feed Source</h3>
+            <p>Verification authority: <strong>DriveBC & 511 Canada</strong>.</p>
+            <a href="https://drivebc.ca/" target="_blank" rel="noopener noreferrer" class="btn-official">Visit Official Authority Feed &rarr;</a>
+          </div>
+
+          
+          <div class="info-card">
+            <h3 style="font-family:var(--font-serif); font-size:1.25rem; margin-bottom:14px;">Nearby &amp; Regional Passes</h3>
+            <ul class="related-list">
+              
+                <li>
+                  <a href="/passes/backbone-range-passes/" class="related-link">
+                    <span>Backbone Range Passes</span>
+                    <span style="font-size:0.8rem; color:var(--muted);">1750m</span>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/passes/canol-road-mountain-crossings/" class="related-link">
+                    <span>Canol Road Mountain Crossings</span>
+                    <span style="font-size:0.8rem; color:var(--muted);">1371m</span>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/passes/inuvik-tuktoyaktuk-highway-summit-ith/" class="related-link">
+                    <span>Inuvik-Tuktoyaktuk Highway Summit (ITH)</span>
+                    <span style="font-size:0.8rem; color:var(--muted);">210m</span>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/passes/mackenzie-mountains-passes/" class="related-link">
+                    <span>Mackenzie Mountains Passes</span>
+                    <span style="font-size:0.8rem; color:var(--muted);">1460m</span>
+                  </a>
+                </li>
+              
+            </ul>
           </div>
           
-          <h3 style="font-size:1.2rem; margin:24px 0 10px;">Seasonal Operating Window</h3>
-          <p>Open year-round with routine winter maintenance; subject to temporary severe weather closures.</p>
-
-          <h3 style="font-size:1.2rem; margin:24px 0 10px;">Winter Equipment &amp; Traction Rules</h3>
-          <p>Mandatory winter tires or snow chains applicable during declared winter storm periods.</p>
-
-          <h3 style="font-size:1.2rem; margin:24px 0 10px;">Nearest Fuel &amp; Services</h3>
-          <p>Summit regions feature limited emergency fuel and recovery assistance. Drivers should ensure minimum half a tank of fuel or 50% battery before commencing the alpine ascent. Cellular coverage may be intermittent.</p>
-        </div>
-
-        <div class="info-card">
-          <h2>Interactive Mountain Pass Map</h2>
-          <div id="pass-map" role="region" aria-label="Pass location map"></div>
-          <p style="font-size:0.88rem; color:var(--muted);">Summit Coordinates: Latitude 50.8235, Longitude -116.062. OpenStreetMap cartography.</p>
-        </div>
-
-        <div class="disclaimer">
-          <strong>Official Travel Disclaimer:</strong> Mountain pass road conditions change rapidly due to alpine snow, rockfall, and avalanche mitigation. Always confirm current status with local transportation authorities and law enforcement before travelling. LiveRoadStatus compiles official feeds and verified reports for navigational planning.
-        </div>
+        </aside>
       </div>
 
-      <aside>
-        <div class="official-box" style="margin-bottom:28px;">
-          <h3>Official Source</h3>
-          <p>Road status verified via <strong>DriveBC & 511 Canada</strong>.</p>
-          <a href="https://drivebc.ca/" target="_blank" rel="noopener noreferrer" class="btn-official">Visit Official Source &rsaquo;</a>
-        </div>
-
-        <div class="info-card">
-          <h3 style="font-family:var(--font-serif); font-size:1.25rem; margin-bottom:14px;">Related Passes in Canada</h3>
-          <ul class="related-list">
-            <li><a href="/passes/assiniboine-pass/" class="related-link"><span>Assiniboine Pass</span><span style="font-size:0.85rem; color:var(--muted);">2260m</span></a></li><li><a href="/passes/athabasca-pass/" class="related-link"><span>Athabasca Pass</span><span style="font-size:0.85rem; color:var(--muted);">1753m</span></a></li><li><a href="/passes/boulder-pass/" class="related-link"><span>Boulder Pass</span><span style="font-size:0.85rem; color:var(--muted);">2345m</span></a></li><li><a href="/passes/bow-pass/" class="related-link"><span>Bow Pass</span><span style="font-size:0.85rem; color:var(--muted);">2088m</span></a></li>
-          </ul>
-        </div>
-      </aside>
+      <p class="disclaimer">
+        Disclaimer: Mountain pass conditions and road statuses are collected from open government APIs and DOT broadcasts. Always confirm live status with official transportation authorities before crossing high-altitude mountain passes in adverse weather.
+      </p>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 LiveRoadStatus. Real-time mountain pass conditions worldwide. <a href="/about.html">About</a> &bull; <a href="/privacy.html">Privacy Policy</a> &bull; <a href="/terms.html">Terms of Service</a> &bull; <a href="/contact.html">Contact</a></p>
+      <p>&copy; 2026 LiveRoadStatus. Real-time mountain pass road conditions, winter closures, and travel advisories.</p>
+      <p style="margin-top: 8px;">
+        <a href="/about/">About</a> &bull; 
+        <a href="/methodology/">Methodology</a> &bull; 
+        <a href="/countries/">Countries</a> &bull; 
+        <a href="/contact/">Contact</a> &bull; 
+        <a href="/privacy/">Privacy Policy</a> &bull; 
+        <a href="/terms/">Terms</a> &bull; 
+        <a href="/disclaimer/">Disclaimer</a>
+      </p>
     </div>
   </footer>
 
-  <!-- Leaflet JS for map -->
+  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      if (typeof L !== 'undefined') {
-        var map = L.map('pass-map').setView([50.8235, -116.062], 12);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 18,
-          attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+      var map = L.map('pass-map').setView([50.8235, -116.062], 11);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
 
-        var statusColor = '#64748b';
-        var marker = L.circleMarker([50.8235, -116.062], {
-          radius: 9,
-          fillColor: statusColor,
-          color: '#ffffff',
-          weight: 2,
-          opacity: 1,
-          fillOpacity: 0.95
-        }).addTo(map);
-
-        marker.bindPopup('<b>Selwyn Mountains Passes</b><br>Elevation: 1510 m<br>Status: UNVERIFIED').openPopup();
-      }
+      var marker = L.marker([50.8235, -116.062]).addTo(map);
+      marker.bindPopup("<b>Selwyn Mountains Passes</b><br>Elevation: 1510m (4954ft)<br>Status: UNVERIFIED").openPopup();
     });
   </script>
 </body>

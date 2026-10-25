@@ -51,14 +51,7 @@ if (fs.existsSync(passesSrcDir)) {
   console.log('🏔️  Copied passes/ SSG pages to dist/passes/');
 }
 
-// Copy country/ directory recursively to dist/country
-const countrySrcDir = path.resolve(rootDir, 'country');
-const countryDestDir = path.resolve(distDir, 'country');
-
-if (fs.existsSync(countrySrcDir)) {
-  fs.cpSync(countrySrcDir, countryDestDir, { recursive: true });
-  console.log(`🗺️  Copied country/ folder to dist/country/`);
-}
+// Obsolete country/ directory is intentionally omitted so requests are 301 redirected to canonical hubs
 
 // Copy individual country hierarchy folders to dist/ (e.g. dist/india, dist/france, dist/italy, etc.)
 const countries = [

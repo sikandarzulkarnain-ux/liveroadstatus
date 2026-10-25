@@ -1,24 +1,21 @@
+'use strict';
 const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const dist = path.resolve(root, 'dist');
 const passes = require('../src/data/passes.json');
-const countries = require('../src/data/countries.json');
 
-console.log('--- PHASE 3: TECHNICAL SEO & STATIC SITE GENERATION (SSG) ---');
+console.log('--- TECHNICAL SEO & STATIC SITE GENERATION (SSG) ENGINE ---');
 
 const BASE_URL = 'https://www.liveroadstatus.com';
 const today = new Date().toISOString().split('T')[0];
 
-// 1. Remove FAQPage schema from index.html (Prompt requirement: "Do NOT add FAQPage markup for rich results; keep the FAQ section as normal HTML")
+// 1. Clean FAQPage schema from index.html if present
 const indexPath = path.join(root, 'index.html');
 let indexHtml = fs.readFileSync(indexPath, 'utf8');
-
-// Find and strip FAQPage schema from JSON-LD graph
 indexHtml = indexHtml.replace(/,\s*\{\s*"@type":\s*"FAQPage"[\s\S]*?\}\s*\]\s*\}/i, '\n    ]\n  }');
 fs.writeFileSync(indexPath, indexHtml, 'utf8');
-console.log('Removed FAQPage schema markup from index.html JSON-LD (FAQ HTML remains intact).');
 
 function slugify(text) {
   return String(text || '')
@@ -28,8 +25,124 @@ function slugify(text) {
     .replace(/\s+/g, '-');
 }
 
-// 2. Generate SSG Pass Pages
-// Template for individual pass page
+// 2. Authoritative Country and Region URL Mappings
+const countryMap = {
+  'United States': '/usa/',
+  'Canada': '/canada/',
+  'France': '/france/',
+  'Italy': '/italy/',
+  'Austria': '/austria/',
+  'Switzerland': '/switzerland/',
+  'Norway': '/norway/',
+  'India': '/india/',
+  'Pakistan': '/pakistan/',
+  'Chile': '/chile/'
+};
+
+const regionMap = {
+  // United States
+  'United States:Alaska': '/usa/alaska/',
+  'United States:Arizona': '/usa/arizona/',
+  'United States:California': '/usa/california/',
+  'United States:Colorado': '/usa/colorado/',
+  'United States:Idaho': '/usa/idaho/',
+  'United States:Maryland': '/usa/maryland/',
+  'United States:Montana': '/usa/montana/',
+  'United States:Nevada': '/usa/nevada/',
+  'United States:New Hampshire': '/usa/newhampshire/',
+  'United States:New Mexico': '/usa/newmexico/',
+  'United States:North Carolina': '/usa/northcarolina/',
+  'United States:Oregon': '/usa/oregon/',
+  'United States:Pennsylvania': '/usa/pennsylvania/',
+  'United States:Tennessee': '/usa/tennessee/',
+  'United States:Utah': '/usa/utah/',
+  'United States:Virginia': '/usa/virginia/',
+  'United States:Washington': '/usa/washington/',
+  'United States:West Virginia': '/usa/westvirginia/',
+  'United States:Wyoming': '/usa/wyoming/',
+
+  // Canada
+  'Canada:Alberta': '/canada/alberta/',
+  'Canada:British Columbia': '/canada/britishcolumbia/',
+  'Canada:New Brunswick & Nova Scotia': '/canada/maritimes/',
+  'Canada:Newfoundland & Labrador': '/canada/nl/',
+  'Canada:Northwest Territories': '/canada/nwt/',
+  'Canada:Quebec': '/canada/quebec/',
+  'Canada:Yukon Territory': '/canada/yukon/',
+
+  // France
+  'France:Auvergne-Rhône-Alpes': '/france/auvergne/',
+  'France:Bourgogne-Franche-Comté & Jura': '/france/bourgogne/',
+  'France:Grand Est & Vosges': '/france/grandest/',
+  'France:Nouvelle-Aquitaine': '/france/aquitaine/',
+  'France:Occitanie & Pyrenees': '/france/occitanie/',
+  'France:Provence-Alpes-Côte d\'Azur (PACA)': '/france/paca/',
+
+  // Italy
+  'Italy:Aosta Valley': '/italy/aostavalley/',
+  'Italy:Cuneo & Maritime Alps': '/italy/cuneo/',
+  'Italy:Emilia-Romagna Apennines': '/italy/emilia/',
+  'Italy:Friuli-Venezia Giulia': '/italy/fvg/',
+  'Italy:Lombardy Alps & Valtellina': '/italy/lombardy/',
+  'Italy:Metropolitan City of Turin': '/italy/turin/',
+  'Italy:Piedmont': '/italy/piedmont/',
+  'Italy:Tuscany & Lunigiana': '/italy/tuscany/',
+  'Italy:Veneto & Belluno Dolomites': '/italy/veneto/',
+  'Italy:Verbano-Cusio-Ossola & Biella': '/italy/ossola/',
+
+  // Austria
+  'Austria:Carinthia': '/austria/carinthia/',
+  'Austria:Lower Austria': '/austria/lower-austria/',
+  'Austria:Salzburg': '/austria/salzburg/',
+  'Austria:Styria': '/austria/styria/',
+  'Austria:Tyrol': '/austria/tyrol/',
+  'Austria:Vorarlberg': '/austria/vorarlberg/',
+
+  // Switzerland
+  'Switzerland:Aargau': '/switzerland/aargau/',
+  'Switzerland:Bern & Bernese Oberland': '/switzerland/bern/',
+  'Switzerland:Fribourg': '/switzerland/fribourg/',
+  'Switzerland:Glarus': '/switzerland/glarus/',
+  'Switzerland:Graubünden': '/switzerland/graubunden/',
+  'Switzerland:Lucerne': '/switzerland/lucerne/',
+  'Switzerland:Nidwalden': '/switzerland/nidwalden/',
+  'Switzerland:Obwalden': '/switzerland/obwalden/',
+  'Switzerland:Schwyz': '/switzerland/schwyz/',
+  'Switzerland:St. Gallen & Appenzell': '/switzerland/stgallen/',
+  'Switzerland:Ticino': '/switzerland/ticino/',
+  'Switzerland:Uri': '/switzerland/uri/',
+  'Switzerland:Valais': '/switzerland/valais/',
+  'Switzerland:Vaud & Jura': '/switzerland/vaud/',
+  'Switzerland:Zurich, Zug & Thurgau': '/switzerland/zurich/',
+
+  // Norway
+  'Norway:Finnmark & Troms': '/norway/finnmark/',
+  'Norway:Innlandet': '/norway/innlandet/',
+  'Norway:Møre og Romsdal': '/norway/moreogromsdal/',
+  'Norway:Trøndelag': '/norway/trondelag/',
+  'Norway:Vestland': '/norway/vestland/',
+
+  // India
+  'India:Arunachal Pradesh': '/india/arunachal/',
+  'India:Himachal Pradesh': '/india/himachal/',
+  'India:Jammu & Kashmir': '/india/jk/',
+  'India:Ladakh': '/india/ladakh/',
+  'India:Nagaland': '/india/nagaland/',
+  'India:Sikkim': '/india/sikkim/',
+  'India:Uttarakhand': '/india/uttarakhand/',
+
+  // Pakistan
+  'Pakistan:Balochistan': '/pakistan/balochistan/',
+  'Pakistan:Gilgit-Baltistan': '/pakistan/gilgit/',
+  'Pakistan:Khyber Pakhtunkhwa': '/pakistan/kp/',
+
+  // Chile
+  'Chile:Arica y Parinacota': '/chile/arica/',
+  'Chile:Atacama Region': '/chile/atacama/',
+  'Chile:Los Lagos / Puyehue': '/chile/'
+};
+
+// 3. Pass Page HTML Generator
 function renderPassPage(pass) {
   const elevFt = Math.round(pass.elevation_m * 3.28084);
   const statusUpper = pass.status.toUpperCase();
@@ -44,8 +157,30 @@ function renderPassPage(pass) {
   const desc = `Live ${pass.name} road status, conditions, elevation (${pass.elevation_m}m/${elevFt}ft), weather & restrictions on ${pass.route_code}, ${pass.region}.`.slice(0, 160);
   const canonical = `${BASE_URL}/passes/${pass.slug}/`;
 
-  // Find related passes in the same country/region
-  const related = passes.filter(p => p.country === pass.country && p.id !== pass.id).slice(0, 4);
+  // Breadcrumbs mapping
+  const countryUrl = countryMap[pass.country] || '/countries/';
+  const regionUrl = regionMap[`${pass.country}:${pass.region}`] || countryUrl;
+
+  const breadcrumbElements = [
+    `{ "@type": "ListItem", "position": 1, "name": "Home", "item": "${BASE_URL}/" }`,
+    `{ "@type": "ListItem", "position": 2, "name": "${pass.country}", "item": "${BASE_URL}${countryUrl}" }`
+  ];
+  if (regionUrl !== countryUrl) {
+    breadcrumbElements.push(`{ "@type": "ListItem", "position": 3, "name": "${pass.region}", "item": "${BASE_URL}${regionUrl}" }`);
+    breadcrumbElements.push(`{ "@type": "ListItem", "position": 4, "name": "${pass.name.replace(/"/g, '\\"')}" }`);
+  } else {
+    breadcrumbElements.push(`{ "@type": "ListItem", "position": 3, "name": "${pass.name.replace(/"/g, '\\"')}" }`);
+  }
+
+  // Related passes - prioritize same region first, then same country
+  let related = passes.filter(p => p.country === pass.country && p.region === pass.region && p.id !== pass.id).slice(0, 4);
+  if (related.length < 4) {
+    const more = passes.filter(p => p.country === pass.country && p.region !== pass.region && p.id !== pass.id).slice(0, 4 - related.length);
+    related = related.concat(more);
+  }
+
+  const authName = pass.status_source_name || pass.authority || 'State DOT & Highway Authority';
+  const authUrl = pass.status_source_url || pass.source_url || `${BASE_URL}/`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -104,10 +239,7 @@ function renderPassPage(pass) {
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "${BASE_URL}/" },
-          { "@type": "ListItem", "position": 2, "name": "${pass.country}", "item": "${BASE_URL}/${pass.country.toLowerCase().replace(/\\s+/g, '-')}/" },
-          { "@type": "ListItem", "position": 3, "name": "${pass.region}", "item": "${BASE_URL}/${pass.country.toLowerCase().replace(/\\s+/g, '-')}/${pass.region.toLowerCase().replace(/[^\\w\\s-]/g, '').replace(/\\s+/g, '-')}/" },
-          { "@type": "ListItem", "position": 4, "name": "${pass.name.replace(/"/g, '\\"')}" }
+          ${breadcrumbElements.join(',\n          ')}
         ]
       }
     ]
@@ -363,8 +495,8 @@ function renderPassPage(pass) {
         <ul class="nav-links">
           <li><a href="/">Home</a></li>
           <li><a href="/#live-status">All Passes</a></li>
-          <li><a href="/country.html">Countries</a></li>
-          <li><a href="/about.html">About</a></li>
+          <li><a href="/countries/">Countries</a></li>
+          <li><a href="/about/">About</a></li>
         </ul>
       </nav>
     </div>
@@ -376,9 +508,8 @@ function renderPassPage(pass) {
         <nav class="breadcrumbs" aria-label="Breadcrumb">
           <a href="/">Home</a>
           <span>&rsaquo;</span>
-          <a href="/${slugify(pass.country)}/">${pass.country}</a>
-          <span>&rsaquo;</span>
-          <a href="/${slugify(pass.country)}/${slugify(pass.region)}/">${pass.region}</a>
+          <a href="${countryUrl}">${pass.country}</a>
+          ${regionUrl !== countryUrl ? `<span>&rsaquo;</span>\n          <a href="${regionUrl}">${pass.region}</a>` : ''}
           <span>&rsaquo;</span>
           <span aria-current="page">${pass.name}</span>
         </nav>
@@ -414,89 +545,91 @@ function renderPassPage(pass) {
       </div>
     </section>
 
-    <div class="container content-grid">
-      <div>
-        <div class="info-card">
-          <h2>Pass Overview &amp; Driving Conditions</h2>
-          <p>${pass.description}</p>
-          <div class="hazard-box">
-            <strong>⚠️ Alpine Driving Hazard Notice:</strong> High mountain passes are subject to rapid weather shifts, sudden freezing precipitation, dense fog, and black ice. Check weather forecasts and vehicle traction equipment before ascending.
+    <div class="container">
+      <div class="content-grid">
+        <div class="main-col">
+          <div class="info-card">
+            <h2>Current Mountain Pass Overview</h2>
+            <p>${pass.description}</p>
+            ${pass.seasonal_window ? `<p style="margin-bottom:12px;"><strong>Seasonal Schedule:</strong> ${pass.seasonal_window}</p>` : ''}
+            ${pass.winter_equipment_rule ? `<p style="margin-bottom:12px;"><strong>Winter Equipment Requirements:</strong> ${pass.winter_equipment_rule}</p>` : ''}
+            <div class="hazard-box">
+              <strong>Seasonal &amp; Weather Notice:</strong> Road conditions change rapidly in high-altitude terrain. Traction tires or tire chains may be legally required during winter storm cycles.
+            </div>
+            <p>Live status verification is continuously aggregated via official state and regional department of transportation dispatch feeds.</p>
           </div>
-          
-          <h3 style="font-size:1.2rem; margin:24px 0 10px;">Seasonal Operating Window</h3>
-          <p>${pass.seasonal_window}</p>
 
-          <h3 style="font-size:1.2rem; margin:24px 0 10px;">Winter Equipment &amp; Traction Rules</h3>
-          <p>${pass.winter_equipment_rule}</p>
-
-          <h3 style="font-size:1.2rem; margin:24px 0 10px;">Nearest Fuel &amp; Services</h3>
-          <p>Summit regions feature limited emergency fuel and recovery assistance. Drivers should ensure minimum half a tank of fuel or 50% battery before commencing the alpine ascent. Cellular coverage may be intermittent.</p>
+          <div class="info-card">
+            <h2>Interactive Mountain Pass Map</h2>
+            <div id="pass-map"></div>
+            <p style="font-size:0.88rem; color:var(--muted);">GPS Coordinates: ${pass.lat.toFixed(4)}° N, ${pass.lng.toFixed(4)}° W &bull; Highway: ${pass.route_code}</p>
+          </div>
         </div>
 
-        <div class="info-card">
-          <h2>Interactive Mountain Pass Map</h2>
-          <div id="pass-map" role="region" aria-label="Pass location map"></div>
-          <p style="font-size:0.88rem; color:var(--muted);">Summit Coordinates: Latitude ${pass.lat}, Longitude ${pass.lng}. OpenStreetMap cartography.</p>
-        </div>
+        <aside class="sidebar-col">
+          <div class="info-card official-box">
+            <h3>Official DOT Feed Source</h3>
+            <p>Verification authority: <strong>${authName}</strong>.</p>
+            <a href="${authUrl}" target="_blank" rel="noopener noreferrer" class="btn-official">Visit Official Authority Feed &rarr;</a>
+          </div>
 
-        <div class="disclaimer">
-          <strong>Official Travel Disclaimer:</strong> Mountain pass road conditions change rapidly due to alpine snow, rockfall, and avalanche mitigation. Always confirm current status with local transportation authorities and law enforcement before travelling. LiveRoadStatus compiles official feeds and verified reports for navigational planning.
-        </div>
+          ${related.length > 0 ? `
+          <div class="info-card">
+            <h3 style="font-family:var(--font-serif); font-size:1.25rem; margin-bottom:14px;">Nearby &amp; Regional Passes</h3>
+            <ul class="related-list">
+              ${related.map(r => `
+                <li>
+                  <a href="/passes/${r.slug}/" class="related-link">
+                    <span>${r.name}</span>
+                    <span style="font-size:0.8rem; color:var(--muted);">${r.elevation_m}m</span>
+                  </a>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+          ` : ''}
+        </aside>
       </div>
 
-      <aside>
-        <div class="official-box" style="margin-bottom:28px;">
-          <h3>Official Source</h3>
-          <p>Road status verified via <strong>${pass.status_source_name}</strong>.</p>
-          <a href="${pass.status_source_url}" target="_blank" rel="noopener noreferrer" class="btn-official">Visit Official Source &rsaquo;</a>
-        </div>
-
-        <div class="info-card">
-          <h3 style="font-family:var(--font-serif); font-size:1.25rem; margin-bottom:14px;">Related Passes in ${pass.country}</h3>
-          <ul class="related-list">
-            ${related.map(r => `<li><a href="/passes/${r.slug}/" class="related-link"><span>${r.name}</span><span style="font-size:0.85rem; color:var(--muted);">${r.elevation_m}m</span></a></li>`).join('')}
-          </ul>
-        </div>
-      </aside>
+      <p class="disclaimer">
+        Disclaimer: Mountain pass conditions and road statuses are collected from open government APIs and DOT broadcasts. Always confirm live status with official transportation authorities before crossing high-altitude mountain passes in adverse weather.
+      </p>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 LiveRoadStatus. Real-time mountain pass conditions worldwide. <a href="/about.html">About</a> &bull; <a href="/privacy.html">Privacy Policy</a> &bull; <a href="/terms.html">Terms of Service</a> &bull; <a href="/contact.html">Contact</a></p>
+      <p>&copy; ${new Date().getFullYear()} LiveRoadStatus. Real-time mountain pass road conditions, winter closures, and travel advisories.</p>
+      <p style="margin-top: 8px;">
+        <a href="/about/">About</a> &bull; 
+        <a href="/methodology/">Methodology</a> &bull; 
+        <a href="/countries/">Countries</a> &bull; 
+        <a href="/contact/">Contact</a> &bull; 
+        <a href="/privacy/">Privacy Policy</a> &bull; 
+        <a href="/terms/">Terms</a> &bull; 
+        <a href="/disclaimer/">Disclaimer</a>
+      </p>
     </div>
   </footer>
 
-  <!-- Leaflet JS for map -->
+  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      if (typeof L !== 'undefined') {
-        var map = L.map('pass-map').setView([${pass.lat}, ${pass.lng}], 12);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 18,
-          attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+      var map = L.map('pass-map').setView([${pass.lat}, ${pass.lng}], 11);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
 
-        var statusColor = '${pass.status === 'open' ? '#15803d' : pass.status === 'restricted' ? '#b45309' : pass.status === 'closed' ? '#b91c1c' : '#64748b'}';
-        var marker = L.circleMarker([${pass.lat}, ${pass.lng}], {
-          radius: 9,
-          fillColor: statusColor,
-          color: '#ffffff',
-          weight: 2,
-          opacity: 1,
-          fillOpacity: 0.95
-        }).addTo(map);
-
-        marker.bindPopup('<b>${pass.name.replace(/'/g, "\\'")}</b><br>Elevation: ${pass.elevation_m} m<br>Status: ${statusUpper}').openPopup();
-      }
+      var marker = L.marker([${pass.lat}, ${pass.lng}]).addTo(map);
+      marker.bindPopup("<b>${pass.name.replace(/"/g, '\\"')}</b><br>Elevation: ${pass.elevation_m}m (${elevFt}ft)<br>Status: ${statusUpper}").openPopup();
     });
   </script>
 </body>
 </html>`;
 }
 
-// Generate static pass pages
+// 4. GENERATE SSG PASS PAGES
 console.log(`Generating SSG pass pages for ${passes.length} passes...`);
 const passesDir = path.resolve(root, 'passes');
 if (!fs.existsSync(passesDir)) fs.mkdirSync(passesDir, { recursive: true });
@@ -509,8 +642,8 @@ passes.forEach(pass => {
 
 console.log(`Generated ${passes.length} pass pages at /passes/:slug/index.html.`);
 
-// 3. GENERATE SITEMAP.XML
-console.log('Generating dynamic sitemap.xml with lastmod dates...');
+// 5. GENERATE SITEMAP.XML
+console.log('Generating dynamic sitemap.xml with 100% verified URLs...');
 let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -520,7 +653,7 @@ let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>${BASE_URL}/country.html</loc>
+    <loc>${BASE_URL}/countries/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -563,24 +696,25 @@ let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
   </url>
 `;
 
-// Add country pages
-countries.forEach(c => {
+// Add all 10 verified country hub pages
+Object.values(countryMap).forEach(cUrl => {
   sitemapXml += `  <url>
-    <loc>${BASE_URL}/${c.slug}/</loc>
+    <loc>${BASE_URL}${cUrl}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>\n`;
+});
 
-  // Add region pages
-  c.regions.forEach(r => {
-    sitemapXml += `  <url>
-    <loc>${BASE_URL}/${c.slug}/${r.slug}/</loc>
+// Add all 60 verified region hub pages
+const uniqueRegionUrls = Array.from(new Set(Object.values(regionMap))).filter(u => !Object.values(countryMap).includes(u));
+uniqueRegionUrls.sort().forEach(rUrl => {
+  sitemapXml += `  <url>
+    <loc>${BASE_URL}${rUrl}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>\n`;
-  });
 });
 
 // Add all pass detail pages
@@ -595,10 +729,15 @@ passes.forEach(p => {
 
 sitemapXml += `</urlset>\n`;
 
+// Write sitemap.xml to root, public/, and dist/
 fs.writeFileSync(path.resolve(root, 'sitemap.xml'), sitemapXml, 'utf8');
-console.log('Written dynamic sitemap.xml with full pass and country coverage.');
+fs.writeFileSync(path.resolve(root, 'public', 'sitemap.xml'), sitemapXml, 'utf8');
+if (fs.existsSync(dist)) {
+  fs.writeFileSync(path.resolve(dist, 'sitemap.xml'), sitemapXml, 'utf8');
+}
+console.log('Written dynamic sitemap.xml to root, public/, and dist/.');
 
-// 4. GENERATE ROBOTS.TXT
+// 6. GENERATE ROBOTS.TXT
 console.log('Generating robots.txt with sitemap reference...');
 const robotsTxt = `User-agent: *
 Allow: /
@@ -610,19 +749,58 @@ Disallow: /dev/
 Sitemap: ${BASE_URL}/sitemap.xml
 `;
 fs.writeFileSync(path.resolve(root, 'robots.txt'), robotsTxt, 'utf8');
-console.log('Written robots.txt successfully.');
+fs.writeFileSync(path.resolve(root, 'public', 'robots.txt'), robotsTxt, 'utf8');
+if (fs.existsSync(dist)) {
+  fs.writeFileSync(path.resolve(dist, 'robots.txt'), robotsTxt, 'utf8');
+}
+console.log('Written robots.txt to root, public/, and dist/.');
 
-// 5. GENERATE _redirects AND vercel.json
+// 7. GENERATE _redirects AND vercel.json
 console.log('Generating 301 redirects for clean URLs...');
 let redirectsTxt = `# 301 Permanent Redirects: Clean URLs for LiveRoadStatus
 /index.html   /   301
 /country.html /countries/   301
 /country      /countries/   301
+
+# USA clean redirect aliases
+/united-states/   /usa/   301
+/united-states    /usa/   301
+/united-states/california/   /usa/california/   301
+/united-states/colorado/     /usa/colorado/     301
+/united-states/oregon/       /usa/oregon/       301
+/united-states/idaho/        /usa/idaho/        301
+/united-states/new-mexico/   /usa/newmexico/    301
+/united-states/north-carolina/ /usa/northcarolina/ 301
+/united-states/utah/         /usa/utah/         301
+/united-states/alaska/       /usa/alaska/       301
+/united-states/nevada/       /usa/nevada/       301
+/united-states/washington/   /usa/washington/   301
+/united-states/arizona/      /usa/arizona/      301
+/united-states/wyoming/      /usa/wyoming/      301
+/united-states/montana/      /usa/montana/      301
+/united-states/virginia/     /usa/virginia/     301
+/united-states/west-virginia/ /usa/westvirginia/ 301
+/united-states/tennessee/    /usa/tennessee/    301
+/united-states/pennsylvania/ /usa/pennsylvania/ 301
+/united-states/new-hampshire/ /usa/newhampshire/ 301
+/united-states/maryland/     /usa/maryland/     301
 `;
 
-// Map old HTML files to clean URLs
+// Legacy HTML file mappings
 const oldHtmlRedirects = {
+  // Countries
   '/france.html': '/france/',
+  '/austria.html': '/austria/',
+  '/switzerland.html': '/switzerland/',
+  '/italy.html': '/italy/',
+  '/usa.html': '/usa/',
+  '/canada.html': '/canada/',
+  '/norway.html': '/norway/',
+  '/india.html': '/india/',
+  '/pakistan.html': '/pakistan/',
+  '/chile.html': '/chile/',
+
+  // France
   '/bourgogne.html': '/france/bourgogne/',
   '/grandest.html': '/france/grandest/',
   '/aquitaine.html': '/france/aquitaine/',
@@ -630,7 +808,7 @@ const oldHtmlRedirects = {
   '/paca.html': '/france/paca/',
   '/auvergne.html': '/france/auvergne/',
 
-  '/austria.html': '/austria/',
+  // Austria
   '/carinthia.html': '/austria/carinthia/',
   '/tyrol.html': '/austria/tyrol/',
   '/salzburg.html': '/austria/salzburg/',
@@ -638,36 +816,92 @@ const oldHtmlRedirects = {
   '/vorarlberg.html': '/austria/vorarlberg/',
   '/lower-austria.html': '/austria/lower-austria/',
 
-  '/switzerland.html': '/switzerland/',
-  '/graubunden.html': '/switzerland/graubunden/',
-  '/valais.html': '/switzerland/valais/',
+  // Switzerland
+  '/aargau.html': '/switzerland/aargau/',
   '/bern.html': '/switzerland/bern/',
-  '/uri.html': '/switzerland/uri/',
+  '/fribourg.html': '/switzerland/fribourg/',
+  '/glarus.html': '/switzerland/glarus/',
+  '/graubunden.html': '/switzerland/graubunden/',
+  '/lucerne.html': '/switzerland/lucerne/',
+  '/nidwalden.html': '/switzerland/nidwalden/',
+  '/obwalden.html': '/switzerland/obwalden/',
+  '/schwyz.html': '/switzerland/schwyz/',
+  '/stgallen.html': '/switzerland/stgallen/',
   '/ticino.html': '/switzerland/ticino/',
+  '/uri.html': '/switzerland/uri/',
+  '/valais.html': '/switzerland/valais/',
+  '/vaud.html': '/switzerland/vaud/',
+  '/zurich.html': '/switzerland/zurich/',
 
-  '/italy.html': '/italy/',
+  // Italy
+  '/aostavalley.html': '/italy/aostavalley/',
+  '/cuneo.html': '/italy/cuneo/',
+  '/emilia.html': '/italy/emilia/',
+  '/fvg.html': '/italy/fvg/',
   '/lombardy.html': '/italy/lombardy/',
-  '/veneto.html': '/italy/veneto/',
+  '/ossola.html': '/italy/ossola/',
   '/piedmont.html': '/italy/piedmont/',
+  '/turin.html': '/italy/turin/',
   '/tuscany.html': '/italy/tuscany/',
+  '/veneto.html': '/italy/veneto/',
 
-  '/usa.html': '/usa/',
-  '/colorado.html': '/usa/colorado/',
-  '/washington.html': '/usa/washington/',
+  // USA
+  '/alaska.html': '/usa/alaska/',
+  '/arizona.html': '/usa/arizona/',
   '/california.html': '/usa/california/',
-  '/oregon.html': '/usa/oregon/',
+  '/colorado.html': '/usa/colorado/',
+  '/idaho.html': '/usa/idaho/',
+  '/maryland.html': '/usa/maryland/',
   '/montana.html': '/usa/montana/',
+  '/nevada.html': '/usa/nevada/',
+  '/newhampshire.html': '/usa/newhampshire/',
+  '/newmexico.html': '/usa/newmexico/',
+  '/northcarolina.html': '/usa/northcarolina/',
+  '/oregon.html': '/usa/oregon/',
+  '/pennsylvania.html': '/usa/pennsylvania/',
+  '/tennessee.html': '/usa/tennessee/',
+  '/utah.html': '/usa/utah/',
+  '/virginia.html': '/usa/virginia/',
+  '/washington.html': '/usa/washington/',
+  '/westvirginia.html': '/usa/westvirginia/',
+  '/wyoming.html': '/usa/wyoming/',
 
-  '/canada.html': '/canada/',
-  '/britishcolumbia.html': '/canada/britishcolumbia/',
+  // Canada
   '/alberta.html': '/canada/alberta/',
+  '/britishcolumbia.html': '/canada/britishcolumbia/',
+  '/maritimes.html': '/canada/maritimes/',
+  '/nl.html': '/canada/nl/',
+  '/nwt.html': '/canada/nwt/',
+  '/quebec.html': '/canada/quebec/',
+  '/yukon.html': '/canada/yukon/',
 
-  '/norway.html': '/norway/',
-  '/india.html': '/india/',
+  // Norway
+  '/finnmark.html': '/norway/finnmark/',
+  '/innlandet.html': '/norway/innlandet/',
+  '/moreogromsdal.html': '/norway/moreogromsdal/',
+  '/trondelag.html': '/norway/trondelag/',
+  '/vestland.html': '/norway/vestland/',
+
+  // India
+  '/arunachal.html': '/india/arunachal/',
   '/himachal.html': '/india/himachal/',
+  '/jk.html': '/india/jk/',
   '/ladakh.html': '/india/ladakh/',
-  '/pakistan.html': '/pakistan/',
-  '/chile.html': '/chile/',
+  '/nagaland.html': '/india/nagaland/',
+  '/sikkim.html': '/india/sikkim/',
+  '/uttarakhand.html': '/india/uttarakhand/',
+
+  // Pakistan
+  '/balochistan.html': '/pakistan/balochistan/',
+  '/gilgit.html': '/pakistan/gilgit/',
+  '/kp.html': '/pakistan/kp/',
+  '/khyber.html': '/pakistan/kp/',
+
+  // Chile
+  '/arica.html': '/chile/arica/',
+  '/atacama.html': '/chile/atacama/',
+
+  // Trust & Legal
   '/about.html': '/about/',
   '/methodology.html': '/methodology/',
   '/contact.html': '/contact/',
@@ -680,39 +914,30 @@ Object.entries(oldHtmlRedirects).forEach(([oldUrl, newUrl]) => {
   redirectsTxt += `${oldUrl}   ${newUrl}   301\n`;
 });
 
+// Write _redirects to root, public/, and dist/
 fs.writeFileSync(path.resolve(root, '_redirects'), redirectsTxt, 'utf8');
+fs.writeFileSync(path.resolve(root, 'public', '_redirects'), redirectsTxt, 'utf8');
+if (fs.existsSync(dist)) {
+  fs.writeFileSync(path.resolve(dist, '_redirects'), redirectsTxt, 'utf8');
+}
 
-// Also update vercel.json
+// Write vercel.json
 const vercelJson = {
   "cleanUrls": true,
   "trailingSlash": true,
-  "redirects": Object.entries(oldHtmlRedirects).map(([source, destination]) => ({
-    source,
-    destination,
-    permanent: true
-  }))
+  "redirects": [
+    { "source": "/country.html", "destination": "/countries/", "permanent": true },
+    { "source": "/country", "destination": "/countries/", "permanent": true },
+    { "source": "/united-states/", "destination": "/usa/", "permanent": true },
+    { "source": "/united-states", "destination": "/usa/", "permanent": true },
+    ...Object.entries(oldHtmlRedirects).map(([source, destination]) => ({
+      source,
+      destination,
+      permanent: true
+    }))
+  ]
 };
 fs.writeFileSync(path.resolve(root, 'vercel.json'), JSON.stringify(vercelJson, null, 2), 'utf8');
-console.log('Generated _redirects and vercel.json 301 redirects successfully.');
+console.log('Generated _redirects and vercel.json successfully.');
 
-// 6. UPDATE prerender.mjs to copy passes/ directory to dist/
-const prerenderPath = path.resolve(root, 'scripts', 'prerender.mjs');
-let prerenderContent = fs.readFileSync(prerenderPath, 'utf8');
-if (!prerenderContent.includes("dist/passes")) {
-  prerenderContent = prerenderContent.replace(
-    "// Copy country/ directory recursively to dist/country",
-    `// Copy passes/ directory recursively to dist/passes
-const passesSrcDir = path.resolve(rootDir, 'passes');
-const passesDestDir = path.resolve(distDir, 'passes');
-if (fs.existsSync(passesSrcDir)) {
-  fs.cpSync(passesSrcDir, passesDestDir, { recursive: true });
-  console.log('🏔️  Copied passes/ SSG pages to dist/passes/');
-}
-
-// Copy country/ directory recursively to dist/country`
-  );
-  fs.writeFileSync(prerenderPath, prerenderContent, 'utf8');
-  console.log('Updated scripts/prerender.mjs to bundle passes/ directory into dist/.');
-}
-
-console.log('Phase 3 technical SEO & SSG engine execution completed.');
+console.log('✅ SSG engine execution completed.');

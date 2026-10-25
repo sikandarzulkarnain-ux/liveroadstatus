@@ -3,23 +3,93 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/:country/:region.html",
+      "destination": "/:country/:region/",
+      "permanent": true
+    },
+    {
+      "source": "/country.html",
+      "destination": "/countries/",
+      "permanent": true
+    },
+    {
+      "source": "/country",
+      "destination": "/countries/",
+      "permanent": true
+    },
+    {
+      "source": "/united-states/",
+      "destination": "/usa/",
+      "permanent": true
+    },
+    {
+      "source": "/united-states",
+      "destination": "/usa/",
+      "permanent": true
+    },
+    {
       "source": "/france.html",
       "destination": "/france/",
       "permanent": true
     },
     {
+      "source": "/austria.html",
+      "destination": "/austria/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland.html",
+      "destination": "/switzerland/",
+      "permanent": true
+    },
+    {
+      "source": "/italy.html",
+      "destination": "/italy/",
+      "permanent": true
+    },
+    {
+      "source": "/usa.html",
+      "destination": "/usa/",
+      "permanent": true
+    },
+    {
+      "source": "/canada.html",
+      "destination": "/canada/",
+      "permanent": true
+    },
+    {
+      "source": "/norway.html",
+      "destination": "/norway/",
+      "permanent": true
+    },
+    {
+      "source": "/india.html",
+      "destination": "/india/",
+      "permanent": true
+    },
+    {
+      "source": "/pakistan.html",
+      "destination": "/pakistan/",
+      "permanent": true
+    },
+    {
+      "source": "/chile.html",
+      "destination": "/chile/",
+      "permanent": true
+    },
+    {
       "source": "/bourgogne.html",
-      "destination": "/france/bourgogne-franche-comte/",
+      "destination": "/france/bourgogne/",
       "permanent": true
     },
     {
       "source": "/grandest.html",
-      "destination": "/france/grand-est/",
+      "destination": "/france/grandest/",
       "permanent": true
     },
     {
       "source": "/aquitaine.html",
-      "destination": "/france/nouvelle-aquitaine/",
+      "destination": "/france/aquitaine/",
       "permanent": true
     },
     {
@@ -34,12 +104,7 @@
     },
     {
       "source": "/auvergne.html",
-      "destination": "/france/auvergne-rhone-alpes/",
-      "permanent": true
-    },
-    {
-      "source": "/austria.html",
-      "destination": "/austria/",
+      "destination": "/france/auvergne/",
       "permanent": true
     },
     {
@@ -73,18 +138,8 @@
       "permanent": true
     },
     {
-      "source": "/switzerland.html",
-      "destination": "/switzerland/",
-      "permanent": true
-    },
-    {
-      "source": "/graubunden.html",
-      "destination": "/switzerland/graubunden/",
-      "permanent": true
-    },
-    {
-      "source": "/valais.html",
-      "destination": "/switzerland/valais/",
+      "source": "/aargau.html",
+      "destination": "/switzerland/aargau/",
       "permanent": true
     },
     {
@@ -93,8 +148,43 @@
       "permanent": true
     },
     {
-      "source": "/uri.html",
-      "destination": "/switzerland/uri/",
+      "source": "/fribourg.html",
+      "destination": "/switzerland/fribourg/",
+      "permanent": true
+    },
+    {
+      "source": "/glarus.html",
+      "destination": "/switzerland/glarus/",
+      "permanent": true
+    },
+    {
+      "source": "/graubunden.html",
+      "destination": "/switzerland/graubunden/",
+      "permanent": true
+    },
+    {
+      "source": "/lucerne.html",
+      "destination": "/switzerland/lucerne/",
+      "permanent": true
+    },
+    {
+      "source": "/nidwalden.html",
+      "destination": "/switzerland/nidwalden/",
+      "permanent": true
+    },
+    {
+      "source": "/obwalden.html",
+      "destination": "/switzerland/obwalden/",
+      "permanent": true
+    },
+    {
+      "source": "/schwyz.html",
+      "destination": "/switzerland/schwyz/",
+      "permanent": true
+    },
+    {
+      "source": "/stgallen.html",
+      "destination": "/switzerland/stgallen/",
       "permanent": true
     },
     {
@@ -103,8 +193,43 @@
       "permanent": true
     },
     {
-      "source": "/italy.html",
-      "destination": "/italy/",
+      "source": "/uri.html",
+      "destination": "/switzerland/uri/",
+      "permanent": true
+    },
+    {
+      "source": "/valais.html",
+      "destination": "/switzerland/valais/",
+      "permanent": true
+    },
+    {
+      "source": "/vaud.html",
+      "destination": "/switzerland/vaud/",
+      "permanent": true
+    },
+    {
+      "source": "/zurich.html",
+      "destination": "/switzerland/zurich/",
+      "permanent": true
+    },
+    {
+      "source": "/aostavalley.html",
+      "destination": "/italy/aostavalley/",
+      "permanent": true
+    },
+    {
+      "source": "/cuneo.html",
+      "destination": "/italy/cuneo/",
+      "permanent": true
+    },
+    {
+      "source": "/emilia.html",
+      "destination": "/italy/emilia/",
+      "permanent": true
+    },
+    {
+      "source": "/fvg.html",
+      "destination": "/italy/fvg/",
       "permanent": true
     },
     {
@@ -113,8 +238,8 @@
       "permanent": true
     },
     {
-      "source": "/veneto.html",
-      "destination": "/italy/veneto/",
+      "source": "/ossola.html",
+      "destination": "/italy/ossola/",
       "permanent": true
     },
     {
@@ -123,48 +248,113 @@
       "permanent": true
     },
     {
+      "source": "/turin.html",
+      "destination": "/italy/turin/",
+      "permanent": true
+    },
+    {
       "source": "/tuscany.html",
       "destination": "/italy/tuscany/",
       "permanent": true
     },
     {
-      "source": "/usa.html",
-      "destination": "/united-states/",
+      "source": "/veneto.html",
+      "destination": "/italy/veneto/",
       "permanent": true
     },
     {
-      "source": "/colorado.html",
-      "destination": "/united-states/colorado/",
+      "source": "/alaska.html",
+      "destination": "/usa/alaska/",
       "permanent": true
     },
     {
-      "source": "/washington.html",
-      "destination": "/united-states/washington/",
+      "source": "/arizona.html",
+      "destination": "/usa/arizona/",
       "permanent": true
     },
     {
       "source": "/california.html",
-      "destination": "/united-states/california/",
+      "destination": "/usa/california/",
       "permanent": true
     },
     {
-      "source": "/oregon.html",
-      "destination": "/united-states/oregon/",
+      "source": "/colorado.html",
+      "destination": "/usa/colorado/",
+      "permanent": true
+    },
+    {
+      "source": "/idaho.html",
+      "destination": "/usa/idaho/",
+      "permanent": true
+    },
+    {
+      "source": "/maryland.html",
+      "destination": "/usa/maryland/",
       "permanent": true
     },
     {
       "source": "/montana.html",
-      "destination": "/united-states/montana/",
+      "destination": "/usa/montana/",
       "permanent": true
     },
     {
-      "source": "/canada.html",
-      "destination": "/canada/",
+      "source": "/nevada.html",
+      "destination": "/usa/nevada/",
       "permanent": true
     },
     {
-      "source": "/britishcolumbia.html",
-      "destination": "/canada/british-columbia/",
+      "source": "/newhampshire.html",
+      "destination": "/usa/newhampshire/",
+      "permanent": true
+    },
+    {
+      "source": "/newmexico.html",
+      "destination": "/usa/newmexico/",
+      "permanent": true
+    },
+    {
+      "source": "/northcarolina.html",
+      "destination": "/usa/northcarolina/",
+      "permanent": true
+    },
+    {
+      "source": "/oregon.html",
+      "destination": "/usa/oregon/",
+      "permanent": true
+    },
+    {
+      "source": "/pennsylvania.html",
+      "destination": "/usa/pennsylvania/",
+      "permanent": true
+    },
+    {
+      "source": "/tennessee.html",
+      "destination": "/usa/tennessee/",
+      "permanent": true
+    },
+    {
+      "source": "/utah.html",
+      "destination": "/usa/utah/",
+      "permanent": true
+    },
+    {
+      "source": "/virginia.html",
+      "destination": "/usa/virginia/",
+      "permanent": true
+    },
+    {
+      "source": "/washington.html",
+      "destination": "/usa/washington/",
+      "permanent": true
+    },
+    {
+      "source": "/westvirginia.html",
+      "destination": "/usa/westvirginia/",
+      "permanent": true
+    },
+    {
+      "source": "/wyoming.html",
+      "destination": "/usa/wyoming/",
       "permanent": true
     },
     {
@@ -173,18 +363,73 @@
       "permanent": true
     },
     {
-      "source": "/norway.html",
-      "destination": "/norway/",
+      "source": "/britishcolumbia.html",
+      "destination": "/canada/britishcolumbia/",
       "permanent": true
     },
     {
-      "source": "/india.html",
-      "destination": "/india/",
+      "source": "/maritimes.html",
+      "destination": "/canada/maritimes/",
+      "permanent": true
+    },
+    {
+      "source": "/nl.html",
+      "destination": "/canada/nl/",
+      "permanent": true
+    },
+    {
+      "source": "/nwt.html",
+      "destination": "/canada/nwt/",
+      "permanent": true
+    },
+    {
+      "source": "/quebec.html",
+      "destination": "/canada/quebec/",
+      "permanent": true
+    },
+    {
+      "source": "/yukon.html",
+      "destination": "/canada/yukon/",
+      "permanent": true
+    },
+    {
+      "source": "/finnmark.html",
+      "destination": "/norway/finnmark/",
+      "permanent": true
+    },
+    {
+      "source": "/innlandet.html",
+      "destination": "/norway/innlandet/",
+      "permanent": true
+    },
+    {
+      "source": "/moreogromsdal.html",
+      "destination": "/norway/moreogromsdal/",
+      "permanent": true
+    },
+    {
+      "source": "/trondelag.html",
+      "destination": "/norway/trondelag/",
+      "permanent": true
+    },
+    {
+      "source": "/vestland.html",
+      "destination": "/norway/vestland/",
+      "permanent": true
+    },
+    {
+      "source": "/arunachal.html",
+      "destination": "/india/arunachal/",
       "permanent": true
     },
     {
       "source": "/himachal.html",
-      "destination": "/india/himachal-pradesh/",
+      "destination": "/india/himachal/",
+      "permanent": true
+    },
+    {
+      "source": "/jk.html",
+      "destination": "/india/jk/",
       "permanent": true
     },
     {
@@ -193,13 +438,48 @@
       "permanent": true
     },
     {
-      "source": "/pakistan.html",
-      "destination": "/pakistan/",
+      "source": "/nagaland.html",
+      "destination": "/india/nagaland/",
       "permanent": true
     },
     {
-      "source": "/chile.html",
-      "destination": "/chile/",
+      "source": "/sikkim.html",
+      "destination": "/india/sikkim/",
+      "permanent": true
+    },
+    {
+      "source": "/uttarakhand.html",
+      "destination": "/india/uttarakhand/",
+      "permanent": true
+    },
+    {
+      "source": "/balochistan.html",
+      "destination": "/pakistan/balochistan/",
+      "permanent": true
+    },
+    {
+      "source": "/gilgit.html",
+      "destination": "/pakistan/gilgit/",
+      "permanent": true
+    },
+    {
+      "source": "/kp.html",
+      "destination": "/pakistan/kp/",
+      "permanent": true
+    },
+    {
+      "source": "/khyber.html",
+      "destination": "/pakistan/kp/",
+      "permanent": true
+    },
+    {
+      "source": "/arica.html",
+      "destination": "/chile/arica/",
+      "permanent": true
+    },
+    {
+      "source": "/atacama.html",
+      "destination": "/chile/atacama/",
       "permanent": true
     },
     {
@@ -230,6 +510,411 @@
     {
       "source": "/disclaimer.html",
       "destination": "/disclaimer/",
+      "permanent": true
+    },
+    {
+      "source": "/austria/carinthia.html",
+      "destination": "/austria/carinthia/",
+      "permanent": true
+    },
+    {
+      "source": "/austria/lower-austria.html",
+      "destination": "/austria/lower-austria/",
+      "permanent": true
+    },
+    {
+      "source": "/austria/salzburg.html",
+      "destination": "/austria/salzburg/",
+      "permanent": true
+    },
+    {
+      "source": "/austria/styria.html",
+      "destination": "/austria/styria/",
+      "permanent": true
+    },
+    {
+      "source": "/austria/tyrol.html",
+      "destination": "/austria/tyrol/",
+      "permanent": true
+    },
+    {
+      "source": "/austria/vorarlberg.html",
+      "destination": "/austria/vorarlberg/",
+      "permanent": true
+    },
+    {
+      "source": "/canada/alberta.html",
+      "destination": "/canada/alberta/",
+      "permanent": true
+    },
+    {
+      "source": "/canada/britishcolumbia.html",
+      "destination": "/canada/britishcolumbia/",
+      "permanent": true
+    },
+    {
+      "source": "/canada/maritimes.html",
+      "destination": "/canada/maritimes/",
+      "permanent": true
+    },
+    {
+      "source": "/canada/nl.html",
+      "destination": "/canada/nl/",
+      "permanent": true
+    },
+    {
+      "source": "/canada/nwt.html",
+      "destination": "/canada/nwt/",
+      "permanent": true
+    },
+    {
+      "source": "/canada/quebec.html",
+      "destination": "/canada/quebec/",
+      "permanent": true
+    },
+    {
+      "source": "/canada/yukon.html",
+      "destination": "/canada/yukon/",
+      "permanent": true
+    },
+    {
+      "source": "/chile/arica.html",
+      "destination": "/chile/arica/",
+      "permanent": true
+    },
+    {
+      "source": "/chile/atacama.html",
+      "destination": "/chile/atacama/",
+      "permanent": true
+    },
+    {
+      "source": "/france/aquitaine.html",
+      "destination": "/france/aquitaine/",
+      "permanent": true
+    },
+    {
+      "source": "/france/auvergne.html",
+      "destination": "/france/auvergne/",
+      "permanent": true
+    },
+    {
+      "source": "/france/bourgogne.html",
+      "destination": "/france/bourgogne/",
+      "permanent": true
+    },
+    {
+      "source": "/france/grandest.html",
+      "destination": "/france/grandest/",
+      "permanent": true
+    },
+    {
+      "source": "/france/occitanie.html",
+      "destination": "/france/occitanie/",
+      "permanent": true
+    },
+    {
+      "source": "/france/paca.html",
+      "destination": "/france/paca/",
+      "permanent": true
+    },
+    {
+      "source": "/india/arunachal.html",
+      "destination": "/india/arunachal/",
+      "permanent": true
+    },
+    {
+      "source": "/india/himachal.html",
+      "destination": "/india/himachal/",
+      "permanent": true
+    },
+    {
+      "source": "/india/jk.html",
+      "destination": "/india/jk/",
+      "permanent": true
+    },
+    {
+      "source": "/india/ladakh.html",
+      "destination": "/india/ladakh/",
+      "permanent": true
+    },
+    {
+      "source": "/india/nagaland.html",
+      "destination": "/india/nagaland/",
+      "permanent": true
+    },
+    {
+      "source": "/india/sikkim.html",
+      "destination": "/india/sikkim/",
+      "permanent": true
+    },
+    {
+      "source": "/india/uttarakhand.html",
+      "destination": "/india/uttarakhand/",
+      "permanent": true
+    },
+    {
+      "source": "/italy/aostavalley.html",
+      "destination": "/italy/aostavalley/",
+      "permanent": true
+    },
+    {
+      "source": "/italy/cuneo.html",
+      "destination": "/italy/cuneo/",
+      "permanent": true
+    },
+    {
+      "source": "/italy/emilia.html",
+      "destination": "/italy/emilia/",
+      "permanent": true
+    },
+    {
+      "source": "/italy/fvg.html",
+      "destination": "/italy/fvg/",
+      "permanent": true
+    },
+    {
+      "source": "/italy/lombardy.html",
+      "destination": "/italy/lombardy/",
+      "permanent": true
+    },
+    {
+      "source": "/italy/ossola.html",
+      "destination": "/italy/ossola/",
+      "permanent": true
+    },
+    {
+      "source": "/italy/piedmont.html",
+      "destination": "/italy/piedmont/",
+      "permanent": true
+    },
+    {
+      "source": "/italy/turin.html",
+      "destination": "/italy/turin/",
+      "permanent": true
+    },
+    {
+      "source": "/italy/tuscany.html",
+      "destination": "/italy/tuscany/",
+      "permanent": true
+    },
+    {
+      "source": "/italy/veneto.html",
+      "destination": "/italy/veneto/",
+      "permanent": true
+    },
+    {
+      "source": "/norway/finnmark.html",
+      "destination": "/norway/finnmark/",
+      "permanent": true
+    },
+    {
+      "source": "/norway/innlandet.html",
+      "destination": "/norway/innlandet/",
+      "permanent": true
+    },
+    {
+      "source": "/norway/moreogromsdal.html",
+      "destination": "/norway/moreogromsdal/",
+      "permanent": true
+    },
+    {
+      "source": "/norway/trondelag.html",
+      "destination": "/norway/trondelag/",
+      "permanent": true
+    },
+    {
+      "source": "/norway/vestland.html",
+      "destination": "/norway/vestland/",
+      "permanent": true
+    },
+    {
+      "source": "/pakistan/balochistan.html",
+      "destination": "/pakistan/balochistan/",
+      "permanent": true
+    },
+    {
+      "source": "/pakistan/gilgit.html",
+      "destination": "/pakistan/gilgit/",
+      "permanent": true
+    },
+    {
+      "source": "/pakistan/khyber.html",
+      "destination": "/pakistan/khyber/",
+      "permanent": true
+    },
+    {
+      "source": "/pakistan/kp.html",
+      "destination": "/pakistan/kp/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/aargau.html",
+      "destination": "/switzerland/aargau/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/bern.html",
+      "destination": "/switzerland/bern/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/fribourg.html",
+      "destination": "/switzerland/fribourg/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/glarus.html",
+      "destination": "/switzerland/glarus/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/graubunden.html",
+      "destination": "/switzerland/graubunden/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/lucerne.html",
+      "destination": "/switzerland/lucerne/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/nidwalden.html",
+      "destination": "/switzerland/nidwalden/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/obwalden.html",
+      "destination": "/switzerland/obwalden/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/schwyz.html",
+      "destination": "/switzerland/schwyz/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/stgallen.html",
+      "destination": "/switzerland/stgallen/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/ticino.html",
+      "destination": "/switzerland/ticino/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/uri.html",
+      "destination": "/switzerland/uri/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/valais.html",
+      "destination": "/switzerland/valais/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/vaud.html",
+      "destination": "/switzerland/vaud/",
+      "permanent": true
+    },
+    {
+      "source": "/switzerland/zurich.html",
+      "destination": "/switzerland/zurich/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/alaska.html",
+      "destination": "/usa/alaska/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/arizona.html",
+      "destination": "/usa/arizona/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/california.html",
+      "destination": "/usa/california/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/colorado.html",
+      "destination": "/usa/colorado/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/idaho.html",
+      "destination": "/usa/idaho/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/maryland.html",
+      "destination": "/usa/maryland/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/montana.html",
+      "destination": "/usa/montana/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/nevada.html",
+      "destination": "/usa/nevada/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/newhampshire.html",
+      "destination": "/usa/newhampshire/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/newmexico.html",
+      "destination": "/usa/newmexico/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/northcarolina.html",
+      "destination": "/usa/northcarolina/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/oregon.html",
+      "destination": "/usa/oregon/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/pennsylvania.html",
+      "destination": "/usa/pennsylvania/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/tennessee.html",
+      "destination": "/usa/tennessee/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/utah.html",
+      "destination": "/usa/utah/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/virginia.html",
+      "destination": "/usa/virginia/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/washington.html",
+      "destination": "/usa/washington/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/westvirginia.html",
+      "destination": "/usa/westvirginia/",
+      "permanent": true
+    },
+    {
+      "source": "/usa/wyoming.html",
+      "destination": "/usa/wyoming/",
       "permanent": true
     }
   ]

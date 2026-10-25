@@ -1,0 +1,57 @@
+<USER_REQUEST>
+MASTER PROMPT: COMPLETE GOOGLE SEARCH CONSOLE & TECHNICAL SEO AUDIT FOR LIVEROADSTATUS.COM
+Your Role
+Act as a senior Technical SEO Engineer, Google Search Console Specialist, Website Developer, and Cloudflare Deployment Engineer.
+Your task is to thoroughly audit, repair, optimize, test, and deploy my entire website:
+Website: [https://www.liveroadstatus.com/](https://www.liveroadstatus.com/)
+Primary goal: Make every valid, index-worthy URL discoverable by Google and eligible for indexing, eliminate technical SEO errors, and ensure Google Search Console receives a correct sitemap and accurate URL signals.
+I have opened my website project in Antigravity and may have Google Search Console and Cloudflare open in my browser with my account logged in. Use the available browser and development tools to perform the work wherever possible.
+Do not merely provide recommendations. Inspect the actual codebase, make necessary code changes, run tests, deploy changes when authorized, and verify the results.
+PHASE 1: FULL WEBSITE AUDIT
+Inspect the complete project before changing anything.
+Identify the framework, hosting platform, routing system, build commands, and deployment configuration.
+Identify every existing HTML page, route, dynamic route, country page, state page, mountain pass page, road-status page, and other public landing page.
+Generate a complete inventory of URLs that should be indexed.
+Identify duplicate pages, empty pages, thin content, broken links, incorrect canonical tags, orphan pages, redirect chains, and inaccessible URLs.
+Check whether important page content is present in the initial HTML or requires JavaScript rendering.
+Inspect robots.txt, sitemap files, canonical URLs, metadata, internal links, structured data, and HTTP status codes.
+Identify all errors in the browser console, build output, server logs, and deployment configuration.
+Save a report of the initial problems before making changes.
+Do not delete existing features or rewrite the entire website unnecessarily.
+PHASE 2: FIX DOMAIN, 
+<truncated 10728 bytes>
+n servers.
+Generate a machine-readable CSV or JSON report and a human-readable summary of the results.
+The audit must distinguish between:
+Technical errors under our control.
+Pages intentionally excluded from indexing.
+Pages that are technically valid but may not meet Google's quality requirements.
+Pages awaiting Googlebot crawling or Google's indexing decision.
+PHASE 11: DEPLOYMENT AND PRODUCTION VERIFICATION
+After fixing the code:
+Run the project's available build, lint, and test commands.
+Fix build errors introduced by the changes.
+Verify that the generated sitemap and robots.txt are included in the production build.
+Deploy using the existing authorized deployment workflow.
+Do not expose API keys, credentials, access tokens, or private environment variables.
+Verify the live homepage, representative deep links, canonical redirects, sitemap, and robots.txt.
+Check a representative sample of every major page template.
+Re-run the URL audit against the live production domain.
+Confirm that important pages return the expected HTTP status and canonical URL.
+If deployment fails, diagnose and fix the problem without leaving the production website in a broken state.
+Do not overwrite unrelated projects or change production DNS unless necessary and
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-24T21:52:23+05:30.
+
+The user's current state is as follows:
+Other open documents:
+- d:\LIVEROADSTATUS\scripts\check_all_buttons.cjs (LANGUAGE_JAVASCRIPT)
+- d:\LIVEROADSTATUS\scripts\inspect_issues.cjs (LANGUAGE_JAVASCRIPT)
+- d:\LIVEROADSTATUS\scripts\deep_audit.cjs (LANGUAGE_JAVASCRIPT)
+- d:\LIVEROADSTATUS\index.html (LANGUAGE_HTML)
+- d:\LIVEROADSTATUS\scripts\prerender.mjs (LANGUAGE_JAVASCRIPT)
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Claude Sonnet 4.6 (Thinking). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
